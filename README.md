@@ -106,7 +106,7 @@ This repository contains the Palantir-inspired redesign that transforms Visionbl
 | **Animation** | Framer Motion 11 | Page transitions, micro-interactions |
 | **Icons** | Lucide React | Consistent iconography |
 | **Hosting** | Vercel | Edge CDN, auto-deploy, preview URLs |
-| **CMS** | Sanity *(planned)* | Headless content management |
+| **CMS** | Sanity v3 | Headless content management |
 
 ---
 
@@ -133,6 +133,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Sanity Studio Setup
+
+1. Create a Sanity project at [sanity.io/manage](https://www.sanity.io/manage)
+2. Copy your project ID and dataset name
+3. Add to `.env.local`:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+```
+
+4. Access the studio at [http://localhost:3000/studio](http://localhost:3000/studio)
+
 ### Scripts
 
 | Command | Description |
@@ -152,24 +166,24 @@ vblx/
 │   ├── globals.css          # Design system + CSS variables
 │   ├── layout.tsx           # Root layout with fonts
 │   ├── page.tsx             # Homepage
-│   └── platforms/           # Platform pages
-│       ├── austra/
-│       ├── aureon/
-│       └── civium/
+│   ├── platforms/           # Platform pages
+│   │   ├── austra/
+│   │   ├── aureon/
+│   │   └── civium/
+│   └── studio/              # Sanity Studio (embedded)
 ├── components/
 │   ├── ui/                  # Reusable components
-│   │   ├── Button.tsx
-│   │   └── Card.tsx
 │   ├── layout/              # Layout components
-│   │   ├── Navigation.tsx
-│   │   └── Footer.tsx
 │   └── sections/            # Page sections
-│       ├── Hero.tsx
-│       ├── PlatformShowcase.tsx
-│       └── ...
+│       └── platform/        # Platform section components
 ├── lib/
-│   └── utils.ts             # Utilities + constants
+│   ├── utils.ts             # Utilities + constants
+│   └── platformData.ts      # Platform content data
+├── sanity/
+│   ├── schemaTypes/         # Content schemas
+│   └── lib/                 # Client + queries
 ├── public/                  # Static assets
+├── sanity.config.ts         # Sanity configuration
 ├── tailwind.config.ts       # Tailwind configuration
 └── package.json
 ```
@@ -232,8 +246,8 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 - [x] **Phase 1**: Foundation — Design system, components, homepage
 - [x] **Phase 2**: Platform pages — AUSTRA, AUREON, CIVIUM detail pages
 - [x] **Phase 3**: Intake forms — Commercial + Federal/SLED lead capture
-- [ ] **Phase 4**: Content depth — Industry pages, case studies, services
-- [ ] **Phase 5**: CMS integration — Sanity headless CMS
+- [x] **Phase 4**: Content depth — Use cases, metrics, FAQs, integrations
+- [x] **Phase 5**: CMS integration — Sanity headless CMS *(embedded studio at /studio)*
 - [x] **Phase 6**: Analytics — Conversion tracking, A/B testing
 
 ---

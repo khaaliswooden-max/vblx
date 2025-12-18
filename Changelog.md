@@ -10,9 +10,75 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Industry landing pages
+- Industry landing pages (content in Sanity)
 - Services pages with full taxonomy
-- Sanity CMS integration
+- Blog implementation with Sanity posts
+
+---
+
+## [0.5.0] - 2025-12-18
+
+### Added
+
+#### Phase 5: Sanity CMS Integration
+
+**Sanity Studio Setup**
+- Embedded Sanity Studio at `/studio` route
+- Next.js App Router integration with `next-sanity`
+- Custom studio configuration with structured content organization
+- Vision plugin for GROQ query testing
+
+**Content Schemas**
+
+*Platform Content*
+- `platform` — Full platform schema with modules, capabilities, architecture, metrics
+- `useCase` — Customer success stories and case studies
+- `integration` — Third-party integrations with category support
+- `faq` — Platform FAQs with ordering
+
+*Page Content*
+- `page` — Generic landing pages with flexible content blocks
+- `industryPage` — Industry-specific pages (Federal, Healthcare, FinTech, etc.)
+- `servicePage` — Service offerings with capabilities and approach
+
+*Blog Content*
+- `post` — Blog posts with rich content, authors, and categories
+- `author` — Author profiles with social links
+- `category` — Post categorization with colors
+
+*Site Configuration*
+- `siteSettings` — Global settings, company info, social links
+- `navigation` — Configurable navigation menus
+
+*Rich Text*
+- `blockContent` — Rich text editor with headings, lists, images, code blocks, callouts
+
+**Sanity Client Library (`sanity/lib/`)**
+- `client.ts` — Configured Sanity client with CDN and preview support
+- `queries.ts` — Centralized GROQ queries for all content types
+- Image URL builder helper function
+- Preview mode client for draft content
+
+**Environment Configuration**
+- `NEXT_PUBLIC_SANITY_PROJECT_ID` — Sanity project ID
+- `NEXT_PUBLIC_SANITY_DATASET` — Dataset name (production)
+- `NEXT_PUBLIC_SANITY_API_VERSION` — API version
+- `SANITY_API_READ_TOKEN` — Optional preview token
+
+### Dependencies Added
+- `sanity@3` — Sanity Studio framework
+- `@sanity/client@6` — API client
+- `@sanity/image-url@1` — Image URL builder
+- `@sanity/vision@3` — GROQ query playground
+- `next-sanity@7` — Next.js integration
+
+### Files Added
+- `sanity.config.ts` — Studio configuration
+- `sanity/schemaTypes/*.ts` — 12 content schemas
+- `sanity/lib/client.ts` — Sanity client
+- `sanity/lib/queries.ts` — GROQ queries
+- `app/studio/[[...tool]]/page.tsx` — Studio route
+- `app/studio/[[...tool]]/layout.tsx` — Studio layout
 
 ---
 
@@ -260,8 +326,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 | 0.1.0 | 2025-12-17 | Phase 1: Foundation |
 | 0.2.0 | 2025-12-17 | Phase 2: Platform Pages |
 | 0.3.0 | 2025-12-17 | Phase 3: Intake Forms |
-| 0.4.0 | TBD | Phase 4: Content Depth |
-| 0.5.0 | TBD | Phase 5: CMS Integration |
+| 0.4.0 | 2025-12-17 | Phase 4: Content Depth (included in Phase 2) |
+| 0.5.0 | 2025-12-18 | Phase 5: CMS Integration |
 | 0.6.0 | 2025-12-17 | Phase 6: Analytics & Conversion |
 | 1.0.0 | TBD | Production Release |
 
@@ -287,7 +353,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 [Unreleased]: https://github.com/kwoodensr/vblx/compare/v0.6.0...HEAD
-[0.6.0]: https://github.com/kwoodensr/vblx/compare/v0.3.0...v0.6.0
+[0.6.0]: https://github.com/kwoodensr/vblx/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/kwoodensr/vblx/compare/v0.3.0...v0.5.0
 [0.3.0]: https://github.com/kwoodensr/vblx/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kwoodensr/vblx/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kwoodensr/vblx/releases/tag/v0.1.0
