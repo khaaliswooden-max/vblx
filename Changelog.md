@@ -82,6 +82,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2025-12-18
+
+### Added
+
+#### Phase 4: Content Depth — Industries, Services & Case Studies
+
+##### Data Layer
+- `lib/industriesData.ts` — Complete data for 7 industries:
+  - Federal & Government
+  - Healthcare & Life Sciences
+  - Financial Services
+  - Manufacturing & Industrial
+  - Defense & Aerospace
+  - Higher Education
+  - Technology
+- `lib/servicesData.ts` — Complete data for 11 services across 4 categories:
+  - Consulting (Digital Strategy, Process Optimization, Security & Compliance)
+  - Implementation (Platform Implementation, System Integration, Cloud Migration)
+  - Managed Services (Managed Operations, Support Services, Staff Augmentation)
+  - Development (Custom Development, AI/ML Services)
+- `lib/caseStudiesData.ts` — 7 detailed case studies with full narratives
+
+##### Industries Section
+- `/industries` — Landing page with featured and additional industries
+- `/industries/[slug]` — Dynamic detail pages for each industry featuring:
+  - Industry challenges and pain points
+  - Platform solutions mapping
+  - Compliance frameworks supported
+  - Use cases and testimonials
+  - Related case studies
+
+##### Services Section
+- `/services` — Landing page with service categories
+- `/services/[slug]` — Dynamic detail pages for each service featuring:
+  - Deliverables and methodology
+  - Key benefits
+  - Engagement models
+
+##### Case Studies Section
+- `/case-studies` — Landing page with filtering
+- `/case-studies/[slug]` — Full case study narratives
+
+##### About Page
+- `/about` — Company information, values, leadership, global locations
+
+##### Navigation Updates
+- Added dropdown menus for Industries and Services
+- Added Case Studies link
+
+---
+
 ## [0.3.0] - 2025-12-17
 
 ### Added
@@ -326,7 +377,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 | 0.1.0 | 2025-12-17 | Phase 1: Foundation |
 | 0.2.0 | 2025-12-17 | Phase 2: Platform Pages |
 | 0.3.0 | 2025-12-17 | Phase 3: Intake Forms |
-| 0.4.0 | 2025-12-17 | Phase 4: Content Depth (included in Phase 2) |
+| 0.4.0 | 2025-12-18 | Phase 4: Content Depth |
 | 0.5.0 | 2025-12-18 | Phase 5: CMS Integration |
 | 0.6.0 | 2025-12-17 | Phase 6: Analytics & Conversion |
 | 1.0.0 | TBD | Production Release |
