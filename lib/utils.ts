@@ -105,6 +105,14 @@ export const NAV_LINKS = [
   { label: 'Industries', href: '/industries' },
   { label: 'Services', href: '/services' },
   { label: 'About', href: '/about' },
+  {
+    label: 'Contact',
+    href: '/contact',
+    children: [
+      { label: 'Commercial', href: '/contact/commercial', description: 'Enterprise & Commercial inquiries' },
+      { label: 'Federal & SLED', href: '/contact/federal', description: 'Government & Public Sector' },
+    ],
+  },
 ] as const
 
 /**

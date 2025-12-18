@@ -10,12 +10,142 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Commercial intake form with CRM integration
-- Federal/SLED intake form with BD Command Center sync
 - Industry landing pages
 - Services pages with full taxonomy
 - Sanity CMS integration
-- Analytics and conversion tracking
+
+---
+
+## [0.3.0] - 2025-12-17
+
+### Added
+
+#### Phase 3: Intake Forms & Lead Capture
+
+##### Form UI Components (`components/ui/`)
+- `Input` — Text input with label, error state, and helper text
+- `Textarea` — Multi-line text with validation support
+- `Select` — Custom styled dropdown with options
+- `Checkbox` — Styled checkbox with description support
+- `RadioGroup` — Radio button group with orientation options
+
+##### Commercial Intake Form (`/contact/commercial`)
+- 3-step multi-page form with animated progress indicator
+- Step 1: Contact information (name, email, phone, title)
+- Step 2: Company information (name, size, industry, website)
+- Step 3: Project details (platform, use case, timeline, budget)
+- Client-side Zod validation with inline error messages
+- Marketing consent checkbox
+- Success confirmation with next steps
+
+##### Federal/SLED Intake Form (`/contact/federal`)
+- 4-step multi-page form with progress tracking
+- Step 1: Contact information
+- Step 2: Organization details (agency, department, type)
+- Step 3: Project requirements (contract vehicle, compliance, NAICS)
+- Step 4: Timeline and budget (funding status, security level)
+- Multi-select compliance requirements (FedRAMP, FISMA, HIPAA, etc.)
+- Set-aside preference options
+- BD Command Center follow-up option
+- CAGE/UEI display on confirmation
+
+##### Contact Landing Page (`/contact`)
+- Dual-path selection UI (Commercial vs Federal/SLED)
+- Visual cards with feature highlights
+- Company contact information display
+- Global locations grid
+- Government credentials (CAGE, UEI)
+
+##### API Routes (`app/api/contact/`)
+- `POST /api/contact/commercial` — Commercial lead submission
+- `POST /api/contact/federal` — Federal/SLED opportunity submission
+- Server-side Zod validation
+- CRM webhook integration support (configurable)
+- BD Command Center webhook support
+
+##### Validation Library (`lib/validations.ts`)
+- Commercial form Zod schema with all field validations
+- Federal form Zod schema with government-specific fields
+- Type exports for form data structures
+- Option constants for all dropdowns:
+  - Industry options
+  - Company size ranges
+  - Platform options
+  - Timeline options
+  - Budget/estimated value ranges
+  - Organization types
+  - Contract vehicles
+  - Security classification levels
+  - Compliance requirements
+  - Set-aside preferences
+  - Funding status options
+
+##### Navigation Updates
+- Added Contact dropdown with Commercial and Federal sub-items
+- Updated "Get Started" CTA to link to contact page
+- Mobile menu updated with contact options
+
+### Dependencies Added
+- `zod` — Schema validation library
+
+---
+
+## [0.6.0] - 2025-12-17
+
+### Added
+
+#### Phase 6: Analytics & Conversion Tracking
+
+**Core Analytics Infrastructure**
+- Google Analytics 4 (GA4) integration with dynamic loading
+- Custom event tracking system with typed events
+- Page view tracking for SPA navigation
+- Time-on-page engagement tracking (30s, 60s, 120s, 180s milestones)
+- Scroll depth tracking (25%, 50%, 75%, 100%)
+
+**Web Vitals Monitoring**
+- Core Web Vitals tracking (LCP, FID, CLS, INP, FCP, TTFB)
+- PerformanceObserver-based measurement
+- Automatic rating (good/needs-improvement/poor)
+- Integration with GA4 for performance analytics
+
+**Conversion Tracking**
+- Demo request tracking
+- Contact form interactions
+- Platform inquiry events
+- CTA click tracking with location context
+- External link click tracking
+
+**A/B Testing Framework**
+- Cookie-based experiment assignment
+- Weighted variant distribution
+- Experiment conversion tracking
+- Debug utilities for development
+- Example experiments configured
+
+**React Hooks & Components**
+- `useAnalytics` — Memoized tracking functions
+- `useABTest` — Get variant and track conversions
+- `useSectionTracking` — Intersection Observer for sections
+- `GoogleAnalytics` — Auto-loading GA4 component
+- `TrackingLink` — Link with automatic tracking
+- `TrackingButton` — Button with CTA tracking
+
+**Configuration**
+- Environment variable `NEXT_PUBLIC_GA_MEASUREMENT_ID` for GA4
+- Debug mode in development
+- Opt-out functionality for privacy
+
+### Files Added
+- `lib/analytics.ts` — Core analytics module
+- `lib/web-vitals.ts` — Web Vitals tracking
+- `lib/ab-testing.ts` — A/B testing framework
+- `components/analytics/GoogleAnalytics.tsx` — GA4 component
+- `components/analytics/TrackingLink.tsx` — Tracked links
+- `components/analytics/TrackingButton.tsx` — Tracked buttons
+- `hooks/useAnalytics.ts` — Analytics hook
+- `hooks/useABTest.ts` — A/B testing hook
+- `hooks/useSectionTracking.ts` — Section visibility tracking
 
 ---
 
@@ -129,9 +259,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 |---------|------|-------------|
 | 0.1.0 | 2025-12-17 | Phase 1: Foundation |
 | 0.2.0 | 2025-12-17 | Phase 2: Platform Pages |
-| 0.3.0 | TBD | Phase 3: Intake Forms |
+| 0.3.0 | 2025-12-17 | Phase 3: Intake Forms |
 | 0.4.0 | TBD | Phase 4: Content Depth |
 | 0.5.0 | TBD | Phase 5: CMS Integration |
+| 0.6.0 | 2025-12-17 | Phase 6: Analytics & Conversion |
 | 1.0.0 | TBD | Production Release |
 
 ---
@@ -155,6 +286,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[Unreleased]: https://github.com/kwoodensr/vblx/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/kwoodensr/vblx/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/kwoodensr/vblx/compare/v0.3.0...v0.6.0
+[0.3.0]: https://github.com/kwoodensr/vblx/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kwoodensr/vblx/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kwoodensr/vblx/releases/tag/v0.1.0

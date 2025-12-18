@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
+import { GoogleAnalytics } from '@/components/analytics'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -56,6 +57,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen bg-background-primary text-text-primary font-sans antialiased">
+        <GoogleAnalytics />
         <Navigation />
         <main className="flex-1">
           {children}

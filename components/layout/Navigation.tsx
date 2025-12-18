@@ -92,6 +92,7 @@ export default function Navigation() {
                           {link.children.map((child) => {
                             const platformKey = child.label.toLowerCase() as keyof typeof PLATFORMS
                             const platform = PLATFORMS[platformKey]
+                            const color = platform?.color || '#00D4AA'
                             return (
                               <Link
                                 key={child.label}
@@ -100,11 +101,11 @@ export default function Navigation() {
                               >
                                 <div
                                   className="w-10 h-10 rounded-lg flex items-center justify-center mt-0.5"
-                                  style={{ backgroundColor: `${platform?.color}20` }}
+                                  style={{ backgroundColor: `${color}20` }}
                                 >
                                   <span
                                     className="font-display font-bold text-sm"
-                                    style={{ color: platform?.color }}
+                                    style={{ color }}
                                   >
                                     {child.label[0]}
                                   </span>
@@ -131,9 +132,11 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="primary" size="md">
-              Get Started
-            </Button>
+            <Link href="/contact">
+              <Button variant="primary" size="md">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -187,9 +190,11 @@ export default function Navigation() {
                 </div>
               ))}
               <div className="pt-4 border-t border-white/10">
-                <Button variant="primary" size="lg" className="w-full">
-                  Get Started
-                </Button>
+                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="primary" size="lg" className="w-full">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>

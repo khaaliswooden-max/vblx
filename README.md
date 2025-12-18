@@ -231,10 +231,10 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 
 - [x] **Phase 1**: Foundation — Design system, components, homepage
 - [x] **Phase 2**: Platform pages — AUSTRA, AUREON, CIVIUM detail pages
-- [ ] **Phase 3**: Intake forms — Commercial + Federal/SLED lead capture
+- [x] **Phase 3**: Intake forms — Commercial + Federal/SLED lead capture
 - [ ] **Phase 4**: Content depth — Industry pages, case studies, services
 - [ ] **Phase 5**: CMS integration — Sanity headless CMS
-- [ ] **Phase 6**: Analytics — Conversion tracking, A/B testing
+- [x] **Phase 6**: Analytics — Conversion tracking, A/B testing
 
 ---
 
