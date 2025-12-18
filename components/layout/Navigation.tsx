@@ -59,7 +59,7 @@ export default function Navigation() {
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => link.children && setActiveDropdown(link.label)}
+                onMouseEnter={() => 'children' in link && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
@@ -69,7 +69,7 @@ export default function Navigation() {
                   )}
                 >
                   {link.label}
-                  {link.children && (
+                  {'children' in link && (
                     <ChevronDown className={cn(
                       'w-4 h-4 transition-transform duration-200',
                       activeDropdown === link.label && 'rotate-180'
@@ -78,7 +78,7 @@ export default function Navigation() {
                 </Link>
 
                 {/* Dropdown */}
-                {link.children && (
+                {'children' in link && (
                   <AnimatePresence>
                     {activeDropdown === link.label && (
                       <motion.div
@@ -162,12 +162,12 @@ export default function Navigation() {
                 <div key={link.label}>
                   <Link
                     href={link.href}
-                    onClick={() => !link.children && setIsMobileMenuOpen(false)}
+                    onClick={() => !('children' in link) && setIsMobileMenuOpen(false)}
                     className="block py-2 text-lg font-medium text-text-primary"
                   >
                     {link.label}
                   </Link>
-                  {link.children && (
+                  {'children' in link && (
                     <div className="pl-4 mt-2 space-y-2 border-l border-white/10">
                       {link.children.map((child) => (
                         <Link
