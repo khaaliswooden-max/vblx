@@ -9,7 +9,6 @@ import {
   Globe, 
   Target, 
   Shield,
-  Linkedin,
   Mail,
   Phone,
   CheckCircle,
@@ -17,18 +16,9 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { COMPANY, PLATFORMS } from '@/lib/utils'
+import LeadershipSection from '@/components/sections/Leadership'
 
 export default function AboutPage() {
-  const leadership = [
-    {
-      name: 'Khaalis Wooden',
-      title: 'Director of Enterprise Capture & Compliance',
-      bio: 'Leading federal business development and compliance initiatives with over 15 years of experience in government contracting.',
-      linkedin: 'https://www.linkedin.com/company/100849749/',
-      email: 'khaalis.wooden@visionblox.com',
-    },
-  ]
-
   const values = [
     {
       icon: Target,
@@ -333,69 +323,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="section-padding">
-        <div className="container-wide">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Leadership
-            </h2>
-            <p className="text-text-secondary text-lg">
-              The team driving our mission forward.
-            </p>
-          </motion.div>
-
-          <div className="max-w-2xl mx-auto">
-            {leadership.map((leader, index) => (
-              <motion.div
-                key={leader.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-background-secondary rounded-2xl p-8 border border-white/5"
-              >
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="w-24 h-24 rounded-2xl bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-3xl font-display font-bold text-accent-primary">
-                      {leader.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-display font-semibold mb-1">
-                      {leader.name}
-                    </h3>
-                    <p className="text-accent-primary mb-3">{leader.title}</p>
-                    <p className="text-text-secondary text-sm mb-4">
-                      {leader.bio}
-                    </p>
-                    <div className="flex gap-3">
-                      <a 
-                        href={leader.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-background-tertiary rounded-lg text-text-secondary hover:text-accent-primary transition-colors"
-                      >
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                      <a 
-                        href={`mailto:${leader.email}`}
-                        className="p-2 bg-background-tertiary rounded-lg text-text-secondary hover:text-accent-primary transition-colors"
-                      >
-                        <Mail className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LeadershipSection />
 
       {/* Contact CTA */}
       <section className="section-padding bg-background-secondary">
