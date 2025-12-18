@@ -121,7 +121,7 @@ export default function IntegrationsSection({
           className="text-center"
         >
           <p className="text-text-secondary mb-4">
-            Don't see your system? We support custom integrations via REST API and webhooks.
+            Don&apos;t see your system? We support custom integrations via REST API and webhooks.
           </p>
           <Button variant="outline" size="lg">
             Request Integration

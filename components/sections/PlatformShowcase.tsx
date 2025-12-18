@@ -85,7 +85,7 @@ export default function PlatformShowcase() {
 
                       {/* Description */}
                       <p className="text-text-secondary mb-6 italic">
-                        "{platform.description}"
+                        &ldquo;{platform.description}&rdquo;
                       </p>
 
                       {/* Features */}

@@ -22,7 +22,7 @@ export default function MissionStatement() {
           className="max-w-4xl mx-auto text-center"
         >
           {/* Quote Mark */}
-          <div className="text-8xl font-display text-accent-primary/20 mb-4">"</div>
+          <div className="text-8xl font-display text-accent-primary/20 mb-4">&ldquo;</div>
 
           {/* Mission */}
           <blockquote className="font-display text-heading-xl md:text-display-sm font-medium text-text-primary leading-tight mb-8">

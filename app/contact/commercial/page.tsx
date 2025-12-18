@@ -129,7 +129,7 @@ export default function CommercialContactPage() {
             Thank You!
           </h1>
           <p className="text-text-secondary text-lg mb-8">
-            We've received your inquiry and will be in touch within 1-2 business days.
+            We&apos;ve received your inquiry and will be in touch within 1-2 business days.
             A member of our team will reach out to discuss how Visionblox can help
             transform your operations.
           </p>
@@ -170,11 +170,11 @@ export default function CommercialContactPage() {
             </div>
 
             <h1 className="font-display text-display-sm md:text-display-md font-bold mb-4">
-              Let's Build Something Together
+              Let&apos;s Build Something Together
             </h1>
             <p className="text-xl text-text-secondary">
               Tell us about your organization and operational challenges.
-              We'll show you how our platforms can help.
+              We&apos;ll show you how our platforms can help.
             </p>
           </div>
         </div>

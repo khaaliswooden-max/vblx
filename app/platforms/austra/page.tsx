@@ -105,7 +105,7 @@ export default function AustraPage() {
 
               {/* Description */}
               <p className="text-xl text-text-secondary italic mb-8">
-                "{platform.description}"
+                &ldquo;{platform.description}&rdquo;
               </p>
 
               {/* Features */}

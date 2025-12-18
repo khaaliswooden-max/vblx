@@ -52,11 +52,11 @@ export default function ContactPage() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="font-display text-display-sm md:text-display-md font-bold mb-6">
-              Let's Build the Future Together
+              Let&apos;s Build the Future Together
             </h1>
             <p className="text-xl text-text-secondary max-w-2xl mx-auto mb-12">
-              Whether you're an enterprise looking to modernize operations or a government
-              agency with mission-critical requirements, we're here to help.
+              Whether you&apos;re an enterprise looking to modernize operations or a government
+              agency with mission-critical requirements, we&apos;re here to help.
             </p>
           </motion.div>
         </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                 Direct Contact
               </h2>
               <p className="text-text-secondary">
-                Prefer to reach out directly? Here's how to get in touch.
+                Prefer to reach out directly? Here&apos;s how to get in touch.
               </p>
             </motion.div>
 
