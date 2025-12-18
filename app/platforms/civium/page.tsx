@@ -2,10 +2,19 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Shield, UserCheck, AlertTriangle, Headphones, FileCheck } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Shield, UserCheck, Headphones, FileCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { PLATFORMS } from '@/lib/utils'
+import { civiumData } from '@/lib/platformData'
+import {
+  CapabilitiesSection,
+  ArchitectureSection,
+  MetricsSection,
+  UseCasesSection,
+  IntegrationsSection,
+  FAQSection,
+} from '@/components/sections/platform'
 
 const platform = PLATFORMS.civium
 
@@ -180,6 +189,41 @@ export default function CiviumPage() {
         </div>
       </section>
 
+      {/* Capabilities Section */}
+      <CapabilitiesSection
+        capabilities={civiumData.capabilities}
+        platformColor={platform.color}
+        platformName={platform.name}
+      />
+
+      {/* Architecture Section */}
+      <ArchitectureSection
+        title={civiumData.architecture.title}
+        subtitle={civiumData.architecture.subtitle}
+        steps={civiumData.architecture.steps}
+        platformColor={platform.color}
+      />
+
+      {/* Metrics Section */}
+      <MetricsSection
+        metrics={civiumData.metrics}
+        platformColor={platform.color}
+      />
+
+      {/* Use Cases Section */}
+      <UseCasesSection
+        useCases={civiumData.useCases}
+        platformColor={platform.color}
+      />
+
+      {/* Integrations Section */}
+      <IntegrationsSection
+        categories={civiumData.integrations.categories}
+        items={civiumData.integrations.items}
+        platformColor={platform.color}
+        platformName={platform.name}
+      />
+
       {/* Modules Section */}
       <section className="section-padding bg-background-secondary">
         <div className="container-wide">
@@ -238,8 +282,14 @@ export default function CiviumPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQSection
+        faq={civiumData.faq}
+        platformColor={platform.color}
+      />
+
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-background-secondary">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -264,4 +314,3 @@ export default function CiviumPage() {
     </div>
   )
 }
-

@@ -6,6 +6,15 @@ import { ArrowLeft, ArrowRight, ShoppingCart, TrendingUp, FileText } from 'lucid
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { PLATFORMS } from '@/lib/utils'
+import { aureonData } from '@/lib/platformData'
+import {
+  CapabilitiesSection,
+  ArchitectureSection,
+  MetricsSection,
+  UseCasesSection,
+  IntegrationsSection,
+  FAQSection,
+} from '@/components/sections/platform'
 
 const platform = PLATFORMS.aureon
 
@@ -144,6 +153,41 @@ export default function AureonPage() {
         </div>
       </section>
 
+      {/* Capabilities Section */}
+      <CapabilitiesSection
+        capabilities={aureonData.capabilities}
+        platformColor={platform.color}
+        platformName={platform.name}
+      />
+
+      {/* Architecture Section */}
+      <ArchitectureSection
+        title={aureonData.architecture.title}
+        subtitle={aureonData.architecture.subtitle}
+        steps={aureonData.architecture.steps}
+        platformColor={platform.color}
+      />
+
+      {/* Metrics Section */}
+      <MetricsSection
+        metrics={aureonData.metrics}
+        platformColor={platform.color}
+      />
+
+      {/* Use Cases Section */}
+      <UseCasesSection
+        useCases={aureonData.useCases}
+        platformColor={platform.color}
+      />
+
+      {/* Integrations Section */}
+      <IntegrationsSection
+        categories={aureonData.integrations.categories}
+        items={aureonData.integrations.items}
+        platformColor={platform.color}
+        platformName={platform.name}
+      />
+
       {/* Modules Section */}
       <section className="section-padding bg-background-secondary">
         <div className="container-wide">
@@ -202,8 +246,14 @@ export default function AureonPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQSection
+        faq={aureonData.faq}
+        platformColor={platform.color}
+      />
+
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-background-secondary">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -228,4 +278,3 @@ export default function AureonPage() {
     </div>
   )
 }
-

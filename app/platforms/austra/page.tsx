@@ -6,6 +6,15 @@ import { ArrowLeft, ArrowRight, Cpu, Users, Building2, Utensils, Car, FolderKanb
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
 import { PLATFORMS } from '@/lib/utils'
+import { austraData } from '@/lib/platformData'
+import {
+  CapabilitiesSection,
+  ArchitectureSection,
+  MetricsSection,
+  UseCasesSection,
+  IntegrationsSection,
+  FAQSection,
+} from '@/components/sections/platform'
 
 const platform = PLATFORMS.austra
 
@@ -158,6 +167,41 @@ export default function AustraPage() {
         </div>
       </section>
 
+      {/* Capabilities Section */}
+      <CapabilitiesSection
+        capabilities={austraData.capabilities}
+        platformColor={platform.color}
+        platformName={platform.name}
+      />
+
+      {/* Architecture Section */}
+      <ArchitectureSection
+        title={austraData.architecture.title}
+        subtitle={austraData.architecture.subtitle}
+        steps={austraData.architecture.steps}
+        platformColor={platform.color}
+      />
+
+      {/* Metrics Section */}
+      <MetricsSection
+        metrics={austraData.metrics}
+        platformColor={platform.color}
+      />
+
+      {/* Use Cases Section */}
+      <UseCasesSection
+        useCases={austraData.useCases}
+        platformColor={platform.color}
+      />
+
+      {/* Integrations Section */}
+      <IntegrationsSection
+        categories={austraData.integrations.categories}
+        items={austraData.integrations.items}
+        platformColor={platform.color}
+        platformName={platform.name}
+      />
+
       {/* Modules Section */}
       <section className="section-padding bg-background-secondary">
         <div className="container-wide">
@@ -216,8 +260,14 @@ export default function AustraPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQSection
+        faq={austraData.faq}
+        platformColor={platform.color}
+      />
+
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-background-secondary">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -242,4 +292,3 @@ export default function AustraPage() {
     </div>
   )
 }
-
