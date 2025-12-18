@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 import { COMPANY, PLATFORMS } from '@/lib/utils'
 
@@ -12,13 +13,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-accent-primary flex items-center justify-center">
-                <span className="font-display font-bold text-background-primary">V</span>
-              </div>
-              <span className="font-display font-semibold text-xl tracking-tight">
-                Visionblox
-              </span>
+            <Link href="/" className="flex items-center mb-6">
+              <Image
+                src="/visionblox-logo.png"
+                alt="Visionblox"
+                width={200}
+                height={44}
+                className="h-11 w-auto"
+              />
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-6">
               {COMPANY.tagline}. {COMPANY.mission}.

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -44,13 +45,15 @@ export default function Navigation() {
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-accent-primary flex items-center justify-center">
-              <span className="font-display font-bold text-background-primary text-sm">V</span>
-            </div>
-            <span className="font-display font-semibold text-lg tracking-tight group-hover:text-accent-primary transition-colors">
-              Visionblox
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/visionblox-logo.png"
+              alt="Visionblox"
+              width={180}
+              height={40}
+              className="h-8 md:h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
