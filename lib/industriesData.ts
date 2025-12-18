@@ -7,6 +7,8 @@ import {
   Cpu,
   Plane,
   GraduationCap,
+  ShoppingBag,
+  Globe,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -619,6 +621,330 @@ export const technologyIndustry: Industry = {
 }
 
 // ============================================================================
+// GOVERNMENT (STATE/LOCAL)
+// ============================================================================
+
+export const governmentIndustry: Industry = {
+  id: 'government',
+  name: 'State & Local Government',
+  tagline: 'Citizen-Centric Solutions for Public Service',
+  description: 'Purpose-built platforms for state agencies, municipalities, and local government organizations. Streamline citizen services, manage workforce programs, and ensure compliance with state regulations.',
+  icon: Landmark,
+  color: '#3B82F6',
+  heroImage: '/images/industries/government-hero.jpg',
+  challenges: [
+    {
+      title: 'Citizen Service Delivery',
+      description: 'Providing efficient, accessible services across diverse populations and needs.',
+    },
+    {
+      title: 'Workforce Program Management',
+      description: 'Managing employment programs, benefits administration, and case management at scale.',
+    },
+    {
+      title: 'Legacy System Modernization',
+      description: 'Upgrading aging systems while maintaining continuity of services.',
+    },
+    {
+      title: 'Budget Constraints',
+      description: 'Delivering maximum value with limited public funds and strict procurement rules.',
+    },
+  ],
+  solutions: [
+    {
+      platform: 'civium',
+      module: 'Pro-Visit',
+      description: 'Citizen appointment scheduling and government facility visitor management.',
+    },
+    {
+      platform: 'civium',
+      module: 'Pro-Claims',
+      description: 'Benefits and claims management with workflow automation and compliance tracking.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-People',
+      description: 'Government workforce management and employee scheduling optimization.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-Portal',
+      description: 'Citizen self-service portals with secure document submission and status tracking.',
+    },
+  ],
+  metrics: [
+    { value: '60%', label: 'Processing Time Reduction' },
+    { value: '95%', label: 'Citizen Satisfaction' },
+    { value: '40%', label: 'Cost Savings' },
+    { value: '3', label: 'Portals Deployed' },
+  ],
+  testimonial: {
+    quote: 'The multi-portal system transformed how we connect DC youth with employment opportunities. We serve thousands of participants efficiently every summer.',
+    author: 'Program Director',
+    title: 'Director of Youth Employment',
+    organization: 'DC Department of Employment Services',
+  },
+  compliance: [
+    { name: 'ADA', description: 'Americans with Disabilities Act' },
+    { name: 'Section 508', description: 'Accessibility Compliance' },
+    { name: 'State Privacy Laws', description: 'Jurisdiction-Specific Requirements' },
+    { name: 'CJIS', description: 'Criminal Justice Information Services' },
+    { name: 'HIPAA', description: 'Health Insurance Portability and Accountability Act' },
+  ],
+  useCases: [
+    'Youth employment program management',
+    'Workers compensation claims processing',
+    'Citizen appointment scheduling',
+    'Benefits administration',
+    'Government workforce optimization',
+  ],
+  relatedPlatforms: ['civium', 'austra'],
+}
+
+// ============================================================================
+// RETAIL
+// ============================================================================
+
+export const retailIndustry: Industry = {
+  id: 'retail',
+  name: 'Retail & Consumer',
+  tagline: 'Operational Excellence for Retail Innovation',
+  description: 'Scalable platforms for retailers, e-commerce companies, and consumer brands. Optimize employee experiences, manage multi-location operations, and drive data-driven decision making across your retail network.',
+  icon: ShoppingBag,
+  color: '#F59E0B',
+  heroImage: '/images/industries/retail-hero.jpg',
+  challenges: [
+    {
+      title: 'Multi-Location Operations',
+      description: 'Managing consistent operations across hundreds or thousands of store locations.',
+    },
+    {
+      title: 'Employee Experience',
+      description: 'Engaging and retaining retail workforce in high-turnover environment.',
+    },
+    {
+      title: 'Merchandising Efficiency',
+      description: 'Optimizing product placement and inventory across diverse store formats.',
+    },
+    {
+      title: 'Data-Driven Decisions',
+      description: 'Leveraging analytics across sales, operations, and customer data.',
+    },
+  ],
+  solutions: [
+    {
+      platform: 'austra',
+      module: 'Pro-Portal',
+      description: 'Employee portals with time management, sales tracking, and operational tools.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-Data',
+      description: 'Enterprise data warehousing and analytics for multi-location insights.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-Retail',
+      description: 'Mobile merchandising solutions with offline capability and store-level optimization.',
+    },
+    {
+      platform: 'civium',
+      module: 'Pro-Admin',
+      description: 'Store administration panels for order management and operations.',
+    },
+  ],
+  metrics: [
+    { value: 'Multi-LOB', label: 'Data Integration' },
+    { value: '35+', label: 'Stores Unified' },
+    { value: '6+', label: 'Years Partnership' },
+    { value: 'CI/CD', label: 'Automation' },
+  ],
+  testimonial: {
+    quote: 'The employee portal has become central to our store operations. The integrations work seamlessly across all our systems.',
+    author: 'IT Director',
+    title: 'Director of Technology',
+    organization: 'Lowe\'s Home Improvement',
+  },
+  compliance: [
+    { name: 'PCI-DSS', description: 'Payment Card Industry Data Security Standard' },
+    { name: 'GDPR', description: 'General Data Protection Regulation' },
+    { name: 'CCPA', description: 'California Consumer Privacy Act' },
+    { name: 'ADA', description: 'Americans with Disabilities Act' },
+    { name: 'OSHA', description: 'Occupational Safety and Health' },
+  ],
+  useCases: [
+    'Employee portal and engagement',
+    'Store-level merchandising',
+    'Enterprise data warehousing',
+    'Multi-location analytics',
+    'Restaurant operations management',
+  ],
+  relatedPlatforms: ['austra', 'civium'],
+}
+
+// ============================================================================
+// AVIATION
+// ============================================================================
+
+export const aviationIndustry: Industry = {
+  id: 'aviation',
+  name: 'Aviation & Aerospace',
+  tagline: 'Certified Solutions for Flight Operations',
+  description: 'FAA-compliant platforms for aviation companies, airlines, and aerospace organizations. Optimize flight operations, manage regulatory compliance, and achieve operational intelligence across your aviation network.',
+  icon: Plane,
+  color: '#6366F1',
+  heroImage: '/images/industries/aviation-hero.jpg',
+  challenges: [
+    {
+      title: 'Regulatory Compliance',
+      description: 'Meeting FAA, EASA, and international aviation authority requirements.',
+    },
+    {
+      title: 'Route Optimization',
+      description: 'Maximizing efficiency in flight planning while maintaining safety standards.',
+    },
+    {
+      title: 'Real-Time Operations',
+      description: 'Managing dynamic operational environments with real-time data requirements.',
+    },
+    {
+      title: 'Safety Documentation',
+      description: 'Maintaining comprehensive safety records and audit trails.',
+    },
+  ],
+  solutions: [
+    {
+      platform: 'austra',
+      module: 'Pro-Analytics',
+      description: 'FAA-certified data pipelines for flight operations analytics.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-Data',
+      description: 'Real-time flight data processing and route optimization.',
+    },
+    {
+      platform: 'civium',
+      module: 'Pro-Compliance',
+      description: 'Aviation regulatory compliance documentation and tracking.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-Portal',
+      description: 'Operational dashboards for flight operations centers.',
+    },
+  ],
+  metrics: [
+    { value: '40%', label: 'Route Optimization' },
+    { value: 'FAA', label: 'Certified' },
+    { value: 'Real-time', label: 'Analytics' },
+    { value: '99.9%', label: 'System Uptime' },
+  ],
+  testimonial: {
+    quote: 'The flight intelligence platform has given us capabilities we never thought possible. Route optimization is now a competitive advantage.',
+    author: 'Chief Operations Officer',
+    title: 'COO',
+    organization: 'Strake Aviation',
+  },
+  compliance: [
+    { name: 'FAA', description: 'Federal Aviation Administration' },
+    { name: 'EASA', description: 'European Union Aviation Safety Agency' },
+    { name: 'ICAO', description: 'International Civil Aviation Organization' },
+    { name: 'TSA', description: 'Transportation Security Administration' },
+    { name: 'DOT', description: 'Department of Transportation' },
+  ],
+  useCases: [
+    'Flight route optimization',
+    'Real-time operations monitoring',
+    'Regulatory compliance tracking',
+    'Pilot and crew scheduling',
+    'Maintenance scheduling',
+  ],
+  relatedPlatforms: ['austra', 'civium'],
+}
+
+// ============================================================================
+// CROSS-INDUSTRY
+// ============================================================================
+
+export const crossIndustryCategory: Industry = {
+  id: 'cross-industry',
+  name: 'Cross-Industry Solutions',
+  tagline: 'Universal Compliance and Security Excellence',
+  description: 'Industry-agnostic platforms for security, compliance, and operational excellence. ISO certifications, security assessments, and governance solutions applicable across all sectors.',
+  icon: Globe,
+  color: '#8B5CF6',
+  heroImage: '/images/industries/cross-industry-hero.jpg',
+  challenges: [
+    {
+      title: 'Multi-Standard Compliance',
+      description: 'Achieving and maintaining certifications across ISO, SOC, and industry-specific standards.',
+    },
+    {
+      title: 'Third-Party Risk',
+      description: 'Managing vendor risk across complex supply chains and partner ecosystems.',
+    },
+    {
+      title: 'Security Posture',
+      description: 'Maintaining robust security controls across evolving threat landscapes.',
+    },
+    {
+      title: 'Global Operations',
+      description: 'Ensuring compliance across multiple jurisdictions and regulatory frameworks.',
+    },
+  ],
+  solutions: [
+    {
+      platform: 'civium',
+      module: 'Pro-Security',
+      description: 'HITRUST, ISO 27001, and multi-framework security assessments.',
+    },
+    {
+      platform: 'civium',
+      module: 'Pro-Compliance',
+      description: 'Compliance management with gap analysis and remediation tracking.',
+    },
+    {
+      platform: 'aureon',
+      module: 'Pro-Risk',
+      description: 'Third-party vendor risk management and continuous monitoring.',
+    },
+    {
+      platform: 'austra',
+      module: 'Pro-Training',
+      description: 'Security awareness training and compliance education programs.',
+    },
+  ],
+  metrics: [
+    { value: '100%', label: 'Certification Success' },
+    { value: 'Global', label: 'Reach' },
+    { value: 'Multi-Cert', label: 'Programs' },
+    { value: '5+', label: 'ISO Standards' },
+  ],
+  testimonial: {
+    quote: 'Visionblox made our ISO certification journey smooth and successful. Their expertise spans multiple standards and geographies.',
+    author: 'Compliance Director',
+    title: 'Director of Compliance',
+    organization: 'Global Enterprise Client',
+  },
+  compliance: [
+    { name: 'ISO 27001', description: 'Information Security Management' },
+    { name: 'ISO 27017', description: 'Cloud Security' },
+    { name: 'ISO 27018', description: 'Cloud Privacy' },
+    { name: 'ISO 22301', description: 'Business Continuity' },
+    { name: 'ISO 9001', description: 'Quality Management' },
+  ],
+  useCases: [
+    'ISO certification programs',
+    'HITRUST security assessments',
+    'Third-party vendor risk management',
+    'Security awareness training',
+    'Compliance gap analysis',
+  ],
+  relatedPlatforms: ['civium', 'aureon', 'austra'],
+}
+
+// ============================================================================
 // COMBINED EXPORTS
 // ============================================================================
 
@@ -630,6 +956,10 @@ export const INDUSTRIES = {
   defense: defenseIndustry,
   education: educationIndustry,
   technology: technologyIndustry,
+  government: governmentIndustry,
+  retail: retailIndustry,
+  aviation: aviationIndustry,
+  'cross-industry': crossIndustryCategory,
 } as const
 
 export type IndustryKey = keyof typeof INDUSTRIES
