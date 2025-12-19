@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://visionblox.com">Website</a> •
+  <a href="https://www.visionblox.org">Website</a> •
   <a href="#platforms">Platforms</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#getting-started">Getting Started</a> •

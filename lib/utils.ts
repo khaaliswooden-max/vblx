@@ -85,7 +85,7 @@ export const COMPANY = {
   },
   social: {
     linkedin: 'https://www.linkedin.com/company/100849749/',
-    website: 'https://visionblox.com',
+    website: 'https://www.visionblox.org',
   },
 } as const
 

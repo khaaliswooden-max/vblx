@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['visionblox.com'],
+    domains: ['www.visionblox.org', 'visionblox.org'],
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],

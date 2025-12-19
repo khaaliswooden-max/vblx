@@ -398,7 +398,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Links
 
 - [Repository](https://github.com/khaaliswooden-max/vblx)
-- [Visionblox Website](https://visionblox.com)
+- [Visionblox Website](https://www.visionblox.org)
 - [Issue Tracker](https://github.com/khaaliswooden-max/vblx/issues)
 
 ---
