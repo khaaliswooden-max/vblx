@@ -35,7 +35,7 @@ All contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/khaaliswooden-max/vblx.git
+git clone https://github.com/kwoodensr/vblx.git
 cd vblx
 
 # 2. Install dependencies

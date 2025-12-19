@@ -397,15 +397,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Links
 
-- [Repository](https://github.com/khaaliswooden-max/vblx)
-- [Visionblox Website](https://www.visionblox.org)
-- [Issue Tracker](https://github.com/khaaliswooden-max/vblx/issues)
+- [Repository](https://github.com/kwoodensr/vblx)
+- [Visionblox Website](https://visionblox.com)
+- [Issue Tracker](https://github.com/kwoodensr/vblx/issues)
 
 ---
 
-[Unreleased]: https://github.com/khaaliswooden-max/vblx/compare/v0.6.0...HEAD
-[0.6.0]: https://github.com/khaaliswooden-max/vblx/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/khaaliswooden-max/vblx/compare/v0.3.0...v0.5.0
-[0.3.0]: https://github.com/khaaliswooden-max/vblx/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/khaaliswooden-max/vblx/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/khaaliswooden-max/vblx/releases/tag/v0.1.0
+[Unreleased]: https://github.com/kwoodensr/vblx/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/kwoodensr/vblx/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/kwoodensr/vblx/compare/v0.3.0...v0.5.0
+[0.3.0]: https://github.com/kwoodensr/vblx/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/kwoodensr/vblx/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/kwoodensr/vblx/releases/tag/v0.1.0

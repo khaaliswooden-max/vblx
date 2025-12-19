@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.visionblox.org">Website</a> •
+  <a href="https://visionblox.com">Website</a> •
   <a href="#platforms">Platforms</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#getting-started">Getting Started</a> •
@@ -121,7 +121,7 @@ This repository contains the Palantir-inspired redesign that transforms Visionbl
 
 ```bash
 # Clone the repository
-git clone https://github.com/khaaliswooden-max/vblx.git
+git clone https://github.com/kwoodensr/vblx.git
 cd vblx
 
 # Install dependencies
