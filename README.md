@@ -121,7 +121,7 @@ This repository contains the Palantir-inspired redesign that transforms Visionbl
 
 ```bash
 # Clone the repository
-git clone https://github.com/kwoodensr/vblx.git
+git clone https://github.com/khaaliswooden-max/vblx.git
 cd vblx
 
 # Install dependencies
