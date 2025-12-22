@@ -15,6 +15,36 @@ import {
 import { initWebVitals } from '@/lib/web-vitals'
 import { logExperiments } from '@/lib/ab-testing'
 
+// Google Ads Tag ID for conversion tracking
+const GOOGLE_ADS_ID = 'AW-17787621183'
+
+/**
+ * Google Ads Script Component
+ * Loads the Google Ads tag for conversion tracking
+ */
+function GoogleAdsScript() {
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script
+        id="google-ads-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `,
+        }}
+      />
+    </>
+  )
+}
+
 /**
  * Google Analytics 4 Script Component
  * Loads the GA4 script and initializes tracking
@@ -99,6 +129,7 @@ function PageViewTracker() {
 export default function GoogleAnalytics() {
   return (
     <>
+      <GoogleAdsScript />
       <GoogleAnalyticsScript />
       <Suspense fallback={null}>
         <PageViewTracker />
