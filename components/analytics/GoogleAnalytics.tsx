@@ -21,17 +21,18 @@ const GOOGLE_ADS_ID = 'AW-17787621183'
 /**
  * Google Ads Script Component
  * Loads the Google Ads tag for conversion tracking
+ * Uses beforeInteractive to ensure the tag loads in <head> for Google verification
  */
 function GoogleAdsScript() {
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <Script
         id="google-ads-init"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
