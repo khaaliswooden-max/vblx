@@ -15,8 +15,50 @@ import {
 import { initWebVitals } from '@/lib/web-vitals'
 import { logExperiments } from '@/lib/ab-testing'
 
+// Google Tag Manager ID
+const GTM_ID = 'GTM-NDRCDB3T'
+
 // Google Ads Tag ID for conversion tracking
 const GOOGLE_ADS_ID = 'AW-17787621183'
+
+/**
+ * Google Tag Manager Script Component
+ * Loads GTM in the head for comprehensive tag management
+ */
+function GoogleTagManagerScript() {
+  return (
+    <>
+      <Script
+        id="gtm-script"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+        }}
+      />
+    </>
+  )
+}
+
+/**
+ * Google Tag Manager NoScript Component
+ * Fallback for browsers with JavaScript disabled
+ */
+function GoogleTagManagerNoScript() {
+  return (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style={{ display: 'none', visibility: 'hidden' }}
+      />
+    </noscript>
+  )
+}
 
 /**
  * Google Ads Script Component
@@ -130,6 +172,8 @@ function PageViewTracker() {
 export default function GoogleAnalytics() {
   return (
     <>
+      <GoogleTagManagerScript />
+      <GoogleTagManagerNoScript />
       <GoogleAdsScript />
       <GoogleAnalyticsScript />
       <Suspense fallback={null}>
