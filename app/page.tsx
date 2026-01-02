@@ -1,12 +1,12 @@
 import Hero from '@/components/sections/Hero'
-import PlatformShowcase from '@/components/sections/PlatformShowcase'
+import ProductSuiteShowcase from '@/components/sections/ProductSuiteShowcase'
 import MissionStatement from '@/components/sections/MissionStatement'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <PlatformShowcase />
+      <ProductSuiteShowcase />
       <MissionStatement />
     </>
   )
