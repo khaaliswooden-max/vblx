@@ -1,16 +1,23 @@
 import {
-  Cloud,
-  Cog,
-  Database,
-  Shield,
-  Users,
   Code,
-  Brain,
-  Workflow,
-  Monitor,
-  HeadphonesIcon,
-  Layers,
+  Cloud,
+  ShoppingCart,
+  Shield,
+  Terminal,
+  FileCode,
+  Database,
   Rocket,
+  Layers,
+  Users,
+  Brain,
+  Lock,
+  GraduationCap,
+  AlertTriangle,
+  Scale,
+  Building2,
+  RefreshCw,
+  Bot,
+  FileCheck,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -42,11 +49,11 @@ export interface Service {
   description: string
   icon: LucideIcon
   color: string
-  category: 'consulting' | 'implementation' | 'managed' | 'development'
+  category: 'development' | 'sap-ai' | 'risk-compliance'
   deliverables: ServiceDeliverable[]
   methodology: ServicePhase[]
   benefits: ServiceBenefit[]
-  relatedPlatforms: ('austra' | 'aureon' | 'civium')[]
+  technologies?: string[]
   idealFor: string[]
   engagementModels: string[]
 }
@@ -59,823 +66,1455 @@ export interface ServiceCategory {
 }
 
 // ============================================================================
-// CONSULTING SERVICES
-// ============================================================================
-
-export const digitalStrategyService: Service = {
-  id: 'digital-strategy',
-  name: 'Digital Transformation Strategy',
-  shortName: 'Digital Strategy',
-  tagline: 'Chart Your Path to Digital Excellence',
-  description: 'Comprehensive digital transformation roadmaps that align technology investments with business objectives. We assess your current state, define your target architecture, and create actionable plans for modernization.',
-  icon: Rocket,
-  color: '#6366F1',
-  category: 'consulting',
-  deliverables: [
-    {
-      title: 'Current State Assessment',
-      description: 'Comprehensive analysis of existing systems, processes, and capabilities.',
-    },
-    {
-      title: 'Target Architecture Design',
-      description: 'Future-state technology architecture aligned with business goals.',
-    },
-    {
-      title: 'Transformation Roadmap',
-      description: 'Phased implementation plan with timelines, milestones, and resource requirements.',
-    },
-    {
-      title: 'Business Case Development',
-      description: 'ROI analysis and investment justification for stakeholder approval.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Discovery',
-      duration: '2-3 weeks',
-      activities: ['Stakeholder interviews', 'System inventory', 'Process mapping', 'Pain point identification'],
-    },
-    {
-      name: 'Analysis',
-      duration: '2-3 weeks',
-      activities: ['Gap analysis', 'Technology assessment', 'Competitive benchmarking', 'Risk identification'],
-    },
-    {
-      name: 'Design',
-      duration: '3-4 weeks',
-      activities: ['Architecture design', 'Roadmap development', 'Business case creation', 'Governance framework'],
-    },
-    {
-      name: 'Presentation',
-      duration: '1 week',
-      activities: ['Executive presentation', 'Stakeholder alignment', 'Implementation planning', 'Quick wins identification'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Strategic Clarity',
-      description: 'Clear vision and roadmap for technology investments.',
-    },
-    {
-      title: 'Risk Reduction',
-      description: 'Identify and mitigate transformation risks early.',
-    },
-    {
-      title: 'Stakeholder Alignment',
-      description: 'Unified vision across business and IT leadership.',
-    },
-    {
-      title: 'Optimized Investment',
-      description: 'Prioritized initiatives with clear ROI projections.',
-    },
-  ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['C-suite executives', 'IT leadership', 'Digital transformation teams', 'Operations leaders'],
-  engagementModels: ['Fixed-price project', 'Time & materials', 'Retainer'],
-}
-
-export const processOptimizationService: Service = {
-  id: 'process-optimization',
-  name: 'Process Optimization & Automation',
-  shortName: 'Process Optimization',
-  tagline: 'Streamline Operations, Amplify Results',
-  description: 'Identify bottlenecks, eliminate waste, and automate repetitive tasks. We combine lean methodology with intelligent automation to transform your operational efficiency.',
-  icon: Workflow,
-  color: '#10B981',
-  category: 'consulting',
-  deliverables: [
-    {
-      title: 'Process Maps',
-      description: 'Detailed documentation of current and future-state processes.',
-    },
-    {
-      title: 'Automation Specifications',
-      description: 'Technical requirements for process automation implementation.',
-    },
-    {
-      title: 'Efficiency Metrics',
-      description: 'KPIs and measurement frameworks for ongoing optimization.',
-    },
-    {
-      title: 'Change Management Plan',
-      description: 'Communication and training plans for process transitions.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Process Discovery',
-      duration: '1-2 weeks',
-      activities: ['Process interviews', 'Workflow observation', 'Time studies', 'Volume analysis'],
-    },
-    {
-      name: 'Analysis & Design',
-      duration: '2-3 weeks',
-      activities: ['Value stream mapping', 'Waste identification', 'Automation opportunity assessment', 'Future-state design'],
-    },
-    {
-      name: 'Pilot',
-      duration: '2-4 weeks',
-      activities: ['Proof of concept', 'Metric collection', 'User feedback', 'Refinement'],
-    },
-    {
-      name: 'Scale',
-      duration: 'Ongoing',
-      activities: ['Full deployment', 'Training rollout', 'Continuous improvement', 'Performance monitoring'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Cost Reduction',
-      description: 'Eliminate manual effort and reduce operational costs.',
-    },
-    {
-      title: 'Speed Improvement',
-      description: 'Faster cycle times and reduced processing delays.',
-    },
-    {
-      title: 'Error Reduction',
-      description: 'Automated processes with built-in quality controls.',
-    },
-    {
-      title: 'Scalability',
-      description: 'Processes that grow with your business without linear cost increases.',
-    },
-  ],
-  relatedPlatforms: ['austra'],
-  idealFor: ['Operations managers', 'Process owners', 'Quality teams', 'Shared services leaders'],
-  engagementModels: ['Fixed-price project', 'Outcome-based pricing'],
-}
-
-// ============================================================================
-// IMPLEMENTATION SERVICES
-// ============================================================================
-
-export const platformImplementationService: Service = {
-  id: 'platform-implementation',
-  name: 'Platform Implementation',
-  shortName: 'Implementation',
-  tagline: 'Expert Deployment of Enterprise Platforms',
-  description: 'Full-lifecycle implementation of AUSTRA, AUREON, and CIVIUM platforms. From requirements gathering through go-live, our certified consultants ensure successful deployment and user adoption.',
-  icon: Layers,
-  color: '#3B82F6',
-  category: 'implementation',
-  deliverables: [
-    {
-      title: 'Configured Platform',
-      description: 'Fully configured platform instance tailored to your requirements.',
-    },
-    {
-      title: 'Data Migration',
-      description: 'Clean, validated data migrated from legacy systems.',
-    },
-    {
-      title: 'Integration Setup',
-      description: 'Connected integrations with existing enterprise systems.',
-    },
-    {
-      title: 'User Training',
-      description: 'Comprehensive training program for all user roles.',
-    },
-    {
-      title: 'Documentation',
-      description: 'System documentation, runbooks, and user guides.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Initiation',
-      duration: '1-2 weeks',
-      activities: ['Kickoff meeting', 'Project charter', 'Team onboarding', 'Environment setup'],
-    },
-    {
-      name: 'Requirements',
-      duration: '2-3 weeks',
-      activities: ['Business requirements', 'Technical requirements', 'Integration mapping', 'Data assessment'],
-    },
-    {
-      name: 'Configuration',
-      duration: '4-6 weeks',
-      activities: ['Platform configuration', 'Integration development', 'Data migration', 'Custom workflows'],
-    },
-    {
-      name: 'Testing',
-      duration: '2-3 weeks',
-      activities: ['System testing', 'UAT', 'Performance testing', 'Security validation'],
-    },
-    {
-      name: 'Go-Live',
-      duration: '1-2 weeks',
-      activities: ['Production deployment', 'User training', 'Hypercare support', 'Knowledge transfer'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Faster Time-to-Value',
-      description: 'Proven methodology accelerates deployment.',
-    },
-    {
-      title: 'Reduced Risk',
-      description: 'Experienced team with platform expertise.',
-    },
-    {
-      title: 'User Adoption',
-      description: 'Change management drives actual usage.',
-    },
-    {
-      title: 'Long-term Success',
-      description: 'Knowledge transfer ensures self-sufficiency.',
-    },
-  ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['IT project managers', 'Business sponsors', 'Operations leaders', 'Procurement teams'],
-  engagementModels: ['Fixed-price project', 'Time & materials'],
-}
-
-export const systemIntegrationService: Service = {
-  id: 'system-integration',
-  name: 'System Integration',
-  shortName: 'Integration',
-  tagline: 'Connect Your Enterprise Ecosystem',
-  description: 'Seamlessly connect Visionblox platforms with your existing enterprise systems. We design and implement integrations that enable real-time data flow across your technology stack.',
-  icon: Database,
-  color: '#8B5CF6',
-  category: 'implementation',
-  deliverables: [
-    {
-      title: 'Integration Architecture',
-      description: 'Detailed design of data flows, APIs, and middleware.',
-    },
-    {
-      title: 'API Development',
-      description: 'Custom API endpoints and integration code.',
-    },
-    {
-      title: 'Data Mapping',
-      description: 'Field-level mapping between source and target systems.',
-    },
-    {
-      title: 'Error Handling',
-      description: 'Robust error handling and retry mechanisms.',
-    },
-    {
-      title: 'Monitoring Setup',
-      description: 'Integration health monitoring and alerting.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Discovery',
-      duration: '1-2 weeks',
-      activities: ['System inventory', 'API assessment', 'Data profiling', 'Security review'],
-    },
-    {
-      name: 'Design',
-      duration: '2-3 weeks',
-      activities: ['Integration architecture', 'Data mapping', 'Error handling design', 'Security model'],
-    },
-    {
-      name: 'Development',
-      duration: '3-6 weeks',
-      activities: ['API development', 'Middleware configuration', 'Unit testing', 'Documentation'],
-    },
-    {
-      name: 'Validation',
-      duration: '1-2 weeks',
-      activities: ['Integration testing', 'Performance testing', 'Security testing', 'UAT'],
-    },
-    {
-      name: 'Deployment',
-      duration: '1 week',
-      activities: ['Production deployment', 'Monitoring setup', 'Runbook creation', 'Support handoff'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Data Consistency',
-      description: 'Single source of truth across systems.',
-    },
-    {
-      title: 'Process Automation',
-      description: 'Eliminate manual data entry and transfers.',
-    },
-    {
-      title: 'Real-time Visibility',
-      description: 'Current data available when needed.',
-    },
-    {
-      title: 'Reduced Errors',
-      description: 'Automated validation and error handling.',
-    },
-  ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['Enterprise architects', 'IT integration teams', 'Application owners', 'Data management teams'],
-  engagementModels: ['Fixed-price project', 'Time & materials', 'Retainer'],
-}
-
-export const cloudMigrationService: Service = {
-  id: 'cloud-migration',
-  name: 'Cloud Migration',
-  shortName: 'Cloud Migration',
-  tagline: 'Modernize Your Infrastructure',
-  description: 'Migrate legacy systems and on-premise applications to modern cloud infrastructure. We plan, execute, and optimize cloud migrations with minimal disruption to your operations.',
-  icon: Cloud,
-  color: '#06B6D4',
-  category: 'implementation',
-  deliverables: [
-    {
-      title: 'Migration Assessment',
-      description: 'Comprehensive analysis of applications and dependencies.',
-    },
-    {
-      title: 'Cloud Architecture',
-      description: 'Target cloud architecture design.',
-    },
-    {
-      title: 'Migration Execution',
-      description: 'Phased migration of applications and data.',
-    },
-    {
-      title: 'Optimization',
-      description: 'Post-migration cost and performance optimization.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Assessment',
-      duration: '2-4 weeks',
-      activities: ['Application inventory', 'Dependency mapping', 'TCO analysis', 'Cloud readiness scoring'],
-    },
-    {
-      name: 'Planning',
-      duration: '2-3 weeks',
-      activities: ['Architecture design', 'Migration waves', 'Risk mitigation', 'Runbook creation'],
-    },
-    {
-      name: 'Migration',
-      duration: '4-12 weeks',
-      activities: ['Environment provisioning', 'Data migration', 'Application migration', 'Testing'],
-    },
-    {
-      name: 'Optimization',
-      duration: '2-4 weeks',
-      activities: ['Performance tuning', 'Cost optimization', 'Security hardening', 'Monitoring setup'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Cost Efficiency',
-      description: 'Optimize infrastructure spending with cloud economics.',
-    },
-    {
-      title: 'Scalability',
-      description: 'Scale resources up or down based on demand.',
-    },
-    {
-      title: 'Modernization',
-      description: 'Access modern cloud services and capabilities.',
-    },
-    {
-      title: 'Resilience',
-      description: 'Improved disaster recovery and business continuity.',
-    },
-  ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['IT infrastructure teams', 'Application teams', 'CIOs/CTOs', 'Cloud architects'],
-  engagementModels: ['Fixed-price project', 'Time & materials'],
-}
-
-// ============================================================================
-// MANAGED SERVICES
-// ============================================================================
-
-export const managedOperationsService: Service = {
-  id: 'managed-operations',
-  name: 'Managed Platform Operations',
-  shortName: 'Managed Ops',
-  tagline: 'Expert Platform Management, 24/7',
-  description: 'Comprehensive managed services for Visionblox platforms. Our team handles day-to-day operations, monitoring, and optimization so you can focus on your core business.',
-  icon: Monitor,
-  color: '#EF4444',
-  category: 'managed',
-  deliverables: [
-    {
-      title: '24/7 Monitoring',
-      description: 'Continuous platform health monitoring and alerting.',
-    },
-    {
-      title: 'Incident Management',
-      description: 'Rapid response and resolution for platform issues.',
-    },
-    {
-      title: 'Performance Optimization',
-      description: 'Ongoing tuning and optimization.',
-    },
-    {
-      title: 'Regular Updates',
-      description: 'Managed patching and feature updates.',
-    },
-    {
-      title: 'Monthly Reporting',
-      description: 'Comprehensive health and performance reports.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Onboarding',
-      duration: '2-4 weeks',
-      activities: ['System documentation', 'Runbook creation', 'Monitoring setup', 'Team training'],
-    },
-    {
-      name: 'Steady State',
-      duration: 'Ongoing',
-      activities: ['24/7 monitoring', 'Incident response', 'Change management', 'Performance reviews'],
-    },
-    {
-      name: 'Continuous Improvement',
-      duration: 'Quarterly',
-      activities: ['Health assessments', 'Optimization recommendations', 'Roadmap planning', 'Technology updates'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Reduced Burden',
-      description: 'Free your team from day-to-day operations.',
-    },
-    {
-      title: 'Expert Support',
-      description: 'Access to certified platform specialists.',
-    },
-    {
-      title: 'Predictable Costs',
-      description: 'Fixed monthly fees for operations.',
-    },
-    {
-      title: 'Improved Uptime',
-      description: 'Proactive monitoring prevents issues.',
-    },
-  ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['IT operations leaders', 'Lean IT teams', 'Organizations lacking platform expertise'],
-  engagementModels: ['Monthly subscription', 'Annual contract'],
-}
-
-export const supportService: Service = {
-  id: 'support-services',
-  name: 'Technical Support Services',
-  shortName: 'Support',
-  tagline: 'Expert Help When You Need It',
-  description: 'Tiered technical support with guaranteed response times. From basic troubleshooting to complex problem resolution, our support team keeps your platforms running smoothly.',
-  icon: HeadphonesIcon,
-  color: '#F59E0B',
-  category: 'managed',
-  deliverables: [
-    {
-      title: 'Ticket Support',
-      description: 'Issue tracking and resolution through our portal.',
-    },
-    {
-      title: 'Phone Support',
-      description: 'Direct access to support engineers for urgent issues.',
-    },
-    {
-      title: 'Knowledge Base',
-      description: 'Self-service documentation and troubleshooting guides.',
-    },
-    {
-      title: 'Escalation Path',
-      description: 'Clear escalation to senior engineers and product teams.',
-    },
-  ],
-  methodology: [
-    {
-      name: 'Tier 1',
-      duration: 'Initial response',
-      activities: ['Issue triage', 'Known issue resolution', 'Documentation referral', 'Escalation if needed'],
-    },
-    {
-      name: 'Tier 2',
-      duration: 'Escalated issues',
-      activities: ['Deep troubleshooting', 'Configuration analysis', 'Log analysis', 'Workaround development'],
-    },
-    {
-      name: 'Tier 3',
-      duration: 'Complex issues',
-      activities: ['Product engineering', 'Custom development', 'Root cause analysis', 'Permanent fixes'],
-    },
-  ],
-  benefits: [
-    {
-      title: 'Fast Resolution',
-      description: 'SLA-backed response and resolution times.',
-    },
-    {
-      title: 'Expert Access',
-      description: 'Direct line to platform specialists.',
-    },
-    {
-      title: 'Proactive Guidance',
-      description: 'Best practice recommendations.',
-    },
-    {
-      title: 'Reduced Downtime',
-      description: 'Quick issue resolution minimizes impact.',
-    },
-  ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['IT support teams', 'System administrators', 'Business users', 'All platform customers'],
-  engagementModels: ['Included with platform', 'Premium support tier', 'Extended support hours'],
-}
-
-// ============================================================================
 // DEVELOPMENT SERVICES
 // ============================================================================
 
-export const customDevelopmentService: Service = {
-  id: 'custom-development',
-  name: 'Custom Application Development',
-  shortName: 'Custom Dev',
-  tagline: 'Tailored Solutions for Unique Needs',
-  description: 'When off-the-shelf doesn\'t fit, we build custom applications and extensions that integrate seamlessly with Visionblox platforms. Modern architectures, agile delivery, enterprise quality.',
+export const webDevelopmentService: Service = {
+  id: 'web-development',
+  name: 'Web Development',
+  shortName: 'Web Dev',
+  tagline: 'Build Modern, Scalable Web Applications',
+  description: 'Our PHP, Python, and .NET services offer comprehensive solutions for web and mobile development. Our PHP experts ensure seamless API integration and robust infrastructures. Python services cover web development, API design, consultation, testing, and DevOps. Our .NET team excels in custom applications, legacy system modernization, and enterprise integration.',
   icon: Code,
-  color: '#EC4899',
+  color: '#3B82F6',
   category: 'development',
   deliverables: [
     {
-      title: 'Custom Applications',
-      description: 'Purpose-built applications for your unique requirements.',
+      title: 'Custom Web Applications',
+      description: 'Tailored web solutions built with PHP, Python, or .NET frameworks.',
     },
     {
-      title: 'Platform Extensions',
-      description: 'Custom modules that extend platform capabilities.',
+      title: 'API Development & Integration',
+      description: 'RESTful and GraphQL API design with seamless third-party integrations.',
     },
     {
-      title: 'API Development',
-      description: 'Custom APIs for system integration.',
+      title: 'Legacy Modernization',
+      description: 'Transform outdated systems into modern, maintainable applications.',
     },
     {
-      title: 'Source Code',
-      description: 'Fully documented, maintainable source code.',
+      title: 'DevOps Implementation',
+      description: 'CI/CD pipelines, automated testing, and deployment workflows.',
     },
   ],
   methodology: [
     {
       name: 'Discovery',
       duration: '1-2 weeks',
-      activities: ['Requirements gathering', 'Technical design', 'Architecture planning', 'Sprint planning'],
+      activities: ['Requirements gathering', 'Technical assessment', 'Architecture planning', 'Technology selection'],
     },
     {
-      name: 'Development Sprints',
-      duration: '2-week cycles',
-      activities: ['Feature development', 'Code review', 'Testing', 'Demo to stakeholders'],
+      name: 'Development',
+      duration: '4-12 weeks',
+      activities: ['Agile sprints', 'Code reviews', 'Unit testing', 'Continuous integration'],
     },
     {
-      name: 'Quality Assurance',
-      duration: 'Throughout',
-      activities: ['Unit testing', 'Integration testing', 'Security testing', 'Performance testing'],
+      name: 'Testing & QA',
+      duration: '2-3 weeks',
+      activities: ['Functional testing', 'Performance testing', 'Security audit', 'UAT'],
     },
     {
-      name: 'Delivery',
+      name: 'Deployment',
       duration: '1-2 weeks',
       activities: ['Production deployment', 'Documentation', 'Training', 'Support transition'],
     },
   ],
   benefits: [
     {
-      title: 'Perfect Fit',
-      description: 'Solutions designed for your exact needs.',
-    },
-    {
-      title: 'Platform Integration',
-      description: 'Seamless connection with Visionblox platforms.',
+      title: 'Scalable Solutions',
+      description: 'Applications designed to grow with your business needs.',
     },
     {
       title: 'Modern Architecture',
-      description: 'Built with current best practices.',
+      description: 'Built with current best practices and technologies.',
     },
     {
-      title: 'Ownership',
-      description: 'You own the code and IP.',
+      title: 'Robust Infrastructure',
+      description: 'Reliable, secure, and high-performance systems.',
+    },
+    {
+      title: 'Expert Support',
+      description: 'Ongoing maintenance and technical support.',
     },
   ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['Product owners', 'IT leaders', 'Innovation teams', 'Operations leaders with unique needs'],
-  engagementModels: ['Fixed-price project', 'Time & materials', 'Staff augmentation'],
+  technologies: ['PHP', 'Python', '.NET', 'Laravel', 'Django', 'ASP.NET Core'],
+  idealFor: ['Startups', 'Enterprises', 'Digital agencies', 'Tech companies'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Dedicated team'],
 }
 
-export const aiMlService: Service = {
-  id: 'ai-ml-services',
-  name: 'AI & Machine Learning Services',
-  shortName: 'AI/ML',
-  tagline: 'Intelligent Insights from Your Data',
-  description: 'Harness the power of artificial intelligence and machine learning to unlock insights, automate decisions, and predict outcomes. We build and deploy production-ready AI solutions.',
-  icon: Brain,
-  color: '#14B8A6',
+export const cloudTechnologyService: Service = {
+  id: 'cloud-technology',
+  name: 'Cloud Technology',
+  shortName: 'Cloud',
+  tagline: 'Power Your Business in the Cloud',
+  description: 'AWS, GCP, and Azure are leading cloud platforms. AWS offers scalable, reliable, and secure cloud services with a global infrastructure. GCP excels in data analytics, AI, and machine learning, providing robust, low-latency performance. Azure provides comprehensive cloud services, including AI and hybrid cloud capabilities, ensuring high availability and security for diverse business needs.',
+  icon: Cloud,
+  color: '#06B6D4',
   category: 'development',
   deliverables: [
     {
-      title: 'AI Strategy',
-      description: 'Use case identification and prioritization.',
+      title: 'Cloud Architecture Design',
+      description: 'Optimized cloud infrastructure tailored to your requirements.',
     },
     {
-      title: 'ML Models',
-      description: 'Trained and validated machine learning models.',
+      title: 'Migration Services',
+      description: 'Seamless migration of applications and data to the cloud.',
     },
     {
-      title: 'Production Pipeline',
-      description: 'MLOps infrastructure for model deployment.',
+      title: 'Cost Optimization',
+      description: 'Strategies to minimize cloud spending while maximizing performance.',
     },
     {
-      title: 'Integration',
-      description: 'AI capabilities integrated into business processes.',
+      title: 'Managed Cloud Services',
+      description: '24/7 monitoring, maintenance, and support.',
     },
   ],
   methodology: [
     {
-      name: 'Use Case Definition',
-      duration: '1-2 weeks',
-      activities: ['Business problem framing', 'Data assessment', 'Feasibility analysis', 'Success criteria'],
+      name: 'Assessment',
+      duration: '2-3 weeks',
+      activities: ['Infrastructure audit', 'Workload analysis', 'Cost modeling', 'Security review'],
     },
     {
-      name: 'Data Preparation',
+      name: 'Design',
       duration: '2-4 weeks',
-      activities: ['Data collection', 'Data cleaning', 'Feature engineering', 'Data pipeline setup'],
+      activities: ['Architecture design', 'Migration planning', 'Security framework', 'Disaster recovery'],
     },
     {
-      name: 'Model Development',
-      duration: '4-8 weeks',
-      activities: ['Algorithm selection', 'Model training', 'Hyperparameter tuning', 'Model validation'],
+      name: 'Implementation',
+      duration: '4-12 weeks',
+      activities: ['Infrastructure provisioning', 'Data migration', 'Application deployment', 'Testing'],
     },
     {
-      name: 'Deployment',
-      duration: '2-4 weeks',
-      activities: ['Production deployment', 'Monitoring setup', 'Model retraining pipeline', 'Performance tracking'],
+      name: 'Optimization',
+      duration: 'Ongoing',
+      activities: ['Performance tuning', 'Cost management', 'Security hardening', 'Continuous monitoring'],
     },
   ],
   benefits: [
     {
-      title: 'Predictive Insights',
-      description: 'Anticipate outcomes before they happen.',
+      title: 'Scalability',
+      description: 'Instantly scale resources based on demand.',
     },
     {
-      title: 'Automated Decisions',
-      description: 'Intelligent automation at scale.',
+      title: 'Global Reach',
+      description: 'Deploy applications closer to your users worldwide.',
     },
     {
-      title: 'Continuous Learning',
-      description: 'Models that improve over time.',
+      title: 'High Availability',
+      description: 'Built-in redundancy and disaster recovery.',
     },
     {
-      title: 'Competitive Advantage',
-      description: 'Data-driven decision making.',
+      title: 'Cost Efficiency',
+      description: 'Pay only for what you use with optimized spending.',
     },
   ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['Data science teams', 'Business analysts', 'Operations leaders', 'Product teams'],
-  engagementModels: ['Fixed-price project', 'Time & materials', 'Retainer'],
+  technologies: ['AWS', 'Google Cloud Platform', 'Microsoft Azure', 'Kubernetes', 'Terraform'],
+  idealFor: ['Enterprises', 'Startups', 'SaaS companies', 'E-commerce businesses'],
+  engagementModels: ['Fixed-price project', 'Managed services', 'Consulting'],
 }
 
-export const securityComplianceService: Service = {
-  id: 'security-compliance',
-  name: 'Security & Compliance Services',
-  shortName: 'Security',
-  tagline: 'Protect Your Data, Meet Your Requirements',
-  description: 'Comprehensive security assessments, compliance preparation, and security engineering services. We help you meet regulatory requirements and protect your organization from threats.',
+export const ecommerceService: Service = {
+  id: 'ecommerce',
+  name: 'ECommerce',
+  shortName: 'E-Commerce',
+  tagline: 'Launch and Scale Your Online Store',
+  description: 'Magento, Shopify, and WooCommerce are leading e-commerce platforms. Magento offers robust, scalable, and customizable online stores. Shopify provides a user-friendly interface and comprehensive tools for easy store management and scaling. WooCommerce integrates with WordPress, democratizing e-commerce with its user-friendly interface and extensive customization options.',
+  icon: ShoppingCart,
+  color: '#10B981',
+  category: 'development',
+  deliverables: [
+    {
+      title: 'Custom E-Commerce Store',
+      description: 'Fully branded online store built on your preferred platform.',
+    },
+    {
+      title: 'Payment Integration',
+      description: 'Secure payment gateways and checkout optimization.',
+    },
+    {
+      title: 'Inventory Management',
+      description: 'Real-time inventory tracking and fulfillment integration.',
+    },
+    {
+      title: 'Marketing Tools',
+      description: 'SEO, analytics, and marketing automation integration.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Planning',
+      duration: '1-2 weeks',
+      activities: ['Requirements analysis', 'Platform selection', 'UX design', 'Feature planning'],
+    },
+    {
+      name: 'Design & Development',
+      duration: '4-8 weeks',
+      activities: ['UI/UX design', 'Theme customization', 'Feature development', 'Integration setup'],
+    },
+    {
+      name: 'Testing',
+      duration: '1-2 weeks',
+      activities: ['Functional testing', 'Payment testing', 'Performance optimization', 'Mobile testing'],
+    },
+    {
+      name: 'Launch',
+      duration: '1 week',
+      activities: ['Production deployment', 'Data migration', 'Training', 'Go-live support'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Scalable Platform',
+      description: 'Grow from startup to enterprise on the same platform.',
+    },
+    {
+      title: 'User-Friendly',
+      description: 'Easy-to-manage stores for non-technical users.',
+    },
+    {
+      title: 'Customizable',
+      description: 'Extensive customization options to match your brand.',
+    },
+    {
+      title: 'Comprehensive Tools',
+      description: 'Built-in marketing, analytics, and management tools.',
+    },
+  ],
+  technologies: ['Magento', 'Shopify', 'WooCommerce', 'BigCommerce', 'Stripe', 'PayPal'],
+  idealFor: ['Retailers', 'B2B companies', 'Startups', 'Enterprise brands'],
+  engagementModels: ['Fixed-price project', 'Monthly retainer', 'Support packages'],
+}
+
+export const cybersecurityService: Service = {
+  id: 'cybersecurity',
+  name: 'Cybersecurity',
+  shortName: 'Cybersecurity',
+  tagline: 'Protect Your Digital Assets',
+  description: 'Comprehensive cybersecurity services to protect your organization from evolving threats. We provide vulnerability assessments, penetration testing, security architecture design, and incident response planning to ensure your systems and data remain secure.',
   icon: Shield,
   color: '#DC2626',
-  category: 'consulting',
+  category: 'development',
   deliverables: [
     {
       title: 'Security Assessment',
-      description: 'Comprehensive vulnerability and risk assessment.',
+      description: 'Comprehensive vulnerability and risk analysis.',
     },
     {
-      title: 'Compliance Roadmap',
-      description: 'Gap analysis and remediation planning.',
+      title: 'Penetration Testing',
+      description: 'Simulated attacks to identify security weaknesses.',
     },
     {
       title: 'Security Architecture',
-      description: 'Secure architecture design and implementation.',
+      description: 'Design and implementation of secure infrastructure.',
     },
     {
-      title: 'Audit Preparation',
-      description: 'Documentation and evidence collection for audits.',
+      title: 'Incident Response Plan',
+      description: 'Procedures for handling security breaches.',
     },
   ],
   methodology: [
     {
       name: 'Assessment',
       duration: '2-4 weeks',
-      activities: ['Vulnerability scanning', 'Penetration testing', 'Policy review', 'Control assessment'],
+      activities: ['Vulnerability scanning', 'Risk assessment', 'Policy review', 'Threat modeling'],
     },
     {
-      name: 'Gap Analysis',
-      duration: '1-2 weeks',
-      activities: ['Framework mapping', 'Control gaps', 'Risk prioritization', 'Remediation planning'],
+      name: 'Testing',
+      duration: '2-3 weeks',
+      activities: ['Penetration testing', 'Social engineering tests', 'Application security testing', 'Network analysis'],
     },
     {
       name: 'Remediation',
-      duration: '4-12 weeks',
-      activities: ['Control implementation', 'Policy development', 'Technical hardening', 'Training'],
+      duration: '4-8 weeks',
+      activities: ['Vulnerability patching', 'Configuration hardening', 'Security controls implementation', 'Training'],
     },
     {
-      name: 'Validation',
-      duration: '2-3 weeks',
-      activities: ['Control testing', 'Documentation review', 'Audit preparation', 'Certification support'],
+      name: 'Monitoring',
+      duration: 'Ongoing',
+      activities: ['Continuous monitoring', 'Threat intelligence', 'Incident response', 'Compliance reporting'],
     },
   ],
   benefits: [
     {
       title: 'Risk Reduction',
-      description: 'Identify and mitigate security risks.',
+      description: 'Identify and mitigate security vulnerabilities.',
     },
     {
-      title: 'Compliance Achievement',
-      description: 'Meet regulatory and customer requirements.',
+      title: 'Compliance',
+      description: 'Meet regulatory and industry security requirements.',
+    },
+    {
+      title: 'Business Continuity',
+      description: 'Minimize impact of security incidents.',
     },
     {
       title: 'Customer Trust',
-      description: 'Demonstrate security commitment.',
-    },
-    {
-      title: 'Audit Readiness',
-      description: 'Be prepared for any examination.',
+      description: 'Demonstrate commitment to data protection.',
     },
   ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['CISOs', 'Compliance officers', 'IT security teams', 'Risk management'],
-  engagementModels: ['Fixed-price project', 'Time & materials', 'Annual retainer'],
+  technologies: ['SIEM', 'IDS/IPS', 'WAF', 'Encryption', 'Zero Trust Architecture'],
+  idealFor: ['Financial services', 'Healthcare', 'Government', 'E-commerce'],
+  engagementModels: ['Fixed-price assessment', 'Retainer', 'Managed security services'],
 }
 
-export const staffAugmentationService: Service = {
-  id: 'staff-augmentation',
-  name: 'Staff Augmentation',
-  shortName: 'Staff Aug',
-  tagline: 'Extend Your Team with Experts',
-  description: 'Supplement your team with experienced consultants and developers. Whether you need short-term project support or long-term capacity, we provide skilled professionals who integrate seamlessly with your organization.',
-  icon: Users,
-  color: '#7C3AED',
-  category: 'managed',
+export const scriptingLanguageService: Service = {
+  id: 'scripting-language',
+  name: 'Scripting Language',
+  shortName: 'Scripting',
+  tagline: 'Build Dynamic, Interactive Applications',
+  description: 'React.js empowers developers to build high-quality, interactive UIs with its component-based architecture, virtual DOM, and rich ecosystem. Node.js excels in scalable, high-performance applications with its asynchronous, event-driven architecture and vast NPM ecosystem. We leverage modern JavaScript frameworks to deliver exceptional user experiences.',
+  icon: Terminal,
+  color: '#F59E0B',
+  category: 'development',
   deliverables: [
     {
-      title: 'Qualified Resources',
-      description: 'Pre-vetted consultants matched to your requirements.',
+      title: 'Frontend Applications',
+      description: 'Interactive single-page applications with React.js.',
     },
     {
-      title: 'Flexible Engagement',
-      description: 'Scale up or down based on needs.',
+      title: 'Backend Services',
+      description: 'Scalable server-side applications with Node.js.',
     },
     {
-      title: 'Knowledge Transfer',
-      description: 'Skills and knowledge shared with your team.',
+      title: 'Full-Stack Solutions',
+      description: 'End-to-end applications with unified JavaScript stack.',
     },
     {
-      title: 'Project Continuity',
-      description: 'Consistent coverage for critical initiatives.',
+      title: 'Performance Optimization',
+      description: 'Code optimization and bundle size reduction.',
     },
   ],
   methodology: [
     {
-      name: 'Requirements',
+      name: 'Architecture',
+      duration: '1-2 weeks',
+      activities: ['Technology selection', 'Component design', 'State management planning', 'API design'],
+    },
+    {
+      name: 'Development',
+      duration: '4-10 weeks',
+      activities: ['Component development', 'API implementation', 'Testing', 'Code review'],
+    },
+    {
+      name: 'Optimization',
+      duration: '1-2 weeks',
+      activities: ['Performance profiling', 'Bundle optimization', 'SEO implementation', 'Accessibility audit'],
+    },
+    {
+      name: 'Deployment',
       duration: '1 week',
-      activities: ['Role definition', 'Skills assessment', 'Team fit analysis', 'Candidate matching'],
-    },
-    {
-      name: 'Selection',
-      duration: '1-2 weeks',
-      activities: ['Candidate presentation', 'Interviews', 'Reference checks', 'Final selection'],
-    },
-    {
-      name: 'Onboarding',
-      duration: '1-2 weeks',
-      activities: ['System access', 'Team introduction', 'Project briefing', 'Process orientation'],
-    },
-    {
-      name: 'Engagement',
-      duration: 'Ongoing',
-      activities: ['Daily standups', 'Weekly check-ins', 'Performance reviews', 'Scope adjustments'],
+      activities: ['CI/CD setup', 'Production deployment', 'Monitoring setup', 'Documentation'],
     },
   ],
   benefits: [
     {
-      title: 'Speed to Productivity',
-      description: 'Experienced resources hit the ground running.',
+      title: 'Rich User Experience',
+      description: 'Fast, responsive, and interactive interfaces.',
     },
     {
-      title: 'Flexibility',
-      description: 'Adjust team size without hiring overhead.',
+      title: 'Scalable Architecture',
+      description: 'Handle millions of concurrent users.',
     },
     {
-      title: 'Expertise Access',
-      description: 'Skills you need, when you need them.',
+      title: 'Large Ecosystem',
+      description: 'Access to vast NPM package library.',
+    },
+    {
+      title: 'Unified Stack',
+      description: 'JavaScript across frontend and backend.',
+    },
+  ],
+  technologies: ['React.js', 'Node.js', 'Next.js', 'Vue.js', 'Express.js', 'TypeScript'],
+  idealFor: ['Startups', 'SaaS companies', 'Digital agencies', 'Tech companies'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Staff augmentation'],
+}
+
+export const cmsService: Service = {
+  id: 'content-management-system',
+  name: 'Content Management System',
+  shortName: 'CMS',
+  tagline: 'Manage Content with Ease',
+  description: 'Joomla, WordPress, and Drupal are leading CMS platforms transforming business website development. Joomla offers dynamic, scalable solutions for robust online presence. WordPress democratizes website creation with its intuitive interface and extensive plugins, powering over 40% of websites. Drupal excels in scalability and customization for complex, large-scale sites.',
+  icon: FileCode,
+  color: '#8B5CF6',
+  category: 'development',
+  deliverables: [
+    {
+      title: 'Custom CMS Implementation',
+      description: 'Tailored CMS setup based on your requirements.',
+    },
+    {
+      title: 'Theme Development',
+      description: 'Custom themes matching your brand identity.',
+    },
+    {
+      title: 'Plugin/Module Development',
+      description: 'Custom functionality extensions.',
+    },
+    {
+      title: 'Content Migration',
+      description: 'Seamless migration from legacy systems.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Analysis',
+      duration: '1-2 weeks',
+      activities: ['Requirements gathering', 'CMS selection', 'Content audit', 'Architecture planning'],
+    },
+    {
+      name: 'Design',
+      duration: '2-3 weeks',
+      activities: ['UX/UI design', 'Theme mockups', 'Content structure', 'User roles definition'],
+    },
+    {
+      name: 'Development',
+      duration: '3-6 weeks',
+      activities: ['Theme development', 'Plugin customization', 'Content migration', 'Integration setup'],
+    },
+    {
+      name: 'Launch',
+      duration: '1 week',
+      activities: ['Testing', 'SEO setup', 'Training', 'Go-live support'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Easy Management',
+      description: 'Non-technical users can manage content easily.',
+    },
+    {
+      title: 'Scalability',
+      description: 'Grow your site as your business expands.',
+    },
+    {
+      title: 'Extensive Plugins',
+      description: 'Thousands of plugins for added functionality.',
+    },
+    {
+      title: 'SEO-Friendly',
+      description: 'Built-in SEO capabilities for better visibility.',
+    },
+  ],
+  technologies: ['WordPress', 'Drupal', 'Joomla', 'Contentful', 'Strapi', 'Sanity'],
+  idealFor: ['Media companies', 'Nonprofits', 'Educational institutions', 'Corporate websites'],
+  engagementModels: ['Fixed-price project', 'Monthly maintenance', 'Support packages'],
+}
+
+// ============================================================================
+// SAP & AI SERVICES
+// ============================================================================
+
+export const sapBtpService: Service = {
+  id: 'sap-btp',
+  name: 'SAP BTP',
+  shortName: 'SAP BTP',
+  tagline: 'Extend and Innovate on SAP',
+  description: 'SAP Business Technology Platform (BTP) is a unified platform that enables businesses to integrate, extend, and build applications. It combines database, analytics, integration, and intelligent technologies to help you innovate and transform your business processes.',
+  icon: Database,
+  color: '#0066CC',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'BTP Implementation',
+      description: 'Full SAP BTP setup and configuration.',
+    },
+    {
+      title: 'Custom Extensions',
+      description: 'Build custom applications on BTP.',
+    },
+    {
+      title: 'Integration Services',
+      description: 'Connect SAP and non-SAP systems.',
+    },
+    {
+      title: 'Analytics Setup',
+      description: 'Business intelligence and reporting dashboards.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Discovery',
+      duration: '2-3 weeks',
+      activities: ['Business requirements', 'Technical assessment', 'Architecture design', 'Roadmap planning'],
+    },
+    {
+      name: 'Setup',
+      duration: '3-4 weeks',
+      activities: ['BTP provisioning', 'Security configuration', 'Identity setup', 'Connectivity setup'],
+    },
+    {
+      name: 'Development',
+      duration: '6-12 weeks',
+      activities: ['Application development', 'Integration build', 'Testing', 'Documentation'],
+    },
+    {
+      name: 'Go-Live',
+      duration: '2 weeks',
+      activities: ['Production deployment', 'User training', 'Knowledge transfer', 'Support setup'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Unified Platform',
+      description: 'Single platform for multiple technologies.',
+    },
+    {
+      title: 'Faster Innovation',
+      description: 'Rapid development and deployment.',
+    },
+    {
+      title: 'Seamless Integration',
+      description: 'Connect all your business systems.',
+    },
+    {
+      title: 'Future-Ready',
+      description: 'Built for evolving business needs.',
+    },
+  ],
+  technologies: ['SAP BTP', 'SAP HANA', 'SAP Integration Suite', 'SAP Build', 'Cloud Foundry'],
+  idealFor: ['SAP customers', 'Large enterprises', 'Manufacturing', 'Retail'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Managed services'],
+}
+
+export const s4HanaService: Service = {
+  id: 's4-hana',
+  name: 'S/4 HANA',
+  shortName: 'S/4 HANA',
+  tagline: 'Transform with Next-Gen ERP',
+  description: 'Built upon an ERP system, your organization\'s base is crucial. SAP S/4HANA outperforms traditional ERP by providing advantages like faster innovation cycles, in-memory computing, and real-time analytics. Our services, led by experts, guarantee a seamless transition for S/4HANA implementation and migration.',
+  icon: Rocket,
+  color: '#E91E63',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'Greenfield Implementation',
+      description: 'Fresh S/4HANA deployment with best practices.',
+    },
+    {
+      title: 'System Conversion',
+      description: 'Convert existing SAP ECC to S/4HANA.',
+    },
+    {
+      title: 'Landscape Transformation',
+      description: 'Consolidate and optimize SAP landscape.',
+    },
+    {
+      title: 'Custom Development',
+      description: 'Tailored S/4HANA extensions and apps.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Assess',
+      duration: '3-4 weeks',
+      activities: ['Current state analysis', 'Fit-gap assessment', 'Data assessment', 'TCO analysis'],
+    },
+    {
+      name: 'Design',
+      duration: '4-6 weeks',
+      activities: ['Solution design', 'Process optimization', 'Integration architecture', 'Change management'],
+    },
+    {
+      name: 'Build',
+      duration: '8-16 weeks',
+      activities: ['System configuration', 'Data migration', 'Custom development', 'Testing cycles'],
+    },
+    {
+      name: 'Deploy',
+      duration: '2-4 weeks',
+      activities: ['Cutover', 'Go-live support', 'Hypercare', 'Optimization'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Real-Time Analytics',
+      description: 'Instant insights from in-memory computing.',
+    },
+    {
+      title: 'Faster Cycles',
+      description: 'Accelerated innovation and deployment.',
+    },
+    {
+      title: 'Simplified IT',
+      description: 'Reduced complexity and maintenance costs.',
+    },
+    {
+      title: 'Enhanced UX',
+      description: 'Modern Fiori user experience.',
+    },
+  ],
+  technologies: ['SAP S/4HANA', 'SAP HANA', 'SAP Fiori', 'ABAP', 'SAP Integration Suite'],
+  idealFor: ['Large enterprises', 'Manufacturing', 'Retail', 'Utilities'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Managed services'],
+}
+
+export const sapRiseService: Service = {
+  id: 'sap-rise',
+  name: 'SAP Rise',
+  shortName: 'SAP Rise',
+  tagline: 'Business Transformation as a Service',
+  description: 'SAP has introduced RISE with SAP, offering Business Transformation as a Service. This subscription-based service encompasses a diverse range of products and services. The RISE with SAP package supports every phase of this business transformation, empowering organizations to integrate, enhance, and expand real-time data from SAP S/4HANA Cloud.',
+  icon: Layers,
+  color: '#FF5722',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'RISE Assessment',
+      description: 'Evaluate your readiness for RISE with SAP.',
+    },
+    {
+      title: 'Migration Planning',
+      description: 'Detailed roadmap for RISE adoption.',
+    },
+    {
+      title: 'Implementation',
+      description: 'End-to-end RISE deployment and configuration.',
+    },
+    {
+      title: 'Optimization',
+      description: 'Ongoing performance and cost optimization.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Discover',
+      duration: '2-4 weeks',
+      activities: ['Business case development', 'Current landscape analysis', 'RISE fit assessment', 'Contract negotiation support'],
+    },
+    {
+      name: 'Plan',
+      duration: '3-4 weeks',
+      activities: ['Migration strategy', 'Timeline planning', 'Resource allocation', 'Risk mitigation'],
+    },
+    {
+      name: 'Implement',
+      duration: '12-24 weeks',
+      activities: ['System provisioning', 'Configuration', 'Data migration', 'Integration setup'],
+    },
+    {
+      name: 'Optimize',
+      duration: 'Ongoing',
+      activities: ['Performance monitoring', 'Cost optimization', 'Feature adoption', 'Continuous improvement'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Subscription Model',
+      description: 'Predictable costs with flexible scaling.',
+    },
+    {
+      title: 'All-Inclusive',
+      description: 'Infrastructure, tools, and services bundled.',
+    },
+    {
+      title: 'Faster Time-to-Value',
+      description: 'Pre-configured solutions accelerate deployment.',
+    },
+    {
+      title: 'Continuous Innovation',
+      description: 'Automatic updates and new features.',
+    },
+  ],
+  technologies: ['SAP S/4HANA Cloud', 'SAP BTP', 'SAP Business Network', 'SAP Analytics Cloud'],
+  idealFor: ['Mid-size to large enterprises', 'Organizations seeking cloud ERP', 'Digital transformation initiatives'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Managed services'],
+}
+
+export const sapFioriService: Service = {
+  id: 'sap-fiori',
+  name: 'SAP Fiori',
+  shortName: 'SAP Fiori',
+  tagline: 'Modern User Experience for SAP',
+  description: 'Implementing SAP Fiori brings a multitude of benefits. It revolutionizes the user experience by providing a modern, intuitive interface across devices, driving increased adoption and productivity. Fiori streamlines processes, offering role-based access to streamline workflows and enhance efficiency. Real-time insights empower informed decision-making.',
+  icon: Users,
+  color: '#00BCD4',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'Fiori Implementation',
+      description: 'Deploy and configure SAP Fiori applications.',
+    },
+    {
+      title: 'Custom Apps',
+      description: 'Build custom Fiori applications for your needs.',
+    },
+    {
+      title: 'UI/UX Design',
+      description: 'User experience design following Fiori guidelines.',
+    },
+    {
+      title: 'Mobile Enablement',
+      description: 'Mobile-first SAP access for your workforce.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Analysis',
+      duration: '2-3 weeks',
+      activities: ['User research', 'Process analysis', 'App selection', 'Priority matrix'],
+    },
+    {
+      name: 'Design',
+      duration: '2-4 weeks',
+      activities: ['UX design', 'Prototyping', 'User validation', 'Technical design'],
+    },
+    {
+      name: 'Development',
+      duration: '4-8 weeks',
+      activities: ['Fiori configuration', 'Custom development', 'Integration', 'Testing'],
+    },
+    {
+      name: 'Rollout',
+      duration: '2-3 weeks',
+      activities: ['User training', 'Change management', 'Deployment', 'Support setup'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Modern Interface',
+      description: 'Intuitive, consumer-grade user experience.',
+    },
+    {
+      title: 'Role-Based Access',
+      description: 'Right information for the right users.',
+    },
+    {
+      title: 'Mobile Ready',
+      description: 'Access SAP from any device, anywhere.',
+    },
+    {
+      title: 'Increased Adoption',
+      description: 'Higher user satisfaction and productivity.',
+    },
+  ],
+  technologies: ['SAP Fiori', 'SAPUI5', 'SAP Gateway', 'OData', 'SAP Build'],
+  idealFor: ['SAP customers', 'Mobile workforce', 'User experience improvement'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Support packages'],
+}
+
+export const sapSuccessFactorsService: Service = {
+  id: 'sap-success-factors',
+  name: 'SAP Success Factors',
+  shortName: 'SuccessFactors',
+  tagline: 'Transform Your HR Experience',
+  description: 'SAP SuccessFactors is a cloud-based Human Capital Management (HCM) software suite widely utilized globally. It enables companies to attract top talent, streamline hiring processes, set and track performance goals, deliver training programs, manage employee data centrally, design compensation plans, identify and develop future leaders, and gain insights through workforce analytics.',
+  icon: Users,
+  color: '#4CAF50',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'HCM Implementation',
+      description: 'Full SuccessFactors suite deployment.',
+    },
+    {
+      title: 'Module Configuration',
+      description: 'Configure specific HR modules to your needs.',
+    },
+    {
+      title: 'Integration',
+      description: 'Connect SuccessFactors with your HR ecosystem.',
+    },
+    {
+      title: 'Workforce Analytics',
+      description: 'HR reporting and insights dashboards.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Discover',
+      duration: '2-3 weeks',
+      activities: ['HR process analysis', 'Requirements gathering', 'Module selection', 'Project planning'],
+    },
+    {
+      name: 'Configure',
+      duration: '6-10 weeks',
+      activities: ['System configuration', 'Workflow setup', 'Form design', 'Integration build'],
+    },
+    {
+      name: 'Test',
+      duration: '3-4 weeks',
+      activities: ['Unit testing', 'Integration testing', 'UAT', 'Performance testing'],
+    },
+    {
+      name: 'Deploy',
+      duration: '2-3 weeks',
+      activities: ['Data migration', 'Training', 'Go-live', 'Hypercare support'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Unified HR Platform',
+      description: 'All HR functions in one cloud platform.',
+    },
+    {
+      title: 'Talent Management',
+      description: 'Attract, develop, and retain top talent.',
+    },
+    {
+      title: 'Employee Engagement',
+      description: 'Improve employee experience and satisfaction.',
+    },
+    {
+      title: 'HR Analytics',
+      description: 'Data-driven HR decisions.',
+    },
+  ],
+  technologies: ['SAP SuccessFactors', 'SAP Integration Suite', 'SAP Analytics Cloud'],
+  idealFor: ['HR departments', 'Large enterprises', 'Global organizations', 'Growing companies'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Managed services'],
+}
+
+export const aiMlSolutionsService: Service = {
+  id: 'ai-ml-solutions',
+  name: 'AI & ML Solutions',
+  shortName: 'AI & ML',
+  tagline: 'Where Innovation Meets Intelligence',
+  description: 'Revolutionize your business processes with our AI and ML solutions! Whether you need to automate repetitive tasks, analyze complex data, or enhance customer experiences, we\'re here to turn your challenges into opportunities. Our solutions include product recommendation, sentiment analysis, image recognition, market analysis, and behavior mining.',
+  icon: Brain,
+  color: '#9C27B0',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'AI Strategy',
+      description: 'Comprehensive AI adoption roadmap.',
+    },
+    {
+      title: 'ML Model Development',
+      description: 'Custom machine learning models for your use cases.',
+    },
+    {
+      title: 'Production Deployment',
+      description: 'Deploy AI solutions at scale.',
+    },
+    {
+      title: 'MLOps Implementation',
+      description: 'End-to-end ML operations framework.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Use Case Discovery',
+      duration: '2-3 weeks',
+      activities: ['Business problem framing', 'Data assessment', 'Feasibility analysis', 'ROI estimation'],
+    },
+    {
+      name: 'Data Preparation',
+      duration: '3-6 weeks',
+      activities: ['Data collection', 'Data cleaning', 'Feature engineering', 'Pipeline setup'],
+    },
+    {
+      name: 'Model Development',
+      duration: '4-8 weeks',
+      activities: ['Algorithm selection', 'Model training', 'Hyperparameter tuning', 'Validation'],
+    },
+    {
+      name: 'Deployment',
+      duration: '2-4 weeks',
+      activities: ['Production deployment', 'Monitoring setup', 'API integration', 'Performance tracking'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Intelligent Automation',
+      description: 'Automate complex tasks with AI.',
+    },
+    {
+      title: 'Predictive Insights',
+      description: 'Anticipate trends and behaviors.',
+    },
+    {
+      title: 'Enhanced Decisions',
+      description: 'Data-driven decision making.',
+    },
+    {
+      title: 'Competitive Edge',
+      description: 'Stay ahead with cutting-edge AI.',
+    },
+  ],
+  technologies: ['TensorFlow', 'PyTorch', 'OpenAI', 'AWS SageMaker', 'Azure ML', 'Google AI'],
+  idealFor: ['Data-driven companies', 'E-commerce', 'Finance', 'Healthcare'],
+  engagementModels: ['Fixed-price project', 'Time & materials', 'Retainer'],
+}
+
+export const cybersecurityComplianceService: Service = {
+  id: 'cybersecurity-compliance-framework',
+  name: 'Cybersecurity & Compliance Framework Services',
+  shortName: 'Compliance Framework',
+  tagline: 'Security and Compliance Excellence',
+  description: 'Comprehensive cybersecurity and compliance framework services that help organizations establish, maintain, and improve their security posture while meeting regulatory requirements. We provide frameworks aligned with NIST, ISO 27001, SOC 2, and industry-specific regulations.',
+  icon: Lock,
+  color: '#607D8B',
+  category: 'sap-ai',
+  deliverables: [
+    {
+      title: 'Framework Assessment',
+      description: 'Evaluate current security and compliance posture.',
+    },
+    {
+      title: 'Framework Implementation',
+      description: 'Deploy comprehensive security frameworks.',
+    },
+    {
+      title: 'Policy Development',
+      description: 'Create security policies and procedures.',
+    },
+    {
+      title: 'Compliance Certification',
+      description: 'Support for certification audits.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Assessment',
+      duration: '3-4 weeks',
+      activities: ['Gap analysis', 'Risk assessment', 'Control evaluation', 'Compliance mapping'],
+    },
+    {
+      name: 'Design',
+      duration: '3-4 weeks',
+      activities: ['Framework selection', 'Control design', 'Policy creation', 'Implementation roadmap'],
+    },
+    {
+      name: 'Implementation',
+      duration: '8-16 weeks',
+      activities: ['Control implementation', 'Process deployment', 'Training', 'Documentation'],
+    },
+    {
+      name: 'Certification',
+      duration: '4-8 weeks',
+      activities: ['Pre-audit preparation', 'Evidence collection', 'Audit support', 'Remediation'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Regulatory Compliance',
+      description: 'Meet industry and regulatory requirements.',
+    },
+    {
+      title: 'Risk Reduction',
+      description: 'Systematic approach to security risks.',
+    },
+    {
+      title: 'Trust Building',
+      description: 'Demonstrate security commitment to stakeholders.',
+    },
+    {
+      title: 'Operational Excellence',
+      description: 'Streamlined security operations.',
+    },
+  ],
+  technologies: ['NIST Framework', 'ISO 27001', 'SOC 2', 'GDPR', 'HIPAA', 'PCI DSS'],
+  idealFor: ['Regulated industries', 'SaaS companies', 'Healthcare', 'Financial services'],
+  engagementModels: ['Fixed-price project', 'Annual retainer', 'Managed services'],
+}
+
+// ============================================================================
+// RISK & COMPLIANCE SERVICES
+// ============================================================================
+
+export const infoSecurityTrainingService: Service = {
+  id: 'information-security-awareness-training',
+  name: 'Information Security Awareness & Training',
+  shortName: 'Security Training',
+  tagline: 'Empower Your Human Firewall',
+  description: 'Comprehensive security awareness programs that transform your employees into your first line of defense. Our training covers phishing prevention, data protection, secure computing practices, and incident reporting to create a security-conscious culture.',
+  icon: GraduationCap,
+  color: '#3F51B5',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'Training Program',
+      description: 'Customized security awareness curriculum.',
+    },
+    {
+      title: 'Phishing Simulations',
+      description: 'Regular phishing tests with metrics.',
+    },
+    {
+      title: 'E-Learning Platform',
+      description: 'On-demand security training modules.',
+    },
+    {
+      title: 'Compliance Tracking',
+      description: 'Training completion and compliance reports.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Assessment',
+      duration: '1-2 weeks',
+      activities: ['Current awareness baseline', 'Risk identification', 'Content needs analysis', 'Platform selection'],
+    },
+    {
+      name: 'Development',
+      duration: '3-4 weeks',
+      activities: ['Curriculum design', 'Content creation', 'Platform setup', 'Simulation configuration'],
+    },
+    {
+      name: 'Deployment',
+      duration: '2-3 weeks',
+      activities: ['Program launch', 'Initial training', 'Phishing baseline', 'Communication plan'],
+    },
+    {
+      name: 'Ongoing',
+      duration: 'Continuous',
+      activities: ['Regular simulations', 'New content updates', 'Metrics reporting', 'Program refinement'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Reduced Risk',
+      description: 'Lower likelihood of successful attacks.',
+    },
+    {
+      title: 'Compliance',
+      description: 'Meet training requirements for regulations.',
+    },
+    {
+      title: 'Security Culture',
+      description: 'Build organization-wide security awareness.',
+    },
+    {
+      title: 'Measurable Results',
+      description: 'Track improvement through metrics.',
+    },
+  ],
+  technologies: ['KnowBe4', 'Proofpoint', 'Cofense', 'Custom LMS'],
+  idealFor: ['All organizations', 'Regulated industries', 'Remote workforce'],
+  engagementModels: ['Annual subscription', 'Per-user pricing', 'Custom programs'],
+}
+
+export const cloudSecurityGovernanceService: Service = {
+  id: 'cloud-security-risk-governance',
+  name: 'Cloud Security Risk Governance Services',
+  shortName: 'Cloud Security',
+  tagline: 'Secure Your Cloud Journey',
+  description: 'Comprehensive cloud security governance services that help organizations establish robust security controls, manage cloud risks, and maintain compliance across multi-cloud environments. We provide visibility, control, and protection for your cloud workloads.',
+  icon: Cloud,
+  color: '#00ACC1',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'Cloud Security Assessment',
+      description: 'Evaluate security posture across cloud environments.',
+    },
+    {
+      title: 'Governance Framework',
+      description: 'Cloud security policies and standards.',
+    },
+    {
+      title: 'Security Architecture',
+      description: 'Secure cloud architecture design.',
+    },
+    {
+      title: 'Monitoring & Compliance',
+      description: 'Continuous security monitoring setup.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Discovery',
+      duration: '2-3 weeks',
+      activities: ['Cloud inventory', 'Security assessment', 'Compliance gap analysis', 'Risk identification'],
+    },
+    {
+      name: 'Design',
+      duration: '3-4 weeks',
+      activities: ['Security architecture', 'Policy framework', 'Control selection', 'Tool selection'],
+    },
+    {
+      name: 'Implementation',
+      duration: '6-12 weeks',
+      activities: ['Security controls deployment', 'Configuration hardening', 'Monitoring setup', 'Policy enforcement'],
+    },
+    {
+      name: 'Operations',
+      duration: 'Ongoing',
+      activities: ['Continuous monitoring', 'Compliance reporting', 'Incident response', 'Regular reviews'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Visibility',
+      description: 'Complete view of cloud security posture.',
+    },
+    {
+      title: 'Control',
+      description: 'Enforce security policies consistently.',
+    },
+    {
+      title: 'Compliance',
+      description: 'Meet regulatory requirements in the cloud.',
+    },
+    {
+      title: 'Risk Reduction',
+      description: 'Proactive identification and mitigation.',
+    },
+  ],
+  technologies: ['AWS Security Hub', 'Azure Security Center', 'Google Security Command Center', 'Prisma Cloud'],
+  idealFor: ['Cloud-first organizations', 'Multi-cloud environments', 'Regulated industries'],
+  engagementModels: ['Fixed-price project', 'Managed services', 'Consulting'],
+}
+
+export const riskManagementService: Service = {
+  id: 'risk-management-services',
+  name: 'Risk Management Services',
+  shortName: 'Risk Management',
+  tagline: 'Identify, Assess, Mitigate',
+  description: 'Comprehensive risk management services that help organizations identify, assess, and mitigate risks across their operations. We provide frameworks, processes, and tools to manage operational, strategic, and technology risks effectively.',
+  icon: AlertTriangle,
+  color: '#FF9800',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'Risk Assessment',
+      description: 'Comprehensive risk identification and analysis.',
+    },
+    {
+      title: 'Risk Framework',
+      description: 'Customized risk management framework.',
+    },
+    {
+      title: 'Mitigation Planning',
+      description: 'Risk treatment plans and controls.',
+    },
+    {
+      title: 'Risk Monitoring',
+      description: 'Ongoing risk tracking and reporting.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Identification',
+      duration: '2-3 weeks',
+      activities: ['Risk inventory', 'Stakeholder interviews', 'Process analysis', 'Threat assessment'],
+    },
+    {
+      name: 'Assessment',
+      duration: '2-3 weeks',
+      activities: ['Impact analysis', 'Likelihood evaluation', 'Risk scoring', 'Heat mapping'],
+    },
+    {
+      name: 'Treatment',
+      duration: '4-8 weeks',
+      activities: ['Control selection', 'Mitigation implementation', 'Residual risk analysis', 'Documentation'],
+    },
+    {
+      name: 'Monitoring',
+      duration: 'Ongoing',
+      activities: ['Risk tracking', 'KRI monitoring', 'Regular reviews', 'Reporting'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Risk Visibility',
+      description: 'Clear understanding of organizational risks.',
+    },
+    {
+      title: 'Informed Decisions',
+      description: 'Risk-aware decision making.',
+    },
+    {
+      title: 'Resilience',
+      description: 'Improved organizational resilience.',
+    },
+    {
+      title: 'Compliance',
+      description: 'Meet risk management requirements.',
+    },
+  ],
+  technologies: ['GRC platforms', 'Risk registers', 'Analytics tools'],
+  idealFor: ['All organizations', 'Regulated industries', 'Complex operations'],
+  engagementModels: ['Fixed-price assessment', 'Retainer', 'Managed services'],
+}
+
+export const ermService: Service = {
+  id: 'enterprise-risk-management',
+  name: 'Enterprise Risk Management (ERM) Services',
+  shortName: 'ERM',
+  tagline: 'Holistic Risk Governance',
+  description: 'Enterprise Risk Management services that provide a holistic approach to identifying, assessing, and managing risks across your entire organization. We help align risk management with strategic objectives and create a risk-aware culture.',
+  icon: Building2,
+  color: '#795548',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'ERM Framework',
+      description: 'Enterprise-wide risk management framework.',
+    },
+    {
+      title: 'Risk Appetite Statement',
+      description: 'Define organizational risk tolerance.',
+    },
+    {
+      title: 'Board Reporting',
+      description: 'Executive risk dashboards and reports.',
+    },
+    {
+      title: 'Risk Culture Program',
+      description: 'Build risk awareness across the organization.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Foundation',
+      duration: '3-4 weeks',
+      activities: ['ERM maturity assessment', 'Framework design', 'Governance structure', 'Risk appetite definition'],
+    },
+    {
+      name: 'Development',
+      duration: '6-8 weeks',
+      activities: ['Policy creation', 'Process design', 'Tool selection', 'Training development'],
+    },
+    {
+      name: 'Implementation',
+      duration: '8-12 weeks',
+      activities: ['Framework rollout', 'Training delivery', 'Tool deployment', 'Initial risk assessments'],
+    },
+    {
+      name: 'Maturation',
+      duration: 'Ongoing',
+      activities: ['Continuous improvement', 'Program evolution', 'Maturity advancement', 'Benchmarking'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Strategic Alignment',
+      description: 'Risk management aligned with strategy.',
+    },
+    {
+      title: 'Holistic View',
+      description: 'Enterprise-wide risk visibility.',
+    },
+    {
+      title: 'Better Governance',
+      description: 'Improved board oversight of risk.',
+    },
+    {
+      title: 'Value Protection',
+      description: 'Protect and create organizational value.',
+    },
+  ],
+  technologies: ['COSO ERM', 'ISO 31000', 'GRC platforms'],
+  idealFor: ['Large enterprises', 'Public companies', 'Financial services', 'Healthcare'],
+  engagementModels: ['Fixed-price project', 'Multi-year engagement', 'Advisory retainer'],
+}
+
+export const businessContinuityService: Service = {
+  id: 'business-continuity-cyber-resilience',
+  name: 'Business Continuity & Cyber Resilience Services',
+  shortName: 'BC/DR',
+  tagline: 'Prepare, Respond, Recover',
+  description: 'Business continuity and cyber resilience services that ensure your organization can withstand and recover from disruptions. We develop comprehensive plans, conduct exercises, and build capabilities to maintain operations during crises.',
+  icon: RefreshCw,
+  color: '#8BC34A',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'Business Impact Analysis',
+      description: 'Identify critical processes and dependencies.',
+    },
+    {
+      title: 'BC/DR Plans',
+      description: 'Comprehensive continuity and recovery plans.',
+    },
+    {
+      title: 'Exercise Program',
+      description: 'Regular testing and exercises.',
+    },
+    {
+      title: 'Incident Response',
+      description: 'Cyber incident response procedures.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Analysis',
+      duration: '3-4 weeks',
+      activities: ['Business impact analysis', 'Risk assessment', 'Recovery requirements', 'Dependency mapping'],
+    },
+    {
+      name: 'Planning',
+      duration: '4-6 weeks',
+      activities: ['Strategy development', 'Plan creation', 'Procedure documentation', 'Resource planning'],
+    },
+    {
+      name: 'Implementation',
+      duration: '4-8 weeks',
+      activities: ['Plan deployment', 'Training', 'Technology setup', 'Communication protocols'],
+    },
+    {
+      name: 'Testing',
+      duration: 'Ongoing',
+      activities: ['Tabletop exercises', 'Functional tests', 'Full-scale exercises', 'Plan updates'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Operational Resilience',
+      description: 'Maintain operations during disruptions.',
+    },
+    {
+      title: 'Faster Recovery',
+      description: 'Minimize downtime and impact.',
+    },
+    {
+      title: 'Compliance',
+      description: 'Meet BC/DR regulatory requirements.',
+    },
+    {
+      title: 'Stakeholder Confidence',
+      description: 'Demonstrate preparedness.',
+    },
+  ],
+  technologies: ['BC planning tools', 'DR orchestration', 'Crisis management platforms'],
+  idealFor: ['All organizations', 'Critical infrastructure', 'Financial services', 'Healthcare'],
+  engagementModels: ['Fixed-price project', 'Annual retainer', 'Exercise-based'],
+}
+
+export const aiGovernanceService: Service = {
+  id: 'ai-governance-services',
+  name: 'AI Governance Services',
+  shortName: 'AI Governance',
+  tagline: 'Responsible AI Implementation',
+  description: 'AI Governance services that help organizations implement AI responsibly and ethically. We develop governance frameworks, policies, and controls to ensure AI systems are transparent, fair, and compliant with emerging regulations.',
+  icon: Bot,
+  color: '#673AB7',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'AI Governance Framework',
+      description: 'Comprehensive AI governance structure.',
+    },
+    {
+      title: 'AI Ethics Policy',
+      description: 'Ethical guidelines for AI development.',
+    },
+    {
+      title: 'Risk Assessment',
+      description: 'AI-specific risk evaluation framework.',
+    },
+    {
+      title: 'Compliance Mapping',
+      description: 'Alignment with AI regulations.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Assessment',
+      duration: '2-3 weeks',
+      activities: ['AI inventory', 'Risk assessment', 'Regulatory mapping', 'Stakeholder analysis'],
+    },
+    {
+      name: 'Framework Design',
+      duration: '3-4 weeks',
+      activities: ['Governance structure', 'Policy development', 'Control design', 'Metrics definition'],
+    },
+    {
+      name: 'Implementation',
+      duration: '6-10 weeks',
+      activities: ['Policy deployment', 'Process integration', 'Training', 'Tool implementation'],
+    },
+    {
+      name: 'Operations',
+      duration: 'Ongoing',
+      activities: ['Monitoring', 'Auditing', 'Continuous improvement', 'Regulatory updates'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Responsible AI',
+      description: 'Ethical and transparent AI systems.',
+    },
+    {
+      title: 'Regulatory Readiness',
+      description: 'Prepare for emerging AI regulations.',
     },
     {
       title: 'Risk Mitigation',
-      description: 'Reduce dependency on individual employees.',
+      description: 'Address AI-specific risks proactively.',
+    },
+    {
+      title: 'Stakeholder Trust',
+      description: 'Build confidence in AI initiatives.',
     },
   ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
-  idealFor: ['IT managers', 'Project managers', 'HR leaders', 'Procurement teams'],
-  engagementModels: ['Hourly', 'Monthly retainer', 'Project-based'],
+  technologies: ['AI governance platforms', 'Model monitoring tools', 'Explainability frameworks'],
+  idealFor: ['AI-adopting organizations', 'Regulated industries', 'Technology companies'],
+  engagementModels: ['Fixed-price project', 'Advisory retainer', 'Managed services'],
+}
+
+export const regulatoryComplianceService: Service = {
+  id: 'regulatory-compliance-services',
+  name: 'Regulatory Compliance Services',
+  shortName: 'Compliance',
+  tagline: 'Navigate Complex Regulations',
+  description: 'Regulatory compliance services that help organizations understand and meet their regulatory obligations. We provide expertise across various regulatory frameworks including GDPR, HIPAA, SOX, PCI DSS, and industry-specific regulations.',
+  icon: FileCheck,
+  color: '#009688',
+  category: 'risk-compliance',
+  deliverables: [
+    {
+      title: 'Compliance Assessment',
+      description: 'Gap analysis against regulatory requirements.',
+    },
+    {
+      title: 'Compliance Roadmap',
+      description: 'Prioritized path to compliance.',
+    },
+    {
+      title: 'Policy & Procedures',
+      description: 'Compliance documentation development.',
+    },
+    {
+      title: 'Audit Support',
+      description: 'Preparation and support for regulatory audits.',
+    },
+  ],
+  methodology: [
+    {
+      name: 'Assessment',
+      duration: '3-4 weeks',
+      activities: ['Regulatory mapping', 'Gap analysis', 'Risk assessment', 'Prioritization'],
+    },
+    {
+      name: 'Planning',
+      duration: '2-3 weeks',
+      activities: ['Roadmap development', 'Resource planning', 'Timeline creation', 'Budget estimation'],
+    },
+    {
+      name: 'Implementation',
+      duration: '8-16 weeks',
+      activities: ['Control implementation', 'Policy development', 'Process changes', 'Training'],
+    },
+    {
+      name: 'Validation',
+      duration: '2-4 weeks',
+      activities: ['Internal audit', 'Evidence collection', 'Remediation', 'Certification support'],
+    },
+  ],
+  benefits: [
+    {
+      title: 'Regulatory Compliance',
+      description: 'Meet all applicable requirements.',
+    },
+    {
+      title: 'Risk Reduction',
+      description: 'Avoid fines and penalties.',
+    },
+    {
+      title: 'Competitive Advantage',
+      description: 'Compliance as a differentiator.',
+    },
+    {
+      title: 'Operational Efficiency',
+      description: 'Streamlined compliance processes.',
+    },
+  ],
+  technologies: ['GRC platforms', 'Compliance management tools', 'Audit management systems'],
+  idealFor: ['Regulated industries', 'Healthcare', 'Financial services', 'Technology companies'],
+  engagementModels: ['Fixed-price project', 'Annual retainer', 'Compliance-as-a-Service'],
 }
 
 // ============================================================================
@@ -883,54 +1522,83 @@ export const staffAugmentationService: Service = {
 // ============================================================================
 
 export const SERVICES = {
-  'digital-strategy': digitalStrategyService,
-  'process-optimization': processOptimizationService,
-  'platform-implementation': platformImplementationService,
-  'system-integration': systemIntegrationService,
-  'cloud-migration': cloudMigrationService,
-  'managed-operations': managedOperationsService,
-  'support-services': supportService,
-  'custom-development': customDevelopmentService,
-  'ai-ml-services': aiMlService,
-  'security-compliance': securityComplianceService,
-  'staff-augmentation': staffAugmentationService,
+  // Development Services
+  'web-development': webDevelopmentService,
+  'cloud-technology': cloudTechnologyService,
+  'ecommerce': ecommerceService,
+  'cybersecurity': cybersecurityService,
+  'scripting-language': scriptingLanguageService,
+  'content-management-system': cmsService,
+  // SAP & AI
+  'sap-btp': sapBtpService,
+  's4-hana': s4HanaService,
+  'sap-rise': sapRiseService,
+  'sap-fiori': sapFioriService,
+  'sap-success-factors': sapSuccessFactorsService,
+  'ai-ml-solutions': aiMlSolutionsService,
+  'cybersecurity-compliance-framework': cybersecurityComplianceService,
+  // Risk & Compliance
+  'information-security-awareness-training': infoSecurityTrainingService,
+  'cloud-security-risk-governance': cloudSecurityGovernanceService,
+  'risk-management-services': riskManagementService,
+  'enterprise-risk-management': ermService,
+  'business-continuity-cyber-resilience': businessContinuityService,
+  'ai-governance-services': aiGovernanceService,
+  'regulatory-compliance-services': regulatoryComplianceService,
 } as const
 
 export type ServiceKey = keyof typeof SERVICES
 
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
-    id: 'consulting',
-    name: 'Consulting',
-    description: 'Strategic advisory and planning services',
-    services: ['digital-strategy', 'process-optimization', 'security-compliance'],
-  },
-  {
-    id: 'implementation',
-    name: 'Implementation',
-    description: 'Deployment and integration services',
-    services: ['platform-implementation', 'system-integration', 'cloud-migration'],
-  },
-  {
-    id: 'managed',
-    name: 'Managed Services',
-    description: 'Ongoing operations and support',
-    services: ['managed-operations', 'support-services', 'staff-augmentation'],
-  },
-  {
     id: 'development',
-    name: 'Development',
-    description: 'Custom software and AI solutions',
-    services: ['custom-development', 'ai-ml-services'],
+    name: 'Development Services',
+    description: 'Comprehensive web, cloud, and application development solutions',
+    services: [
+      'web-development',
+      'cloud-technology',
+      'ecommerce',
+      'cybersecurity',
+      'scripting-language',
+      'content-management-system',
+    ],
+  },
+  {
+    id: 'sap-ai',
+    name: 'SAP & AI',
+    description: 'SAP products, solutions, and artificial intelligence services',
+    services: [
+      'sap-btp',
+      's4-hana',
+      'sap-rise',
+      'sap-fiori',
+      'sap-success-factors',
+      'ai-ml-solutions',
+      'cybersecurity-compliance-framework',
+    ],
+  },
+  {
+    id: 'risk-compliance',
+    name: 'Risk & Compliance',
+    description: 'Risk management, security training, and regulatory compliance',
+    services: [
+      'information-security-awareness-training',
+      'cloud-security-risk-governance',
+      'risk-management-services',
+      'enterprise-risk-management',
+      'business-continuity-cyber-resilience',
+      'ai-governance-services',
+      'regulatory-compliance-services',
+    ],
   },
 ]
 
 // Featured services for homepage
 export const FEATURED_SERVICES: ServiceKey[] = [
-  'platform-implementation',
-  'digital-strategy',
-  'managed-operations',
-  'ai-ml-services',
+  's4-hana',
+  'ai-ml-solutions',
+  'web-development',
+  'cloud-technology',
 ]
 
 export const ALL_SERVICES = Object.values(SERVICES)

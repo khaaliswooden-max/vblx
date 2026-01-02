@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { ArrowRight, ArrowLeft, CheckCircle, Clock, Users } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { SERVICES, type ServiceKey } from '@/lib/servicesData'
-import { PLATFORMS } from '@/lib/utils'
 
 export default function ServiceDetailPage() {
   const params = useParams()
@@ -142,24 +141,22 @@ export default function ServiceDetailPage() {
                     </div>
                   </div>
                   
-                  <div>
-                    <div className="text-text-tertiary text-sm mb-1">Related Platforms</div>
-                    <div className="flex flex-wrap gap-2">
-                      {service.relatedPlatforms.map((platformKey) => {
-                        const platform = PLATFORMS[platformKey]
-                        return (
-                          <Link key={platformKey} href={platform.href}>
-                            <span 
-                              className="px-2 py-1 text-xs rounded cursor-pointer hover:opacity-80 transition-opacity"
-                              style={{ backgroundColor: `${platform.color}20`, color: platform.color }}
-                            >
-                              {platform.name}
-                            </span>
-                          </Link>
-                        )
-                      })}
+                  {service.technologies && service.technologies.length > 0 && (
+                    <div>
+                      <div className="text-text-tertiary text-sm mb-1">Technologies</div>
+                      <div className="flex flex-wrap gap-2">
+                        {service.technologies.slice(0, 5).map((tech, i) => (
+                          <span 
+                            key={i}
+                            className="px-2 py-1 text-xs rounded"
+                            style={{ backgroundColor: `${service.color}20`, color: service.color }}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <div className="border-t border-white/5 pt-4">
