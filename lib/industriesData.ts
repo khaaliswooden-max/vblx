@@ -22,8 +22,8 @@ export interface IndustryChallenge {
 }
 
 export interface IndustrySolution {
-  platform: 'austra' | 'aureon' | 'civium'
-  module: string
+  product: string
+  service?: string
   description: string
 }
 
@@ -58,7 +58,7 @@ export interface Industry {
   testimonial: IndustryTestimonial
   compliance: IndustryCompliance[]
   useCases: string[]
-  relatedPlatforms: ('austra' | 'aureon' | 'civium')[]
+  relatedProducts: string[]
 }
 
 // ============================================================================
@@ -93,23 +93,23 @@ export const federalIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'aureon',
-      module: 'Pro-Sales',
+      product: 'Pro-Sales',
+      service: 'AI & ML Solutions',
       description: 'Automated opportunity discovery across SAM.gov, GovWin, and agency-specific portals with FAR compliance checking.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Biz',
+      product: 'Pro-Biz',
+      service: 'Web Development',
       description: 'Proposal development automation with Section L/M compliance and past performance library management.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'PIV/CAC-integrated visitor management with watchlist screening and HSPD-12 compliance.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-People',
+      product: 'Pro-People',
+      service: 'SAP SuccessFactors',
       description: 'Workforce intelligence with clearance tracking, performance management, and OPM reporting.',
     },
   ],
@@ -120,7 +120,7 @@ export const federalIndustry: Industry = {
     { value: '80%', label: 'Faster Processing' },
   ],
   testimonial: {
-    quote: 'AUREON transformed our federal BD operations. We went from tracking opportunities in spreadsheets to a fully automated capture management system that helped us win our first $50M contract.',
+    quote: 'Pro-Sales and Pro-Biz transformed our federal BD operations. We went from tracking opportunities in spreadsheets to a fully automated capture management system that helped us win our first $50M contract.',
     author: 'Sarah Mitchell',
     title: 'VP of Federal Programs',
     organization: 'Defense Technology Solutions',
@@ -139,7 +139,7 @@ export const federalIndustry: Industry = {
     'Compliance documentation and audit trails',
     'Multi-agency operations coordination',
   ],
-  relatedPlatforms: ['aureon', 'civium', 'austra'],
+  relatedProducts: ['Pro-Sales', 'Pro-Biz', 'Pro-Visit', 'Pro-People'],
 }
 
 // ============================================================================
@@ -174,23 +174,23 @@ export const healthcareIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-People',
+      product: 'Pro-People',
+      service: 'SAP SuccessFactors',
       description: 'Healthcare workforce optimization with credential tracking, shift management, and burnout prediction.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'HIPAA-compliant visitor management with health screening, NDA collection, and patient matching.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Ticket',
+      product: 'Pro-Ticket',
+      service: 'Web Development',
       description: 'Clinical service request management with priority routing and compliance documentation.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Canteen',
+      product: 'Pro-Task',
+      service: 'Cloud Technology',
       description: 'Cafeteria and dietary services management for staff, patients, and visitors.',
     },
   ],
@@ -201,7 +201,7 @@ export const healthcareIndustry: Industry = {
     { value: '0', label: 'HIPAA Violations' },
   ],
   testimonial: {
-    quote: 'CIVIUM\'s visitor management system helped us achieve zero HIPAA findings in our last audit. The integration with Epic for patient matching was seamless.',
+    quote: 'Pro-Visit helped us achieve zero HIPAA findings in our last audit. The integration with Epic for patient matching was seamless.',
     author: 'Dr. Michael Chen',
     title: 'Chief Information Security Officer',
     organization: 'Regional Medical Center',
@@ -220,7 +220,7 @@ export const healthcareIndustry: Industry = {
     'Equipment maintenance tracking',
     'Clinical service request management',
   ],
-  relatedPlatforms: ['austra', 'civium'],
+  relatedProducts: ['Pro-People', 'Pro-Visit', 'Pro-Ticket', 'Pro-Task'],
 }
 
 // ============================================================================
@@ -255,23 +255,23 @@ export const fintechIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'Financial-grade visitor management with NDA workflows, restricted zone access, and audit logging.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Biz',
+      product: 'Pro-Biz',
+      service: 'Risk Management Services',
       description: 'Vendor procurement and RFP management with compliance scoring and risk assessment.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Assure',
+      product: 'Pro-Assure',
+      service: 'Regulatory Compliance Services',
       description: 'Asset and warranty management with SOX-compliant documentation and approval workflows.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Project',
+      product: 'Pro-Project',
+      service: 'Cloud Technology',
       description: 'IT project management with compliance checkpoints and resource allocation.',
     },
   ],
@@ -282,7 +282,7 @@ export const fintechIndustry: Industry = {
     { value: '$2M+', label: 'Annual Risk Mitigation' },
   ],
   testimonial: {
-    quote: 'The audit trail capabilities in CIVIUM made our last SOX examination the smoothest we\'ve ever had. Every visitor, every access event, completely documented.',
+    quote: 'The audit trail capabilities in Pro-Visit made our last SOX examination the smoothest we\'ve ever had. Every visitor, every access event, completely documented.',
     author: 'Jennifer Walsh',
     title: 'Chief Compliance Officer',
     organization: 'Atlantic Financial Group',
@@ -301,7 +301,7 @@ export const fintechIndustry: Industry = {
     'Regulatory examination preparation',
     'Third-party risk monitoring',
   ],
-  relatedPlatforms: ['civium', 'aureon', 'austra'],
+  relatedProducts: ['Pro-Visit', 'Pro-Biz', 'Pro-Assure', 'Pro-Project'],
 }
 
 // ============================================================================
@@ -336,23 +336,23 @@ export const manufacturingIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-Project',
+      product: 'Pro-Project',
+      service: 'SAP BTP',
       description: 'Multi-site project management with resource allocation and operational analytics.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Assure',
+      product: 'Pro-Assure',
+      service: 'Risk Management Services',
       description: 'Equipment warranty tracking and automated claim processing across all facilities.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'Contractor management with safety training verification and site access control.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Sales',
+      product: 'Pro-Sales',
+      service: 'ECommerce',
       description: 'Supply chain vendor management and procurement optimization.',
     },
   ],
@@ -363,7 +363,7 @@ export const manufacturingIndustry: Industry = {
     { value: '12+', label: 'Sites Unified' },
   ],
   testimonial: {
-    quote: 'AUSTRA gave us the operational visibility we never had across our 12 manufacturing sites. We standardized best practices and reduced unplanned downtime by 45%.',
+    quote: 'Pro-Project gave us the operational visibility we never had across our 12 manufacturing sites. We standardized best practices and reduced unplanned downtime by 45%.',
     author: 'Robert Torres',
     title: 'VP of Operations',
     organization: 'Precision Manufacturing Inc.',
@@ -382,7 +382,7 @@ export const manufacturingIndustry: Industry = {
     'Warranty and asset lifecycle management',
     'Supply chain procurement',
   ],
-  relatedPlatforms: ['austra', 'civium', 'aureon'],
+  relatedProducts: ['Pro-Project', 'Pro-Assure', 'Pro-Visit', 'Pro-Sales'],
 }
 
 // ============================================================================
@@ -417,23 +417,23 @@ export const defenseIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-People',
+      product: 'Pro-People',
+      service: 'SAP SuccessFactors',
       description: 'Cleared workforce management with SF-86 tracking and polygraph scheduling.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Sales',
+      product: 'Pro-Sales',
+      service: 'AI & ML Solutions',
       description: 'Defense opportunity intelligence with DPAS rating tracking and set-aside analysis.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'SCIF-grade visitor management with escort tracking and access logging.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Biz',
+      product: 'Pro-Biz',
+      service: 'Web Development',
       description: 'Proposal management with DD254 compliance and technical volume automation.',
     },
   ],
@@ -444,7 +444,7 @@ export const defenseIndustry: Industry = {
     { value: '$45M+', label: 'Contract Wins' },
   ],
   testimonial: {
-    quote: 'Managing clearances across 500+ employees used to be a nightmare. AUSTRA\'s Pro-People module gives us complete visibility and proactive reinvestigation alerts.',
+    quote: 'Managing clearances across 500+ employees used to be a nightmare. Pro-People gives us complete visibility and proactive reinvestigation alerts.',
     author: 'Col. James Patterson (Ret.)',
     title: 'Director of Security',
     organization: 'Apex Defense Systems',
@@ -463,7 +463,7 @@ export const defenseIndustry: Industry = {
     'CMMC compliance preparation',
     'Supply chain security',
   ],
-  relatedPlatforms: ['austra', 'aureon', 'civium'],
+  relatedProducts: ['Pro-People', 'Pro-Sales', 'Pro-Visit', 'Pro-Biz'],
 }
 
 export const educationIndustry: Industry = {
@@ -494,23 +494,23 @@ export const educationIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-School',
+      product: 'Pro-Pupil',
+      service: 'Web Development',
       description: 'Campus operations management with space scheduling and utilization analytics.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Parking',
+      product: 'Pro-Task',
+      service: 'Cloud Technology',
       description: 'Parking and transportation management for students, faculty, and visitors.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'Campus visitor management with event registration and building access.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Canteen',
+      product: 'Pro-Project',
+      service: 'SAP BTP',
       description: 'Dining services optimization across campus food service locations.',
     },
   ],
@@ -521,7 +521,7 @@ export const educationIndustry: Industry = {
     { value: '50+', label: 'Buildings Managed' },
   ],
   testimonial: {
-    quote: 'AUSTRA helped us identify 30% underutilized classroom space and reduce our energy consumption by 22%. The ROI was evident within the first semester.',
+    quote: 'Pro-Pupil helped us identify 30% underutilized classroom space and reduce our energy consumption by 22%. The ROI was evident within the first semester.',
     author: 'Dr. Patricia Williams',
     title: 'VP of Campus Operations',
     organization: 'State University System',
@@ -540,7 +540,7 @@ export const educationIndustry: Industry = {
     'Dining services management',
     'Research compliance tracking',
   ],
-  relatedPlatforms: ['austra', 'civium'],
+  relatedProducts: ['Pro-Pupil', 'Pro-Task', 'Pro-Visit', 'Pro-Project'],
 }
 
 export const technologyIndustry: Industry = {
@@ -571,23 +571,23 @@ export const technologyIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-People',
+      product: 'Pro-People',
+      service: 'SAP SuccessFactors',
       description: 'Workforce analytics for hybrid teams with capacity planning and engagement tracking.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Project',
+      product: 'Pro-Project',
+      service: 'Web Development',
       description: 'Agile project management with resource allocation and delivery analytics.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Ticket',
+      product: 'Pro-Ticket',
+      service: 'Cloud Technology',
       description: 'IT service management with SLA tracking and automated escalations.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Biz',
+      product: 'Pro-Biz',
+      service: 'AI & ML Solutions',
       description: 'Vendor procurement and contract management for SaaS and service providers.',
     },
   ],
@@ -598,7 +598,7 @@ export const technologyIndustry: Industry = {
     { value: '25%', label: 'Real Estate Optimization' },
   ],
   testimonial: {
-    quote: 'As we scaled from 200 to 2,000 employees, AUSTRA scaled with us. The operational visibility helped us make data-driven decisions about office space and team structure.',
+    quote: 'As we scaled from 200 to 2,000 employees, Pro-People and Pro-Project scaled with us. The operational visibility helped us make data-driven decisions about office space and team structure.',
     author: 'Amanda Foster',
     title: 'Chief Operating Officer',
     organization: 'TechScale Ventures',
@@ -617,7 +617,7 @@ export const technologyIndustry: Industry = {
     'Vendor and SaaS management',
     'Rapid onboarding at scale',
   ],
-  relatedPlatforms: ['austra', 'civium', 'aureon'],
+  relatedProducts: ['Pro-People', 'Pro-Project', 'Pro-Ticket', 'Pro-Biz'],
 }
 
 // ============================================================================
@@ -652,23 +652,23 @@ export const governmentIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'civium',
-      module: 'Pro-Visit',
+      product: 'Pro-Visit',
+      service: 'Cybersecurity',
       description: 'Citizen appointment scheduling and government facility visitor management.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Claims',
+      product: 'Pro-Ticket',
+      service: 'Web Development',
       description: 'Benefits and claims management with workflow automation and compliance tracking.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-People',
+      product: 'Pro-People',
+      service: 'SAP SuccessFactors',
       description: 'Government workforce management and employee scheduling optimization.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Portal',
+      product: 'DocSnip',
+      service: 'AI & ML Solutions',
       description: 'Citizen self-service portals with secure document submission and status tracking.',
     },
   ],
@@ -698,7 +698,7 @@ export const governmentIndustry: Industry = {
     'Benefits administration',
     'Government workforce optimization',
   ],
-  relatedPlatforms: ['civium', 'austra'],
+  relatedProducts: ['Pro-Visit', 'Pro-Ticket', 'Pro-People', 'DocSnip'],
 }
 
 // ============================================================================
@@ -733,23 +733,23 @@ export const retailIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-Portal',
+      product: 'Pro-People',
+      service: 'Web Development',
       description: 'Employee portals with time management, sales tracking, and operational tools.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Data',
+      product: 'Pro-Biz',
+      service: 'AI & ML Solutions',
       description: 'Enterprise data warehousing and analytics for multi-location insights.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Retail',
+      product: 'Pro-Task',
+      service: 'Cloud Technology',
       description: 'Mobile merchandising solutions with offline capability and store-level optimization.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Admin',
+      product: 'Pro-Ticket',
+      service: 'ECommerce',
       description: 'Store administration panels for order management and operations.',
     },
   ],
@@ -779,7 +779,7 @@ export const retailIndustry: Industry = {
     'Multi-location analytics',
     'Restaurant operations management',
   ],
-  relatedPlatforms: ['austra', 'civium'],
+  relatedProducts: ['Pro-People', 'Pro-Biz', 'Pro-Task', 'Pro-Ticket'],
 }
 
 // ============================================================================
@@ -814,23 +814,23 @@ export const aviationIndustry: Industry = {
   ],
   solutions: [
     {
-      platform: 'austra',
-      module: 'Pro-Analytics',
+      product: 'Pro-Biz',
+      service: 'AI & ML Solutions',
       description: 'FAA-certified data pipelines for flight operations analytics.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Data',
+      product: 'DocSnip',
+      service: 'Cloud Technology',
       description: 'Real-time flight data processing and route optimization.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Compliance',
+      product: 'Pro-Assure',
+      service: 'Regulatory Compliance Services',
       description: 'Aviation regulatory compliance documentation and tracking.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Portal',
+      product: 'Pro-Project',
+      service: 'Web Development',
       description: 'Operational dashboards for flight operations centers.',
     },
   ],
@@ -860,7 +860,7 @@ export const aviationIndustry: Industry = {
     'Pilot and crew scheduling',
     'Maintenance scheduling',
   ],
-  relatedPlatforms: ['austra', 'civium'],
+  relatedProducts: ['Pro-Biz', 'DocSnip', 'Pro-Assure', 'Pro-Project'],
 }
 
 // ============================================================================
@@ -895,23 +895,23 @@ export const crossIndustryCategory: Industry = {
   ],
   solutions: [
     {
-      platform: 'civium',
-      module: 'Pro-Security',
+      product: 'Pro-Assure',
+      service: 'Cybersecurity',
       description: 'HITRUST, ISO 27001, and multi-framework security assessments.',
     },
     {
-      platform: 'civium',
-      module: 'Pro-Compliance',
+      product: 'Pro-Ticket',
+      service: 'Regulatory Compliance Services',
       description: 'Compliance management with gap analysis and remediation tracking.',
     },
     {
-      platform: 'aureon',
-      module: 'Pro-Risk',
+      product: 'Pro-Biz',
+      service: 'Risk Management Services',
       description: 'Third-party vendor risk management and continuous monitoring.',
     },
     {
-      platform: 'austra',
-      module: 'Pro-Training',
+      product: 'Pro-People',
+      service: 'Information Security Awareness & Training',
       description: 'Security awareness training and compliance education programs.',
     },
   ],
@@ -941,7 +941,7 @@ export const crossIndustryCategory: Industry = {
     'Security awareness training',
     'Compliance gap analysis',
   ],
-  relatedPlatforms: ['civium', 'aureon', 'austra'],
+  relatedProducts: ['Pro-Assure', 'Pro-Ticket', 'Pro-Biz', 'Pro-People'],
 }
 
 // ============================================================================

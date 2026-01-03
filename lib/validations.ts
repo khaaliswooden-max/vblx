@@ -21,8 +21,8 @@ export const commercialFormSchema = z.object({
   website: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
   
   // Interest
-  platform: z.enum(['austra', 'aureon', 'civium', 'multiple', 'unsure'], {
-    required_error: 'Please select a platform of interest',
+  productInterest: z.enum(['pro-sales', 'pro-biz', 'pro-people', 'pro-visit', 'pro-ticket', 'multiple', 'unsure'], {
+    required_error: 'Please select a product of interest',
   }),
   useCase: z.string().min(10, 'Please describe your use case (minimum 10 characters)'),
   timeline: z.enum(['immediate', '1-3months', '3-6months', '6-12months', 'exploring'], {
@@ -66,8 +66,8 @@ export const federalFormSchema = z.object({
   setAsidePreference: z.enum(['none', 'small-business', '8a', 'hubzone', 'sdvosb', 'wosb', 'other']).optional(),
   
   // Project Details
-  platform: z.enum(['austra', 'aureon', 'civium', 'multiple', 'unsure'], {
-    required_error: 'Please select a platform of interest',
+  productInterest: z.enum(['pro-sales', 'pro-biz', 'pro-people', 'pro-visit', 'pro-ticket', 'multiple', 'unsure'], {
+    required_error: 'Please select a product of interest',
   }),
   projectDescription: z.string().min(20, 'Please provide a project description (minimum 20 characters)'),
   complianceRequirements: z.array(z.string()).optional(),
@@ -114,11 +114,13 @@ export const COMPANY_SIZE_OPTIONS = [
   { value: '1000+', label: '1,000+ employees' },
 ]
 
-export const PLATFORM_OPTIONS = [
-  { value: 'austra', label: 'AUSTRA — Operational Intelligence' },
-  { value: 'aureon', label: 'AUREON — Procurement Substrate' },
-  { value: 'civium', label: 'CIVIUM — Compliance Engine' },
-  { value: 'multiple', label: 'Multiple Platforms' },
+export const PRODUCT_OPTIONS = [
+  { value: 'pro-sales', label: 'Pro-Sales — CRM Excellence' },
+  { value: 'pro-biz', label: 'Pro-Biz — Business Intelligence' },
+  { value: 'pro-people', label: 'Pro-People — Workforce Management' },
+  { value: 'pro-visit', label: 'Pro-Visit — Visitor Management' },
+  { value: 'pro-ticket', label: 'Pro-Ticket — Service Management' },
+  { value: 'multiple', label: 'Multiple Products' },
   { value: 'unsure', label: 'Not sure yet' },
 ]
 

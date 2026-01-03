@@ -1,6 +1,0 @@
-export { default as CapabilitiesSection } from './CapabilitiesSection'
-export { default as ArchitectureSection } from './ArchitectureSection'
-export { default as MetricsSection } from './MetricsSection'
-export { default as UseCasesSection } from './UseCasesSection'
-export { default as IntegrationsSection } from './IntegrationsSection'
-export { default as FAQSection } from './FAQSection'

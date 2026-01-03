@@ -14,7 +14,7 @@ import {
   type CommercialFormData,
   INDUSTRY_OPTIONS,
   COMPANY_SIZE_OPTIONS,
-  PLATFORM_OPTIONS,
+  PRODUCT_OPTIONS,
   TIMELINE_OPTIONS,
   BUDGET_OPTIONS,
 } from '@/lib/validations'
@@ -45,7 +45,7 @@ export default function CommercialContactPage() {
     const stepFields: Record<FormStep, (keyof CommercialFormData)[]> = {
       1: ['firstName', 'lastName', 'email', 'phone', 'jobTitle'],
       2: ['companyName', 'companySize', 'industry', 'website'],
-      3: ['platform', 'useCase', 'timeline'],
+      3: ['productInterest', 'useCase', 'timeline'],
     }
 
     const fieldsToValidate = stepFields[currentStep]
@@ -174,7 +174,7 @@ export default function CommercialContactPage() {
             </h1>
             <p className="text-xl text-text-secondary">
               Tell us about your organization and operational challenges.
-              We&apos;ll show you how our platforms can help.
+              We&apos;ll show you how our products and services can help.
             </p>
           </div>
         </div>
@@ -339,13 +339,13 @@ export default function CommercialContactPage() {
                   </p>
 
                   <Select
-                    label="Platform of Interest"
+                    label="Product of Interest"
                     required
-                    options={PLATFORM_OPTIONS}
-                    placeholder="Select platform..."
-                    value={formData.platform || ''}
-                    onChange={(e) => updateField('platform', e.target.value as CommercialFormData['platform'])}
-                    error={errors.platform}
+                    options={PRODUCT_OPTIONS}
+                    placeholder="Select product..."
+                    value={formData.productInterest || ''}
+                    onChange={(e) => updateField('productInterest', e.target.value as CommercialFormData['productInterest'])}
+                    error={errors.productInterest}
                   />
 
                   <Textarea

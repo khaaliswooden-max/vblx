@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       name: `${data.firstName} ${data.lastName}`,
       email: data.email,
       company: data.companyName,
-      platform: data.platform,
+      productInterest: data.productInterest,
       timestamp: new Date().toISOString(),
     })
 

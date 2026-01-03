@@ -27,6 +27,32 @@ export type IndustryId =
   | 'aviation'
   | 'cross-industry'
 
+export type ServiceCategory = 'operations' | 'procurement' | 'compliance'
+
+export interface ServiceCategoryInfo {
+  name: string
+  color: string
+  description: string
+}
+
+export const SERVICE_CATEGORIES: Record<ServiceCategory, ServiceCategoryInfo> = {
+  operations: {
+    name: 'Operations & Analytics',
+    color: '#3182CE',
+    description: 'Workforce intelligence, portal development, data analytics, and operational optimization',
+  },
+  procurement: {
+    name: 'Procurement & Sales',
+    color: '#6B46C1',
+    description: 'CRM, business intelligence, proposal automation, and procurement solutions',
+  },
+  compliance: {
+    name: 'Compliance & Security',
+    color: '#38B2AC',
+    description: 'Security assessments, compliance frameworks, visitor management, and risk management',
+  },
+}
+
 export interface CaseStudy {
   id: string
   title: string
@@ -34,8 +60,8 @@ export interface CaseStudy {
   client: string
   industry: string
   industryId: IndustryId
-  platform: 'austra' | 'aureon' | 'civium'
-  modules: string[]
+  serviceCategory: ServiceCategory
+  products: string[]
   heroImage: string
   summary: string
   challenge: string
@@ -69,8 +95,8 @@ export const kaiserVCareCase: CaseStudy = {
   client: 'Kaiser Permanente',
   industry: 'Healthcare',
   industryId: 'healthcare',
-  platform: 'austra',
-  modules: ['Pro-Portal', 'Pro-Integration'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-Integration'],
   heroImage: '/images/case-studies/kaiser-portal.jpg',
   summary: 'Deployed a secure patient portal serving 100,000+ daily users with Epic EMR integration, achieving 99.8% uptime SLA and transforming how patients access healthcare services.',
   challenge: 'Kaiser Permanente needed a modern, secure patient portal capable of handling massive daily traffic while maintaining seamless integration with their Epic EMR system. The existing solution struggled with performance during peak hours and lacked mobile optimization.',
@@ -138,8 +164,8 @@ export const caDhcsMedicaidCase: CaseStudy = {
   client: 'California Department of Health Care Services',
   industry: 'Healthcare',
   industryId: 'healthcare',
-  platform: 'austra',
-  modules: ['Pro-AI', 'Pro-Documents'],
+  serviceCategory: 'operations',
+  products: ['DocSnip', 'Pro-Biz'],
   heroImage: '/images/case-studies/dhcs-medicaid.jpg',
   summary: 'Implemented an AI-powered OCR system for Medicaid document processing that achieved 96% accuracy and reduced labor costs by 60%, transforming how California processes healthcare claims.',
   challenge: 'CA DHCS was overwhelmed with manual document processing for Medicaid claims. The paper-intensive process resulted in delays, errors, and unsustainable labor costs as claim volumes continued to grow.',
@@ -205,8 +231,8 @@ export const metaSapCase: CaseStudy = {
   client: 'Meta Platforms',
   industry: 'Technology',
   industryId: 'technology',
-  platform: 'austra',
-  modules: ['Pro-Analytics', 'Pro-Integration'],
+  serviceCategory: 'operations',
+  products: ['Pro-Biz', 'Pro-Integration'],
   heroImage: '/images/case-studies/meta-sap.jpg',
   summary: 'Led S/4HANA cloud migration delivering predictive analytics with 30% accuracy improvement, transforming Meta\'s enterprise data capabilities across global operations.',
   challenge: 'Meta Platforms required migration of their legacy SAP systems to S/4HANA cloud while enhancing their predictive analytics capabilities. The existing on-premise infrastructure limited scalability and real-time insights.',
@@ -272,8 +298,8 @@ export const basfSapCase: CaseStudy = {
   client: 'BASF Catalyst',
   industry: 'Manufacturing',
   industryId: 'manufacturing',
-  platform: 'austra',
-  modules: ['Pro-Integration', 'Pro-ERP'],
+  serviceCategory: 'operations',
+  products: ['Pro-Integration', 'Pro-People'],
   heroImage: '/images/case-studies/basf-sap.jpg',
   summary: 'Migrated solutions from SAP PO 7.5 to SAP BTP Cloud Integration, implementing employee master data replication and payroll processing across Germany, China, India, and global operations.',
   challenge: 'BASF needed to modernize their SAP integration landscape, migrating from legacy PO 7.5 to cloud-native BTP while maintaining complex B2B integrations with Elemica and global payroll operations across multiple countries.',
@@ -336,8 +362,8 @@ export const strakeAviationCase: CaseStudy = {
   client: 'Strake Aviation',
   industry: 'Aviation',
   industryId: 'aviation',
-  platform: 'austra',
-  modules: ['Pro-Analytics', 'Pro-Data'],
+  serviceCategory: 'operations',
+  products: ['Pro-Biz', 'DocSnip'],
   heroImage: '/images/case-studies/strake-aviation.jpg',
   summary: 'Developed an FAA-certified data pipeline delivering 40% faster route optimization with real-time analytics dashboard, transforming flight operations intelligence.',
   challenge: 'Strake Aviation needed an FAA-certified system for real-time flight data processing and route optimization. Legacy systems couldn\'t handle the volume of data required for modern aviation intelligence.',
@@ -400,8 +426,8 @@ export const vcareUrgentCareCase: CaseStudy = {
   client: 'VCare Urgent Care Network',
   industry: 'Healthcare',
   industryId: 'healthcare',
-  platform: 'austra',
-  modules: ['Pro-Portal', 'Pro-Integration'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-Integration'],
   heroImage: '/images/case-studies/vcare-urgent.jpg',
   summary: 'Built a comprehensive patient portal with microservices architecture integrating EMR systems to manage patient demographics, appointments, health records, insurance, and lab reports across urgent care facilities.',
   challenge: 'VCare Urgent Care needed a unified platform to manage patient information across multiple facilities while integrating with various EMR systems. The existing fragmented systems created data silos and poor patient experience.',
@@ -465,8 +491,8 @@ export const sapLabsProcurementCase: CaseStudy = {
   client: 'SAP Labs - Procurement Division',
   industry: 'Technology',
   industryId: 'technology',
-  platform: 'aureon',
-  modules: ['Pro-Biz', 'Pro-Integration'],
+  serviceCategory: 'procurement',
+  products: ['Pro-Biz', 'Pro-Sales'],
   heroImage: '/images/case-studies/sap-procurement.jpg',
   summary: 'Developed S/4 HANA Gateway Services for integration, supporting Accounts Payable operations with automated invoice and PDF document sharing across systems including BrightFlag and American Express.',
   challenge: 'SAP Labs procurement needed seamless invoice processing across multiple vendor systems including BrightFlag and American Express, with secure document handling and automated validation workflows.',
@@ -530,8 +556,8 @@ export const agfirstLoanCase: CaseStudy = {
   client: 'AgFirst Farm Credit Bank',
   industry: 'Financial Services',
   industryId: 'fintech',
-  platform: 'aureon',
-  modules: ['Pro-Biz', 'Pro-Finance'],
+  serviceCategory: 'procurement',
+  products: ['Pro-Biz', 'Pro-Sales'],
   heroImage: '/images/case-studies/agfirst-loan.jpg',
   summary: 'Modernized the loan origination system with microservices architecture, implementing rate/fee calculation engines, document generation, and ACH cash management for agricultural lending.',
   challenge: 'AgFirst needed to modernize their legacy loan origination system to support modern agricultural lending requirements, including configurable rate sheets, automated document generation, and compliance with farm credit regulations.',
@@ -595,8 +621,8 @@ export const voyaPortalCase: CaseStudy = {
   client: 'Voya Financial',
   industry: 'Financial Services',
   industryId: 'fintech',
-  platform: 'austra',
-  modules: ['Pro-Portal', 'Pro-Analytics'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-Biz'],
   heroImage: '/images/case-studies/voya-portal.jpg',
   summary: 'Led migration of B2B sites to WebSphere v8.5 and developed Single Page Application using Aurelia for Message Center, providing real-time revenue projections and enhanced financial forecasting.',
   challenge: 'Voya Financial\'s legacy WebSphere portal infrastructure needed modernization while maintaining complex B2B integrations and financial reporting capabilities.',
@@ -656,8 +682,8 @@ export const dcDoesCase: CaseStudy = {
   client: 'DC Department of Employment Services',
   industry: 'Government',
   industryId: 'government',
-  platform: 'civium',
-  modules: ['Pro-Visit', 'Pro-People'],
+  serviceCategory: 'compliance',
+  products: ['Pro-Visit', 'Pro-People'],
   heroImage: '/images/case-studies/dc-does.jpg',
   summary: 'Developed Youth Portal, Employer Portal, and Admin Portal for the Mayor Marion S. Barry Summer Youth Employment Program, enabling subsidized job placements for 14-24 year olds across DC.',
   challenge: 'DC DOES needed a comprehensive system to manage the Summer Youth Employment Program connecting District youth ages 14-24 with subsidized employment opportunities in private and government sectors.',
@@ -721,8 +747,8 @@ export const dcOwcCase: CaseStudy = {
   client: 'DC Department of Employment Services',
   industry: 'Government',
   industryId: 'government',
-  platform: 'civium',
-  modules: ['Pro-Claims', 'Pro-Workflow'],
+  serviceCategory: 'compliance',
+  products: ['Pro-Ticket', 'Pro-Task'],
   heroImage: '/images/case-studies/dc-owc.jpg',
   summary: 'Built comprehensive workers\' compensation claims management system handling claim filing, mediation conferences, compensation orders, settlement agreements, and wage loss payments.',
   challenge: 'DC Office of Workers\' Compensation needed a modern system to manage the complete lifecycle of workers\' compensation claims, from filing through settlement, while ensuring compliance with DC regulations.',
@@ -785,8 +811,8 @@ export const porchGroupCase: CaseStudy = {
   client: 'Porch Group Media',
   industry: 'Technology',
   industryId: 'technology',
-  platform: 'austra',
-  modules: ['Pro-Data', 'Pro-Analytics'],
+  serviceCategory: 'operations',
+  products: ['Pro-Biz', 'DocSnip'],
   heroImage: '/images/case-studies/porch-data.jpg',
   summary: 'Led enterprise architecture implementation for data products spanning Consumer, eMail, and Auto verticals, including machine learning models for targeted campaigns and NLP trend analysis.',
   challenge: 'Porch Group Media needed a unified enterprise architecture to manage data products across multiple verticals while enabling advanced analytics and machine learning capabilities for targeted marketing campaigns.',
@@ -844,8 +870,8 @@ export const homeDepotCase: CaseStudy = {
   client: 'Home Depot Supply',
   industry: 'Retail',
   industryId: 'retail',
-  platform: 'austra',
-  modules: ['Pro-Data', 'Pro-Analytics'],
+  serviceCategory: 'operations',
+  products: ['Pro-Biz', 'Pro-Portal'],
   heroImage: '/images/case-studies/hd-warehouse.jpg',
   summary: 'Implemented enterprise architecture for various Home Depot Supply lines of business, including DataMart development, sales dashboards, and automated job scheduling.',
   challenge: 'Home Depot Supply needed unified enterprise architecture across multiple lines of business with consistent data warehousing, reporting dashboards, and automated scheduling capabilities.',
@@ -907,8 +933,8 @@ export const globalHealthcareHitrustCase: CaseStudy = {
   client: 'Global Healthcare Organization',
   industry: 'Healthcare',
   industryId: 'healthcare',
-  platform: 'civium',
-  modules: ['Pro-Security', 'Pro-Compliance'],
+  serviceCategory: 'compliance',
+  products: ['Pro-Assure', 'Pro-Visit'],
   heroImage: '/images/case-studies/hitrust.jpg',
   summary: 'Conducted comprehensive third-party security assessments based on HITRUST framework, managing end-to-end vendor risk globally including acquired organizations.',
   challenge: 'A global healthcare organization needed comprehensive third-party vendor risk management across their global operations, including newly acquired entities, while maintaining HITRUST compliance.',
@@ -969,8 +995,8 @@ export const iso27001Case: CaseStudy = {
   client: 'Multiple Global Clients',
   industry: 'Cross-Industry',
   industryId: 'cross-industry',
-  platform: 'civium',
-  modules: ['Pro-Security', 'Pro-Compliance'],
+  serviceCategory: 'compliance',
+  products: ['Pro-Assure', 'Pro-Ticket'],
   heroImage: '/images/case-studies/iso27001.jpg',
   summary: 'Implemented and managed ISO27001 projects for various global clients, conducted certification audits across Europe and US, delivering certifications and comprehensive security consulting.',
   challenge: 'Multiple global clients required ISO 27001 certification with varying scopes including ISO 27017, ISO 27018, ISO 22301, and ISO 9001, requiring coordinated audit and implementation programs.',
@@ -1029,8 +1055,8 @@ export const lowesEmployeeCase: CaseStudy = {
   client: 'Lowe\'s Home Improvement',
   industry: 'Retail',
   industryId: 'retail',
-  platform: 'austra',
-  modules: ['Pro-Portal', 'Pro-Integration'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-People'],
   heroImage: '/images/case-studies/lowes-portal.jpg',
   summary: 'Developed portlets for the iWE Employee Portal on WebSphere enhancing time management, sales tracking, and operational efficiency with integrated Siebel, Sterling Commerce, and Outlook.',
   challenge: 'Lowe\'s needed an integrated employee portal combining time management, sales tracking, and operational tools while maintaining connections to their Siebel CRM, Sterling Commerce, and Microsoft Outlook systems.',
@@ -1088,8 +1114,8 @@ export const tescoProductCase: CaseStudy = {
   client: 'TESCO UK',
   industry: 'Retail',
   industryId: 'retail',
-  platform: 'austra',
-  modules: ['Pro-Retail', 'Pro-Mobile'],
+  serviceCategory: 'operations',
+  products: ['Pro-Task', 'Pro-Project'],
   heroImage: '/images/case-studies/tesco-mapping.jpg',
   summary: 'Developed mobile product mapping system for in-store merchandising, capturing product locations and display sequences as the final step in store merchandising routines.',
   challenge: 'TESCO needed a mobile solution for store-level product mapping to capture product locations and display sequences, enabling efficient merchandising across their UK retail network.',
@@ -1149,8 +1175,8 @@ export const hcpssEducationCase: CaseStudy = {
   client: 'Howard County Public School System',
   industry: 'Education',
   industryId: 'education',
-  platform: 'austra',
-  modules: ['Pro-Cloud', 'Pro-Portal'],
+  serviceCategory: 'operations',
+  products: ['Pro-Pupil', 'Pro-Portal'],
   heroImage: '/images/case-studies/hcpss.jpg',
   summary: 'Modernizing Synergy and TVUE Portal with AWS services integration, converting legacy SSIS packages to .NET Core functions, and implementing secure document management.',
   challenge: 'HCPSS needed to modernize their educational platforms including Synergy student information system, migrating to cloud-native architecture while maintaining data security and compliance requirements.',
@@ -1211,8 +1237,8 @@ export const cignaRebateCase: CaseStudy = {
   client: 'CIGNA',
   industry: 'Healthcare',
   industryId: 'healthcare',
-  platform: 'austra',
-  modules: ['Pro-Data', 'Pro-Claims'],
+  serviceCategory: 'operations',
+  products: ['Pro-Biz', 'Pro-Ticket'],
   heroImage: '/images/case-studies/cigna-rebate.jpg',
   summary: 'Designed and built cross-functional solutions processing millions of medical claims daily using AWS services including Batch, Lambda, Fargate, and EMR with Apache Spark.',
   challenge: 'CIGNA needed a scalable platform to process manufacturer rebate sharing across millions of daily medical claims, requiring complex calculations and cross-functional coordination.',
@@ -1273,8 +1299,8 @@ export const nylMobileCase: CaseStudy = {
   client: 'New York Life',
   industry: 'Financial Services',
   industryId: 'fintech',
-  platform: 'austra',
-  modules: ['Pro-Mobile', 'Pro-Payments'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-Sales'],
   heroImage: '/images/case-studies/nyl-mobile.jpg',
   summary: 'Designed, developed, and deployed highly available Spring Boot APIs powering payment features on mobile platforms with Google Firebase for personalized notifications.',
   challenge: 'New York Life needed secure, highly available APIs for mobile payment features with personalized notification capabilities to improve customer payment experience.',
@@ -1335,8 +1361,8 @@ export const lineageConnectCase: CaseStudy = {
   client: 'Lineage Connect',
   industry: 'Technology',
   industryId: 'technology',
-  platform: 'austra',
-  modules: ['Pro-Portal', 'Pro-Admin'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-Task'],
   heroImage: '/images/case-studies/lineage.jpg',
   summary: 'Developed comprehensive admin panel using React with Redux Toolkit and Nest.js backend with MySQL, delivering full-stack enterprise solution.',
   challenge: 'Lineage Connect needed a comprehensive admin panel for managing their platform with modern architecture and robust state management.',
@@ -1397,8 +1423,8 @@ export const americanaRestaurantsCase: CaseStudy = {
   client: 'Americana Restaurants',
   industry: 'Retail',
   industryId: 'retail',
-  platform: 'austra',
-  modules: ['Pro-Retail', 'Pro-Admin'],
+  serviceCategory: 'operations',
+  products: ['Pro-Portal', 'Pro-Task'],
   heroImage: '/images/case-studies/americana.jpg',
   summary: 'Developed Store Admin Panel for restaurant order management and Zone Controller Admin Panel for driver tracking using React with Redux Toolkit and Recharts.',
   challenge: 'Americana Restaurants needed management panels for store operations and zone controller functions including order management and driver tracking.',
@@ -1516,8 +1542,8 @@ export function getCaseStudiesByIndustry(industryId: string): CaseStudy[] {
   return CASE_STUDIES.filter(cs => cs.industryId === industryId)
 }
 
-export function getCaseStudiesByPlatform(platform: 'austra' | 'aureon' | 'civium'): CaseStudy[] {
-  return CASE_STUDIES.filter(cs => cs.platform === platform)
+export function getCaseStudiesByServiceCategory(category: ServiceCategory): CaseStudy[] {
+  return CASE_STUDIES.filter(cs => cs.serviceCategory === category)
 }
 
 export function getCaseStudiesByTechnology(technology: string): CaseStudy[] {
@@ -1536,8 +1562,8 @@ export function getRelatedCaseStudies(currentId: string, limit: number = 3): Cas
     if (related.length >= limit) return related.slice(0, limit)
   }
   
-  // Fall back to same platform or industry
+  // Fall back to same service category or industry
   return CASE_STUDIES
-    .filter(cs => cs.id !== currentId && (cs.platform === current.platform || cs.industryId === current.industryId))
+    .filter(cs => cs.id !== currentId && (cs.serviceCategory === current.serviceCategory || cs.industryId === current.industryId))
     .slice(0, limit)
 }

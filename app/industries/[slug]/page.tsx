@@ -6,8 +6,8 @@ import Link from 'next/link'
 import { ArrowRight, ArrowLeft, CheckCircle, Shield, Quote } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { INDUSTRIES, type IndustryKey } from '@/lib/industriesData'
-import { getCaseStudiesByIndustry } from '@/lib/caseStudiesData'
-import { PLATFORMS } from '@/lib/utils'
+import { getCaseStudiesByIndustry, SERVICE_CATEGORIES } from '@/lib/caseStudiesData'
+import { PRODUCTS } from '@/lib/utils'
 
 export default function IndustryDetailPage() {
   const params = useParams()
@@ -191,7 +191,7 @@ export default function IndustryDetailPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {industry.solutions.map((solution, index) => {
-              const platform = PLATFORMS[solution.platform]
+              const product = PRODUCTS[solution.product as keyof typeof PRODUCTS]
               
               return (
                 <motion.div
@@ -205,25 +205,29 @@ export default function IndustryDetailPage() {
                   <div className="flex items-start gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: `${platform.color}20` }}
+                      style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620' }}
                     >
                       <span 
                         className="font-display font-bold"
-                        style={{ color: platform.color }}
+                        style={{ color: product?.color || '#3B82F6' }}
                       >
-                        {platform.name[0]}
+                        {product?.name?.[0] || 'P'}
                       </span>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <span 
                           className="text-xs font-mono px-2 py-0.5 rounded"
-                          style={{ backgroundColor: `${platform.color}20`, color: platform.color }}
+                          style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620', color: product?.color || '#3B82F6' }}
                         >
-                          {platform.name}
+                          {solution.product}
                         </span>
-                        <span className="text-text-tertiary text-sm">•</span>
-                        <span className="text-text-tertiary text-sm">{solution.module}</span>
+                        {solution.service && (
+                          <>
+                            <span className="text-text-tertiary text-sm">•</span>
+                            <span className="text-text-tertiary text-sm">{solution.service}</span>
+                          </>
+                        )}
                       </div>
                       <p className="text-text-secondary text-sm">
                         {solution.description}
@@ -235,7 +239,7 @@ export default function IndustryDetailPage() {
             })}
           </div>
 
-          {/* Platform Links */}
+          {/* Product Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -243,23 +247,24 @@ export default function IndustryDetailPage() {
             className="mt-12 p-6 bg-background-secondary rounded-xl border border-white/5"
           >
             <h3 className="text-lg font-display font-semibold mb-4">
-              Explore Our Platforms
+              Explore Our Products
             </h3>
             <div className="flex flex-wrap gap-4">
-              {industry.relatedPlatforms.map((platformKey) => {
-                const platform = PLATFORMS[platformKey]
+              {industry.relatedProducts.map((productKey) => {
+                const product = PRODUCTS[productKey as keyof typeof PRODUCTS]
+                if (!product) return null
                 return (
-                  <Link key={platformKey} href={platform.href}>
+                  <Link key={productKey} href={product.href}>
                     <Button 
                       variant="ghost" 
                       size="sm"
                       style={{ 
-                        borderColor: `${platform.color}40`,
-                        ['--tw-ring-color' as string]: platform.color 
+                        borderColor: `${product.color}40`,
+                        ['--tw-ring-color' as string]: product.color 
                       }}
                       className="border"
                     >
-                      <span style={{ color: platform.color }}>{platform.name}</span>
+                      <span style={{ color: product.color }}>{product.name}</span>
                       <ArrowRight className="w-4 h-4 ml-2 text-text-tertiary" />
                     </Button>
                   </Link>
@@ -425,48 +430,51 @@ export default function IndustryDetailPage() {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {caseStudies.slice(0, 2).map((study, index) => (
-                <motion.div
-                  key={study.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link href={`/case-studies/${study.id}`}>
-                    <div className="group bg-background-secondary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
-                      <div className="flex items-center gap-2 mb-4">
-                        <span 
-                          className="px-2 py-1 text-xs font-mono rounded"
-                          style={{ 
-                            backgroundColor: `${PLATFORMS[study.platform].color}20`, 
-                            color: PLATFORMS[study.platform].color 
-                          }}
-                        >
-                          {PLATFORMS[study.platform].name}
-                        </span>
-                        <span className="text-text-tertiary text-xs">{study.industry}</span>
-                      </div>
-                      <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
-                        {study.title}
-                      </h3>
-                      <p className="text-text-secondary text-sm mb-4 line-clamp-2">
-                        {study.summary}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {study.metrics.slice(0, 2).map((metric, i) => (
-                          <span key={i} className="px-2 py-1 text-xs rounded bg-background-primary text-text-tertiary">
-                            {metric.value} {metric.label}
+              {caseStudies.slice(0, 2).map((study, index) => {
+                const studyCategory = SERVICE_CATEGORIES[study.serviceCategory]
+                return (
+                  <motion.div
+                    key={study.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link href={`/case-studies/${study.id}`}>
+                      <div className="group bg-background-secondary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
+                        <div className="flex items-center gap-2 mb-4">
+                          <span 
+                            className="px-2 py-1 text-xs font-mono rounded"
+                            style={{ 
+                              backgroundColor: `${studyCategory.color}20`, 
+                              color: studyCategory.color 
+                            }}
+                          >
+                            {studyCategory.name}
                           </span>
-                        ))}
+                          <span className="text-text-tertiary text-xs">{study.industry}</span>
+                        </div>
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                          {study.title}
+                        </h3>
+                        <p className="text-text-secondary text-sm mb-4 line-clamp-2">
+                          {study.summary}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {study.metrics.slice(0, 2).map((metric, i) => (
+                            <span key={i} className="px-2 py-1 text-xs rounded bg-background-primary text-text-tertiary">
+                              {metric.value} {metric.label}
+                            </span>
+                          ))}
+                        </div>
+                        <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                          Read case study <ArrowRight className="w-4 h-4" />
+                        </span>
                       </div>
-                      <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Read case study <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
+                    </Link>
+                  </motion.div>
+                )
+              })}
             </div>
 
             <div className="mt-8 text-center md:hidden">

@@ -5,7 +5,7 @@ import {
   trackEvent,
   trackConversion,
   trackCTAClick,
-  trackPlatformClick,
+  trackProductClick,
   trackFormInteraction,
   trackSectionView,
   trackDownload,
@@ -47,9 +47,9 @@ export function useAnalytics() {
     []
   )
 
-  const trackPlatformClickCallback = useCallback(
-    (platform: string, location: string) => {
-      trackPlatformClick(platform, location)
+  const trackProductClickCallback = useCallback(
+    (product: string, location: string) => {
+      trackProductClick(product, location)
     },
     []
   )
@@ -90,7 +90,7 @@ export function useAnalytics() {
     trackEvent: trackEventCallback,
     trackConversion: trackConversionCallback,
     trackCTAClick: trackCTAClickCallback,
-    trackPlatformClick: trackPlatformClickCallback,
+    trackProductClick: trackProductClickCallback,
     trackFormInteraction: trackFormInteractionCallback,
     trackSectionView: trackSectionViewCallback,
     trackDownload: trackDownloadCallback,

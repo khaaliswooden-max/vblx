@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://visionblox.com">Website</a> •
-  <a href="#platforms">Platforms</a> •
+  <a href="#products">Products</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#getting-started">Getting Started</a> •
   <a href="#deployment">Deployment</a>
@@ -36,63 +36,28 @@ This repository contains the Palantir-inspired redesign that transforms Visionbl
 ### Design Philosophy
 
 - **Operational Gravity**: Dark themes, restrained color palettes, precise typography
-- **Platform Unity**: Three interconnected platforms, not a menu of disconnected products
+- **Product Excellence**: Comprehensive product suite for enterprise operations
 - **Technical Authority**: Deep documentation, architectural depth over marketing abstractions
 - **Mission Alignment**: "We build software that powers institutions"
 
 ---
 
-## Platforms
+## Products
 
-<table>
-<tr>
-<td width="33%" valign="top">
+Our product suite delivers enterprise-grade solutions across key operational domains:
 
-### AUSTRA
-**Operational Intelligence OS**
-
-*"Know your operations. Act with precision."*
-
-- Workforce intelligence
-- Facility operations
-- Project management
-- AI anomaly detection
-
-**Modules**: Pro-People, Pro-School, Pro-Canteen, Pro-Parking, Pro-Project
-
-</td>
-<td width="33%" valign="top">
-
-### AUREON
-**Procurement Substrate**
-
-*"The procurement layer for the next decade."*
-
-- Opportunity intelligence
-- Proposal automation
-- Supply chain visibility
-- Win probability modeling
-
-**Modules**: Pro-Sales, Pro-Biz
-
-</td>
-<td width="33%" valign="top">
-
-### CIVIUM
-**Compliance Engine**
-
-*"Compliance at the speed of business."*
-
-- Visitor management
-- Threat assessment
-- Service management
-- Warranty assurance
-
-**Modules**: Pro-Visit, Pro-Ticket, Pro-Assure
-
-</td>
-</tr>
-</table>
+| Product | Category | Description |
+|---------|----------|-------------|
+| **Pro-Sales** | CRM Excellence | Revolutionize sales process management and customer relationships |
+| **Pro-Biz** | Business Intelligence | Drive strategic decisions with powerful analytics |
+| **Pro-People** | Workforce Management | Intelligent HR and people management solutions |
+| **Pro-Project** | Project Management | Deliver projects on time and budget |
+| **Pro-Task** | Task Automation | Streamline workflows with intelligent automation |
+| **Pro-Ticket** | Service Management | Exceptional customer service and support |
+| **Pro-Visit** | Visitor Management | Secure and streamline facility access |
+| **Pro-Assure** | Quality Assurance | Comprehensive warranty and quality management |
+| **Pro-Pupil** | Education Management | Transform educational administration |
+| **DocSnip** | Document Intelligence | Effortless data extraction and management |
 
 ---
 
@@ -166,19 +131,22 @@ vblx/
 │   ├── globals.css          # Design system + CSS variables
 │   ├── layout.tsx           # Root layout with fonts
 │   ├── page.tsx             # Homepage
-│   ├── platforms/           # Platform pages
-│   │   ├── austra/
-│   │   ├── aureon/
-│   │   └── civium/
+│   ├── products/            # Product pages
+│   ├── services/            # Service pages
+│   ├── industries/          # Industry pages
+│   ├── case-studies/        # Case study pages
+│   ├── contact/             # Contact forms (commercial, federal)
 │   └── studio/              # Sanity Studio (embedded)
 ├── components/
 │   ├── ui/                  # Reusable components
 │   ├── layout/              # Layout components
 │   └── sections/            # Page sections
-│       └── platform/        # Platform section components
 ├── lib/
 │   ├── utils.ts             # Utilities + constants
-│   └── platformData.ts      # Platform content data
+│   ├── productsData.ts      # Product content data
+│   ├── servicesData.ts      # Services content data
+│   ├── industriesData.ts    # Industries content data
+│   └── caseStudiesData.ts   # Case studies data
 ├── sanity/
 │   ├── schemaTypes/         # Content schemas
 │   └── lib/                 # Client + queries
@@ -200,9 +168,6 @@ vblx/
 | `--color-bg-secondary` | `#1A1A1A` | Cards, sections |
 | `--color-accent-primary` | `#00D4AA` | CTAs, highlights |
 | `--color-accent-secondary` | `#3B82F6` | Links, secondary |
-| `--color-austra` | `#3182CE` | AUSTRA platform |
-| `--color-aureon` | `#6B46C1` | AUREON platform |
-| `--color-civium` | `#38B2AC` | CIVIUM platform |
 
 ### Typography
 
@@ -244,9 +209,9 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 ## Roadmap
 
 - [x] **Phase 1**: Foundation — Design system, components, homepage
-- [x] **Phase 2**: Platform pages — AUSTRA, AUREON, CIVIUM detail pages
+- [x] **Phase 2**: Product pages — Product suite detail pages
 - [x] **Phase 3**: Intake forms — Commercial + Federal/SLED lead capture
-- [x] **Phase 4**: Content depth — Use cases, metrics, FAQs, integrations
+- [x] **Phase 4**: Content depth — Case studies, industries, services
 - [x] **Phase 5**: CMS integration — Sanity headless CMS *(embedded studio at /studio)*
 - [x] **Phase 6**: Analytics — Conversion tracking, A/B testing
 

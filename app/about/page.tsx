@@ -12,10 +12,14 @@ import {
   Mail,
   Phone,
   CheckCircle,
-  Building
+  Building,
+  TrendingUp,
+  BarChart3,
+  Ticket,
+  FolderKanban
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { COMPANY, PLATFORMS } from '@/lib/utils'
+import { COMPANY } from '@/lib/utils'
 import LeadershipSection from '@/components/sections/Leadership'
 
 export default function AboutPage() {
@@ -99,10 +103,10 @@ export default function AboutPage() {
                 platforms that enable organizations to operate at their best.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Our three interconnected platforms—AUSTRA, AUREON, and CIVIUM—represent 
-                a unified approach to enterprise operations, procurement, and compliance. 
-                Not disconnected products, but a cohesive operating system for the 
-                modern enterprise.
+                Our comprehensive product suite and professional services represent 
+                a unified approach to enterprise operations, from CRM and business intelligence 
+                to workforce management and compliance. Not disconnected tools, but a 
+                cohesive operating system for the modern enterprise.
               </p>
             </motion.div>
 
@@ -112,41 +116,47 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-4"
             >
-              {Object.values(PLATFORMS).map((platform, index) => (
-                <Link key={platform.name} href={platform.href}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all"
-                  >
-                    <div
-                      className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                      style={{ backgroundColor: `${platform.color}20` }}
+              {[
+                { name: 'Pro-Sales', tagline: 'CRM Excellence', color: '#10B981', href: '/products/pro-sales', icon: TrendingUp },
+                { name: 'Pro-Biz', tagline: 'Business Intelligence', color: '#8B5CF6', href: '/products/pro-biz', icon: BarChart3 },
+                { name: 'Pro-People', tagline: 'Workforce Management', color: '#EC4899', href: '/products/pro-people', icon: Users },
+                { name: 'Pro-Ticket', tagline: 'Service Management', color: '#EF4444', href: '/products/pro-ticket', icon: Ticket },
+              ].map((product, index) => {
+                const Icon = product.icon
+                return (
+                  <Link key={product.name} href={product.href}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all"
                     >
-                      <span 
-                        className="font-display font-bold text-xl"
-                        style={{ color: platform.color }}
+                      <div
+                        className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                        style={{ backgroundColor: `${product.color}20` }}
                       >
-                        {platform.name[0]}
-                      </span>
-                    </div>
-                    <h3 
-                      className="font-display font-semibold mb-1 group-hover:text-accent-primary transition-colors"
-                      style={{ color: platform.color }}
-                    >
-                      {platform.name}
-                    </h3>
-                    <p className="text-text-tertiary text-sm">
-                      {platform.tagline}
-                    </p>
-                  </motion.div>
-                </Link>
-              ))}
+                        <Icon 
+                          className="w-6 h-6"
+                          style={{ color: product.color }}
+                        />
+                      </div>
+                      <h3 
+                        className="font-display font-semibold mb-1 group-hover:text-accent-primary transition-colors"
+                        style={{ color: product.color }}
+                      >
+                        {product.name}
+                      </h3>
+                      <p className="text-text-tertiary text-sm">
+                        {product.tagline}
+                      </p>
+                    </motion.div>
+                  </Link>
+                )
+              })}
               <div className="col-span-2 bg-background-tertiary rounded-xl p-6 border border-white/5">
                 <p className="text-text-secondary text-sm text-center">
-                  Three platforms. One unified vision. Enterprise operations, reimagined.
+                  10+ products. 20+ services. One unified vision. Enterprise operations, reimagined.
                 </p>
               </div>
             </motion.div>

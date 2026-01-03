@@ -5,8 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, ArrowLeft, Quote, Calendar, Users, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { getCaseStudyById, CASE_STUDIES } from '@/lib/caseStudiesData'
-import { PLATFORMS } from '@/lib/utils'
+import { getCaseStudyById, CASE_STUDIES, SERVICE_CATEGORIES } from '@/lib/caseStudiesData'
 import { INDUSTRIES } from '@/lib/industriesData'
 
 export default function CaseStudyDetailPage() {
@@ -29,10 +28,10 @@ export default function CaseStudyDetailPage() {
     )
   }
 
-  const platform = PLATFORMS[caseStudy.platform]
+  const serviceCategory = SERVICE_CATEGORIES[caseStudy.serviceCategory]
   const industry = INDUSTRIES[caseStudy.industryId as keyof typeof INDUSTRIES]
   const relatedCaseStudies = CASE_STUDIES
-    .filter(cs => cs.id !== caseStudy.id && (cs.platform === caseStudy.platform || cs.industryId === caseStudy.industryId))
+    .filter(cs => cs.id !== caseStudy.id && (cs.serviceCategory === caseStudy.serviceCategory || cs.industryId === caseStudy.industryId))
     .slice(0, 3)
 
   return (
@@ -42,7 +41,7 @@ export default function CaseStudyDetailPage() {
         <div 
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{ 
-            background: `radial-gradient(ellipse at top right, ${platform.color}40 0%, transparent 60%)` 
+            background: `radial-gradient(ellipse at top right, ${serviceCategory.color}40 0%, transparent 60%)` 
           }}
         />
         
@@ -70,14 +69,12 @@ export default function CaseStudyDetailPage() {
             >
               {/* Tags */}
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <Link href={`/platforms/${caseStudy.platform}`}>
-                  <span 
-                    className="px-3 py-1 text-sm font-mono rounded hover:opacity-80 transition-opacity"
-                    style={{ backgroundColor: `${platform.color}20`, color: platform.color }}
-                  >
-                    {platform.name}
-                  </span>
-                </Link>
+                <span 
+                  className="px-3 py-1 text-sm font-mono rounded"
+                  style={{ backgroundColor: `${serviceCategory.color}20`, color: serviceCategory.color }}
+                >
+                  {serviceCategory.name}
+                </span>
                 {industry && (
                   <Link href={`/industries/${caseStudy.industryId}`}>
                     <span className="px-3 py-1 text-sm rounded bg-background-secondary text-text-secondary hover:text-text-primary transition-colors">
@@ -92,7 +89,7 @@ export default function CaseStudyDetailPage() {
               </h1>
               <p 
                 className="text-xl md:text-2xl font-medium mb-6"
-                style={{ color: platform.color }}
+                style={{ color: serviceCategory.color }}
               >
                 {caseStudy.subtitle}
               </p>
@@ -113,14 +110,14 @@ export default function CaseStudyDetailPage() {
                 </div>
               </div>
 
-              {/* Modules Used */}
+              {/* Products Used */}
               <div className="flex flex-wrap gap-2">
-                {caseStudy.modules.map((module) => (
+                {caseStudy.products.map((product) => (
                   <span 
-                    key={module}
+                    key={product}
                     className="px-3 py-1 text-sm rounded bg-background-secondary text-text-secondary"
                   >
-                    {module}
+                    {product}
                   </span>
                 ))}
               </div>
@@ -144,7 +141,7 @@ export default function CaseStudyDetailPage() {
               >
                 <div 
                   className="text-3xl md:text-4xl font-display font-bold mb-1"
-                  style={{ color: platform.color }}
+                  style={{ color: serviceCategory.color }}
                 >
                   {metric.value}
                 </div>
@@ -244,11 +241,11 @@ export default function CaseStudyDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="relative bg-background-secondary rounded-2xl p-8 border-l-4"
-                style={{ borderLeftColor: platform.color }}
+                style={{ borderLeftColor: serviceCategory.color }}
               >
                 <Quote 
                   className="w-10 h-10 mb-4"
-                  style={{ color: `${platform.color}40` }}
+                  style={{ color: `${serviceCategory.color}40` }}
                 />
                 <blockquote className="text-xl font-display text-text-primary mb-6 leading-relaxed">
                   &ldquo;{caseStudy.quote.text}&rdquo;
@@ -256,11 +253,11 @@ export default function CaseStudyDetailPage() {
                 <div className="flex items-center gap-4">
                   <div 
                     className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: `${platform.color}20` }}
+                    style={{ backgroundColor: `${serviceCategory.color}20` }}
                   >
                     <span 
                       className="font-display font-bold"
-                      style={{ color: platform.color }}
+                      style={{ color: serviceCategory.color }}
                     >
                       {caseStudy.quote.author.split(' ').map(n => n[0]).join('')}
                     </span>
@@ -299,15 +296,13 @@ export default function CaseStudyDetailPage() {
                       <div className="text-text-primary">{caseStudy.industry}</div>
                     </div>
                     <div>
-                      <div className="text-text-tertiary text-sm mb-1">Platform</div>
-                      <Link href={`/platforms/${caseStudy.platform}`}>
-                        <span 
-                          className="inline-block px-2 py-1 text-sm rounded hover:opacity-80 transition-opacity"
-                          style={{ backgroundColor: `${platform.color}20`, color: platform.color }}
-                        >
-                          {platform.name}
-                        </span>
-                      </Link>
+                      <div className="text-text-tertiary text-sm mb-1">Service Category</div>
+                      <span 
+                        className="inline-block px-2 py-1 text-sm rounded"
+                        style={{ backgroundColor: `${serviceCategory.color}20`, color: serviceCategory.color }}
+                      >
+                        {serviceCategory.name}
+                      </span>
                     </div>
                     <div>
                       <div className="text-text-tertiary text-sm mb-1">Duration</div>
@@ -394,7 +389,7 @@ export default function CaseStudyDetailPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedCaseStudies.map((study, index) => {
-                const studyPlatform = PLATFORMS[study.platform]
+                const studyCategory = SERVICE_CATEGORIES[study.serviceCategory]
                 
                 return (
                   <motion.div
@@ -409,9 +404,9 @@ export default function CaseStudyDetailPage() {
                         <div className="flex items-center gap-2 mb-3">
                           <span 
                             className="px-2 py-1 text-xs font-mono rounded"
-                            style={{ backgroundColor: `${studyPlatform.color}20`, color: studyPlatform.color }}
+                            style={{ backgroundColor: `${studyCategory.color}20`, color: studyCategory.color }}
                           >
-                            {studyPlatform.name}
+                            {studyCategory.name}
                           </span>
                           <span className="text-text-tertiary text-xs">{study.industry}</span>
                         </div>

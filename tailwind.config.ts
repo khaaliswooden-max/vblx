@@ -27,22 +27,6 @@ const config: Config = {
           tertiary: '#666666',
           inverse: '#0D0D0D',
         },
-        // Platform Colors
-        austra: {
-          DEFAULT: '#3182CE',
-          light: '#63B3ED',
-          dark: '#2C5282',
-        },
-        aureon: {
-          DEFAULT: '#6B46C1',
-          light: '#9F7AEA',
-          dark: '#553C9A',
-        },
-        civium: {
-          DEFAULT: '#38B2AC',
-          light: '#4FD1C5',
-          dark: '#2C7A7B',
-        },
         // Status Colors
         success: '#10B981',
         warning: '#F59E0B',

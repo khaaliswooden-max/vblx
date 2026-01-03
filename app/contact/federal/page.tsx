@@ -14,7 +14,7 @@ import {
   type FederalFormData,
   ORGANIZATION_TYPE_OPTIONS,
   CONTRACT_VEHICLE_OPTIONS,
-  PLATFORM_OPTIONS,
+  PRODUCT_OPTIONS,
   FEDERAL_TIMELINE_OPTIONS,
   ESTIMATED_VALUE_OPTIONS,
   SECURITY_LEVEL_OPTIONS,
@@ -59,7 +59,7 @@ export default function FederalContactPage() {
     const stepFields: Record<FormStep, (keyof FederalFormData)[]> = {
       1: ['firstName', 'lastName', 'email', 'phone', 'jobTitle'],
       2: ['organizationName', 'organizationType'],
-      3: ['contractVehicle', 'platform', 'projectDescription'],
+      3: ['contractVehicle', 'productInterest', 'projectDescription'],
       4: ['timeline'],
     }
 
@@ -172,7 +172,7 @@ export default function FederalContactPage() {
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="relative py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-civium/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-accent-primary/5 to-transparent" />
         
         <div className="container-wide relative z-10">
           <Link
@@ -185,10 +185,10 @@ export default function FederalContactPage() {
 
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-civium/20 flex items-center justify-center">
-                <Flag className="w-6 h-6 text-civium" />
+              <div className="w-12 h-12 rounded-xl bg-accent-primary/20 flex items-center justify-center">
+                <Flag className="w-6 h-6 text-accent-primary" />
               </div>
-              <span className="text-sm font-mono uppercase tracking-wider text-civium">
+              <span className="text-sm font-mono uppercase tracking-wider text-accent-primary">
                 Federal & SLED Inquiry
               </span>
             </div>
@@ -222,9 +222,9 @@ export default function FederalContactPage() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
                   s === step
-                    ? 'bg-civium text-background-primary'
+                    ? 'bg-accent-primary text-background-primary'
                     : s < step
-                    ? 'bg-civium/20 text-civium'
+                    ? 'bg-accent-primary/20 text-accent-primary'
                     : 'bg-background-tertiary text-text-tertiary'
                 }`}
               >
@@ -379,13 +379,13 @@ export default function FederalContactPage() {
                       error={errors.contractVehicle}
                     />
                     <Select
-                      label="Platform of Interest"
+                      label="Product of Interest"
                       required
-                      options={PLATFORM_OPTIONS}
-                      placeholder="Select platform..."
-                      value={formData.platform || ''}
-                      onChange={(e) => updateField('platform', e.target.value as FederalFormData['platform'])}
-                      error={errors.platform}
+                      options={PRODUCT_OPTIONS}
+                      placeholder="Select product..."
+                      value={formData.productInterest || ''}
+                      onChange={(e) => updateField('productInterest', e.target.value as FederalFormData['productInterest'])}
+                      error={errors.productInterest}
                     />
                   </div>
 

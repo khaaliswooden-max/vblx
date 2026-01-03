@@ -5,21 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Filter } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { CASE_STUDIES, FEATURED_CASE_STUDIES } from '@/lib/caseStudiesData'
-import { PLATFORMS } from '@/lib/utils'
+import { CASE_STUDIES, FEATURED_CASE_STUDIES, SERVICE_CATEGORIES } from '@/lib/caseStudiesData'
 import { INDUSTRIES } from '@/lib/industriesData'
 
-type FilterType = 'all' | 'austra' | 'aureon' | 'civium'
+type ServiceCategoryFilter = 'all' | 'operations' | 'procurement' | 'compliance'
 type IndustryFilter = 'all' | string
 
 export default function CaseStudiesPage() {
-  const [platformFilter, setPlatformFilter] = useState<FilterType>('all')
+  const [categoryFilter, setCategoryFilter] = useState<ServiceCategoryFilter>('all')
   const [industryFilter, setIndustryFilter] = useState<IndustryFilter>('all')
 
   const filteredCaseStudies = CASE_STUDIES.filter(cs => {
-    const matchesPlatform = platformFilter === 'all' || cs.platform === platformFilter
+    const matchesCategory = categoryFilter === 'all' || cs.serviceCategory === categoryFilter
     const matchesIndustry = industryFilter === 'all' || cs.industryId === industryFilter
-    return matchesPlatform && matchesIndustry
+    return matchesCategory && matchesIndustry
   })
 
   const industries = [...new Set(CASE_STUDIES.map(cs => cs.industryId))]
@@ -72,7 +71,7 @@ export default function CaseStudiesPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {FEATURED_CASE_STUDIES.map((study, index) => {
-              const platform = PLATFORMS[study.platform]
+              const categoryInfo = SERVICE_CATEGORIES[study.serviceCategory]
               
               return (
                 <motion.div
@@ -87,9 +86,9 @@ export default function CaseStudiesPage() {
                       <div className="flex items-center gap-3 mb-4">
                         <span 
                           className="px-3 py-1 text-sm font-mono rounded"
-                          style={{ backgroundColor: `${platform.color}20`, color: platform.color }}
+                          style={{ backgroundColor: `${categoryInfo.color}20`, color: categoryInfo.color }}
                         >
-                          {platform.name}
+                          {categoryInfo.name}
                         </span>
                         <span className="text-text-tertiary text-sm">{study.industry}</span>
                       </div>
@@ -110,7 +109,7 @@ export default function CaseStudiesPage() {
                           <div key={i} className="text-center p-3 bg-background-primary/50 rounded-lg">
                             <div 
                               className="text-lg font-display font-bold"
-                              style={{ color: platform.color }}
+                              style={{ color: categoryInfo.color }}
                             >
                               {metric.value}
                             </div>
@@ -158,34 +157,34 @@ export default function CaseStudiesPage() {
                 <span className="text-text-tertiary text-sm">Filter:</span>
               </div>
               
-              {/* Platform Filter */}
+              {/* Service Category Filter */}
               <div className="flex flex-wrap gap-2">
                 <button
-                  onClick={() => setPlatformFilter('all')}
+                  onClick={() => setCategoryFilter('all')}
                   className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
-                    platformFilter === 'all' 
+                    categoryFilter === 'all' 
                       ? 'bg-accent-primary text-background-primary' 
                       : 'bg-background-secondary text-text-secondary hover:text-text-primary'
                   }`}
                 >
-                  All Platforms
+                  All Categories
                 </button>
-                {(['austra', 'aureon', 'civium'] as const).map((platform) => (
+                {(['operations', 'procurement', 'compliance'] as const).map((category) => (
                   <button
-                    key={platform}
-                    onClick={() => setPlatformFilter(platform)}
+                    key={category}
+                    onClick={() => setCategoryFilter(category)}
                     className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
-                      platformFilter === platform 
+                      categoryFilter === category 
                         ? 'text-background-primary' 
                         : 'text-text-secondary hover:text-text-primary'
                     }`}
                     style={{ 
-                      backgroundColor: platformFilter === platform 
-                        ? PLATFORMS[platform].color 
+                      backgroundColor: categoryFilter === category 
+                        ? SERVICE_CATEGORIES[category].color 
                         : 'var(--color-bg-secondary)' 
                     }}
                   >
-                    {PLATFORMS[platform].name}
+                    {SERVICE_CATEGORIES[category].name}
                   </button>
                 ))}
               </div>
@@ -209,14 +208,14 @@ export default function CaseStudiesPage() {
           {/* Case Studies Grid */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${platformFilter}-${industryFilter}`}
+              key={`${categoryFilter}-${industryFilter}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {filteredCaseStudies.map((study, index) => {
-                const platform = PLATFORMS[study.platform]
+                const categoryInfo = SERVICE_CATEGORIES[study.serviceCategory]
                 
                 return (
                   <motion.div
@@ -230,9 +229,9 @@ export default function CaseStudiesPage() {
                         <div className="flex items-center gap-2 mb-3">
                           <span 
                             className="px-2 py-1 text-xs font-mono rounded"
-                            style={{ backgroundColor: `${platform.color}20`, color: platform.color }}
+                            style={{ backgroundColor: `${categoryInfo.color}20`, color: categoryInfo.color }}
                           >
-                            {platform.name}
+                            {categoryInfo.name}
                           </span>
                           <span className="text-text-tertiary text-xs">{study.industry}</span>
                         </div>
@@ -250,7 +249,7 @@ export default function CaseStudiesPage() {
                             <span 
                               key={i} 
                               className="px-2 py-1 text-xs rounded"
-                              style={{ backgroundColor: `${platform.color}10`, color: platform.color }}
+                              style={{ backgroundColor: `${categoryInfo.color}10`, color: categoryInfo.color }}
                             >
                               {metric.value} {metric.label}
                             </span>
@@ -280,7 +279,7 @@ export default function CaseStudiesPage() {
               <Button 
                 variant="outline"
                 onClick={() => {
-                  setPlatformFilter('all')
+                  setCategoryFilter('all')
                   setIndustryFilter('all')
                 }}
               >
@@ -357,9 +356,9 @@ export default function CaseStudiesPage() {
                   Start Your Journey
                 </Button>
               </Link>
-              <Link href="/platforms/austra">
+              <Link href="/services">
                 <Button variant="outline" size="lg">
-                  Explore Platforms
+                  Explore Services
                 </Button>
               </Link>
             </div>

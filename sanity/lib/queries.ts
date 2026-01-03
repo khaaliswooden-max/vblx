@@ -10,73 +10,6 @@
 import { groq } from 'next-sanity'
 
 // ============================================================================
-// PLATFORM QUERIES
-// ============================================================================
-
-/**
- * Get all platforms with basic info
- */
-export const platformsQuery = groq`
-  *[_type == "platform"] | order(name asc) {
-    _id,
-    name,
-    "slug": slug.current,
-    tagline,
-    description,
-    color,
-    icon,
-    features
-  }
-`
-
-/**
- * Get single platform by slug with full details
- */
-export const platformBySlugQuery = groq`
-  *[_type == "platform" && slug.current == $slug][0] {
-    _id,
-    name,
-    "slug": slug.current,
-    tagline,
-    description,
-    color,
-    icon,
-    heroImage,
-    features,
-    modules,
-    capabilities,
-    architecture,
-    metrics,
-    "useCases": useCases[]-> {
-      _id,
-      industry,
-      title,
-      challenge,
-      solution,
-      outcome,
-      metrics,
-      clientName,
-      clientLogo,
-      testimonial
-    },
-    "integrations": integrations[]-> {
-      _id,
-      name,
-      category,
-      description,
-      logo
-    },
-    "faqs": faqs[]-> {
-      _id,
-      question,
-      answer,
-      category
-    },
-    seo
-  }
-`
-
-// ============================================================================
 // USE CASE QUERIES
 // ============================================================================
 
@@ -96,7 +29,7 @@ export const useCasesQuery = groq`
     clientName,
     clientLogo,
     featured,
-    "platform": platform->{ name, "slug": slug.current, color }
+    serviceCategory
   }
 `
 
@@ -112,7 +45,7 @@ export const featuredUseCasesQuery = groq`
     challenge,
     outcome,
     metrics,
-    "platform": platform->{ name, "slug": slug.current, color }
+    serviceCategory
   }
 `
 
@@ -152,7 +85,6 @@ export const postBySlugQuery = groq`
     "author": author->{ name, "slug": slug.current, image, role, bio },
     "categories": categories[]->{ title, "slug": slug.current, color },
     "relatedPosts": relatedPosts[]->{ title, "slug": slug.current, mainImage, publishedAt },
-    "relatedPlatforms": relatedPlatforms[]->{ name, "slug": slug.current, color },
     seo
   }
 `
@@ -207,7 +139,8 @@ export const industryPageBySlugQuery = groq`
     "solutions": solutions[]{ 
       description, 
       features,
-      "platform": platform->{ name, "slug": slug.current, color }
+      product,
+      service
     },
     "useCases": useCases[]->{ title, industry, outcome, metrics },
     compliance,
@@ -232,7 +165,7 @@ export const servicePageBySlugQuery = groq`
     capabilities,
     approach,
     technologies,
-    "relatedPlatforms": relatedPlatforms[]->{ name, "slug": slug.current, color },
+    relatedProducts,
     "useCases": useCases[]->{ title, industry, outcome, metrics },
     seo
   }
@@ -299,6 +232,6 @@ export const integrationsQuery = groq`
     description,
     logo,
     featured,
-    "platforms": platforms[]->{ name, "slug": slug.current }
+    products
   }
 `

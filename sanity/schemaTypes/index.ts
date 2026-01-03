@@ -2,11 +2,10 @@
  * Sanity Schema Types Index
  * 
  * Central export for all content schemas used in Sanity Studio.
- * Organized by content domain: platforms, pages, blog, and settings.
+ * Organized by content domain: products/services, pages, blog, and settings.
  */
 
-// Platform schemas
-import platform from './platform'
+// Product/Service schemas
 import useCase from './useCase'
 import integration from './integration'
 import faq from './faq'
@@ -29,8 +28,7 @@ import navigation from './navigation'
 import blockContent from './blockContent'
 
 export const schemaTypes = [
-  // Platforms
-  platform,
+  // Products/Services
   useCase,
   integration,
   faq,

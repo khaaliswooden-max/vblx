@@ -27,7 +27,7 @@ VBLX is the enterprise web platform for Visionblox LLC, designed to position the
 ### Goals
 
 1. **Visual Authority** — Palantir-inspired dark theme conveying technical sophistication
-2. **Platform Unity** — Three interconnected platforms (AUSTRA, AUREON, CIVIUM)
+2. **Product Unity** — Comprehensive product suite for enterprise operations
 3. **Performance** — Sub-1.5s LCP for enterprise credibility
 4. **Compliance** — WCAG 2.1 AA, Section 508 accessibility
 5. **Scalability** — Architecture supports future CMS integration
@@ -46,15 +46,15 @@ Every design element should convey that this software operates at the center of 
 - Precise typography with dramatic scale contrasts
 - Atmospheric animations (particles, gradients)
 
-### 2. Platform Unity
+### 2. Product Unity
 
 Products presented as interconnected components, not disconnected offerings.
 
 **Implementation:**
-- Consistent platform colors (AUSTRA blue, AUREON purple, CIVIUM teal)
+- Consistent product color system per category
 - Shared component library
 - Unified navigation structure
-- Cross-platform visual language
+- Cross-product visual language
 
 ### 3. Technical Authority
 

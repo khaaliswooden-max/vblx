@@ -2,13 +2,12 @@ import { type HTMLAttributes, forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'elevated' | 'outlined' | 'platform'
-  platform?: 'austra' | 'aureon' | 'civium'
+  variant?: 'default' | 'elevated' | 'outlined'
   hover?: boolean
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = 'default', platform, hover = true, children, ...props }, ref) => {
+  ({ className, variant = 'default', hover = true, children, ...props }, ref) => {
     return (
       <div
         ref={ref}
@@ -28,12 +27,6 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           variant === 'outlined' && [
             'bg-transparent border border-white/10',
             hover && 'hover:border-white/20 hover:bg-white/5',
-          ],
-          variant === 'platform' && [
-            'bg-background-secondary border border-white/5 overflow-hidden',
-            platform === 'austra' && hover && 'hover:border-austra/30 hover:shadow-[0_0_30px_rgba(49,130,206,0.15)]',
-            platform === 'aureon' && hover && 'hover:border-aureon/30 hover:shadow-[0_0_30px_rgba(107,70,193,0.15)]',
-            platform === 'civium' && hover && 'hover:border-civium/30 hover:shadow-[0_0_30px_rgba(56,178,172,0.15)]',
           ],
           
           className

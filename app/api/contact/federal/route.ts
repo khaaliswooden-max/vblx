@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
       email: data.email,
       organization: data.organizationName,
       organizationType: data.organizationType,
-      platform: data.platform,
+      productInterest: data.productInterest,
       contractVehicle: data.contractVehicle,
       timestamp: new Date().toISOString(),
     })

@@ -171,7 +171,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```bash
 # Feature
-feat(platforms): add AUSTRA detail page
+feat(products): add Pro-Sales detail page
 
 # Bug fix
 fix(nav): resolve dropdown z-index issue on mobile
@@ -207,7 +207,7 @@ chore(deps): upgrade Next.js to 14.2.1
 ```
 
 Examples:
-- `[FEAT] Add AUREON platform page (#42)`
+- `[FEAT] Add Pro-Biz product page (#42)`
 - `[FIX] Resolve mobile navigation bug (#57)`
 - `[DOCS] Update API documentation (#63)`
 
@@ -326,7 +326,7 @@ utils.ts           → utils.test.ts
 ```typescript
 /**
  * Calculates win probability based on multiple factors.
- * Uses weighted scoring algorithm aligned with AUREON methodology.
+ * Uses weighted scoring algorithm aligned with Pro-Sales methodology.
  * 
  * @param capability - Capability match score (0-1)
  * @param pastPerformance - Past performance score (0-1)

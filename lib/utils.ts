@@ -147,55 +147,6 @@ export const PRODUCTS = {
 
 export type ProductKey = keyof typeof PRODUCTS
 
-/**
- * Platform data constants (legacy - kept for backward compatibility with case studies)
- */
-export const PLATFORMS = {
-  austra: {
-    name: 'AUSTRA',
-    tagline: 'Operational Intelligence OS',
-    description: 'Know your operations. Act with precision.',
-    color: '#3182CE',
-    features: [
-      'Workforce intelligence',
-      'Facility operations',
-      'Project management',
-      'AI anomaly detection',
-    ],
-    modules: ['Pro-People', 'Pro-School', 'Pro-Canteen', 'Pro-Parking', 'Pro-Project'],
-    href: '/platforms/austra',
-  },
-  aureon: {
-    name: 'AUREON',
-    tagline: 'Procurement Substrate',
-    description: 'The procurement layer for the next decade.',
-    color: '#6B46C1',
-    features: [
-      'Opportunity intelligence',
-      'Proposal automation',
-      'Supply chain visibility',
-      'Win probability modeling',
-    ],
-    modules: ['Pro-Sales', 'Pro-Biz'],
-    href: '/platforms/aureon',
-  },
-  civium: {
-    name: 'CIVIUM',
-    tagline: 'Compliance Engine',
-    description: 'Compliance at the speed of business.',
-    color: '#38B2AC',
-    features: [
-      'Visitor management',
-      'Threat assessment',
-      'Service management',
-      'Warranty assurance',
-    ],
-    modules: ['Pro-Visit', 'Pro-Ticket', 'Pro-Assure'],
-    href: '/platforms/civium',
-  },
-} as const
-
-export type PlatformKey = keyof typeof PLATFORMS
 
 /**
  * Company information

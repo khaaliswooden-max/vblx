@@ -20,7 +20,7 @@ export type EventCategory =
   | 'engagement'
   | 'navigation'
   | 'conversion'
-  | 'platform'
+  | 'product'
   | 'form'
   | 'cta'
   | 'scroll'
@@ -44,8 +44,8 @@ export interface PageViewEvent {
 }
 
 export interface ConversionEvent {
-  type: 'demo_request' | 'contact_form' | 'newsletter' | 'download' | 'platform_inquiry'
-  platform?: string
+  type: 'demo_request' | 'contact_form' | 'newsletter' | 'download' | 'product_inquiry'
+  product?: string
   value?: number
   currency?: string
 }
@@ -54,7 +54,7 @@ export interface UserProperties {
   userType?: 'commercial' | 'federal' | 'unknown'
   industry?: string
   companySize?: string
-  interestedPlatform?: string
+  interestedProduct?: string
 }
 
 // ============================================================================
@@ -160,7 +160,7 @@ export function trackConversion(conversion: ConversionEvent): void {
   trackEvent({
     action: `conversion_${conversion.type}`,
     category: 'conversion',
-    label: conversion.platform,
+    label: conversion.product,
     value: conversion.value,
     custom: {
       conversion_type: conversion.type,
@@ -222,13 +222,13 @@ export function trackCTAClick(
 }
 
 /**
- * Track platform card click
+ * Track product card click
  */
-export function trackPlatformClick(platform: string, location: string): void {
+export function trackProductClick(product: string, location: string): void {
   trackEvent({
-    action: 'platform_click',
-    category: 'platform',
-    label: platform,
+    action: 'product_click',
+    category: 'product',
+    label: product,
     custom: {
       click_location: location,
     },

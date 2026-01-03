@@ -54,10 +54,10 @@ export const EXPERIMENTS: Record<string, Experiment> = {
     isActive: true,
   },
 
-  // Example: Platform Card Layout Test
-  'platform-card-layout': {
-    id: 'platform-card-layout',
-    name: 'Platform Card Layout Test',
+  // Example: Product Card Layout Test
+  'product-card-layout': {
+    id: 'product-card-layout',
+    name: 'Product Card Layout Test',
     variants: [
       { id: 'control', name: 'Grid Layout' },
       { id: 'variant-a', name: 'Carousel Layout' },
