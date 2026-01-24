@@ -27,7 +27,7 @@ export default function AboutPage() {
     {
       icon: Target,
       title: 'Mission Focus',
-      description: 'We build software that powers institutions. Every line of code serves a purpose.',
+      description: 'We build software for institutions. Every line of code serves a purpose.',
     },
     {
       icon: Shield,
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-xl text-text-primary mb-6 font-display">
-                &ldquo;We build software that powers institutions.&rdquo;
+                &ldquo;We build software for institutions.&rdquo;
               </p>
               <p className="text-text-secondary text-lg mb-6 leading-relaxed">
                 From federal agencies to healthcare systems, from Fortune 500 enterprises 

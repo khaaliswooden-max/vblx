@@ -34,8 +34,8 @@ export default function MissionStatement() {
 
           {/* Description */}
           <p className="text-body-lg text-text-secondary max-w-2xl mx-auto mb-8">
-            From AI-driven federal solutions to healthcare IT modernization and enterprise 
-            cloud migration—we deliver platforms that transform how organizations operate.
+            Federal solutions, healthcare IT, enterprise cloud. We help organizations 
+            modernize systems and run operations more effectively.
           </p>
 
           {/* Company Info */}

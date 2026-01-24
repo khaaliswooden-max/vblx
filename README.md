@@ -38,7 +38,7 @@ This repository contains the Palantir-inspired redesign that transforms Visionbl
 - **Operational Gravity**: Dark themes, restrained color palettes, precise typography
 - **Product Excellence**: Comprehensive product suite for enterprise operations
 - **Technical Authority**: Deep documentation, architectural depth over marketing abstractions
-- **Mission Alignment**: "We build software that powers institutions"
+- **Mission Alignment**: "We build software for institutions."
 
 ---
 

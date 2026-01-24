@@ -20,7 +20,7 @@ export const PRODUCTS: Record<string, { name: string; tagline: string; color: st
 export const COMPANY = {
   name: 'Visionblox LLC',
   tagline: 'The Operating System for Enterprise Operations',
-  mission: 'We build software that powers institutions',
+  mission: 'We build software for institutions.',
   cageCode: '9Z4X2',
   uei: 'H4X2Z7R9E3E3',
   status: 'Minority-Owned, GSA MAS Springboard',
