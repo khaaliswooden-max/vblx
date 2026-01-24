@@ -13,16 +13,7 @@ interface Leader {
 }
 
 const LeadershipSection = () => {
-  const executives: Leader[] = [
-    {
-      name: "Akil R. Chellam",
-      initials: "AC",
-      title: "CEO & Principal",
-      bio: "17+ years architecting enterprise solutions across healthcare, social media, and government. AWS Certified Solutions Architect, PMP, and SAFe Agilist with deep expertise in cloud-native development.",
-      linkedin: "https://linkedin.com/in/akilchellam",
-      email: "akil.chellam@visionblox.com"
-    }
-  ];
+  const executives: Leader[] = [];
 
   const leaders: Leader[] = [
     {
@@ -151,11 +142,13 @@ const LeadershipSection = () => {
       </div>
 
       {/* Executive Row */}
-      <div className="flex justify-center mb-6">
-        {executives.map((exec, index) => (
-          <LeaderCard key={index} leader={exec} isExecutive={true} />
-        ))}
-      </div>
+      {executives.length > 0 && (
+        <div className="flex justify-center mb-6">
+          {executives.map((exec, index) => (
+            <LeaderCard key={index} leader={exec} isExecutive={true} />
+          ))}
+        </div>
+      )}
 
       {/* Leadership Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
