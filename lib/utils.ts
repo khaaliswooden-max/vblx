@@ -53,11 +53,10 @@ export const NAV_LINKS = [
     label: 'Industries',
     href: '/industries',
     children: [
-      { label: 'Federal & Government', href: '/industries/federal', description: 'Public sector solutions' },
       { label: 'Healthcare', href: '/industries/healthcare', description: 'HIPAA-compliant platforms' },
       { label: 'Financial Services', href: '/industries/fintech', description: 'SOX-compliant operations' },
       { label: 'Manufacturing', href: '/industries/manufacturing', description: 'Multi-site visibility' },
-      { label: 'View All Industries', href: '/industries', description: '7 industries served' },
+      { label: 'View All Industries', href: '/industries', description: '9 industries with case studies' },
     ],
   },
   {

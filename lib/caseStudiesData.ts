@@ -14,13 +14,11 @@ export interface CaseStudyQuote {
   title: string
 }
 
-export type IndustryId = 
-  | 'federal' 
-  | 'healthcare' 
-  | 'fintech' 
-  | 'manufacturing' 
-  | 'defense' 
-  | 'education' 
+export type IndustryId =
+  | 'healthcare'
+  | 'fintech'
+  | 'manufacturing'
+  | 'education'
   | 'technology'
   | 'government'
   | 'retail'

@@ -25,12 +25,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Visionblox | Enterprise Operating Systems',
-  description: 'AI-powered platforms for operational intelligence, procurement, and compliance. We build the operating systems that power enterprise operations.',
+  description: 'Software for operational intelligence, procurement, and compliance. We build tools for institutions.',
   keywords: ['enterprise software', 'operational intelligence', 'AI platforms', 'procurement', 'compliance', 'federal solutions'],
   authors: [{ name: 'Visionblox LLC' }],
   openGraph: {
     title: 'Visionblox | Enterprise Operating Systems',
-    description: 'AI-powered platforms for operational intelligence, procurement, and compliance.',
+    description: 'Software for operational intelligence, procurement, and compliance. We build tools for institutions.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Visionblox',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Visionblox | Enterprise Operating Systems',
-    description: 'AI-powered platforms for operational intelligence, procurement, and compliance.',
+    description: 'Software for operational intelligence, procurement, and compliance. We build tools for institutions.',
   },
   robots: {
     index: true,

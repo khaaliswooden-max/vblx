@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -152,8 +153,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-body-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10"
           >
-            AI-powered platforms for operational intelligence, procurement, and compliance.
-            We build the software that powers institutions.
+            Software for operational intelligence, procurement, and compliance.
+            We build tools for institutions.
           </motion.p>
 
           {/* CTAs */}
@@ -163,13 +164,18 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="primary" size="xl">
-              Explore Platforms
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center gap-3 font-medium transition-all duration-300 rounded-lg text-lg px-8 py-4 bg-accent-primary text-background-primary hover:bg-accent-hover hover:shadow-glow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary"
+            >
+              Explore Products
               <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="xl">
-              Request Demo
-            </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" size="xl">
+                Request Demo
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Stats */}

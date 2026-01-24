@@ -62,87 +62,6 @@ export interface Industry {
 }
 
 // ============================================================================
-// FEDERAL / GOVERNMENT
-// ============================================================================
-
-export const federalIndustry: Industry = {
-  id: 'federal',
-  name: 'Federal & Government',
-  tagline: 'Mission-Critical Solutions for Public Sector Excellence',
-  description: 'Purpose-built platforms that meet the stringent requirements of federal agencies, defense organizations, and government contractors. From FedRAMP compliance to FISMA certification, our solutions are engineered for the unique demands of public sector operations.',
-  icon: Landmark,
-  color: '#3B82F6',
-  heroImage: '/images/industries/federal-hero.jpg',
-  challenges: [
-    {
-      title: 'Complex Procurement Cycles',
-      description: 'Navigating FAR/DFARS requirements, multi-year contract vehicles, and competitive bidding processes.',
-    },
-    {
-      title: 'Stringent Security Requirements',
-      description: 'Meeting FedRAMP, FISMA, and agency-specific security controls while maintaining operational efficiency.',
-    },
-    {
-      title: 'Legacy System Integration',
-      description: 'Modernizing operations while integrating with existing government IT infrastructure.',
-    },
-    {
-      title: 'Workforce Management',
-      description: 'Managing distributed federal workforce with compliance to OPM regulations and security clearance requirements.',
-    },
-  ],
-  solutions: [
-    {
-      product: 'Pro-Sales',
-      service: 'AI & ML Solutions',
-      description: 'Automated opportunity discovery across SAM.gov, GovWin, and agency-specific portals with FAR compliance checking.',
-    },
-    {
-      product: 'Pro-Biz',
-      service: 'Web Development',
-      description: 'Proposal development automation with Section L/M compliance and past performance library management.',
-    },
-    {
-      product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'PIV/CAC-integrated visitor management with watchlist screening and HSPD-12 compliance.',
-    },
-    {
-      product: 'Pro-People',
-      service: 'SAP SuccessFactors',
-      description: 'Workforce intelligence with clearance tracking, performance management, and OPM reporting.',
-    },
-  ],
-  metrics: [
-    { value: '300%', label: 'Pipeline Growth' },
-    { value: '35%', label: 'Win Rate Improvement' },
-    { value: '100%', label: 'Compliance Score' },
-    { value: '80%', label: 'Faster Processing' },
-  ],
-  testimonial: {
-    quote: 'Pro-Sales and Pro-Biz transformed our federal BD operations. We went from tracking opportunities in spreadsheets to a fully automated capture management system that helped us win our first $50M contract.',
-    author: 'Sarah Mitchell',
-    title: 'VP of Federal Programs',
-    organization: 'Defense Technology Solutions',
-  },
-  compliance: [
-    { name: 'FedRAMP', description: 'Federal Risk and Authorization Management Program' },
-    { name: 'FISMA', description: 'Federal Information Security Management Act' },
-    { name: 'NIST 800-53', description: 'Security and Privacy Controls' },
-    { name: 'ITAR', description: 'International Traffic in Arms Regulations' },
-    { name: 'Section 508', description: 'Accessibility Compliance' },
-  ],
-  useCases: [
-    'Contract capture and proposal management',
-    'Secure facility visitor management',
-    'Workforce clearance tracking',
-    'Compliance documentation and audit trails',
-    'Multi-agency operations coordination',
-  ],
-  relatedProducts: ['Pro-Sales', 'Pro-Biz', 'Pro-Visit', 'Pro-People'],
-}
-
-// ============================================================================
 // HEALTHCARE
 // ============================================================================
 
@@ -388,83 +307,6 @@ export const manufacturingIndustry: Industry = {
 // ============================================================================
 // ADDITIONAL INDUSTRIES
 // ============================================================================
-
-export const defenseIndustry: Industry = {
-  id: 'defense',
-  name: 'Defense & Aerospace',
-  tagline: 'Mission-Ready Solutions for National Security',
-  description: 'ITAR-compliant platforms for defense contractors, aerospace manufacturers, and national security organizations. Manage classified programs, security clearances, and supply chain integrity with military-grade operational precision.',
-  icon: Plane,
-  color: '#6366F1',
-  heroImage: '/images/industries/defense-hero.jpg',
-  challenges: [
-    {
-      title: 'Classified Program Management',
-      description: 'Maintaining information security across programs with varying classification levels.',
-    },
-    {
-      title: 'Clearance Management',
-      description: 'Tracking security clearances, access levels, and reinvestigation timelines for all personnel.',
-    },
-    {
-      title: 'ITAR/EAR Compliance',
-      description: 'Ensuring export control compliance across global supply chains and partnerships.',
-    },
-    {
-      title: 'Contract Performance',
-      description: 'Meeting complex contract requirements with cost-plus, T&M, and fixed-price vehicles.',
-    },
-  ],
-  solutions: [
-    {
-      product: 'Pro-People',
-      service: 'SAP SuccessFactors',
-      description: 'Cleared workforce management with SF-86 tracking and polygraph scheduling.',
-    },
-    {
-      product: 'Pro-Sales',
-      service: 'AI & ML Solutions',
-      description: 'Defense opportunity intelligence with DPAS rating tracking and set-aside analysis.',
-    },
-    {
-      product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'SCIF-grade visitor management with escort tracking and access logging.',
-    },
-    {
-      product: 'Pro-Biz',
-      service: 'Web Development',
-      description: 'Proposal management with DD254 compliance and technical volume automation.',
-    },
-  ],
-  metrics: [
-    { value: '99.9%', label: 'Security Compliance' },
-    { value: '50%', label: 'Proposal Time Reduction' },
-    { value: '100%', label: 'Clearance Visibility' },
-    { value: '$45M+', label: 'Contract Wins' },
-  ],
-  testimonial: {
-    quote: 'Managing clearances across 500+ employees used to be a nightmare. Pro-People gives us complete visibility and proactive reinvestigation alerts.',
-    author: 'Col. James Patterson (Ret.)',
-    title: 'Director of Security',
-    organization: 'Apex Defense Systems',
-  },
-  compliance: [
-    { name: 'ITAR', description: 'International Traffic in Arms Regulations' },
-    { name: 'EAR', description: 'Export Administration Regulations' },
-    { name: 'NIST 800-171', description: 'Controlled Unclassified Information' },
-    { name: 'CMMC', description: 'Cybersecurity Maturity Model Certification' },
-    { name: 'DFARS', description: 'Defense Federal Acquisition Regulation Supplement' },
-  ],
-  useCases: [
-    'Security clearance lifecycle management',
-    'Classified facility access control',
-    'Defense contract capture management',
-    'CMMC compliance preparation',
-    'Supply chain security',
-  ],
-  relatedProducts: ['Pro-People', 'Pro-Sales', 'Pro-Visit', 'Pro-Biz'],
-}
 
 export const educationIndustry: Industry = {
   id: 'education',
@@ -949,11 +791,9 @@ export const crossIndustryCategory: Industry = {
 // ============================================================================
 
 export const INDUSTRIES = {
-  federal: federalIndustry,
   healthcare: healthcareIndustry,
   fintech: fintechIndustry,
   manufacturing: manufacturingIndustry,
-  defense: defenseIndustry,
   education: educationIndustry,
   technology: technologyIndustry,
   government: governmentIndustry,
@@ -964,8 +804,8 @@ export const INDUSTRIES = {
 
 export type IndustryKey = keyof typeof INDUSTRIES
 
-// Featured industries for homepage/landing page
-export const FEATURED_INDUSTRIES: IndustryKey[] = ['federal', 'healthcare', 'fintech', 'manufacturing']
+// Featured industries (subset with most case studies)
+export const FEATURED_INDUSTRIES: IndustryKey[] = ['healthcare', 'fintech', 'manufacturing', 'technology']
 
-// All industries list for navigation
+// All industries (case-study-backed only)
 export const ALL_INDUSTRIES = Object.values(INDUSTRIES)

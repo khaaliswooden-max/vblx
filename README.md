@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>The Operating System for Enterprise Operations</strong><br>
-  <em>AI-powered platforms for operational intelligence, procurement, and compliance.</em>
+  <em>Software for operational intelligence, procurement, and compliance. We build tools for institutions.</em>
 </p>
 
 <p align="center">
