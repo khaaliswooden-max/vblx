@@ -1,0 +1,131 @@
+'use client'
+
+import React from 'react';
+import Link from 'next/link';
+
+const LGSProductCard = () => {
+  const modules = [
+    {
+      name: 'LGS-Parking',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      ),
+      description: 'ANPR, payments, kiosks, boom barriers',
+    },
+    {
+      name: 'LGS-Visitor',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+        </svg>
+      ),
+      description: 'Access control, multi-zone tracking',
+    },
+    {
+      name: 'LGS-Employee',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      description: 'Biometric auth, attendance, payroll',
+    },
+  ];
+
+  const features = [
+    { label: 'Genetec + T2 Flex', desc: 'Native LPR integration' },
+    { label: '6 Payment Methods', desc: 'Apple Pay, Google Pay, PayPal, NFC' },
+    { label: 'Mobile Portal', desc: 'Visitor self-service with FaceID' },
+    { label: 'Event Parking', desc: 'Pre-booking & department billing' },
+  ];
+
+  return (
+    <div className="group relative bg-gradient-to-br from-[#0f1419] to-[#0a0d10] rounded-2xl border border-white/5 hover:border-teal-500/30 transition-all duration-500 overflow-hidden">
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* Header */}
+      <div className="relative p-8 pb-6">
+        <div className="flex items-start justify-between mb-6">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              {/* LGS Icon */}
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/20 flex items-center justify-center">
+                <svg className="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white tracking-tight">LotGrid Systems</h3>
+                <span className="text-xs font-mono text-teal-400/80 tracking-wider">LGS</span>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm max-w-sm">
+              Smart Parking & Visitor Management Platform
+            </p>
+          </div>
+          
+          {/* Status badge */}
+          <span className="px-3 py-1 text-xs font-medium bg-teal-500/10 text-teal-400 rounded-full border border-teal-500/20">
+            PROPRIETARY
+          </span>
+        </div>
+
+        {/* Modules */}
+        <div className="grid grid-cols-3 gap-3 mb-6">
+          {modules.map((module) => (
+            <div
+              key={module.name}
+              className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-teal-500/20 hover:bg-teal-500/5 transition-all duration-300"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-teal-400">{module.icon}</span>
+                <span className="text-xs font-semibold text-white">{module.name}</span>
+              </div>
+              <p className="text-[10px] text-gray-500 leading-relaxed">{module.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Features grid */}
+        <div className="grid grid-cols-2 gap-2">
+          {features.map((feature) => (
+            <div key={feature.label} className="flex items-start gap-2 p-2">
+              <svg className="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <span className="text-xs font-medium text-white">{feature.label}</span>
+                <p className="text-[10px] text-gray-500">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="relative px-8 py-4 border-t border-white/5 bg-white/[0.01]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span className="text-xs text-gray-500">
+              <span className="text-gray-400">Use Cases:</span> Universities • Stadiums • Corporate • Healthcare
+            </span>
+          </div>
+          <Link 
+            href="/contact"
+            className="group/btn flex items-center gap-2 px-4 py-2 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
+          >
+            Learn More
+            <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LGSProductCard;
