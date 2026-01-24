@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
-import { NAV_LINKS, PRODUCTS } from '@/lib/utils'
+import { NAV_LINKS } from '@/lib/utils'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -91,15 +91,9 @@ export default function Navigation() {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 pt-2"
                       >
-                        <div className={`bg-background-secondary border border-white/10 rounded-xl p-2 shadow-xl ${link.label === 'Product Suite' ? 'min-w-[320px] max-h-[70vh] overflow-y-auto' : 'min-w-[280px]'}`}>
+                        <div className="bg-background-secondary border border-white/10 rounded-xl p-2 shadow-xl min-w-[280px]">
                           {link.children.map((child) => {
-                            // For Product Suite, use PRODUCTS colors
-                            let color = '#00D4AA'
-                            if (link.label === 'Product Suite') {
-                              const productKey = child.label.toLowerCase().replace('-', '-') as keyof typeof PRODUCTS
-                              const product = PRODUCTS[productKey]
-                              color = product?.color || '#00D4AA'
-                            }
+                            const color = '#00D4AA'
                             return (
                               <Link
                                 key={child.label}

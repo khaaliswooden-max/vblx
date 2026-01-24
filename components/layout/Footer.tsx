@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Linkedin, Mail, Phone, MapPin } from 'lucide-react'
-import { COMPANY, PRODUCTS } from '@/lib/utils'
+import { COMPANY } from '@/lib/utils'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -51,22 +51,12 @@ export default function Footer() {
               Product Suite
             </h4>
             <ul className="space-y-2">
-              {Object.values(PRODUCTS).slice(0, 6).map((product) => (
-                <li key={product.name}>
-                  <Link
-                    href={product.href}
-                    className="text-text-secondary hover:text-text-primary transition-colors text-sm"
-                  >
-                    {product.name}
-                  </Link>
-                </li>
-              ))}
               <li>
                 <Link
-                  href="#products"
-                  className="text-accent-primary hover:text-accent-secondary transition-colors text-sm font-medium"
+                  href="/products"
+                  className="text-text-secondary hover:text-text-primary transition-colors text-sm"
                 >
-                  View All Products →
+                  View Product Suite
                 </Link>
               </li>
             </ul>

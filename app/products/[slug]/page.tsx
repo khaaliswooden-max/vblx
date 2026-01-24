@@ -43,7 +43,7 @@ export default function ProductPage() {
             transition={{ duration: 0.5 }}
           >
             <Link
-              href="/#products"
+              href="/products"
               className="inline-flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />

@@ -239,39 +239,41 @@ export default function IndustryDetailPage() {
             })}
           </div>
 
-          {/* Product Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12 p-6 bg-background-secondary rounded-xl border border-white/5"
-          >
-            <h3 className="text-lg font-display font-semibold mb-4">
-              Explore Our Products
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {industry.relatedProducts.map((productKey) => {
-                const product = PRODUCTS[productKey as keyof typeof PRODUCTS]
-                if (!product) return null
-                return (
-                  <Link key={productKey} href={product.href}>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      style={{ 
-                        borderColor: `${product.color}40`,
-                        ['--tw-ring-color' as string]: product.color 
-                      }}
-                      className="border"
-                    >
-                      <span style={{ color: product.color }}>{product.name}</span>
-                      <ArrowRight className="w-4 h-4 ml-2 text-text-tertiary" />
-                    </Button>
-                  </Link>
-                )
-              })}
-            </div>
-          </motion.div>
+          {/* Product Links — only when products exist */}
+          {industry.relatedProducts.some((k) => k in PRODUCTS) && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 p-6 bg-background-secondary rounded-xl border border-white/5"
+            >
+              <h3 className="text-lg font-display font-semibold mb-4">
+                Explore Our Products
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                {industry.relatedProducts.map((productKey) => {
+                  const product = PRODUCTS[productKey as keyof typeof PRODUCTS]
+                  if (!product) return null
+                  return (
+                    <Link key={productKey} href={product.href}>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        style={{ 
+                          borderColor: `${product.color}40`,
+                          ['--tw-ring-color' as string]: product.color 
+                        }}
+                        className="border"
+                      >
+                        <span style={{ color: product.color }}>{product.name}</span>
+                        <ArrowRight className="w-4 h-4 ml-2 text-text-tertiary" />
+                      </Button>
+                    </Link>
+                  )
+                })}
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 

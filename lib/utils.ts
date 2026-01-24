@@ -10,143 +10,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
- * Product Suite data constants
+ * Product Suite data (empty; add products when ready)
  */
-export const PRODUCTS = {
-  'pro-sales': {
-    name: 'Pro-Sales',
-    tagline: 'CRM Excellence',
-    description: 'Revolutionize your sales process management and build lasting customer relationships.',
-    color: '#10B981',
-    features: [
-      'Contact management',
-      'Advanced analytics',
-      'Pipeline tracking',
-      'Deal automation',
-    ],
-    href: '/products/pro-sales',
-  },
-  'pro-assure': {
-    name: 'Pro-Assure',
-    tagline: 'Quality Assurance',
-    description: 'Comprehensive warranty and quality assurance management for enterprise operations.',
-    color: '#3B82F6',
-    features: [
-      'Warranty tracking',
-      'Quality metrics',
-      'Compliance reports',
-      'SLA management',
-    ],
-    href: '/products/pro-assure',
-  },
-  'pro-biz': {
-    name: 'Pro-Biz',
-    tagline: 'Business Intelligence',
-    description: 'Drive strategic decisions with powerful business intelligence and analytics.',
-    color: '#8B5CF6',
-    features: [
-      'Real-time dashboards',
-      'Predictive analytics',
-      'Custom reporting',
-      'Data visualization',
-    ],
-    href: '/products/pro-biz',
-  },
-  'pro-people': {
-    name: 'Pro-People',
-    tagline: 'Workforce Management',
-    description: 'Optimize your workforce with intelligent HR and people management solutions.',
-    color: '#EC4899',
-    features: [
-      'Employee records',
-      'Performance tracking',
-      'Attendance management',
-      'HR analytics',
-    ],
-    href: '/products/pro-people',
-  },
-  'pro-project': {
-    name: 'Pro-Project',
-    tagline: 'Project Management',
-    description: 'Deliver projects on time and budget with comprehensive project management tools.',
-    color: '#F59E0B',
-    features: [
-      'Task scheduling',
-      'Resource allocation',
-      'Milestone tracking',
-      'Collaboration tools',
-    ],
-    href: '/products/pro-project',
-  },
-  'pro-task': {
-    name: 'Pro-Task',
-    tagline: 'Task Automation',
-    description: 'Streamline workflows with intelligent task management and automation.',
-    color: '#06B6D4',
-    features: [
-      'Workflow automation',
-      'Priority management',
-      'Team assignments',
-      'Progress tracking',
-    ],
-    href: '/products/pro-task',
-  },
-  'pro-ticket': {
-    name: 'Pro-Ticket',
-    tagline: 'Service Management',
-    description: 'Deliver exceptional customer service with robust ticketing and support management.',
-    color: '#EF4444',
-    features: [
-      'Ticket routing',
-      'SLA monitoring',
-      'Customer portal',
-      'Resolution analytics',
-    ],
-    href: '/products/pro-ticket',
-  },
-  'pro-pupil': {
-    name: 'Pro-Pupil',
-    tagline: 'Education Management',
-    description: 'Transform educational administration with comprehensive student management.',
-    color: '#14B8A6',
-    features: [
-      'Student records',
-      'Grade tracking',
-      'Attendance system',
-      'Parent portal',
-    ],
-    href: '/products/pro-pupil',
-  },
-  'pro-visit': {
-    name: 'Pro-Visit',
-    tagline: 'Visitor Management',
-    description: 'Secure and streamline visitor management for modern facilities.',
-    color: '#6366F1',
-    features: [
-      'Check-in/check-out',
-      'Badge printing',
-      'Host notifications',
-      'Security compliance',
-    ],
-    href: '/products/pro-visit',
-  },
-  'docsnip': {
-    name: 'DocSnip',
-    tagline: 'Document Intelligence',
-    description: 'Effortless data extraction and document management for professionals.',
-    color: '#84CC16',
-    features: [
-      'Smart extraction',
-      'Snippet organization',
-      'Seamless integration',
-      'Rapid deployment',
-    ],
-    href: '/products/docsnip',
-  },
-} as const
-
-export type ProductKey = keyof typeof PRODUCTS
-
+export const PRODUCTS: Record<string, { name: string; tagline: string; color: string; href: string }> = {}
 
 /**
  * Company information
@@ -182,22 +48,7 @@ export const COMPANY = {
  * Navigation links
  */
 export const NAV_LINKS = [
-  {
-    label: 'Product Suite',
-    href: '#products',
-    children: [
-      { label: 'Pro-Sales', href: '/products/pro-sales', description: 'CRM Excellence' },
-      { label: 'Pro-Assure', href: '/products/pro-assure', description: 'Quality Assurance' },
-      { label: 'Pro-Biz', href: '/products/pro-biz', description: 'Business Intelligence' },
-      { label: 'Pro-People', href: '/products/pro-people', description: 'Workforce Management' },
-      { label: 'Pro-Project', href: '/products/pro-project', description: 'Project Management' },
-      { label: 'Pro-Task', href: '/products/pro-task', description: 'Task Automation' },
-      { label: 'Pro-Ticket', href: '/products/pro-ticket', description: 'Service Management' },
-      { label: 'Pro-Pupil', href: '/products/pro-pupil', description: 'Education Management' },
-      { label: 'Pro-Visit', href: '/products/pro-visit', description: 'Visitor Management' },
-      { label: 'DocSnip', href: '/products/docsnip', description: 'Document Intelligence' },
-    ],
-  },
+  { label: 'Product Suite', href: '/products' },
   {
     label: 'Industries',
     href: '/industries',
