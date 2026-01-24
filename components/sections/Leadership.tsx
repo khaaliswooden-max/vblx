@@ -49,14 +49,6 @@ const LeadershipSection = () => {
       email: "tony.paul@visionblox.com"
     },
     {
-      name: "Magesh Ramalingam",
-      initials: "MR",
-      title: "Senior Technical Architect",
-      bio: "20+ years in full-stack architecture. AWS Certified Cloud Practitioner & AI Practitioner with expertise in Java, Node.js, Docker, and enterprise web solutions.",
-      linkedin: "https://linkedin.com/in/magesh-ramalingam",
-      email: "magesh.ramalingam@visionblox.com"
-    },
-    {
       name: "Saravanan Swaminathan",
       initials: "SS",
       title: "Senior Solution Architect",
