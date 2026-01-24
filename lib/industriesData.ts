@@ -93,24 +93,24 @@ export const healthcareIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-People',
-      service: 'SAP SuccessFactors',
-      description: 'Healthcare workforce optimization with credential tracking, shift management, and burnout prediction.',
-    },
-    {
-      product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'HIPAA-compliant visitor management with health screening, NDA collection, and patient matching.',
-    },
-    {
-      product: 'Pro-Ticket',
+      product: 'Pro-Portal',
       service: 'Web Development',
-      description: 'Clinical service request management with priority routing and compliance documentation.',
+      description: 'Patient portal platforms with Epic EMR integration serving 100K+ daily users with 99.8% uptime.',
     },
     {
-      product: 'Pro-Task',
+      product: 'DocSnip',
+      service: 'AI & ML Solutions',
+      description: 'AI-powered OCR document processing achieving 96% accuracy and 60% labor cost reduction for Medicaid claims.',
+    },
+    {
+      product: 'Pro-Biz',
       service: 'Cloud Technology',
-      description: 'Cafeteria and dietary services management for staff, patients, and visitors.',
+      description: 'Scalable claims processing platforms processing millions of medical claims daily using AWS services.',
+    },
+    {
+      product: 'Pro-Assure',
+      service: 'Cybersecurity',
+      description: 'HITRUST framework security assessments and third-party vendor risk management for global healthcare organizations.',
     },
   ],
   metrics: [
@@ -174,24 +174,19 @@ export const fintechIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'Financial-grade visitor management with NDA workflows, restricted zone access, and audit logging.',
-    },
-    {
       product: 'Pro-Biz',
-      service: 'Risk Management Services',
-      description: 'Vendor procurement and RFP management with compliance scoring and risk assessment.',
+      service: 'Web Development',
+      description: 'Microservices-based loan origination systems with rate calculation engines and automated document generation for agricultural lending.',
     },
     {
-      product: 'Pro-Assure',
-      service: 'Regulatory Compliance Services',
-      description: 'Asset and warranty management with SOX-compliant documentation and approval workflows.',
+      product: 'Pro-Portal',
+      service: 'Web Development',
+      description: 'B2B portal modernization with WebSphere migration and real-time revenue projection dashboards for financial services.',
     },
     {
-      product: 'Pro-Project',
+      product: 'Pro-Portal',
       service: 'Cloud Technology',
-      description: 'IT project management with compliance checkpoints and resource allocation.',
+      description: 'Highly available Spring Boot APIs for mobile payment features with Firebase-powered personalized notifications.',
     },
   ],
   metrics: [
@@ -255,24 +250,9 @@ export const manufacturingIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Project',
+      product: 'Pro-Integration',
       service: 'SAP BTP',
-      description: 'Multi-site project management with resource allocation and operational analytics.',
-    },
-    {
-      product: 'Pro-Assure',
-      service: 'Risk Management Services',
-      description: 'Equipment warranty tracking and automated claim processing across all facilities.',
-    },
-    {
-      product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'Contractor management with safety training verification and site access control.',
-    },
-    {
-      product: 'Pro-Sales',
-      service: 'ECommerce',
-      description: 'Supply chain vendor management and procurement optimization.',
+      description: 'SAP BTP Cloud Integration migration from SAP PO 7.5 with global employee master data replication and B2B EDI AS2 integration across Germany, China, and India.',
     },
   ],
   metrics: [
@@ -337,23 +317,8 @@ export const educationIndustry: Industry = {
   solutions: [
     {
       product: 'Pro-Pupil',
-      service: 'Web Development',
-      description: 'Campus operations management with space scheduling and utilization analytics.',
-    },
-    {
-      product: 'Pro-Task',
       service: 'Cloud Technology',
-      description: 'Parking and transportation management for students, faculty, and visitors.',
-    },
-    {
-      product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'Campus visitor management with event registration and building access.',
-    },
-    {
-      product: 'Pro-Project',
-      service: 'SAP BTP',
-      description: 'Dining services optimization across campus food service locations.',
+      description: 'AWS cloud migration for education platforms with serverless Lambda functions, Step Functions, and secure document management using S3.',
     },
   ],
   metrics: [
@@ -413,24 +378,24 @@ export const technologyIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-People',
-      service: 'SAP SuccessFactors',
-      description: 'Workforce analytics for hybrid teams with capacity planning and engagement tracking.',
+      product: 'Pro-Biz',
+      service: 'SAP S/4 HANA',
+      description: 'S/4HANA cloud migration with predictive analytics delivering 30% accuracy improvement and unified portal experiences across Reality Labs, Security, and Marketing hubs.',
     },
     {
-      product: 'Pro-Project',
-      service: 'Web Development',
-      description: 'Agile project management with resource allocation and delivery analytics.',
-    },
-    {
-      product: 'Pro-Ticket',
-      service: 'Cloud Technology',
-      description: 'IT service management with SLA tracking and automated escalations.',
+      product: 'Pro-Biz',
+      service: 'SAP BTP',
+      description: 'S/4 HANA Gateway Services for automated invoice processing with multi-vendor integration including BrightFlag and American Express.',
     },
     {
       product: 'Pro-Biz',
       service: 'AI & ML Solutions',
-      description: 'Vendor procurement and contract management for SaaS and service providers.',
+      description: 'Enterprise data platform architecture with machine learning models for targeted campaigns, NLP trend analysis, and multi-vertical data products.',
+    },
+    {
+      product: 'Pro-Portal',
+      service: 'Web Development',
+      description: 'Full-stack admin panel development using React with Redux Toolkit and Nest.js backend for comprehensive platform management.',
     },
   ],
   metrics: [
@@ -495,23 +460,13 @@ export const governmentIndustry: Industry = {
   solutions: [
     {
       product: 'Pro-Visit',
-      service: 'Cybersecurity',
-      description: 'Citizen appointment scheduling and government facility visitor management.',
+      service: 'Web Development',
+      description: 'Multi-portal youth employment management system with Youth Portal, Employer Portal, and Admin Portal for DC Summer Youth Employment Program.',
     },
     {
       product: 'Pro-Ticket',
       service: 'Web Development',
-      description: 'Benefits and claims management with workflow automation and compliance tracking.',
-    },
-    {
-      product: 'Pro-People',
-      service: 'SAP SuccessFactors',
-      description: 'Government workforce management and employee scheduling optimization.',
-    },
-    {
-      product: 'DocSnip',
-      service: 'AI & ML Solutions',
-      description: 'Citizen self-service portals with secure document submission and status tracking.',
+      description: 'End-to-end workers compensation claims management system handling claim filing, mediation conferences, compensation orders, and wage loss payments.',
     },
   ],
   metrics: [
@@ -575,24 +530,24 @@ export const retailIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-People',
-      service: 'Web Development',
-      description: 'Employee portals with time management, sales tracking, and operational tools.',
-    },
-    {
       product: 'Pro-Biz',
       service: 'AI & ML Solutions',
-      description: 'Enterprise data warehousing and analytics for multi-location insights.',
+      description: 'Enterprise data warehousing with DataMarts, Star and Snowflake schemas, and automated ETL processes for multi-line of business analytics.',
+    },
+    {
+      product: 'Pro-Portal',
+      service: 'Web Development',
+      description: 'Employee portal integration with Siebel, Sterling Commerce, and Outlook, featuring CI/CD automation and gamification capabilities.',
     },
     {
       product: 'Pro-Task',
-      service: 'Cloud Technology',
-      description: 'Mobile merchandising solutions with offline capability and store-level optimization.',
+      service: 'Web Development',
+      description: 'Mobile product mapping system for in-store merchandising with offline capability and automated job scheduling across retail networks.',
     },
     {
-      product: 'Pro-Ticket',
-      service: 'ECommerce',
-      description: 'Store administration panels for order management and operations.',
+      product: 'Pro-Portal',
+      service: 'Web Development',
+      description: 'Store Admin and Zone Controller panels for restaurant order management and driver tracking with real-time data visualization.',
     },
   ],
   metrics: [
@@ -658,22 +613,7 @@ export const aviationIndustry: Industry = {
     {
       product: 'Pro-Biz',
       service: 'AI & ML Solutions',
-      description: 'FAA-certified data pipelines for flight operations analytics.',
-    },
-    {
-      product: 'DocSnip',
-      service: 'Cloud Technology',
-      description: 'Real-time flight data processing and route optimization.',
-    },
-    {
-      product: 'Pro-Assure',
-      service: 'Regulatory Compliance Services',
-      description: 'Aviation regulatory compliance documentation and tracking.',
-    },
-    {
-      product: 'Pro-Project',
-      service: 'Web Development',
-      description: 'Operational dashboards for flight operations centers.',
+      description: 'FAA-certified data pipeline delivering 40% faster route optimization with real-time flight operations analytics and operational dashboards.',
     },
   ],
   metrics: [
@@ -739,22 +679,7 @@ export const crossIndustryCategory: Industry = {
     {
       product: 'Pro-Assure',
       service: 'Cybersecurity',
-      description: 'HITRUST, ISO 27001, and multi-framework security assessments.',
-    },
-    {
-      product: 'Pro-Ticket',
-      service: 'Regulatory Compliance Services',
-      description: 'Compliance management with gap analysis and remediation tracking.',
-    },
-    {
-      product: 'Pro-Biz',
-      service: 'Risk Management Services',
-      description: 'Third-party vendor risk management and continuous monitoring.',
-    },
-    {
-      product: 'Pro-People',
-      service: 'Information Security Awareness & Training',
-      description: 'Security awareness training and compliance education programs.',
+      description: 'ISO 27001, 27017, 27018, 22301, and 9001 certification programs with audits across Europe and US, delivering 100% certification success rate.',
     },
   ],
   metrics: [
