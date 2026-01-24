@@ -31,13 +31,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             // Base styles
             'w-full px-4 py-3 rounded-lg',
-            'bg-background-secondary border border-white/10',
+            'bg-background-secondary border border-[#344669]/12',
             'text-text-primary placeholder:text-text-tertiary',
             'transition-all duration-300',
             // Focus styles
             'focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary',
             // Hover styles
-            'hover:border-white/20',
+            'hover:border-[#344669]/24',
             // Error styles
             error && 'border-red-500 focus:ring-red-500/50 focus:border-red-500',
             // Disabled styles

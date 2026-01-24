@@ -9,23 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Core Palette (Palantir-Inspired Dark Theme)
+        // Core Palette (Visionblox Light Theme - Logo Colors)
         background: {
-          primary: '#0D0D0D',
-          secondary: '#1A1A1A',
-          tertiary: '#262626',
-          elevated: '#333333',
+          primary: '#FFFFFF',
+          secondary: '#F8F9FA',
+          tertiary: '#F1F3F5',
+          elevated: '#FFFFFF',
         },
         accent: {
-          primary: '#00D4AA',    // Cyan-teal - CTAs, highlights
-          secondary: '#3B82F6',  // Blue - links, secondary
-          hover: '#00E6BB',      // Lighter teal for hover
+          primary: '#51C7A8',    // Teal/Mint Green - CTAs, highlights
+          secondary: '#8A67B4',  // Purple - links, secondary
+          tertiary: '#F79462',  // Coral/Orange - highlights, warnings
+          hover: '#3DB896',      // Darker teal for hover
         },
         text: {
-          primary: '#FFFFFF',
-          secondary: '#A0A0A0',
-          tertiary: '#666666',
-          inverse: '#0D0D0D',
+          primary: '#344669',    // Dark Blue/Slate - main text
+          secondary: '#5A6B8A',
+          tertiary: '#8A95B0',
+          inverse: '#FFFFFF',
         },
         // Status Colors
         success: '#10B981',
@@ -81,24 +82,24 @@ const config: Config = {
           '50%': { transform: 'translateY(-10px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(0, 212, 170, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(0, 212, 170, 0.6)' },
+          '0%': { boxShadow: '0 0 20px rgba(81, 199, 168, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(81, 199, 168, 0.6)' },
         },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'grid-pattern': 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(rgba(52, 70, 105, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(52, 70, 105, 0.05) 1px, transparent 1px)',
       },
       backgroundSize: {
         'grid': '50px 50px',
       },
       boxShadow: {
-        'glow-sm': '0 0 10px rgba(0, 212, 170, 0.3)',
-        'glow-md': '0 0 20px rgba(0, 212, 170, 0.4)',
-        'glow-lg': '0 0 40px rgba(0, 212, 170, 0.5)',
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
-        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3)',
+        'glow-sm': '0 0 10px rgba(81, 199, 168, 0.2)',
+        'glow-md': '0 0 20px rgba(81, 199, 168, 0.3)',
+        'glow-lg': '0 0 40px rgba(81, 199, 168, 0.4)',
+        'card': '0 2px 8px rgba(52, 70, 105, 0.08), 0 1px 3px rgba(52, 70, 105, 0.12)',
+        'card-hover': '0 8px 24px rgba(52, 70, 105, 0.12), 0 4px 8px rgba(52, 70, 105, 0.16)',
       },
       borderRadius: {
         '4xl': '2rem',

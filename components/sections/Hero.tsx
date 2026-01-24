@@ -59,7 +59,7 @@ export default function Hero() {
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 212, 170, ${particle.alpha})`
+        ctx.fillStyle = `rgba(81, 199, 168, ${particle.alpha})`
         ctx.fill()
       })
 
@@ -74,7 +74,7 @@ export default function Hero() {
             ctx.beginPath()
             ctx.moveTo(p1.x, p1.y)
             ctx.lineTo(p2.x, p2.y)
-            ctx.strokeStyle = `rgba(0, 212, 170, ${0.1 * (1 - dist / 150)})`
+            ctx.strokeStyle = `rgba(81, 199, 168, ${0.1 * (1 - dist / 150)})`
             ctx.stroke()
           }
         })
@@ -177,7 +177,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/5"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-[#344669]/10"
           >
             {STATS.map((stat, index) => (
               <motion.div

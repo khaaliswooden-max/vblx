@@ -55,11 +55,11 @@ const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
                 />
                 <div
                   className={cn(
-                    'w-5 h-5 rounded-full border border-white/20 bg-background-secondary',
+                    'w-5 h-5 rounded-full border border-[#344669]/20 bg-background-secondary',
                     'transition-all duration-200',
                     'peer-checked:border-accent-primary',
                     'peer-focus-visible:ring-2 peer-focus-visible:ring-accent-primary/50',
-                    'group-hover:border-white/30',
+                    'group-hover:border-[#344669]/30',
                     error && 'border-red-500'
                   )}
                 />

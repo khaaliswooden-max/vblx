@@ -8,20 +8,22 @@
 
 :root {
   /* Background Colors */
-  --color-bg-primary: #0D0D0D;
-  --color-bg-secondary: #1A1A1A;
-  --color-bg-tertiary: #262626;
-  --color-bg-elevated: #333333;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F8F9FA;
+  --color-bg-tertiary: #F1F3F5;
+  --color-bg-elevated: #FFFFFF;
 
   /* Accent Colors */
-  --color-accent-primary: #00D4AA;
-  --color-accent-secondary: #3B82F6;
-  --color-accent-hover: #00E6BB;
+  --color-accent-primary: #51C7A8;
+  --color-accent-secondary: #8A67B4;
+  --color-accent-tertiary: #F79462;
+  --color-accent-hover: #3DB896;
 
   /* Text Colors */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A0A0A0;
-  --color-text-tertiary: #666666;
+  --color-text-primary: #344669;
+  --color-text-secondary: #5A6B8A;
+  --color-text-tertiary: #8A95B0;
+  --color-text-inverse: #FFFFFF;
 
   /* Platform Colors */
   --color-austra: #3182CE;
@@ -43,8 +45,8 @@
   --transition-slow: 500ms ease;
 
   /* Borders */
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-color-hover: rgba(255, 255, 255, 0.2);
+  --border-color: rgba(52, 70, 105, 0.12);
+  --border-color-hover: rgba(52, 70, 105, 0.24);
 }
 
 /* ============================================
@@ -90,12 +92,12 @@ body {
 
 ::selection {
   background: var(--color-accent-primary);
-  color: var(--color-bg-primary);
+  color: var(--color-text-inverse);
 }
 
 ::-moz-selection {
   background: var(--color-accent-primary);
-  color: var(--color-bg-primary);
+  color: var(--color-text-inverse);
 }
 
 /* ============================================
@@ -144,8 +146,8 @@ a {
 
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(52, 70, 105, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 70, 105, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -161,7 +163,7 @@ a {
 .gradient-radial {
   background: radial-gradient(
     ellipse at center,
-    var(--color-accent-primary) 0%,
+    rgba(81, 199, 168, 0.1) 0%,
     transparent 70%
   );
 }
@@ -183,7 +185,7 @@ a {
    ============================================ */
 
 .glow-accent {
-  box-shadow: 0 0 40px rgba(0, 212, 170, 0.3);
+  box-shadow: 0 0 40px rgba(81, 199, 168, 0.3);
 }
 
 .glow-austra {
@@ -215,7 +217,7 @@ a {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.05) 50%,
+    rgba(81, 199, 168, 0.1) 50%,
     transparent 100%
   );
   background-size: 200% 100%;

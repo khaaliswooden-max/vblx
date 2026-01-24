@@ -13,7 +13,7 @@ const contactPaths = [
     description: 'Connect with our team to explore how Visionblox platforms can transform your operations, procurement, and compliance processes.',
     icon: Building2,
     href: '/contact/commercial',
-    color: '#00D4AA',
+    color: '#51C7A8',
     features: [
       'Enterprise solutions',
       'Platform demonstrations',
@@ -74,7 +74,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Link href={path.href} className="block group">
-                  <div className="bg-background-secondary rounded-2xl border border-white/5 p-8 h-full hover:border-white/10 transition-all duration-300 hover:translate-y-[-4px]">
+                  <div className="bg-background-secondary rounded-2xl border border-[#344669]/10 p-8 h-full hover:border-[#344669]/20 transition-all duration-300 hover:translate-y-[-4px]">
                     <div
                       className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
                       style={{ backgroundColor: `${path.color}20` }}
@@ -145,7 +145,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-background-primary rounded-xl border border-white/5 p-6"
+                className="bg-background-primary rounded-xl border border-[#344669]/10 p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-accent-primary/20 flex items-center justify-center">
@@ -169,7 +169,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-background-primary rounded-xl border border-white/5 p-6"
+                className="bg-background-primary rounded-xl border border-[#344669]/10 p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-accent-primary/20 flex items-center justify-center">
@@ -193,7 +193,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="bg-background-primary rounded-xl border border-white/5 p-6"
+                className="bg-background-primary rounded-xl border border-[#344669]/10 p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-accent-primary/20 flex items-center justify-center">
@@ -230,7 +230,7 @@ export default function ContactPage() {
                 {COMPANY.locations.map((location) => (
                   <div
                     key={location.city}
-                    className="bg-background-primary rounded-lg border border-white/5 px-4 py-2 text-sm"
+                    className="bg-background-primary rounded-lg border border-[#344669]/10 px-4 py-2 text-sm"
                   >
                     <span className="text-text-primary">{location.city}</span>
                     {location.type === 'HQ' && (

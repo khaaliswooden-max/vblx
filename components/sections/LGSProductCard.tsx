@@ -42,9 +42,9 @@ const LGSProductCard = () => {
   ];
 
   return (
-    <div className="group relative bg-gradient-to-br from-[#0f1419] to-[#0a0d10] rounded-2xl border border-white/5 hover:border-teal-500/30 transition-all duration-500 overflow-hidden">
+    <div className="group relative bg-gradient-to-br from-background-secondary to-background-tertiary rounded-2xl border border-[#344669]/10 hover:border-accent-primary/30 transition-all duration-500 overflow-hidden">
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* Header */}
       <div className="relative p-8 pb-6">
@@ -52,23 +52,23 @@ const LGSProductCard = () => {
           <div>
             <div className="flex items-center gap-3 mb-2">
               {/* LGS Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 border border-teal-500/20 flex items-center justify-center">
-                <svg className="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 border border-accent-primary/20 flex items-center justify-center">
+                <svg className="w-6 h-6 text-accent-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white tracking-tight">LotGrid Systems</h3>
-                <span className="text-xs font-mono text-teal-400/80 tracking-wider">LGS</span>
+                <h3 className="text-2xl font-bold text-text-primary tracking-tight">LotGrid Systems</h3>
+                <span className="text-xs font-mono text-accent-primary/80 tracking-wider">LGS</span>
               </div>
             </div>
-            <p className="text-gray-400 text-sm max-w-sm">
+            <p className="text-text-secondary text-sm max-w-sm">
               Smart Parking & Visitor Management Platform
             </p>
           </div>
           
           {/* Status badge */}
-          <span className="px-3 py-1 text-xs font-medium bg-teal-500/10 text-teal-400 rounded-full border border-teal-500/20">
+          <span className="px-3 py-1 text-xs font-medium bg-accent-primary/10 text-accent-primary rounded-full border border-accent-primary/20">
             PROPRIETARY
           </span>
         </div>
@@ -78,13 +78,13 @@ const LGSProductCard = () => {
           {modules.map((module) => (
             <div
               key={module.name}
-              className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-teal-500/20 hover:bg-teal-500/5 transition-all duration-300"
+              className="p-3 rounded-xl bg-background-primary border border-[#344669]/10 hover:border-accent-primary/20 hover:bg-accent-primary/5 transition-all duration-300"
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-teal-400">{module.icon}</span>
-                <span className="text-xs font-semibold text-white">{module.name}</span>
+                <span className="text-accent-primary">{module.icon}</span>
+                <span className="text-xs font-semibold text-text-primary">{module.name}</span>
               </div>
-              <p className="text-[10px] text-gray-500 leading-relaxed">{module.description}</p>
+              <p className="text-[10px] text-text-tertiary leading-relaxed">{module.description}</p>
             </div>
           ))}
         </div>
@@ -93,12 +93,12 @@ const LGSProductCard = () => {
         <div className="grid grid-cols-2 gap-2">
           {features.map((feature) => (
             <div key={feature.label} className="flex items-start gap-2 p-2">
-              <svg className="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
               <div>
-                <span className="text-xs font-medium text-white">{feature.label}</span>
-                <p className="text-[10px] text-gray-500">{feature.desc}</p>
+                <span className="text-xs font-medium text-text-primary">{feature.label}</span>
+                <p className="text-[10px] text-text-tertiary">{feature.desc}</p>
               </div>
             </div>
           ))}
@@ -106,16 +106,16 @@ const LGSProductCard = () => {
       </div>
 
       {/* Footer */}
-      <div className="relative px-8 py-4 border-t border-white/5 bg-white/[0.01]">
+      <div className="relative px-8 py-4 border-t border-[#344669]/10 bg-background-primary">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="text-xs text-gray-500">
-              <span className="text-gray-400">Use Cases:</span> Universities • Stadiums • Corporate • Healthcare
+            <span className="text-xs text-text-tertiary">
+              <span className="text-text-secondary">Use Cases:</span> Universities • Stadiums • Corporate • Healthcare
             </span>
           </div>
           <Link 
             href="/contact"
-            className="group/btn flex items-center gap-2 px-4 py-2 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
+            className="group/btn flex items-center gap-2 px-4 py-2 text-sm font-medium text-accent-primary hover:text-accent-hover transition-colors"
           >
             Learn More
             <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

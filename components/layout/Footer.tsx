@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-background-secondary border-t border-white/5">
+    <footer className="bg-background-secondary border-t border-[#344669]/10">
       <div className="container-wide section-padding">
         {/* Main Footer */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -127,7 +127,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-[#344669]/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-text-tertiary">
             <span>© {currentYear} {COMPANY.name}</span>
             <span className="hidden md:inline">•</span>

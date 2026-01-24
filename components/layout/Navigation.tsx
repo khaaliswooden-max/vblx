@@ -38,7 +38,7 @@ export default function Navigation() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-background-primary/80 backdrop-blur-lg border-b border-white/5'
+          ? 'bg-background-primary/80 backdrop-blur-lg border-b border-[#344669]/10'
           : 'bg-transparent'
       )}
     >
@@ -68,7 +68,7 @@ export default function Navigation() {
                 <Link
                   href={link.href}
                   className={cn(
-                    'flex items-center gap-1 px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-white/5'
+                    'flex items-center gap-1 px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-[#344669]/5'
                   )}
                 >
                   {link.label}
@@ -91,14 +91,14 @@ export default function Navigation() {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 pt-2"
                       >
-                        <div className="bg-background-secondary border border-white/10 rounded-xl p-2 shadow-xl min-w-[280px]">
+                        <div className="bg-background-secondary border border-[#344669]/12 rounded-xl p-2 shadow-xl min-w-[280px]">
                           {link.children.map((child) => {
-                            const color = '#00D4AA'
+                            const color = '#51C7A8'
                             return (
                               <Link
                                 key={child.label}
                                 href={child.href}
-                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
+                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#344669]/5 transition-colors group"
                               >
                                 <div
                                   className="w-10 h-10 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0"
@@ -159,7 +159,7 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background-primary border-t border-white/5 overflow-hidden"
+            className="md:hidden bg-background-primary border-t border-[#344669]/10 overflow-hidden"
           >
             <div className="container-wide py-6 space-y-4">
               {NAV_LINKS.map((link) => (
@@ -190,7 +190,7 @@ export default function Navigation() {
                   )}
                 </div>
               ))}
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-4 border-t border-[#344669]/12">
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="primary" size="lg" className="w-full">
                     Get Started

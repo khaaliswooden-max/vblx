@@ -10,8 +10,8 @@ export default function MissionStatement() {
       <div className="absolute inset-0 bg-gradient-to-b from-background-primary via-background-secondary to-background-primary" />
       
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
-      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#344669]/10 to-transparent" />
+      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#344669]/10 to-transparent" />
 
       <div className="container-wide relative z-10">
         <motion.div
@@ -63,7 +63,7 @@ export default function MissionStatement() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              className="text-center p-4 rounded-lg bg-background-secondary/50 border border-white/5"
+              className="text-center p-4 rounded-lg bg-background-secondary/50 border border-[#344669]/10"
             >
               <div className="text-2xl mb-2">
                 {location.country === 'USA' && '🇺🇸'}
