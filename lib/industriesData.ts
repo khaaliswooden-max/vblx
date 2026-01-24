@@ -93,24 +93,24 @@ export const healthcareIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Portal',
+      product: '',
       service: 'Web Development',
-      description: 'Patient portal platforms with Epic EMR integration serving 100K+ daily users with 99.8% uptime.',
+      description: 'Patient portal platforms with Epic EMR integration serving 100K+ daily users with 99.8% uptime. Built using Angular-based UI with Node.js APIs deployed as Docker containers on Cloud Foundry. Features include chatbot functionality for appointment scheduling, Google Maps integration for facility location, ADA-compliant design patterns, Apigee Gateway for secure API access, and Kafka for real-time event processing. Achieved zero-downtime deployments with seamless Epic EMR synchronization.',
     },
     {
-      product: 'DocSnip',
+      product: '',
       service: 'AI & ML Solutions',
-      description: 'AI-powered OCR document processing achieving 96% accuracy and 60% labor cost reduction for Medicaid claims.',
+      description: 'AI-powered OCR document processing achieving 96% accuracy and 60% labor cost reduction for Medicaid claims. Implemented NLP and OCR automation pipeline with machine learning models trained on healthcare documents. Features data extraction and validation workflows, integration with existing state systems, and Section 508 accessibility compliance. Transformed paper-intensive processes into automated digital workflows.',
     },
     {
-      product: 'Pro-Biz',
+      product: '',
       service: 'Cloud Technology',
-      description: 'Scalable claims processing platforms processing millions of medical claims daily using AWS services.',
+      description: 'Scalable claims processing platforms processing millions of medical claims daily using AWS services including Batch, Lambda, Fargate, and EMR with Apache Spark. Designed cross-functional solutions for manufacturer rebate sharing with optimal service selection for each business use case. Large-scale Spring Boot applications handle complex rebate calculation processing with end-to-end automation.',
     },
     {
-      product: 'Pro-Assure',
+      product: '',
       service: 'Cybersecurity',
-      description: 'HITRUST framework security assessments and third-party vendor risk management for global healthcare organizations.',
+      description: 'HITRUST framework security assessments and third-party vendor risk management for global healthcare organizations. Comprehensive end-to-end vendor risk management globally including acquired organizations. Includes security awareness training programs and targeted remediation strategies with follow-up until closure. Ensures compliance across multi-country operations.',
     },
   ],
   metrics: [
@@ -174,19 +174,19 @@ export const fintechIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Biz',
+      product: '',
       service: 'Web Development',
-      description: 'Microservices-based loan origination systems with rate calculation engines and automated document generation for agricultural lending.',
+      description: 'Microservices-based loan origination systems with rate calculation engines and automated document generation for agricultural lending. Built using .NET Core 2.0 with Angular frontend, featuring customer account portal with Web APIs for loan origination, configurable rate sheets across associations, SSIS packages for data extraction and transformation, and ACH cash management integration. Modernized legacy systems to support modern agricultural lending requirements with farm credit regulation compliance.',
     },
     {
-      product: 'Pro-Portal',
+      product: '',
       service: 'Web Development',
-      description: 'B2B portal modernization with WebSphere migration and real-time revenue projection dashboards for financial services.',
+      description: 'B2B portal modernization with WebSphere migration and real-time revenue projection dashboards for financial services. Led migration of B2B sites to WebSphere v8.5 and developed Single Page Application using Aurelia for Message Center. Provides real-time revenue projections and enhanced financial forecasting accuracy. Long-term engagement spanning 8+ years with continuous innovation and platform stability improvements.',
     },
     {
-      product: 'Pro-Portal',
+      product: '',
       service: 'Cloud Technology',
-      description: 'Highly available Spring Boot APIs for mobile payment features with Firebase-powered personalized notifications.',
+      description: 'Highly available Spring Boot APIs for mobile payment features with Firebase-powered personalized notifications. Designed, developed, and deployed APIs powering payment features on mobile platforms with Google Firebase for personalized notifications. Features include outstanding payment alerts and enterprise entity services integration. Achieved 99.9%+ uptime with enterprise-grade reliability.',
     },
   ],
   metrics: [
@@ -250,9 +250,9 @@ export const manufacturingIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Integration',
+      product: '',
       service: 'SAP BTP',
-      description: 'SAP BTP Cloud Integration migration from SAP PO 7.5 with global employee master data replication and B2B EDI AS2 integration across Germany, China, and India.',
+      description: 'SAP BTP Cloud Integration migration from SAP PO 7.5 with global employee master data replication and B2B EDI AS2 integration across Germany, China, and India. Implemented complex transformations using Format Conversion Bean, S/4 object integration with Chromeriver, and B2B integration using EDI AS2 protocols for Elemica. Employee master data replication between S/4, Employee Central, and FCM. Delivered $2M+ annual operational savings with 25% faster data processing and seamless multi-country payroll operations.',
     },
   ],
   metrics: [
@@ -316,9 +316,9 @@ export const educationIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Pupil',
+      product: '',
       service: 'Cloud Technology',
-      description: 'AWS cloud migration for education platforms with serverless Lambda functions, Step Functions, and secure document management using S3.',
+      description: 'AWS cloud migration for education platforms with serverless Lambda functions, Step Functions, and secure document management using S3. Modernizing Synergy and TVUE Portal with AWS services integration, converting legacy SSIS packages to .NET Core functions, and implementing secure document management. Features AWS Lambda functions and Step Functions for serverless architecture, secure document storage with AWS S3 and pre-signed URL functionality, and SSRS reporting modernization. Cloud-native deployment with .NET 8 framework upgrade.',
     },
   ],
   metrics: [
@@ -378,24 +378,24 @@ export const technologyIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Biz',
+      product: '',
       service: 'SAP S/4 HANA',
-      description: 'S/4HANA cloud migration with predictive analytics delivering 30% accuracy improvement and unified portal experiences across Reality Labs, Security, and Marketing hubs.',
+      description: 'S/4HANA cloud migration with predictive analytics delivering 30% accuracy improvement and unified portal experiences across Reality Labs, Security, and Marketing hubs. Led comprehensive S/4HANA cloud migration with optimized React components for business sites and reusable components across multiple hubs. Enhanced data visualization and streamlined onboarding with interactive site tours. Multi-year engagement delivering real-time insights across global operations with unified data platform.',
     },
     {
-      product: 'Pro-Biz',
+      product: '',
       service: 'SAP BTP',
-      description: 'S/4 HANA Gateway Services for automated invoice processing with multi-vendor integration including BrightFlag and American Express.',
+      description: 'S/4 HANA Gateway Services for automated invoice processing with multi-vendor integration including BrightFlag and American Express. Developed integration flows using CPI/HCI with BrightFlag Invoice to S/4 HANA via IDOC adapter, XSLT transformation for status updates, and American Express invoice integration via sFTP with SSH Key authentication. oData services for binary data streaming to SAP Backend. Automated multi-source invoice flow with secure SSH authentication and real-time status updates.',
     },
     {
-      product: 'Pro-Biz',
+      product: '',
       service: 'AI & ML Solutions',
-      description: 'Enterprise data platform architecture with machine learning models for targeted campaigns, NLP trend analysis, and multi-vertical data products.',
+      description: 'Enterprise data platform architecture with machine learning models for targeted campaigns, NLP trend analysis, and multi-vertical data products. Led enterprise architecture implementation for data products spanning Consumer, eMail, and Auto verticals. Features chronic builds across products, DataMarts in SQL Server with Star and Snowflake schemas, ML models using Python with Scikit-learn and TensorFlow/Keras, and data product migration to Snowflake for multi-cluster warehouse. 8-year transformation journey with regression, classification, and clustering models plus NLP trend analysis live feeds.',
     },
     {
-      product: 'Pro-Portal',
+      product: '',
       service: 'Web Development',
-      description: 'Full-stack admin panel development using React with Redux Toolkit and Nest.js backend for comprehensive platform management.',
+      description: 'Full-stack admin panel development using React with Redux Toolkit and Nest.js backend for comprehensive platform management. Developed comprehensive admin panel using React with Redux Toolkit and Nest.js backend with MySQL, delivering full-stack enterprise solution. Features comprehensive admin functionality with module enhancements and API development. Clean and maintainable architecture for complete platform control.',
     },
   ],
   metrics: [
@@ -459,14 +459,14 @@ export const governmentIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Visit',
+      product: '',
       service: 'Web Development',
-      description: 'Multi-portal youth employment management system with Youth Portal, Employer Portal, and Admin Portal for DC Summer Youth Employment Program.',
+      description: 'Multi-portal youth employment management system with Youth Portal, Employer Portal, and Admin Portal for DC Summer Youth Employment Program. Developed MVC5-based multi-portal system enabling subsidized job placements for 14-24 year olds across DC. Features SharePoint document management, Tableau reporting dashboards, and comprehensive workflow automation. Multi-year program support connecting District youth with employment opportunities in private and government sectors.',
     },
     {
-      product: 'Pro-Ticket',
+      product: '',
       service: 'Web Development',
-      description: 'End-to-end workers compensation claims management system handling claim filing, mediation conferences, compensation orders, and wage loss payments.',
+      description: 'End-to-end workers compensation claims management system handling claim filing, mediation conferences, compensation orders, and wage loss payments. Built comprehensive .NET Core-based system with custom application framework. Features claim creation and management, informal and mediation conference scheduling, compensation order issuance, lump-sum settlement approvals, and wage loss and medical payment processing. Ensures DC regulations compliance with unified stakeholder platform.',
     },
   ],
   metrics: [
@@ -611,9 +611,9 @@ export const aviationIndustry: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Biz',
+      product: '',
       service: 'AI & ML Solutions',
-      description: 'FAA-certified data pipeline delivering 40% faster route optimization with real-time flight operations analytics and operational dashboards.',
+      description: 'FAA-certified data pipeline delivering 40% faster route optimization with real-time flight operations analytics and operational dashboards. Built FAA-certified aviation data pipeline with real-time flight data processing at scale, advanced route optimization algorithms, operational dashboards for decision-making, and FAA data standards compliance. Rapid development over 6 months with full FAA certification achieved and audit-ready documentation. Transformed flight operations intelligence with competitive advantage in route optimization.',
     },
   ],
   metrics: [
@@ -677,9 +677,9 @@ export const crossIndustryCategory: Industry = {
   ],
   solutions: [
     {
-      product: 'Pro-Assure',
+      product: '',
       service: 'Cybersecurity',
-      description: 'ISO 27001, 27017, 27018, 22301, and 9001 certification programs with audits across Europe and US, delivering 100% certification success rate.',
+      description: 'ISO 27001, 27017, 27018, 22301, and 9001 certification programs with audits across Europe and US, delivering 100% certification success rate. Implemented and managed ISO27001 projects for various global clients, conducted certification audits across Europe and US, delivering certifications and comprehensive security consulting. Features security consulting on contractual and regulatory requirements, information security training for organizational awareness, gap assessment, implementation roadmap, audit preparation, document development, control implementation, and external audit coordination. Multi-standard coverage with global reach.',
     },
   ],
   metrics: [

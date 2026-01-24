@@ -211,22 +211,29 @@ export default function IndustryDetailPage() {
                         className="font-display font-bold"
                         style={{ color: product?.color || '#3B82F6' }}
                       >
-                        {product?.name?.[0] || 'P'}
+                        {product?.name?.[0] || (solution.service?.[0] || 'S')}
                       </span>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span 
-                          className="text-xs font-mono px-2 py-0.5 rounded"
-                          style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620', color: product?.color || '#3B82F6' }}
-                        >
-                          {solution.product}
-                        </span>
-                        {solution.service && (
+                        {solution.product && (
                           <>
-                            <span className="text-text-tertiary text-sm">•</span>
-                            <span className="text-text-tertiary text-sm">{solution.service}</span>
+                            <span 
+                              className="text-xs font-mono px-2 py-0.5 rounded"
+                              style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620', color: product?.color || '#3B82F6' }}
+                            >
+                              {solution.product}
+                            </span>
+                            {solution.service && (
+                              <>
+                                <span className="text-text-tertiary text-sm">•</span>
+                                <span className="text-text-tertiary text-sm">{solution.service}</span>
+                              </>
+                            )}
                           </>
+                        )}
+                        {!solution.product && solution.service && (
+                          <span className="text-text-tertiary text-sm font-medium">{solution.service}</span>
                         )}
                       </div>
                       <p className="text-text-secondary text-sm">
