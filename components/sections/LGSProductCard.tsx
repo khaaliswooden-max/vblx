@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const LGSProductCard = () => {
   const modules = [
@@ -51,11 +52,16 @@ const LGSProductCard = () => {
         <div className="flex items-start justify-between mb-6">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              {/* LGS Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 border border-accent-primary/20 flex items-center justify-center">
-                <svg className="w-6 h-6 text-accent-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                </svg>
+              {/* LotGrid Systems Logo */}
+              <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                <Image
+                  src="/lotgrid-logo.png"
+                  alt="LotGrid Systems Logo"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-text-primary tracking-tight">LotGrid Systems</h3>
