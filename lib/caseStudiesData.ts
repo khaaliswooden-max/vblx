@@ -88,9 +88,9 @@ export interface CaseStudy {
 
 export const kaiserVCareCase: CaseStudy = {
   id: 'kaiser-vcare-portal',
-  title: 'Kaiser Permanente VCare Patient Portal Transformation',
+  title: 'West Coast Healthcare System Patient Portal Transformation',
   subtitle: '100K+ Daily Users Served with 99.8% Uptime',
-  client: 'Kaiser Permanente',
+  client: 'West Coast Integrated Healthcare System (7M+ members)',
   industry: 'Healthcare',
   industryId: 'healthcare',
   serviceCategory: 'operations',
@@ -142,7 +142,7 @@ export const kaiserVCareCase: CaseStudy = {
   quote: {
     text: 'Visionblox delivered a patient portal that exceeds our expectations. The seamless Epic integration and reliability have transformed how our patients access care.',
     author: 'Healthcare Technology Director',
-    title: 'Kaiser Permanente',
+    title: 'West Coast Integrated Healthcare System',
   },
   tags: ['Healthcare', 'Patient Portal', 'Epic EMR', 'Cloud Native', 'High Availability'],
   duration: '6 months implementation',
@@ -157,9 +157,9 @@ export const kaiserVCareCase: CaseStudy = {
 
 export const caDhcsMedicaidCase: CaseStudy = {
   id: 'ca-dhcs-medicaid',
-  title: 'California DHCS Medicaid Document Processing',
+  title: 'State Medicaid Document Intelligence',
   subtitle: '96% AI Accuracy with 60% Labor Cost Reduction',
-  client: 'California Department of Health Care Services',
+  client: 'State Department of Health Care Services (Western U.S.)',
   industry: 'Healthcare',
   industryId: 'healthcare',
   serviceCategory: 'operations',
@@ -209,7 +209,7 @@ export const caDhcsMedicaidCase: CaseStudy = {
   quote: {
     text: 'The AI document processing system has revolutionized our Medicaid operations. What took days now takes hours with higher accuracy.',
     author: 'IT Director',
-    title: 'California DHCS',
+    title: 'State Department of Health Care Services',
   },
   tags: ['Healthcare', 'AI/ML', 'OCR', 'Government', 'Document Processing'],
   duration: '8 months implementation',
@@ -224,9 +224,9 @@ export const caDhcsMedicaidCase: CaseStudy = {
 
 export const metaSapCase: CaseStudy = {
   id: 'meta-sap-analytics',
-  title: 'Meta Platforms Enterprise SAP Analytics Migration',
+  title: 'Fortune 10 Technology Company Enterprise SAP Transformation',
   subtitle: '30% Analytics Accuracy Improvement with S/4HANA Cloud',
-  client: 'Meta Platforms',
+  client: 'Fortune 10 Technology Company (Global Social Media Platform)',
   industry: 'Technology',
   industryId: 'technology',
   serviceCategory: 'operations',
@@ -276,7 +276,7 @@ export const metaSapCase: CaseStudy = {
   quote: {
     text: 'Visionblox\'s expertise in SAP and modern web technologies helped us achieve a seamless migration while improving our analytics capabilities.',
     author: 'Enterprise Architecture Lead',
-    title: 'Meta Platforms',
+    title: 'Fortune 10 Technology Company',
   },
   tags: ['Technology', 'SAP', 'S/4HANA', 'Cloud Migration', 'Analytics'],
   duration: '18 months implementation',
@@ -291,11 +291,11 @@ export const metaSapCase: CaseStudy = {
 
 export const basfSapCase: CaseStudy = {
   id: 'basf-sap-integration',
-  title: 'BASF Catalyst Global SAP BTP Integration',
+  title: 'Global Manufacturing SAP Integration',
   subtitle: '$2M+ Annual Savings Through Enterprise Integration',
-  client: 'BASF Catalyst',
-  industry: 'Manufacturing',
-  industryId: 'manufacturing',
+  client: 'Fortune 500 Multinational Chemical Manufacturer (European HQ)',
+  industry: 'Technology',
+  industryId: 'technology',
   serviceCategory: 'operations',
   products: ['Pro-Integration', 'Pro-People'],
   heroImage: '/images/case-studies/basf-sap.jpg',
@@ -340,7 +340,7 @@ export const basfSapCase: CaseStudy = {
   quote: {
     text: 'The migration to SAP BTP has transformed our global operations. The integration with our B2B partners is now seamless and reliable.',
     author: 'Global IT Director',
-    title: 'BASF Catalyst',
+    title: 'Fortune 500 Multinational Chemical Manufacturer',
   },
   tags: ['Manufacturing', 'SAP', 'BTP', 'Global', 'B2B Integration'],
   duration: '14 months implementation',
@@ -355,9 +355,9 @@ export const basfSapCase: CaseStudy = {
 
 export const strakeAviationCase: CaseStudy = {
   id: 'strake-aviation',
-  title: 'Strake Aviation Flight Intelligence Platform',
+  title: 'Aviation Intelligence Platform',
   subtitle: 'FAA-Certified Data Pipeline with 40% Route Optimization',
-  client: 'Strake Aviation',
+  client: 'Commercial Aviation Services Provider',
   industry: 'Aviation',
   industryId: 'aviation',
   serviceCategory: 'operations',
@@ -404,7 +404,7 @@ export const strakeAviationCase: CaseStudy = {
   quote: {
     text: 'The flight intelligence platform has given us capabilities we never thought possible. Route optimization is now a competitive advantage.',
     author: 'Chief Operations Officer',
-    title: 'Strake Aviation',
+    title: 'Commercial Aviation Services Provider',
   },
   tags: ['Aviation', 'FAA', 'Analytics', 'Route Optimization', 'Real-time'],
   duration: '6 months implementation',
@@ -675,9 +675,9 @@ export const voyaPortalCase: CaseStudy = {
 
 export const dcDoesCase: CaseStudy = {
   id: 'dc-does-syep',
-  title: 'DC DOES Summer Youth Employment Program',
+  title: 'Government Youth Employment Portal',
   subtitle: 'Multi-Portal Youth Employment Management System',
-  client: 'DC Department of Employment Services',
+  client: 'Municipal Department of Employment Services (East Coast)',
   industry: 'Government',
   industryId: 'government',
   serviceCategory: 'compliance',
@@ -723,9 +723,9 @@ export const dcDoesCase: CaseStudy = {
     { value: 'SharePoint', label: 'Integration', description: 'Document management' },
   ],
   quote: {
-    text: 'The SYEP platform has transformed how we connect DC youth with employment opportunities. The system handles thousands of participants smoothly.',
+    text: 'The SYEP platform has transformed how we connect youth with employment opportunities. The system handles thousands of participants smoothly.',
     author: 'Program Director',
-    title: 'DC DOES',
+    title: 'Municipal Department of Employment Services',
   },
   tags: ['Government', 'Youth Employment', 'Multi-Portal', 'Workforce', 'DC'],
   duration: '4 year engagement',

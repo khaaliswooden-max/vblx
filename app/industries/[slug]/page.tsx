@@ -75,17 +75,24 @@ export default function IndustryDetailPage() {
                 />
               </div>
               <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
-                {industry.name}
+                {industry.heroHeadline || industry.name}
               </h1>
               <p 
                 className="text-xl font-medium mb-6"
                 style={{ color: industry.color }}
               >
-                {industry.tagline}
+                {industry.heroSubheadline || industry.tagline}
               </p>
-              <p className="text-lg text-text-secondary leading-relaxed mb-8">
-                {industry.description}
-              </p>
+              {industry.problemStatement && (
+                <p className="text-lg text-text-secondary leading-relaxed mb-8">
+                  {industry.problemStatement}
+                </p>
+              )}
+              {!industry.problemStatement && (
+                <p className="text-lg text-text-secondary leading-relaxed mb-8">
+                  {industry.description}
+                </p>
+              )}
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact">
                   <Button variant="primary" size="lg">
@@ -323,6 +330,58 @@ export default function IndustryDetailPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Contract Vehicles - Federal & SLED */}
+          {industry.contractVehicles && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 p-6 bg-background-tertiary rounded-xl border border-white/5"
+            >
+              <h3 className="text-lg font-display font-semibold mb-4">
+                Contract Vehicles & Credentials
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {industry.contractVehicles.cageCode && (
+                  <div>
+                    <div className="text-text-tertiary text-sm mb-1">CAGE Code</div>
+                    <div className="font-mono font-bold text-accent-primary">{industry.contractVehicles.cageCode}</div>
+                  </div>
+                )}
+                {industry.contractVehicles.uei && (
+                  <div>
+                    <div className="text-text-tertiary text-sm mb-1">UEI</div>
+                    <div className="font-mono font-bold text-accent-primary">{industry.contractVehicles.uei}</div>
+                  </div>
+                )}
+                {industry.contractVehicles.gsaStatus && (
+                  <div>
+                    <div className="text-text-tertiary text-sm mb-1">GSA Status</div>
+                    <div className="font-semibold text-text-primary">{industry.contractVehicles.gsaStatus}</div>
+                  </div>
+                )}
+                {industry.contractVehicles.businessType && (
+                  <div>
+                    <div className="text-text-tertiary text-sm mb-1">Business Type</div>
+                    <div className="font-semibold text-text-primary">{industry.contractVehicles.businessType}</div>
+                  </div>
+                )}
+                {industry.contractVehicles.naics && industry.contractVehicles.naics.length > 0 && (
+                  <div className="md:col-span-2">
+                    <div className="text-text-tertiary text-sm mb-2">NAICS Codes</div>
+                    <div className="flex flex-wrap gap-2">
+                      {industry.contractVehicles.naics.map((naics) => (
+                        <span key={naics} className="px-3 py-1 bg-background-primary rounded text-sm font-mono">
+                          {naics}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 

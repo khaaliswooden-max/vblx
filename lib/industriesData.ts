@@ -44,6 +44,8 @@ export interface IndustryCompliance {
   description: string
 }
 
+export type IndustryTier = 'PRIMARY' | 'SECONDARY'
+
 export interface Industry {
   id: string
   name: string
@@ -52,6 +54,11 @@ export interface Industry {
   icon: LucideIcon
   color: string
   heroImage: string
+  tier: IndustryTier
+  heroHeadline?: string
+  heroSubheadline?: string
+  heroCTA?: string
+  problemStatement?: string
   challenges: IndustryChallenge[]
   solutions: IndustrySolution[]
   metrics: IndustryMetric[]
@@ -59,6 +66,13 @@ export interface Industry {
   compliance: IndustryCompliance[]
   useCases: string[]
   relatedProducts: string[]
+  contractVehicles?: {
+    cageCode?: string
+    uei?: string
+    gsaStatus?: string
+    businessType?: string
+    naics?: string[]
+  }
 }
 
 // ============================================================================
@@ -67,79 +81,78 @@ export interface Industry {
 
 export const healthcareIndustry: Industry = {
   id: 'healthcare',
-  name: 'Healthcare & Life Sciences',
-  tagline: 'Operational Excellence for Patient-Centered Care',
-  description: 'HIPAA-compliant platforms designed for healthcare systems, hospitals, and life sciences organizations. Optimize workforce scheduling, visitor management, and operational efficiency while maintaining the highest standards of patient data protection.',
+  name: 'Healthcare IT',
+  tagline: '60% Labor Reduction. 96% AI Accuracy. 99.8% Uptime.',
+  description: 'Healthcare IT modernization that delivers measurable outcomes -- from patient portals serving 100K+ daily users to AI-powered document processing for state Medicaid agencies.',
   icon: HeartPulse,
   color: '#10B981',
   heroImage: '/images/industries/healthcare-hero.jpg',
+  tier: 'PRIMARY',
+  heroHeadline: '60% Labor Reduction. 96% AI Accuracy. 99.8% Uptime.',
+  heroSubheadline: 'Healthcare IT modernization that delivers measurable outcomes -- from patient portals serving 100K+ daily users to AI-powered document processing for state Medicaid agencies.',
+  heroCTA: 'See Healthcare Case Studies',
+  problemStatement: 'Healthcare organizations face mounting pressure to modernize legacy systems while maintaining HIPAA compliance, ensuring 24/7 availability, and reducing operational costs. Manual document processing creates backlogs. Disconnected systems frustrate patients. Security vulnerabilities put PHI at risk. You need a partner who understands both healthcare operations and enterprise technology -- and can prove outcomes, not just promise them.',
   challenges: [
     {
-      title: 'Staff Scheduling Complexity',
-      description: 'Managing 24/7 operations with complex shift patterns, credentialing requirements, and union agreements.',
+      title: 'Legacy System Modernization',
+      description: 'Modernizing aging systems while maintaining HIPAA compliance and 24/7 availability for critical patient services.',
     },
     {
-      title: 'HIPAA Compliance',
-      description: 'Ensuring patient data protection across all operational systems and visitor interactions.',
+      title: 'Manual Document Processing',
+      description: 'Paper-intensive processes create backlogs, delays, and unsustainable labor costs as volumes grow.',
     },
     {
-      title: 'Visitor & Contractor Management',
-      description: 'Controlling facility access while maintaining a welcoming environment for patients and families.',
+      title: 'EMR Integration Complexity',
+      description: 'Seamless integration with Epic, Cerner, and other major EMR systems while maintaining data integrity and security.',
     },
     {
-      title: 'Vendor Compliance',
-      description: 'Managing pharmaceutical reps, equipment vendors, and contractors with appropriate access controls.',
+      title: 'Security & Compliance',
+      description: 'Protecting PHI across all systems while meeting HIPAA, HITECH, and Section 508 requirements.',
     },
   ],
   solutions: [
     {
       product: '',
-      service: 'Web Development',
-      description: 'Patient portal platforms with Epic EMR integration serving 100K+ daily users with 99.8% uptime. Built using Angular-based UI with Node.js APIs deployed as Docker containers on Cloud Foundry. Features include chatbot functionality for appointment scheduling, Google Maps integration for facility location, ADA-compliant design patterns, Apigee Gateway for secure API access, and Kafka for real-time event processing. Achieved zero-downtime deployments with seamless Epic EMR synchronization.',
+      service: 'Patient Portal Development',
+      description: 'Secure, HIPAA-compliant portals integrated with Epic, Cerner, and other major EMR systems. Appointment scheduling, prescription management, telehealth capabilities, and health record access -- all built on cloud-native architecture with zero-trust security. Epic HealthConnect integration via SOAP/REST and Kafka streaming. ADA/Section 508 compliant interfaces. eVisit and video visit telehealth delivery.',
     },
     {
       product: '',
-      service: 'AI & ML Solutions',
-      description: 'AI-powered OCR document processing achieving 96% accuracy and 60% labor cost reduction for Medicaid claims. Implemented NLP and OCR automation pipeline with machine learning models trained on healthcare documents. Features data extraction and validation workflows, integration with existing state systems, and Section 508 accessibility compliance. Transformed paper-intensive processes into automated digital workflows.',
+      service: 'Document Intelligence & AI',
+      description: 'AI-powered OCR and NLP systems for eligibility documents, claims processing, and clinical documentation. Custom-trained models for healthcare-specific terminology with human-in-the-loop review workflows. 96% extraction accuracy on complex medical documents. Confidence scoring with exception routing. Integration with legacy eligibility and claims systems.',
     },
     {
       product: '',
-      service: 'Cloud Technology',
-      description: 'Scalable claims processing platforms processing millions of medical claims daily using AWS services including Batch, Lambda, Fargate, and EMR with Apache Spark. Designed cross-functional solutions for manufacturer rebate sharing with optimal service selection for each business use case. Large-scale Spring Boot applications handle complex rebate calculation processing with end-to-end automation.',
-    },
-    {
-      product: '',
-      service: 'Cybersecurity',
-      description: 'HITRUST framework security assessments and third-party vendor risk management for global healthcare organizations. Comprehensive end-to-end vendor risk management globally including acquired organizations. Includes security awareness training programs and targeted remediation strategies with follow-up until closure. Ensures compliance across multi-country operations.',
+      service: 'EMR Integration',
+      description: 'End-to-end integration services connecting clinical, administrative, and financial systems. HIPAA-compliant data pipelines handling millions of patient records. 5M+ patient records integrated across systems. HL7 FHIR and legacy interface support. Real-time data synchronization and audit logging.',
     },
   ],
   metrics: [
-    { value: '25%', label: 'Overtime Reduction' },
-    { value: '18pts', label: 'Staff Satisfaction Increase' },
-    { value: '95%', label: 'Security Improvement' },
-    { value: '0', label: 'HIPAA Violations' },
+    { value: '99.8%', label: 'System Uptime', description: 'Patient portal SLA achieved' },
+    { value: '60%', label: 'Labor Reduction', description: 'Document processing automation' },
+    { value: '5M+', label: 'Records Integrated', description: 'HIPAA-compliant data migration' },
+    { value: '96%', label: 'AI Accuracy', description: 'Document extraction accuracy' },
   ],
   testimonial: {
-    quote: 'Pro-Visit helped us achieve zero HIPAA findings in our last audit. The integration with Epic for patient matching was seamless.',
-    author: 'Dr. Michael Chen',
-    title: 'Chief Information Security Officer',
-    organization: 'Regional Medical Center',
+    quote: 'The AI document processing system has revolutionized our Medicaid operations. What took days now takes hours with higher accuracy.',
+    author: 'IT Director',
+    title: 'State Department of Health Care Services',
+    organization: 'Western U.S. State Agency',
   },
   compliance: [
     { name: 'HIPAA', description: 'Health Insurance Portability and Accountability Act' },
-    { name: 'HITECH', description: 'Health Information Technology for Economic and Clinical Health' },
-    { name: 'Joint Commission', description: 'Healthcare Accreditation Standards' },
-    { name: 'OSHA', description: 'Occupational Safety and Health Administration' },
-    { name: 'CMS', description: 'Centers for Medicare & Medicaid Services' },
+    { name: 'HITRUST', description: 'HITRUST Ready' },
+    { name: 'Section 508', description: 'Accessibility Compliance' },
+    { name: 'FedRAMP-Ready', description: 'Federal Cloud Security' },
   ],
   useCases: [
-    'Nurse and physician scheduling optimization',
-    'Patient visitor registration and screening',
-    'Vendor and pharmaceutical rep management',
-    'Equipment maintenance tracking',
-    'Clinical service request management',
+    'Patient portal development with Epic EMR integration',
+    'AI-powered document processing for Medicaid claims',
+    'Telehealth platform development',
+    'Clinical documentation automation',
+    'Claims processing at scale',
   ],
-  relatedProducts: ['Pro-People', 'Pro-Visit', 'Pro-Ticket', 'Pro-Task'],
+  relatedProducts: ['Pro-Portal', 'DocSnip', 'Pro-Integration'],
 }
 
 // ============================================================================
@@ -149,11 +162,15 @@ export const healthcareIndustry: Industry = {
 export const fintechIndustry: Industry = {
   id: 'fintech',
   name: 'Financial Services',
-  tagline: 'Secure Operations for Regulated Excellence',
-  description: 'SOX-compliant platforms for banks, insurance companies, and financial institutions. Manage vendor relationships, facility security, and operational compliance with audit-ready documentation at every step.',
+  tagline: 'Secure. Compliant. Scalable.',
+  description: 'Loan origination systems, mobile payment platforms, and enterprise integrations for regional banks and financial institutions.',
   icon: Building,
   color: '#8B5CF6',
   heroImage: '/images/industries/fintech-hero.jpg',
+  tier: 'SECONDARY',
+  heroHeadline: 'Secure. Compliant. Scalable.',
+  heroSubheadline: 'Loan origination systems, mobile payment platforms, and enterprise integrations for regional banks and financial institutions.',
+  heroCTA: 'Discuss Your Project',
   challenges: [
     {
       title: 'Regulatory Compliance',
@@ -296,6 +313,7 @@ export const educationIndustry: Industry = {
   icon: GraduationCap,
   color: '#EC4899',
   heroImage: '/images/industries/education-hero.jpg',
+  tier: 'SECONDARY',
   challenges: [
     {
       title: 'Campus Space Utilization',
@@ -358,6 +376,7 @@ export const technologyIndustry: Industry = {
   icon: Cpu,
   color: '#06B6D4',
   heroImage: '/images/industries/technology-hero.jpg',
+  tier: 'SECONDARY',
   challenges: [
     {
       title: 'Hypergrowth Operations',
@@ -428,33 +447,112 @@ export const technologyIndustry: Industry = {
 }
 
 // ============================================================================
-// GOVERNMENT (STATE/LOCAL)
+// SAP & ENTERPRISE SYSTEMS
+// ============================================================================
+
+export const sapEnterpriseIndustry: Industry = {
+  id: 'sap-enterprise',
+  name: 'SAP & Enterprise Systems',
+  tagline: '$2M+ Annual Savings. 25% Faster Processing. Global Scale.',
+  description: 'S/4HANA migrations, BTP integrations, and enterprise transformations for Fortune 500 organizations. We\'ve delivered SAP solutions across three continents -- with measurable ROI.',
+  icon: Cpu,
+  color: '#6366F1',
+  heroImage: '/images/industries/sap-enterprise-hero.jpg',
+  tier: 'PRIMARY',
+  heroHeadline: '$2M+ Annual Savings. 25% Faster Processing. Global Scale.',
+  heroSubheadline: 'S/4HANA migrations, BTP integrations, and enterprise transformations for Fortune 500 organizations. We\'ve delivered SAP solutions across three continents -- with measurable ROI.',
+  heroCTA: 'Explore SAP Solutions',
+  problemStatement: 'Enterprise SAP landscapes grow complex. Legacy PO interfaces slow down integrations. Siloed data across regions creates inconsistencies. S/4HANA migrations stall without clear roadmaps. You need a team that has delivered SAP transformations at scale -- from cloud migrations to B2B EDI connectivity to predictive analytics -- and can demonstrate the business outcomes.',
+  challenges: [
+    {
+      title: 'S/4HANA Migration Complexity',
+      description: 'Navigating brownfield and greenfield migrations while minimizing business disruption and maintaining data integrity.',
+    },
+    {
+      title: 'Legacy Integration Modernization',
+      description: 'Migrating from SAP PO 7.5 to Cloud Integration while maintaining complex B2B EDI scenarios.',
+    },
+    {
+      title: 'Global Data Consistency',
+      description: 'Unifying operations across multiple countries and regions with consistent data standards.',
+    },
+    {
+      title: 'Predictive Analytics Integration',
+      description: 'Building predictive capabilities integrated with SAP BW for real-time business insights.',
+    },
+  ],
+  solutions: [
+    {
+      product: '',
+      service: 'S/4HANA Cloud Migration',
+      description: 'End-to-end migration services from assessment through hypercare. Phased cutover strategies that minimize business disruption. Brownfield and greenfield implementations. Data quality remediation and cleansing. Custom code adaptation and optimization.',
+    },
+    {
+      product: '',
+      service: 'BTP Integration Suite',
+      description: 'Modern integration architecture using SAP Business Technology Platform. Migration from PO 7.5 to Cloud Integration, API management, and event-driven architectures. Legacy PO interface modernization. B2B EDI scenarios with AS2 protocol. Trading partner management.',
+    },
+  ],
+  metrics: [
+    { value: '$2M+', label: 'Annual Savings', description: 'Automation & optimization' },
+    { value: '30%', label: 'Analytics Accuracy', description: 'Predictive model improvement' },
+    { value: '15+ Years', label: 'Experience', description: 'SAP implementations' },
+    { value: '25%', label: 'Faster Processing', description: 'Data processing improvement' },
+  ],
+  testimonial: {
+    quote: 'The migration to SAP BTP has transformed our global operations. The integration with our B2B partners is now seamless and reliable.',
+    author: 'Global IT Director',
+    title: 'Fortune 500 Multinational Chemical Manufacturer',
+    organization: 'European HQ',
+  },
+  compliance: [
+    { name: 'SOX', description: 'Sarbanes-Oxley Act' },
+    { name: 'GDPR', description: 'General Data Protection Regulation' },
+    { name: 'ISO 27001', description: 'Information Security Management' },
+  ],
+  useCases: [
+    'S/4HANA cloud migration',
+    'BTP Integration Suite deployment',
+    'B2B EDI connectivity',
+    'Predictive analytics integration',
+    'Global payroll and HR data replication',
+  ],
+  relatedProducts: ['Pro-Integration', 'Pro-Biz'],
+}
+
+// ============================================================================
+// FEDERAL & SLED
 // ============================================================================
 
 export const governmentIndustry: Industry = {
   id: 'government',
-  name: 'State & Local Government',
-  tagline: 'Citizen-Centric Solutions for Public Service',
-  description: 'Purpose-built platforms for state agencies, municipalities, and local government organizations. Streamline citizen services, manage workforce programs, and ensure compliance with state regulations.',
+  name: 'Federal & SLED',
+  tagline: 'Mission-Critical Systems. Compliance Built In. Proven Delivery.',
+  description: 'Federal-ready solutions from a minority-owned small business. GSA MAS Springboard. FedRAMP-ready controls. Multi-year track record with state and municipal agencies.',
   icon: Landmark,
   color: '#3B82F6',
   heroImage: '/images/industries/government-hero.jpg',
+  tier: 'PRIMARY',
+  heroHeadline: 'Mission-Critical Systems. Compliance Built In. Proven Delivery.',
+  heroSubheadline: 'Federal-ready solutions from a minority-owned small business. GSA MAS Springboard. FedRAMP-ready controls. Multi-year track record with state and municipal agencies.',
+  heroCTA: 'Partner With Us',
+  problemStatement: 'Government IT modernization demands more than technical competence. You need contractors who understand FAR compliance, security requirements, and the stakes of mission-critical systems. Legacy portals frustrate citizens. Manual processes create backlogs. Outdated systems expose vulnerabilities. We bring commercial innovation with federal discipline -- and past performance to prove it.',
   challenges: [
     {
-      title: 'Citizen Service Delivery',
-      description: 'Providing efficient, accessible services across diverse populations and needs.',
+      title: 'FAR Compliance & Procurement',
+      description: 'Navigating complex federal acquisition regulations and procurement processes while delivering innovation.',
     },
     {
-      title: 'Workforce Program Management',
-      description: 'Managing employment programs, benefits administration, and case management at scale.',
+      title: 'Security & FedRAMP Requirements',
+      description: 'Meeting stringent federal security standards including FedRAMP, FISMA, and agency-specific requirements.',
     },
     {
       title: 'Legacy System Modernization',
-      description: 'Upgrading aging systems while maintaining continuity of services.',
+      description: 'Modernizing aging government systems while maintaining continuity of critical citizen services.',
     },
     {
-      title: 'Budget Constraints',
-      description: 'Delivering maximum value with limited public funds and strict procurement rules.',
+      title: 'Citizen Service Delivery',
+      description: 'Providing efficient, accessible services across diverse populations while meeting Section 508 requirements.',
     },
   ],
   solutions: [
@@ -473,20 +571,20 @@ export const governmentIndustry: Industry = {
     { value: '60%', label: 'Processing Time Reduction' },
     { value: '95%', label: 'Citizen Satisfaction' },
     { value: '40%', label: 'Cost Savings' },
-    { value: '3', label: 'Portals Deployed' },
+    { value: 'Multi-Year', label: 'Track Record', description: 'State and municipal agencies' },
   ],
   testimonial: {
     quote: 'The multi-portal system transformed how we connect DC youth with employment opportunities. We serve thousands of participants efficiently every summer.',
     author: 'Program Director',
     title: 'Director of Youth Employment',
-    organization: 'DC Department of Employment Services',
+    organization: 'Municipal Department of Employment Services',
   },
   compliance: [
     { name: 'ADA', description: 'Americans with Disabilities Act' },
     { name: 'Section 508', description: 'Accessibility Compliance' },
-    { name: 'State Privacy Laws', description: 'Jurisdiction-Specific Requirements' },
+    { name: 'FedRAMP-Ready', description: 'Federal Cloud Security' },
+    { name: 'FISMA', description: 'Federal Information Security Management' },
     { name: 'CJIS', description: 'Criminal Justice Information Services' },
-    { name: 'HIPAA', description: 'Health Insurance Portability and Accountability Act' },
   ],
   useCases: [
     'Youth employment program management',
@@ -496,6 +594,13 @@ export const governmentIndustry: Industry = {
     'Government workforce optimization',
   ],
   relatedProducts: ['Pro-Visit', 'Pro-Ticket', 'Pro-People', 'DocSnip'],
+  contractVehicles: {
+    cageCode: '9Z4X2',
+    uei: 'H4X2Z7R9E3E3',
+    gsaStatus: 'MAS Springboard (In Progress)',
+    businessType: 'Minority-Owned Small Business',
+    naics: ['541511', '541512', '541519', '518210', '541611'],
+  },
 }
 
 // ============================================================================
@@ -586,11 +691,15 @@ export const retailIndustry: Industry = {
 export const aviationIndustry: Industry = {
   id: 'aviation',
   name: 'Aviation & Aerospace',
-  tagline: 'Certified Solutions for Flight Operations',
-  description: 'FAA-compliant platforms for aviation companies, airlines, and aerospace organizations. Optimize flight operations, manage regulatory compliance, and achieve operational intelligence across your aviation network.',
+  tagline: 'FAA-Certified. 40% Faster Optimization.',
+  description: 'Flight intelligence platforms with real-time analytics, AI-driven route optimization, and data pipelines that meet aviation safety standards.',
   icon: Plane,
   color: '#6366F1',
   heroImage: '/images/industries/aviation-hero.jpg',
+  tier: 'SECONDARY',
+  heroHeadline: 'FAA-Certified. 40% Faster Optimization.',
+  heroSubheadline: 'Flight intelligence platforms with real-time analytics, AI-driven route optimization, and data pipelines that meet aviation safety standards.',
+  heroCTA: 'Learn More',
   challenges: [
     {
       title: 'Regulatory Compliance',
@@ -657,6 +766,7 @@ export const crossIndustryCategory: Industry = {
   icon: Globe,
   color: '#8B5CF6',
   heroImage: '/images/industries/cross-industry-hero.jpg',
+  tier: 'SECONDARY',
   challenges: [
     {
       title: 'Multi-Standard Compliance',
@@ -717,20 +827,19 @@ export const crossIndustryCategory: Industry = {
 
 export const INDUSTRIES = {
   healthcare: healthcareIndustry,
+  'sap-enterprise': sapEnterpriseIndustry,
+  government: governmentIndustry,
   fintech: fintechIndustry,
-  manufacturing: manufacturingIndustry,
+  aviation: aviationIndustry,
   education: educationIndustry,
   technology: technologyIndustry,
-  government: governmentIndustry,
-  retail: retailIndustry,
-  aviation: aviationIndustry,
   'cross-industry': crossIndustryCategory,
 } as const
 
 export type IndustryKey = keyof typeof INDUSTRIES
 
-// Featured industries (subset with most case studies)
-export const FEATURED_INDUSTRIES: IndustryKey[] = ['healthcare', 'fintech', 'manufacturing', 'technology']
+// Featured industries (PRIMARY tier industries)
+export const FEATURED_INDUSTRIES: IndustryKey[] = ['healthcare', 'sap-enterprise', 'government']
 
 // All industries (case-study-backed only)
 export const ALL_INDUSTRIES = Object.values(INDUSTRIES)

@@ -8,6 +8,9 @@ import { ALL_INDUSTRIES } from '@/lib/industriesData'
 import { getCaseStudiesByIndustry } from '@/lib/caseStudiesData'
 
 export default function IndustriesPage() {
+  const primaryIndustries = ALL_INDUSTRIES.filter(ind => ind.tier === 'PRIMARY')
+  const secondaryIndustries = ALL_INDUSTRIES.filter(ind => ind.tier === 'SECONDARY')
+
   return (
     <main className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
@@ -38,7 +41,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Industries with Case Studies — single grid */}
+      {/* Primary Industries */}
       <section className="section-padding bg-background-secondary">
         <div className="container-wide">
           <motion.div
@@ -47,17 +50,22 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Industries with Case Studies
-            </h2>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-accent-primary/20 text-accent-primary text-xs font-mono font-bold">
+                PRIMARY
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold">
+                Industries with Deep Past Performance
+              </h2>
+            </div>
             <p className="text-text-secondary text-lg max-w-2xl">
-              Each industry below has published case studies. Click through to explore
-              solutions, metrics, and client stories.
+              These industries represent our strongest track record with multiple clients, 
+              quantified outcomes, and extensive case studies.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ALL_INDUSTRIES.map((industry, index) => {
+            {primaryIndustries.map((industry, index) => {
               const Icon = industry.icon
               const caseStudies = getCaseStudiesByIndustry(industry.id)
 
@@ -107,12 +115,99 @@ export default function IndustriesPage() {
               )
             })}
           </div>
+        </div>
+      </section>
 
+      {/* Secondary Industries */}
+      {secondaryIndustries.length > 0 && (
+        <section className="section-padding">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="px-3 py-1 rounded-full bg-text-tertiary/20 text-text-tertiary text-xs font-mono font-bold">
+                  SECONDARY
+                </span>
+                <h2 className="text-3xl md:text-4xl font-display font-bold">
+                  Additional Industries
+                </h2>
+              </div>
+              <p className="text-text-secondary text-lg max-w-2xl">
+                Industries where we have proven delivery and case studies.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {secondaryIndustries.map((industry, index) => {
+                const Icon = industry.icon
+                const caseStudies = getCaseStudiesByIndustry(industry.id)
+
+                return (
+                  <motion.div
+                    key={industry.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: Math.min(index * 0.05, 0.3) }}
+                  >
+                    <div className="group bg-background-secondary rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
+                      <Link href={`/industries/${industry.id}`} className="block">
+                        <div
+                          className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
+                          style={{ backgroundColor: `${industry.color}20` }}
+                        >
+                          <Icon
+                            className="w-7 h-7"
+                            style={{ color: industry.color }}
+                          />
+                        </div>
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                          {industry.name}
+                        </h3>
+                        <p className="text-text-secondary text-sm mb-4 line-clamp-2">
+                          {industry.tagline}
+                        </p>
+                      </Link>
+                      <div className="mt-auto flex items-center justify-between gap-4">
+                        <Link
+                          href="/case-studies"
+                          className="text-sm text-text-tertiary hover:text-accent-primary transition-colors"
+                        >
+                          {caseStudies.length} case{' '}
+                          {caseStudies.length === 1 ? 'study' : 'studies'}
+                        </Link>
+                        <Link
+                          href={`/industries/${industry.id}`}
+                          className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
+                        >
+                          Learn more <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+          </div>
+        </section>
+      )}
+
+      {/* View All Case Studies CTA */}
+      <section className="section-padding bg-background-secondary">
+        <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-10 text-center"
+            className="text-center"
           >
             <Link href="/case-studies">
               <Button variant="outline" size="lg">
