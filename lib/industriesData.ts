@@ -30,6 +30,7 @@ export interface IndustrySolution {
 export interface IndustryMetric {
   value: string
   label: string
+  description?: string
 }
 
 export interface IndustryTestimonial {
