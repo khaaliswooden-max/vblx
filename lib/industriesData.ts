@@ -248,6 +248,7 @@ export const manufacturingIndustry: Industry = {
   icon: Factory,
   color: '#F59E0B',
   heroImage: '/images/industries/manufacturing-hero.jpg',
+  tier: 'SECONDARY',
   challenges: [
     {
       title: 'Multi-Site Visibility',
