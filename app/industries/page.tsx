@@ -196,10 +196,6 @@ export default function IndustriesPage() {
         </section>
       )}
 
-          </div>
-        </section>
-      )}
-
       {/* View All Case Studies CTA */}
       <section className="section-padding bg-background-secondary">
         <div className="container-wide">
