@@ -97,7 +97,7 @@ export const kaiserVCareCase: CaseStudy = {
   products: ['Pro-Portal', 'Pro-Integration'],
   heroImage: '/images/case-studies/kaiser-portal.jpg',
   summary: 'Deployed a secure patient portal serving 100,000+ daily users with Epic EMR integration, achieving 99.8% uptime SLA and transforming how patients access healthcare services.',
-  challenge: 'Kaiser Permanente needed a modern, secure patient portal capable of handling massive daily traffic while maintaining seamless integration with their Epic EMR system. The existing solution struggled with performance during peak hours and lacked mobile optimization.',
+  challenge: 'West Coast Integrated Healthcare System needed a modern, secure patient portal capable of handling massive daily traffic while maintaining seamless integration with their Epic EMR system. The existing solution struggled with performance during peak hours and lacked mobile optimization.',
   solution: `Visionblox architected and developed the VCare Patient Portal using Angular-based UI with Node.js APIs deployed as Docker containers on Cloud Foundry. The solution integrated:
 
 • Chatbot functionality for appointment scheduling
@@ -232,8 +232,8 @@ export const metaSapCase: CaseStudy = {
   serviceCategory: 'operations',
   products: ['Pro-Biz', 'Pro-Integration'],
   heroImage: '/images/case-studies/meta-sap.jpg',
-  summary: 'Led S/4HANA cloud migration delivering predictive analytics with 30% accuracy improvement, transforming Meta\'s enterprise data capabilities across global operations.',
-  challenge: 'Meta Platforms required migration of their legacy SAP systems to S/4HANA cloud while enhancing their predictive analytics capabilities. The existing on-premise infrastructure limited scalability and real-time insights.',
+  summary: 'Led S/4HANA cloud migration delivering predictive analytics with 30% accuracy improvement, transforming the client\'s enterprise data capabilities across global operations.',
+  challenge: 'The Fortune 10 Technology Company required migration of their legacy SAP systems to S/4HANA cloud while enhancing their predictive analytics capabilities. The existing on-premise infrastructure limited scalability and real-time insights.',
   solution: `Visionblox executed a comprehensive S/4HANA cloud migration:
 
 • Optimized React components for business sites
@@ -300,7 +300,7 @@ export const basfSapCase: CaseStudy = {
   products: ['Pro-Integration', 'Pro-People'],
   heroImage: '/images/case-studies/basf-sap.jpg',
   summary: 'Migrated solutions from SAP PO 7.5 to SAP BTP Cloud Integration, implementing employee master data replication and payroll processing across Germany, China, India, and global operations.',
-  challenge: 'BASF needed to modernize their SAP integration landscape, migrating from legacy PO 7.5 to cloud-native BTP while maintaining complex B2B integrations with Elemica and global payroll operations across multiple countries.',
+  challenge: 'The Fortune 500 Multinational Chemical Manufacturer needed to modernize their SAP integration landscape, migrating from legacy PO 7.5 to cloud-native BTP while maintaining complex B2B integrations with Elemica and global payroll operations across multiple countries.',
   solution: `Visionblox implemented comprehensive SAP BTP Cloud Integration:
 
 • Complex transformations using Format Conversion Bean
@@ -364,7 +364,7 @@ export const strakeAviationCase: CaseStudy = {
   products: ['Pro-Biz', 'DocSnip'],
   heroImage: '/images/case-studies/strake-aviation.jpg',
   summary: 'Developed an FAA-certified data pipeline delivering 40% faster route optimization with real-time analytics dashboard, transforming flight operations intelligence.',
-  challenge: 'Strake Aviation needed an FAA-certified system for real-time flight data processing and route optimization. Legacy systems couldn\'t handle the volume of data required for modern aviation intelligence.',
+  challenge: 'A commercial aviation services provider needed an FAA-certified system for real-time flight data processing and route optimization. Legacy systems couldn\'t handle the volume of data required for modern aviation intelligence.',
   solution: `Visionblox built an FAA-certified aviation data pipeline:
 
 • Real-time flight data processing at scale
@@ -419,16 +419,16 @@ export const strakeAviationCase: CaseStudy = {
 
 export const vcareUrgentCareCase: CaseStudy = {
   id: 'vcare-urgent-care',
-  title: 'VCare Urgent Care EMR Integration Platform',
+  title: 'Urgent Care Network EMR Integration Platform',
   subtitle: 'Unified Patient Experience Across Multiple Facilities',
-  client: 'VCare Urgent Care Network',
+  client: 'Regional Urgent Care Network',
   industry: 'Healthcare',
   industryId: 'healthcare',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-Integration'],
   heroImage: '/images/case-studies/vcare-urgent.jpg',
   summary: 'Built a comprehensive patient portal with microservices architecture integrating EMR systems to manage patient demographics, appointments, health records, insurance, and lab reports across urgent care facilities.',
-  challenge: 'VCare Urgent Care needed a unified platform to manage patient information across multiple facilities while integrating with various EMR systems. The existing fragmented systems created data silos and poor patient experience.',
+  challenge: 'A regional urgent care network needed a unified platform to manage patient information across multiple facilities while integrating with various EMR systems. The existing fragmented systems created data silos and poor patient experience.',
   solution: `Visionblox designed a microservices architecture using .NET Core 3.0 with Angular frontend:
 
 • EMR integration via HL7 data transformation
@@ -469,7 +469,7 @@ export const vcareUrgentCareCase: CaseStudy = {
   quote: {
     text: 'Our patient experience has been transformed. Information flows seamlessly across all our facilities now.',
     author: 'Medical Director',
-    title: 'VCare Urgent Care',
+    title: 'Regional Urgent Care Network',
   },
   tags: ['Healthcare', 'EMR', 'Microservices', 'Patient Portal', 'HL7'],
   duration: '8 months implementation',
@@ -484,16 +484,16 @@ export const vcareUrgentCareCase: CaseStudy = {
 
 export const sapLabsProcurementCase: CaseStudy = {
   id: 'sap-labs-procurement',
-  title: 'SAP Labs Procurement Invoice Automation',
+  title: 'Enterprise Software Company Procurement Invoice Automation',
   subtitle: 'Automated Multi-Source Invoice Processing',
-  client: 'SAP Labs - Procurement Division',
+  client: 'Enterprise Software Company - Procurement Division',
   industry: 'Technology',
   industryId: 'technology',
   serviceCategory: 'procurement',
   products: ['Pro-Biz', 'Pro-Sales'],
   heroImage: '/images/case-studies/sap-procurement.jpg',
   summary: 'Developed S/4 HANA Gateway Services for integration, supporting Accounts Payable operations with automated invoice and PDF document sharing across systems including BrightFlag and American Express.',
-  challenge: 'SAP Labs procurement needed seamless invoice processing across multiple vendor systems including BrightFlag and American Express, with secure document handling and automated validation workflows.',
+  challenge: 'An enterprise software company\'s procurement division needed seamless invoice processing across multiple vendor systems including BrightFlag and American Express, with secure document handling and automated validation workflows.',
   solution: `Visionblox developed integration flows using CPI/HCI:
 
 • BrightFlag Invoice to S/4 HANA via IDOC adapter
@@ -534,7 +534,7 @@ export const sapLabsProcurementCase: CaseStudy = {
   quote: {
     text: 'Invoice processing that used to take days now happens automatically. The integration is robust and reliable.',
     author: 'Procurement Director',
-    title: 'SAP Labs',
+    title: 'Enterprise Software Company',
   },
   tags: ['Technology', 'SAP', 'Invoice Automation', 'Procurement', 'Integration'],
   duration: '12 months implementation',
@@ -549,16 +549,16 @@ export const sapLabsProcurementCase: CaseStudy = {
 
 export const agfirstLoanCase: CaseStudy = {
   id: 'agfirst-loan-modernization',
-  title: 'AgFirst Farm Credit Bank Loan Origination Modernization',
+  title: 'Agricultural Lending Institution Loan Origination Modernization',
   subtitle: 'Microservices Architecture for Agricultural Lending',
-  client: 'AgFirst Farm Credit Bank',
+  client: 'Agricultural Lending Institution',
   industry: 'Financial Services',
   industryId: 'fintech',
   serviceCategory: 'procurement',
   products: ['Pro-Biz', 'Pro-Sales'],
   heroImage: '/images/case-studies/agfirst-loan.jpg',
   summary: 'Modernized the loan origination system with microservices architecture, implementing rate/fee calculation engines, document generation, and ACH cash management for agricultural lending.',
-  challenge: 'AgFirst needed to modernize their legacy loan origination system to support modern agricultural lending requirements, including configurable rate sheets, automated document generation, and compliance with farm credit regulations.',
+  challenge: 'An agricultural lending institution needed to modernize their legacy loan origination system to support modern agricultural lending requirements, including configurable rate sheets, automated document generation, and compliance with farm credit regulations.',
   solution: `Visionblox architected a microservices-based solution using .NET Core 2.0 with Angular frontend:
 
 • Customer account portal with Web APIs for loan origination
@@ -599,7 +599,7 @@ export const agfirstLoanCase: CaseStudy = {
   quote: {
     text: 'The modernized platform has transformed how we serve our agricultural community. Loan processing is faster and more accurate.',
     author: 'VP of Technology',
-    title: 'AgFirst Farm Credit Bank',
+    title: 'Agricultural Lending Institution',
   },
   tags: ['Financial Services', 'Lending', 'Microservices', 'Agricultural', 'Modernization'],
   duration: '14 months implementation',
@@ -614,16 +614,16 @@ export const agfirstLoanCase: CaseStudy = {
 
 export const voyaPortalCase: CaseStudy = {
   id: 'voya-portal-modernization',
-  title: 'Voya Financial B2B Portal Modernization',
+  title: 'Financial Services B2B Portal Modernization',
   subtitle: 'WebSphere to Modern SPA Migration',
-  client: 'Voya Financial',
+  client: 'Financial Services Company',
   industry: 'Financial Services',
   industryId: 'fintech',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-Biz'],
   heroImage: '/images/case-studies/voya-portal.jpg',
   summary: 'Led migration of B2B sites to WebSphere v8.5 and developed Single Page Application using Aurelia for Message Center, providing real-time revenue projections and enhanced financial forecasting.',
-  challenge: 'Voya Financial\'s legacy WebSphere portal infrastructure needed modernization while maintaining complex B2B integrations and financial reporting capabilities.',
+  challenge: 'A financial services company\'s legacy WebSphere portal infrastructure needed modernization while maintaining complex B2B integrations and financial reporting capabilities.',
   solution: `Visionblox installed and configured WebSphere Portal 8.5:
 
 • Led B2B site migration improving platform stability and security
@@ -660,7 +660,7 @@ export const voyaPortalCase: CaseStudy = {
   quote: {
     text: 'Visionblox has been a trusted partner for nearly a decade. Their expertise has kept our platform modern and competitive.',
     author: 'Technology Director',
-    title: 'Voya Financial',
+    title: 'Financial Services Company',
   },
   tags: ['Financial Services', 'Portal', 'WebSphere', 'SPA', 'B2B'],
   duration: '8+ year engagement',
@@ -683,8 +683,8 @@ export const dcDoesCase: CaseStudy = {
   serviceCategory: 'compliance',
   products: ['Pro-Visit', 'Pro-People'],
   heroImage: '/images/case-studies/dc-does.jpg',
-  summary: 'Developed Youth Portal, Employer Portal, and Admin Portal for the Mayor Marion S. Barry Summer Youth Employment Program, enabling subsidized job placements for 14-24 year olds across DC.',
-  challenge: 'DC DOES needed a comprehensive system to manage the Summer Youth Employment Program connecting District youth ages 14-24 with subsidized employment opportunities in private and government sectors.',
+  summary: 'Developed Youth Portal, Employer Portal, and Admin Portal for a municipal Summer Youth Employment Program, enabling subsidized job placements for 14-24 year olds.',
+  challenge: 'A municipal department of employment services needed a comprehensive system to manage the Summer Youth Employment Program connecting youth ages 14-24 with subsidized employment opportunities in private and government sectors.',
   solution: `Visionblox developed MVC5-based multi-portal system:
 
 • Youth Portal for job seekers
@@ -727,7 +727,7 @@ export const dcDoesCase: CaseStudy = {
     author: 'Program Director',
     title: 'Municipal Department of Employment Services',
   },
-  tags: ['Government', 'Youth Employment', 'Multi-Portal', 'Workforce', 'DC'],
+  tags: ['Government', 'Youth Employment', 'Multi-Portal', 'Workforce'],
   duration: '4 year engagement',
   teamSize: '4 Visionblox consultants',
   publishedDate: '2019-08-15',
@@ -740,16 +740,16 @@ export const dcDoesCase: CaseStudy = {
 
 export const dcOwcCase: CaseStudy = {
   id: 'dc-owc-workers-comp',
-  title: 'DC Office of Workers\' Compensation System',
+  title: 'Municipal Workers\' Compensation System',
   subtitle: 'End-to-End Claims Management Platform',
-  client: 'DC Department of Employment Services',
+  client: 'Municipal Department of Employment Services',
   industry: 'Government',
   industryId: 'government',
   serviceCategory: 'compliance',
   products: ['Pro-Ticket', 'Pro-Task'],
   heroImage: '/images/case-studies/dc-owc.jpg',
   summary: 'Built comprehensive workers\' compensation claims management system handling claim filing, mediation conferences, compensation orders, settlement agreements, and wage loss payments.',
-  challenge: 'DC Office of Workers\' Compensation needed a modern system to manage the complete lifecycle of workers\' compensation claims, from filing through settlement, while ensuring compliance with DC regulations.',
+  challenge: 'A municipal office of workers\' compensation needed a modern system to manage the complete lifecycle of workers\' compensation claims, from filing through settlement, while ensuring compliance with local regulations.',
   solution: `Visionblox developed a .NET Core-based system with custom application framework:
 
 • Claim creation and management
@@ -789,9 +789,9 @@ export const dcOwcCase: CaseStudy = {
   quote: {
     text: 'The claims management system has streamlined our entire operation. Processing times have improved dramatically.',
     author: 'Claims Administrator',
-    title: 'DC OWC',
+    title: 'Municipal Department of Employment Services',
   },
-  tags: ['Government', 'Workers Compensation', 'Claims', 'DC', 'Compliance'],
+  tags: ['Government', 'Workers Compensation', 'Claims', 'Compliance'],
   duration: '24 months implementation',
   teamSize: '4 Visionblox consultants',
   publishedDate: '2018-06-15',
@@ -804,16 +804,16 @@ export const dcOwcCase: CaseStudy = {
 
 export const porchGroupCase: CaseStudy = {
   id: 'porch-group-data',
-  title: 'Porch Group Media Enterprise Data Platform',
+  title: 'Media Company Enterprise Data Platform',
   subtitle: 'Enterprise Architecture for Consumer Data Analytics',
-  client: 'Porch Group Media',
+  client: 'Media Company',
   industry: 'Technology',
   industryId: 'technology',
   serviceCategory: 'operations',
   products: ['Pro-Biz', 'DocSnip'],
   heroImage: '/images/case-studies/porch-data.jpg',
   summary: 'Led enterprise architecture implementation for data products spanning Consumer, eMail, and Auto verticals, including machine learning models for targeted campaigns and NLP trend analysis.',
-  challenge: 'Porch Group Media needed a unified enterprise architecture to manage data products across multiple verticals while enabling advanced analytics and machine learning capabilities for targeted marketing campaigns.',
+  challenge: 'A media company needed a unified enterprise architecture to manage data products across multiple verticals while enabling advanced analytics and machine learning capabilities for targeted marketing campaigns.',
   solution: `Visionblox implemented comprehensive enterprise architecture:
 
 • Chronic builds across products
@@ -848,7 +848,7 @@ export const porchGroupCase: CaseStudy = {
   quote: {
     text: 'Visionblox has been instrumental in building our data platform. Their ML expertise has given us a significant competitive edge.',
     author: 'Chief Data Officer',
-    title: 'Porch Group Media',
+    title: 'Media Company',
   },
   tags: ['Technology', 'Data Platform', 'ML', 'Analytics', 'Enterprise Architecture'],
   duration: '8 year engagement',
@@ -863,16 +863,16 @@ export const porchGroupCase: CaseStudy = {
 
 export const homeDepotCase: CaseStudy = {
   id: 'home-depot-data-warehouse',
-  title: 'Home Depot Supply Data Warehousing Platform',
+  title: 'Retail Supply Chain Data Warehousing Platform',
   subtitle: 'Enterprise Architecture for Multi-LOB Analytics',
-  client: 'Home Depot Supply',
+  client: 'Retail Supply Chain Company',
   industry: 'Retail',
   industryId: 'retail',
   serviceCategory: 'operations',
   products: ['Pro-Biz', 'Pro-Portal'],
   heroImage: '/images/case-studies/hd-warehouse.jpg',
-  summary: 'Implemented enterprise architecture for various Home Depot Supply lines of business, including DataMart development, sales dashboards, and automated job scheduling.',
-  challenge: 'Home Depot Supply needed unified enterprise architecture across multiple lines of business with consistent data warehousing, reporting dashboards, and automated scheduling capabilities.',
+  summary: 'Implemented enterprise architecture for various retail supply chain lines of business, including DataMart development, sales dashboards, and automated job scheduling.',
+  challenge: 'A retail supply chain company needed unified enterprise architecture across multiple lines of business with consistent data warehousing, reporting dashboards, and automated scheduling capabilities.',
   solution: `Visionblox implemented enterprise architecture:
 
 • Different feeds from departments integrated
@@ -911,7 +911,7 @@ export const homeDepotCase: CaseStudy = {
   quote: {
     text: 'The data warehousing platform has unified our analytics across all lines of business. Decision-making is now data-driven.',
     author: 'Analytics Director',
-    title: 'Home Depot Supply',
+    title: 'Retail Supply Chain Company',
   },
   tags: ['Retail', 'Data Warehouse', 'ETL', 'Analytics', 'Enterprise'],
   duration: '4 year engagement',
@@ -1048,16 +1048,16 @@ export const iso27001Case: CaseStudy = {
 
 export const lowesEmployeeCase: CaseStudy = {
   id: 'lowes-employee-portal',
-  title: 'Lowe\'s Home Improvement iWE Employee Portal',
+  title: 'Home Improvement Retailer iWE Employee Portal',
   subtitle: 'Enterprise Portal Integration with Siebel and Sterling Commerce',
-  client: 'Lowe\'s Home Improvement',
+  client: 'Home Improvement Retailer',
   industry: 'Retail',
   industryId: 'retail',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-People'],
   heroImage: '/images/case-studies/lowes-portal.jpg',
   summary: 'Developed portlets for the iWE Employee Portal on WebSphere enhancing time management, sales tracking, and operational efficiency with integrated Siebel, Sterling Commerce, and Outlook.',
-  challenge: 'Lowe\'s needed an integrated employee portal combining time management, sales tracking, and operational tools while maintaining connections to their Siebel CRM, Sterling Commerce, and Microsoft Outlook systems.',
+  challenge: 'A home improvement retailer needed an integrated employee portal combining time management, sales tracking, and operational tools while maintaining connections to their Siebel CRM, Sterling Commerce, and Microsoft Outlook systems.',
   solution: `Visionblox developed WebSphere Portal portlets:
 
 • Siebel, Sterling Commerce, and Outlook integration
@@ -1092,7 +1092,7 @@ export const lowesEmployeeCase: CaseStudy = {
   quote: {
     text: 'The employee portal has become central to our store operations. The integrations work seamlessly across all our systems.',
     author: 'IT Director',
-    title: 'Lowe\'s Home Improvement',
+    title: 'Home Improvement Retailer',
   },
   tags: ['Retail', 'Employee Portal', 'WebSphere', 'Integration', 'Gamification'],
   duration: '6 year engagement',
@@ -1107,16 +1107,16 @@ export const lowesEmployeeCase: CaseStudy = {
 
 export const tescoProductCase: CaseStudy = {
   id: 'tesco-product-mapping',
-  title: 'TESCO UK Retail Product Mapping System',
+  title: 'UK Retailer Product Mapping System',
   subtitle: 'Store-Level Merchandising Automation',
-  client: 'TESCO UK',
+  client: 'UK Retailer',
   industry: 'Retail',
   industryId: 'retail',
   serviceCategory: 'operations',
   products: ['Pro-Task', 'Pro-Project'],
   heroImage: '/images/case-studies/tesco-mapping.jpg',
   summary: 'Developed mobile product mapping system for in-store merchandising, capturing product locations and display sequences as the final step in store merchandising routines.',
-  challenge: 'TESCO needed a mobile solution for store-level product mapping to capture product locations and display sequences, enabling efficient merchandising across their UK retail network.',
+  challenge: 'A UK retailer needed a mobile solution for store-level product mapping to capture product locations and display sequences, enabling efficient merchandising across their retail network.',
   solution: `Visionblox developed handheld device screens:
 
 • Product scanning using Compact Framework
@@ -1153,7 +1153,7 @@ export const tescoProductCase: CaseStudy = {
   quote: {
     text: 'The product mapping system has revolutionized our in-store merchandising. Staff efficiency has improved significantly.',
     author: 'Operations Manager',
-    title: 'TESCO UK',
+    title: 'UK Retailer',
   },
   tags: ['Retail', 'Mobile', 'Merchandising', 'UK', 'Offline'],
   duration: '2 year engagement',
@@ -1168,9 +1168,9 @@ export const tescoProductCase: CaseStudy = {
 
 export const hcpssEducationCase: CaseStudy = {
   id: 'hcpss-synergy',
-  title: 'Howard County Public School System Platform Modernization',
+  title: 'Public School System Platform Modernization',
   subtitle: 'AWS Cloud Migration for Education Systems',
-  client: 'Howard County Public School System',
+  client: 'Public School System',
   industry: 'Education',
   industryId: 'education',
   serviceCategory: 'operations',
@@ -1230,16 +1230,16 @@ export const hcpssEducationCase: CaseStudy = {
 
 export const cignaRebateCase: CaseStudy = {
   id: 'cigna-rebate-sharing',
-  title: 'CIGNA Manufacturer Rebate Sharing Platform',
+  title: 'Healthcare Insurer Manufacturer Rebate Sharing Platform',
   subtitle: 'Millions of Medical Claims Processed Daily',
-  client: 'CIGNA',
+  client: 'Healthcare Insurer',
   industry: 'Healthcare',
   industryId: 'healthcare',
   serviceCategory: 'operations',
   products: ['Pro-Biz', 'Pro-Ticket'],
   heroImage: '/images/case-studies/cigna-rebate.jpg',
   summary: 'Designed and built cross-functional solutions processing millions of medical claims daily using AWS services including Batch, Lambda, Fargate, and EMR with Apache Spark.',
-  challenge: 'CIGNA needed a scalable platform to process manufacturer rebate sharing across millions of daily medical claims, requiring complex calculations and cross-functional coordination.',
+  challenge: 'A healthcare insurer needed a scalable platform to process manufacturer rebate sharing across millions of daily medical claims, requiring complex calculations and cross-functional coordination.',
   solution: `Visionblox designed solutions leveraging AWS services:
 
 • AWS Batch, Lambda, Fargate, and EMR
@@ -1277,7 +1277,7 @@ export const cignaRebateCase: CaseStudy = {
   quote: {
     text: 'The rebate platform processes at a scale we never thought possible. AWS and Spark have been game-changers.',
     author: 'VP of Technology',
-    title: 'CIGNA',
+    title: 'Healthcare Insurer',
   },
   tags: ['Healthcare', 'AWS', 'Big Data', 'Spark', 'Claims Processing'],
   duration: '18 months implementation',
@@ -1292,16 +1292,16 @@ export const cignaRebateCase: CaseStudy = {
 
 export const nylMobileCase: CaseStudy = {
   id: 'new-york-life-mobile',
-  title: 'New York Life Mobile App Payment Features',
+  title: 'Life Insurance Company Mobile App Payment Features',
   subtitle: 'Firebase-Powered Mobile Payment Notifications',
-  client: 'New York Life',
+  client: 'Life Insurance Company',
   industry: 'Financial Services',
   industryId: 'fintech',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-Sales'],
   heroImage: '/images/case-studies/nyl-mobile.jpg',
   summary: 'Designed, developed, and deployed highly available Spring Boot APIs powering payment features on mobile platforms with Google Firebase for personalized notifications.',
-  challenge: 'New York Life needed secure, highly available APIs for mobile payment features with personalized notification capabilities to improve customer payment experience.',
+  challenge: 'A life insurance company needed secure, highly available APIs for mobile payment features with personalized notification capabilities to improve customer payment experience.',
   solution: `Visionblox architected and developed Spring Boot APIs:
 
 • My NYL Mobile App APIs
@@ -1339,7 +1339,7 @@ export const nylMobileCase: CaseStudy = {
   quote: {
     text: 'The mobile payment features have significantly improved customer engagement. Payment completion rates have increased dramatically.',
     author: 'Digital Product Manager',
-    title: 'New York Life',
+    title: 'Life Insurance Company',
   },
   tags: ['Financial Services', 'Mobile', 'Payments', 'Firebase', 'Spring Boot'],
   duration: '12 months implementation',
@@ -1354,16 +1354,16 @@ export const nylMobileCase: CaseStudy = {
 
 export const lineageConnectCase: CaseStudy = {
   id: 'lineage-connect',
-  title: 'Lineage Connect Enterprise Platform',
+  title: 'Enterprise Platform Full-Stack Development',
   subtitle: 'Full-Stack Admin Panel Development',
-  client: 'Lineage Connect',
+  client: 'Enterprise Technology Company',
   industry: 'Technology',
   industryId: 'technology',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-Task'],
   heroImage: '/images/case-studies/lineage.jpg',
   summary: 'Developed comprehensive admin panel using React with Redux Toolkit and Nest.js backend with MySQL, delivering full-stack enterprise solution.',
-  challenge: 'Lineage Connect needed a comprehensive admin panel for managing their platform with modern architecture and robust state management.',
+  challenge: 'An enterprise technology company needed a comprehensive admin panel for managing their platform with modern architecture and robust state management.',
   solution: `Visionblox developed full-stack platform:
 
 • React frontend with Redux Toolkit
@@ -1401,7 +1401,7 @@ export const lineageConnectCase: CaseStudy = {
   quote: {
     text: 'The admin panel has given us complete control over our platform. The architecture is clean and maintainable.',
     author: 'Product Manager',
-    title: 'Lineage Connect',
+    title: 'Enterprise Technology Company',
   },
   tags: ['Technology', 'Full-Stack', 'React', 'Nest.js', 'Admin Panel'],
   duration: '6 months implementation',
@@ -1416,16 +1416,16 @@ export const lineageConnectCase: CaseStudy = {
 
 export const americanaRestaurantsCase: CaseStudy = {
   id: 'americana-restaurants',
-  title: 'Americana Restaurants Multi-Panel Management System',
+  title: 'Restaurant Chain Multi-Panel Management System',
   subtitle: 'Store Admin and Zone Controller Panels',
-  client: 'Americana Restaurants',
+  client: 'Restaurant Chain',
   industry: 'Retail',
   industryId: 'retail',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-Task'],
   heroImage: '/images/case-studies/americana.jpg',
   summary: 'Developed Store Admin Panel for restaurant order management and Zone Controller Admin Panel for driver tracking using React with Redux Toolkit and Recharts.',
-  challenge: 'Americana Restaurants needed management panels for store operations and zone controller functions including order management and driver tracking.',
+  challenge: 'A restaurant chain needed management panels for store operations and zone controller functions including order management and driver tracking.',
   solution: `Visionblox developed multi-panel system:
 
 • Store Admin Panel for restaurant order management
@@ -1462,7 +1462,7 @@ export const americanaRestaurantsCase: CaseStudy = {
   quote: {
     text: 'The management panels have streamlined our restaurant and delivery operations significantly.',
     author: 'Operations Director',
-    title: 'Americana Restaurants',
+    title: 'Restaurant Chain',
   },
   tags: ['Retail', 'Restaurant', 'Delivery', 'React', 'Management'],
   duration: '6 months implementation',
