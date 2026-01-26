@@ -617,6 +617,7 @@ export const retailIndustry: Industry = {
   icon: ShoppingBag,
   color: '#F59E0B',
   heroImage: '/images/industries/retail-hero.jpg',
+  tier: 'SECONDARY',
   challenges: [
     {
       title: 'Multi-Location Operations',
