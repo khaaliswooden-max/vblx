@@ -1,0 +1,9 @@
+# Static HTML only — do not run Next.js plugin
+[build]
+  command = "mkdir -p dist && cp index.html dist/"
+  publish = "dist"
+
+# Disable Next.js plugin (repo root is Next.js; this folder is static)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  disabled = true
