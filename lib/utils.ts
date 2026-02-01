@@ -45,6 +45,30 @@ export const COMPANY = {
 } as const
 
 /**
+ * Assessment tools / calculators (external links)
+ */
+export const TOOLS = [
+  {
+    id: 'sap-s4hana-roi',
+    title: 'SAP S/4HANA Migration ROI Calculator',
+    description: 'Calculate potential savings and timeline for S/4HANA migration',
+    url: 'https://lighthearted-klepon-2a09d7.netlify.app/',
+  },
+  {
+    id: 'document-accessibility',
+    title: 'Document Accessibility Score Calculator',
+    description: 'Evaluate Section 508 compliance and calculate potential ROI',
+    url: 'https://cosmic-marzipan-ffb6d9.netlify.app/',
+  },
+  {
+    id: 'dod-compliance',
+    title: 'DoD Compliance Readiness Assessment',
+    description: 'Evaluate zero-trust and compliance posture in 2 minutes',
+    url: 'https://joyful-platypus-aa274a.netlify.app/',
+  },
+] as const
+
+/**
  * Navigation links
  */
 export const NAV_LINKS = [
@@ -70,6 +94,7 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
   {
     label: 'Contact',
