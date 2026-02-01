@@ -7,7 +7,7 @@ Assessment and calculator forms submit leads to Google Sheets via the Apps Scrip
 | Item | Value |
 |------|-------|
 | **Google Sheet** | https://docs.google.com/spreadsheets/d/1HZea7VO6c-GUoqSpxKXUUYvnKdWW25cPxmTSGarcp4M/ |
-| **Webhook URL** | `https://script.google.com/macros/s/AKfycbzw1j3VHH_gPHCt_9_GpltBXjDtTj5CrYduCMwr5T8FUiFCcI5SGvjj5GdR1VqPwHkcyQ/exec` |
+| **Webhook URL** | `https://script.google.com/macros/s/AKfycbzk8BDxbTzljYfK9OlL1ly6f533mmC6ihG8M9CGPrufAT7-1mpyQgd4tIH5mwKM7bygeg/exec` |
 | **Env override** | `ASSESSMENT_WEBHOOK_URL` (optional) |
 
 ## Connected Assessments
@@ -24,7 +24,7 @@ Each assessment’s lead capture form should POST to either:
 
 1. **Direct webhook** (client-side):
    ```javascript
-   fetch('https://script.google.com/macros/s/AKfycbzw1j3VHH_gPHCt_9_GpltBXjDtTj5CrYduCMwr5T8FUiFCcI5SGvjj5GdR1VqPwHkcyQ/exec', {
+   fetch('https://script.google.com/macros/s/AKfycbzk8BDxbTzljYfK9OlL1ly6f533mmC6ihG8M9CGPrufAT7-1mpyQgd4tIH5mwKM7bygeg/exec', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify({
@@ -44,12 +44,18 @@ Each assessment’s lead capture form should POST to either:
    POST https://visionblox.org/api/assessment/submit
    ```
 
-## Google Apps Script
+## Google Apps Script Payload Format
 
-The webhook must implement `doPost(e)` to handle JSON POST requests. It should:
+The webhook expects this JSON structure (bound to a sheet named `Leads`):
 
-- Parse `e.postData.contents` as JSON
-- Append a row to the target sheet (e.g. firstName, lastName, email, organization, role, source, submittedAt, assessmentData)
-- Return a simple success response
+| Field    | Type   | Description                                  |
+|----------|--------|----------------------------------------------|
+| `name`   | string | Full name                                    |
+| `email`  | string | Email address                                |
+| `company`| string | Organization name                            |
+| `role`   | string | Job title/role                               |
+| `source` | string | Assessment name (e.g. "DoD Compliance Readiness Assessment") |
+| `score`  | string/number | Top score or summary               |
+| `details`| string | JSON string with: `percentages`, `topRecommendations`, `complexity`, `engagement`, `duration`, `answers` |
 
-Note: If you see "Script function not found: doGet", add and deploy a `doPost` function for form submissions.
+**VBLX API** (`/api/assessment/submit`) accepts `firstName`, `lastName`, `organization`, `assessmentData`, etc. and transforms to this format before forwarding.
