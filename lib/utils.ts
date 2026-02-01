@@ -97,7 +97,6 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
   {
     label: 'Contact',
