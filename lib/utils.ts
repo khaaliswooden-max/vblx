@@ -46,25 +46,28 @@ export const COMPANY = {
 
 /**
  * Assessment tools / calculators (external links)
+ * Each connects to Google Sheets via webhook for lead capture:
+ * - Sheet: https://docs.google.com/spreadsheets/d/1HZea7VO6c-GUoqSpxKXUUYvnKdWW25cPxmTSGarcp4M/
+ * - Webhook: configurable via ASSESSMENT_WEBHOOK_URL env
  */
 export const TOOLS = [
-  {
-    id: 'sap-s4hana-roi',
-    title: 'SAP S/4HANA Migration ROI Calculator',
-    description: 'Calculate potential savings and timeline for S/4HANA migration',
-    url: 'https://lighthearted-klepon-2a09d7.netlify.app/',
-  },
-  {
-    id: 'document-accessibility',
-    title: 'Document Accessibility Score Calculator',
-    description: 'Evaluate Section 508 compliance and calculate potential ROI',
-    url: 'https://cosmic-marzipan-ffb6d9.netlify.app/',
-  },
   {
     id: 'dod-compliance',
     title: 'DoD Compliance Readiness Assessment',
     description: 'Evaluate zero-trust and compliance posture in 2 minutes',
-    url: 'https://joyful-platypus-aa274a.netlify.app/',
+    url: 'https://eloquent-churros-6a929a.netlify.app/',
+  },
+  {
+    id: 'sap-s4hana-roi',
+    title: 'SAP S/4HANA Migration ROI Calculator',
+    description: 'Calculate potential savings and timeline for S/4HANA migration',
+    url: 'https://nimble-daffodil-ff9878.netlify.app/',
+  },
+  {
+    id: 'digital-transformation',
+    title: 'Digital Transformation Readiness Assessment',
+    description: 'Discover the right services to accelerate your enterprise evolution',
+    url: 'https://luminous-cheesecake-d7c9dd.netlify.app/',
   },
 ] as const
 

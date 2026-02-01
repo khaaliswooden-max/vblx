@@ -89,6 +89,26 @@ export const federalFormSchema = z.object({
 export type FederalFormData = z.infer<typeof federalFormSchema>
 
 // ============================================================================
+// ASSESSMENT / CALCULATOR LEAD CAPTURE SCHEMA
+// ============================================================================
+// Used by: DoD Compliance, SAP S/4HANA ROI, Digital Transformation assessments
+// Submits to Google Sheets via webhook
+
+export const assessmentLeadSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Please enter a valid email address'),
+  organization: z.string().min(1, 'Organization is required'),
+  role: z.string().optional(),
+  // Assessment source (which tool generated this lead)
+  source: z.enum(['dod-compliance', 'sap-s4hana-roi', 'digital-transformation']).optional(),
+  // Flexible payload for assessment-specific data (scores, answers, etc.)
+  assessmentData: z.record(z.unknown()).optional(),
+})
+
+export type AssessmentLeadData = z.infer<typeof assessmentLeadSchema>
+
+// ============================================================================
 // FORM OPTIONS
 // ============================================================================
 
