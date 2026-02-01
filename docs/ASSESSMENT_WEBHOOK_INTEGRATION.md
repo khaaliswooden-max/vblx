@@ -6,8 +6,8 @@ Assessment and calculator forms submit leads to Google Sheets via the Apps Scrip
 
 | Item | Value |
 |------|-------|
-| **Google Sheet** | https://docs.google.com/spreadsheets/d/1HZea7VO6c-GUoqSpxKXUUYvnKdWW25cPxmTSGarcp4M/ |
-| **Webhook URL** | `https://script.google.com/macros/s/AKfycbzk8BDxbTzljYfK9OlL1ly6f533mmC6ihG8M9CGPrufAT7-1mpyQgd4tIH5mwKM7bygeg/exec` |
+| **Google Sheet** | https://docs.google.com/spreadsheets/d/1-CGWDlwAilR2Q_MKyE7tNrMP7Sf_PnrABonNDALzSXs/ |
+| **Webhook URL** | `https://script.google.com/macros/s/AKfycbzijvZInzi0SI21ZScj-THIbTNhAzN9rOKENCPjlKKLzVhtyXGfQC6Yqh6z98H9LjYZ/exec` |
 | **Env override** | `ASSESSMENT_WEBHOOK_URL` (optional) |
 
 ## Connected Assessments
@@ -24,7 +24,7 @@ Each assessment’s lead capture form should POST to either:
 
 1. **Direct webhook** (client-side):
    ```javascript
-   fetch('https://script.google.com/macros/s/AKfycbzk8BDxbTzljYfK9OlL1ly6f533mmC6ihG8M9CGPrufAT7-1mpyQgd4tIH5mwKM7bygeg/exec', {
+   fetch('https://script.google.com/macros/s/AKfycbzijvZInzi0SI21ZScj-THIbTNhAzN9rOKENCPjlKKLzVhtyXGfQC6Yqh6z98H9LjYZ/exec', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify({

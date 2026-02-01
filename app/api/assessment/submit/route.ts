@@ -9,7 +9,7 @@ const CORS_HEADERS = {
 
 const ASSESSMENT_WEBHOOK_URL =
   process.env.ASSESSMENT_WEBHOOK_URL ??
-  'https://script.google.com/macros/s/AKfycbzk8BDxbTzljYfK9OlL1ly6f533mmC6ihG8M9CGPrufAT7-1mpyQgd4tIH5mwKM7bygeg/exec'
+  'https://script.google.com/macros/s/AKfycbzijvZInzi0SI21ZScj-THIbTNhAzN9rOKENCPjlKKLzVhtyXGfQC6Yqh6z98H9LjYZ/exec'
 
 /**
  * POST /api/assessment/submit

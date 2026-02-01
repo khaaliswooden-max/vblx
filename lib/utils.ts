@@ -47,7 +47,7 @@ export const COMPANY = {
 /**
  * Assessment tools / calculators (external links)
  * Each connects to Google Sheets via webhook for lead capture:
- * - Sheet: https://docs.google.com/spreadsheets/d/1HZea7VO6c-GUoqSpxKXUUYvnKdWW25cPxmTSGarcp4M/
+ * - Sheet: https://docs.google.com/spreadsheets/d/1-CGWDlwAilR2Q_MKyE7tNrMP7Sf_PnrABonNDALzSXs/
  * - Webhook: configurable via ASSESSMENT_WEBHOOK_URL env
  */
 export const TOOLS = [
