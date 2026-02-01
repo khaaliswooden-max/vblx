@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoD Compliance Readiness Assessment | Visionblox</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a1628 0%, #1a237e 100%); min-height: 100vh; color: #fff; }
+        .container { max-width: 700px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 30px 0; }
+        .logo { font-size: 28px; font-weight: 700; margin-bottom: 5px; }
+        .logo span { color: #4fc3f7; }
+        .tagline { color: #4fc3f7; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 28px; margin: 20px 0 10px; }
+        .subtitle { color: #b0bec5; font-size: 14px; }
+        .progress-section { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin: 25px 0; }
+        .progress-bar { height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #4caf50, #8bc34a); border-radius: 4px; transition: width 0.3s; }
+        .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: #b0bec5; }
+        .question-container { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin: 20px 0; }
+        .question-title { font-size: 18px; margin-bottom: 20px; }
+        .options { display: flex; flex-direction: column; gap: 12px; }
+        .option { background: rgba(255,255,255,0.08); border: 2px solid transparent; border-radius: 10px; padding: 15px; cursor: pointer; transition: all 0.2s; }
+        .option:hover { background: rgba(79, 195, 247, 0.15); border-color: rgba(79, 195, 247, 0.3); }
+        .option.selected { background: rgba(79, 195, 247, 0.2); border-color: #4fc3f7; }
+        .option-label { font-weight: 600; margin-bottom: 4px; }
+        .option-desc { font-size: 12px; color: #b0bec5; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 25px; }
+        .btn { padding: 12px 30px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+        .btn-back { background: rgba(255,255,255,0.1); color: #fff; }
+        .btn-back:hover { background: rgba(255,255,255,0.2); }
+        .btn-next { background: linear-gradient(135deg, #4fc3f7, #29b6f6); color: #0a1628; }
+        .btn-next:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .hidden { display: none !important; }
+        .lead-form { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin: 20px 0; }
+        .lead-form h2 { font-size: 22px; margin-bottom: 8px; text-align: center; }
+        .lead-form p { color: #b0bec5; font-size: 14px; text-align: center; margin-bottom: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { font-size: 12px; font-weight: 600; margin-bottom: 5px; color: #b0bec5; }
+        .form-group input { padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-size: 14px; }
+        .form-group input:focus { outline: none; border-color: #4fc3f7; }
+        .form-group input::placeholder { color: #78909c; }
+        .results-section { text-align: center; }
+        .score-circle { width: 180px; height: 180px; border-radius: 50%; background: conic-gradient(#4caf50 0deg, rgba(255,255,255,0.1) 0deg); display: flex; align-items: center; justify-content: center; margin: 30px auto; }
+        .score-inner { width: 140px; height: 140px; border-radius: 50%; background: #0a1628; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-value { font-size: 48px; font-weight: 700; }
+        .score-label { font-size: 12px; color: #b0bec5; }
+        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; text-align: left; }
+        .result-card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 15px; }
+        .result-card h4 { font-size: 12px; color: #b0bec5; margin-bottom: 8px; }
+        .result-card .value { font-size: 18px; font-weight: 600; }
+        .recs-section { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; margin: 20px 0; text-align: left; }
+        .recs-section h3 { font-size: 16px; margin-bottom: 15px; }
+        .rec-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .rec-item:last-child { border-bottom: none; }
+        .rec-icon { font-size: 18px; }
+        .cta-section { background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(41, 182, 246, 0.1)); border: 1px solid rgba(79, 195, 247, 0.3); border-radius: 12px; padding: 25px; margin: 25px 0; text-align: center; }
+        .cta-section h3 { margin-bottom: 10px; }
+        .cta-section p { color: #b0bec5; font-size: 14px; margin-bottom: 15px; }
+        .footer { text-align: center; padding: 20px; color: #78909c; font-size: 12px; }
+        .footer a { color: #4fc3f7; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">VISION<span>BLOX</span></div>
+            <div class="tagline">AI-Powered Federal Solutions</div>
+            <h1>DoD Compliance Readiness Assessment</h1>
+            <p class="subtitle">Evaluate your organization's zero-trust and compliance posture in 2 minutes</p>
+        </div>
+        <div class="progress-section">
+            <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 12%"></div></div>
+            <div class="progress-text"><span id="questionNum">Question 1 of 8</span><span id="percentComplete">12% Complete</span></div>
+        </div>
+        <div id="questionsContainer"></div>
+        <div id="leadForm" class="lead-form hidden">
+            <h2>Your Results Are Ready!</h2>
+            <p>Enter your details to view your personalized compliance roadmap</p>
+            <div class="form-row">
+                <div class="form-group"><label>First Name *</label><input type="text" id="firstName" placeholder="John" required></div>
+                <div class="form-group"><label>Last Name *</label><input type="text" id="lastName" placeholder="Smith" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full"><label>Work Email *</label><input type="email" id="email" placeholder="john.smith@agency.gov" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Organization *</label><input type="text" id="organization" placeholder="Department of Defense" required></div>
+                <div class="form-group"><label>Role</label><input type="text" id="role" placeholder="CISO"></div>
+            </div>
+            <div class="nav-buttons"><div></div><button class="btn btn-next" onclick="submitLead()">View My Results</button></div>
+        </div>
+        <div id="resultsSection" class="results-section hidden">
+            <h2>Your DoD Compliance Readiness Score</h2>
+            <div class="score-circle" id="scoreCircle"><div class="score-inner"><span class="score-value" id="scoreValue">0%</span><span class="score-label">Readiness</span></div></div>
+            <div class="results-grid">
+                <div class="result-card"><h4>Zero Trust Alignment</h4><div class="value" id="ztScore">--</div></div>
+                <div class="result-card"><h4>CMMC Readiness</h4><div class="value" id="cmmcScore">--</div></div>
+                <div class="result-card"><h4>Risk Level</h4><div class="value" id="riskLevel">--</div></div>
+                <div class="result-card"><h4>Priority Focus</h4><div class="value" id="priorityFocus">--</div></div>
+            </div>
+            <div class="recs-section"><h3>Priority Recommendations</h3><div id="recommendations"></div></div>
+            <div class="cta-section">
+                <h3>Ready to Accelerate Compliance?</h3>
+                <p>Our federal compliance specialists can help you achieve certification faster.</p>
+                <a href="mailto:khaalis.wooden@visionblox.com?subject=DoD%20Compliance%20Assessment" class="btn btn-next">Schedule Consultation</a>
+            </div>
+            <button class="btn btn-back" onclick="resetAssessment()" style="margin-top:15px">Retake Assessment</button>
+        </div>
+        <div class="footer">© 2026 Visionblox LLC | CAGE: 9Z4X2 | <a href="https://visionblox.com">visionblox.com</a></div>
+    </div>
+<script>
+var questions = [
+    { id: 1, category: 'Zero Trust Architecture', question: 'What is your current Zero Trust implementation status?', options: [
+        { text: 'Fully implemented across all systems', desc: 'Complete ZTA with continuous verification', score: 4 },
+        { text: 'Partially implemented in critical systems', desc: 'ZTA in high-value assets only', score: 3 },
+        { text: 'Pilot program or planning phase', desc: 'Early stages of ZTA adoption', score: 2 },
+        { text: 'Not yet started', desc: 'Traditional perimeter security only', score: 1 }
+    ]},
+    { id: 2, category: 'NIST 800-53 Compliance', question: 'How would you describe your NIST 800-53 compliance status?', options: [
+        { text: 'Fully compliant with continuous monitoring', desc: 'All controls implemented and monitored', score: 4 },
+        { text: 'Substantially compliant with minor gaps', desc: '90%+ controls implemented', score: 3 },
+        { text: 'Partially compliant with known gaps', desc: '60-89% controls implemented', score: 2 },
+        { text: 'Early stages or non-compliant', desc: 'Significant gaps exist', score: 1 }
+    ]},
+    { id: 3, category: 'CMMC Readiness', question: 'What is your CMMC certification status?', options: [
+        { text: 'CMMC Level 2+ certified', desc: 'Third-party assessment completed', score: 4 },
+        { text: 'Assessment-ready, preparing for C3PAO', desc: 'Controls implemented, awaiting assessment', score: 3 },
+        { text: 'Implementing controls, 6-12 months out', desc: 'Active remediation underway', score: 2 },
+        { text: 'Early planning or gap assessment phase', desc: 'Just starting the journey', score: 1 }
+    ]},
+    { id: 4, category: 'Identity & Access Management', question: 'How mature is your Identity & Access Management program?', options: [
+        { text: 'Advanced IAM with PAM and continuous auth', desc: 'MFA, PAM, UEBA fully deployed', score: 4 },
+        { text: 'Strong IAM with MFA across all systems', desc: 'Centralized identity with MFA', score: 3 },
+        { text: 'Basic IAM with MFA on critical systems', desc: 'Partial MFA deployment', score: 2 },
+        { text: 'Limited IAM capabilities', desc: 'Password-based, minimal MFA', score: 1 }
+    ]},
+    { id: 5, category: 'Cloud Security', question: 'What is your cloud security posture?', options: [
+        { text: 'FedRAMP High or equivalent controls', desc: 'Full federal cloud compliance', score: 4 },
+        { text: 'FedRAMP Moderate with CSPM', desc: 'Strong cloud security monitoring', score: 3 },
+        { text: 'Basic cloud security controls', desc: 'Native CSP security features', score: 2 },
+        { text: 'Limited cloud security visibility', desc: 'Minimal cloud-specific controls', score: 1 }
+    ]},
+    { id: 6, category: 'Continuous Monitoring', question: 'How would you describe your continuous monitoring capabilities?', options: [
+        { text: '24/7 SOC with SIEM/SOAR and threat hunting', desc: 'Advanced detection and response', score: 4 },
+        { text: 'SIEM with automated alerting', desc: 'Real-time monitoring with alerts', score: 3 },
+        { text: 'Basic log collection and review', desc: 'Periodic log analysis', score: 2 },
+        { text: 'Limited monitoring capabilities', desc: 'Reactive incident detection', score: 1 }
+    ]},
+    { id: 7, category: 'Supply Chain Security', question: 'How do you manage supply chain/third-party risk?', options: [
+        { text: 'Comprehensive SCRM with continuous monitoring', desc: 'SBOM, vendor assessments, monitoring', score: 4 },
+        { text: 'Formal vendor assessment program', desc: 'Regular third-party risk assessments', score: 3 },
+        { text: 'Basic vendor questionnaires', desc: 'Initial assessments only', score: 2 },
+        { text: 'Limited supply chain visibility', desc: 'Minimal vendor oversight', score: 1 }
+    ]},
+    { id: 8, category: 'Legacy System Risk', question: 'What is your legacy system modernization status?', options: [
+        { text: 'Fully modernized or isolated with controls', desc: 'No unprotected legacy exposure', score: 4 },
+        { text: 'Active modernization with compensating controls', desc: 'Legacy systems being addressed', score: 3 },
+        { text: 'Some legacy systems with basic protections', desc: 'Partial legacy risk mitigation', score: 2 },
+        { text: 'Significant legacy system exposure', desc: 'Unaddressed legacy vulnerabilities', score: 1 }
+    ]}
+];
+
+var currentQuestion = 0;
+var answers = [];
+var categoryScores = {};
+
+function initQuestions() {
+    var container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+    for (var i = 0; i < questions.length; i++) {
+        var q = questions[i];
+        var div = document.createElement('div');
+        div.className = 'question-container' + (i === 0 ? '' : ' hidden');
+        div.id = 'question' + i;
+        var html = '<div class="question-title">' + q.question + '</div><div class="options">';
+        for (var j = 0; j < q.options.length; j++) {
+            var opt = q.options[j];
+            html += '<div class="option" data-score="' + opt.score + '" onclick="selectOption(this,' + i + ')"><div class="option-label">' + opt.text + '</div><div class="option-desc">' + opt.desc + '</div></div>';
+        }
+        html += '</div><div class="nav-buttons">';
+        html += '<button class="btn btn-back' + (i === 0 ? ' hidden' : '') + '" onclick="prevQuestion()">Back</button>';
+        html += '<button class="btn btn-next" id="nextBtn' + i + '" onclick="nextQuestion()" disabled>Continue</button></div>';
+        div.innerHTML = html;
+        container.appendChild(div);
+    }
+}
+
+function selectOption(el, qIndex) {
+    var opts = el.parentElement.querySelectorAll('.option');
+    for (var k = 0; k < opts.length; k++) { opts[k].classList.remove('selected'); }
+    el.classList.add('selected');
+    answers[qIndex] = { category: questions[qIndex].category, score: parseInt(el.getAttribute('data-score')) };
+    document.getElementById('nextBtn' + qIndex).disabled = false;
+}
+
+function updateProgress() {
+    var pct = Math.round(((currentQuestion + 1) / questions.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('questionNum').textContent = 'Question ' + (currentQuestion + 1) + ' of ' + questions.length;
+    document.getElementById('percentComplete').textContent = pct + '% Complete';
+}
+
+function nextQuestion() {
+    document.getElementById('question' + currentQuestion).classList.add('hidden');
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        document.getElementById('question' + currentQuestion).classList.remove('hidden');
+        updateProgress();
+    } else {
+        document.querySelector('.progress-section').classList.add('hidden');
+        document.getElementById('leadForm').classList.remove('hidden');
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestion > 0) {
+        document.getElementById('question' + currentQuestion).classList.add('hidden');
+        currentQuestion--;
+        document.getElementById('question' + currentQuestion).classList.remove('hidden');
+        updateProgress();
+    }
+}
+
+function submitLead() {
+    var fn = document.getElementById('firstName').value.trim();
+    var ln = document.getElementById('lastName').value.trim();
+    var em = document.getElementById('email').value.trim();
+    var org = document.getElementById('organization').value.trim();
+    var role = document.getElementById('role').value.trim();
+    if (!fn || !ln || !em || !org) { alert('Please fill in all required fields.'); return; }
+    var total = 0;
+    var max = questions.length * 4;
+    for (var i = 0; i < answers.length; i++) {
+        total += answers[i].score;
+        categoryScores[answers[i].category] = answers[i].score;
+    }
+    var pct = Math.round((total / max) * 100);
+    var data = { name: fn + ' ' + ln, email: em, company: org, role: role || 'Not specified', source: 'DoD Compliance Readiness Assessment', score: pct + '%', details: JSON.stringify({ categoryScores: categoryScores }) };
+    fetch('https://script.google.com/macros/s/AKfycbzijvZInzi0SI21ZScj-THIbTNhAzN9rOKENCPjlKKLzVhtyXGfQC6Yqh6z98H9LjYZ/exec', { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(function(e) { console.log(e); });
+    showResults(pct);
+}
+
+function showResults(pct) {
+    document.getElementById('leadForm').classList.add('hidden');
+    document.getElementById('resultsSection').classList.remove('hidden');
+    var color = pct >= 75 ? '#4caf50' : (pct >= 50 ? '#ff9800' : '#f44336');
+    document.getElementById('scoreCircle').style.background = 'conic-gradient(' + color + ' ' + (pct * 3.6) + 'deg, rgba(255,255,255,0.1) ' + (pct * 3.6) + 'deg)';
+    document.getElementById('scoreValue').textContent = pct + '%';
+    document.getElementById('scoreValue').style.color = color;
+    var zt = categoryScores['Zero Trust Architecture'] || 0;
+    var cmmc = categoryScores['CMMC Readiness'] || 0;
+    document.getElementById('ztScore').textContent = zt >= 3 ? 'Strong' : (zt === 2 ? 'Developing' : 'Needs Work');
+    document.getElementById('cmmcScore').textContent = cmmc >= 3 ? 'On Track' : (cmmc === 2 ? 'In Progress' : 'Early Stage');
+    document.getElementById('riskLevel').textContent = pct >= 75 ? 'Low' : (pct >= 50 ? 'Moderate' : 'High');
+    document.getElementById('riskLevel').style.color = color;
+    var cats = Object.keys(categoryScores);
+    var lowest = { cat: 'General', score: 5 };
+    for (var i = 0; i < cats.length; i++) { if (categoryScores[cats[i]] < lowest.score) { lowest = { cat: cats[i], score: categoryScores[cats[i]] }; } }
+    document.getElementById('priorityFocus').textContent = lowest.cat;
+    var recMap = { 'Zero Trust Architecture': 'Implement micro-segmentation and identity-based access controls.', 'NIST 800-53 Compliance': 'Conduct gap assessment against NIST 800-53 Rev 5.', 'CMMC Readiness': 'Engage RPO for readiness assessment before C3PAO.', 'Identity & Access Management': 'Deploy PAM with continuous authentication.', 'Cloud Security': 'Implement CSPM and pursue FedRAMP equivalency.', 'Continuous Monitoring': 'Establish 24/7 SOC with SIEM/SOAR.', 'Supply Chain Security': 'Implement SBOM and vendor monitoring.', 'Legacy System Risk': 'Develop modernization roadmap.' };
+    var recs = document.getElementById('recommendations');
+    var html = '';
+    var lows = [];
+    for (var i = 0; i < cats.length; i++) { if (categoryScores[cats[i]] < 3) { lows.push({ c: cats[i], s: categoryScores[cats[i]] }); } }
+    lows.sort(function(a, b) { return a.s - b.s; });
+    if (lows.length === 0) { html = '<div class="rec-item"><span class="rec-icon">✓</span><span>Maintain compliance and monitor evolving DoD requirements.</span></div>'; }
+    else { for (var i = 0; i < Math.min(3, lows.length); i++) { html += '<div class="rec-item"><span class="rec-icon">⚠️</span><span><strong>' + lows[i].c + ':</strong> ' + (recMap[lows[i].c] || 'Address gaps.') + '</span></div>'; } }
+    recs.innerHTML = html;
+}
+
+function resetAssessment() {
+    currentQuestion = 0; answers = []; categoryScores = {};
+    document.getElementById('resultsSection').classList.add('hidden');
+    document.querySelector('.progress-section').classList.remove('hidden');
+    initQuestions(); updateProgress();
+}
+
+initQuestions();
+</script>
+</body>
+</html>

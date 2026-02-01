@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP S/4HANA Migration ROI Calculator | Visionblox</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; color: #fff; }
+        .container { max-width: 700px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; padding: 30px 0; }
+        .logo { font-size: 28px; font-weight: 700; margin-bottom: 5px; }
+        .logo span { color: #4fc3f7; }
+        .tagline { color: #4fc3f7; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 26px; margin: 20px 0 10px; }
+        .subtitle { color: #b0bec5; font-size: 14px; }
+        .deadline-banner { background: linear-gradient(135deg, #d32f2f, #c62828); border-radius: 12px; padding: 20px; margin: 25px 0; text-align: center; }
+        .deadline-banner h3 { font-size: 14px; margin-bottom: 5px; }
+        .deadline-banner .countdown { font-size: 32px; font-weight: 700; }
+        .section { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin: 20px 0; }
+        .section-title { display: flex; align-items: center; gap: 10px; font-size: 18px; margin-bottom: 20px; }
+        .section-icon { font-size: 24px; }
+        .slider-group { margin-bottom: 25px; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .slider-label { font-size: 14px; color: #b0bec5; }
+        .slider-value { font-size: 18px; font-weight: 700; color: #4fc3f7; }
+        input[type="range"] { width: 100%; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.2); appearance: none; cursor: pointer; }
+        input[type="range"]::-webkit-slider-thumb { appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #4fc3f7; cursor: pointer; }
+        .select-group { margin-bottom: 20px; }
+        .select-group label { display: block; font-size: 14px; color: #b0bec5; margin-bottom: 8px; }
+        .select-group select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-size: 14px; }
+        .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .checkbox-item:hover { background: rgba(79, 195, 247, 0.1); }
+        .checkbox-item.checked { border-color: #4fc3f7; background: rgba(79, 195, 247, 0.15); }
+        .checkbox-item input { display: none; }
+        .checkbox-box { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .checkbox-item.checked .checkbox-box { background: #4fc3f7; border-color: #4fc3f7; }
+        .checkbox-item.checked .checkbox-box::after { content: '✓'; color: #1a1a2e; font-size: 14px; font-weight: bold; }
+        .results-panel { background: linear-gradient(135deg, rgba(79, 195, 247, 0.15), rgba(41, 182, 246, 0.1)); border: 1px solid rgba(79, 195, 247, 0.3); border-radius: 12px; padding: 25px; margin: 25px 0; }
+        .results-panel h3 { text-align: center; margin-bottom: 20px; }
+        .roi-display { text-align: center; margin-bottom: 25px; }
+        .roi-value { font-size: 64px; font-weight: 700; color: #4caf50; }
+        .roi-label { font-size: 14px; color: #b0bec5; }
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .metric-card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 15px; text-align: center; }
+        .metric-card h4 { font-size: 12px; color: #b0bec5; margin-bottom: 8px; }
+        .metric-card .value { font-size: 22px; font-weight: 700; }
+        .metric-card .value.green { color: #4caf50; }
+        .metric-card .value.blue { color: #4fc3f7; }
+        .metric-card .value.orange { color: #ff9800; }
+        .timeline-section { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 15px; margin-top: 15px; }
+        .timeline-section h4 { font-size: 14px; margin-bottom: 10px; }
+        .timeline-bar { height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+        .timeline-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+        .timeline-text { display: flex; justify-content: space-between; font-size: 12px; color: #b0bec5; }
+        .hidden { display: none !important; }
+        .lead-form { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin: 20px 0; }
+        .lead-form h2 { font-size: 22px; margin-bottom: 8px; text-align: center; }
+        .lead-form p { color: #b0bec5; font-size: 14px; text-align: center; margin-bottom: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { font-size: 12px; font-weight: 600; margin-bottom: 5px; color: #b0bec5; }
+        .form-group input { padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-size: 14px; }
+        .form-group input:focus { outline: none; border-color: #4fc3f7; }
+        .form-group input::placeholder { color: #78909c; }
+        .btn { padding: 14px 30px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; background: linear-gradient(135deg, #4fc3f7, #29b6f6); color: #1a1a2e; width: 100%; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4); }
+        .cta-section { background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(41, 182, 246, 0.1)); border: 1px solid rgba(79, 195, 247, 0.3); border-radius: 12px; padding: 25px; margin: 25px 0; text-align: center; }
+        .cta-section h3 { margin-bottom: 10px; }
+        .cta-section p { color: #b0bec5; font-size: 14px; margin-bottom: 15px; }
+        .footer { text-align: center; padding: 20px; color: #78909c; font-size: 12px; }
+        .footer a { color: #4fc3f7; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">VISION<span>BLOX</span></div>
+            <div class="tagline">AI-Powered Federal Solutions</div>
+            <h1>SAP S/4HANA Migration ROI Calculator</h1>
+            <p class="subtitle">Calculate your potential savings and timeline for S/4HANA migration</p>
+        </div>
+
+        <div class="deadline-banner">
+            <h3>SAP ECC End of Mainstream Support</h3>
+            <div class="countdown" id="countdown">Loading...</div>
+        </div>
+
+        <div id="calculatorSection">
+            <div class="section">
+                <div class="section-title"><span class="section-icon">🏢</span> Current SAP Environment</div>
+                <div class="slider-group">
+                    <div class="slider-header"><span class="slider-label">Annual SAP Spend</span><span class="slider-value" id="spendValue">$2,000,000</span></div>
+                    <input type="range" id="spendSlider" min="500000" max="20000000" step="100000" value="2000000" oninput="updateCalc()">
+                </div>
+                <div class="slider-group">
+                    <div class="slider-header"><span class="slider-label">Number of SAP Users</span><span class="slider-value" id="usersValue">500</span></div>
+                    <input type="range" id="usersSlider" min="50" max="5000" step="50" value="500" oninput="updateCalc()">
+                </div>
+                <div class="slider-group">
+                    <div class="slider-header"><span class="slider-label">Monthly Transactions</span><span class="slider-value" id="transValue">100,000</span></div>
+                    <input type="range" id="transSlider" min="10000" max="1000000" step="10000" value="100000" oninput="updateCalc()">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title"><span class="section-icon">⚙️</span> Migration Parameters</div>
+                <div class="select-group">
+                    <label>Current ERP Version</label>
+                    <select id="erpVersion" onchange="updateCalc()">
+                        <option value="ecc6">SAP ECC 6.0</option>
+                        <option value="ecc5">SAP ECC 5.0</option>
+                        <option value="r3">SAP R/3</option>
+                        <option value="s4">Already on S/4HANA</option>
+                    </select>
+                </div>
+                <div class="select-group">
+                    <label>Migration Approach</label>
+                    <select id="migrationApproach" onchange="updateCalc()">
+                        <option value="brownfield">Brownfield (System Conversion)</option>
+                        <option value="greenfield">Greenfield (New Implementation)</option>
+                        <option value="hybrid">Selective Data Transition</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title"><span class="section-icon">🚀</span> Optimization Opportunities</div>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item" onclick="toggleOpt(this)"><input type="checkbox" id="optWorkflow"><div class="checkbox-box"></div><span>Workflow Automation</span></label>
+                    <label class="checkbox-item" onclick="toggleOpt(this)"><input type="checkbox" id="optAnalytics"><div class="checkbox-box"></div><span>Embedded Analytics</span></label>
+                    <label class="checkbox-item" onclick="toggleOpt(this)"><input type="checkbox" id="optCloud"><div class="checkbox-box"></div><span>Cloud Migration</span></label>
+                    <label class="checkbox-item" onclick="toggleOpt(this)"><input type="checkbox" id="optAPI"><div class="checkbox-box"></div><span>API Integration</span></label>
+                </div>
+            </div>
+
+            <div class="results-panel">
+                <h3>Projected Migration ROI</h3>
+                <div class="roi-display">
+                    <div class="roi-value" id="roiValue">185%</div>
+                    <div class="roi-label">3-Year Return on Investment</div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card"><h4>Est. Migration Cost</h4><div class="value blue" id="migrationCost">$800K</div></div>
+                    <div class="metric-card"><h4>Annual Savings</h4><div class="value green" id="annualSavings">$300K</div></div>
+                    <div class="metric-card"><h4>Payback Period</h4><div class="value orange" id="paybackPeriod">2.7 years</div></div>
+                    <div class="metric-card"><h4>5-Year Benefit</h4><div class="value green" id="fiveYearBenefit">$1.5M</div></div>
+                </div>
+                <div class="timeline-section">
+                    <h4>Timeline to 2027 Deadline</h4>
+                    <div class="timeline-bar"><div class="timeline-fill" id="timelineFill" style="width: 50%; background: #ff9800;"></div></div>
+                    <div class="timeline-text"><span id="monthsRemaining">23 months remaining</span><span id="riskLevel">Moderate Risk</span></div>
+                </div>
+            </div>
+
+            <button class="btn" onclick="showLeadForm()">Get Detailed Migration Assessment →</button>
+        </div>
+
+        <div id="leadForm" class="lead-form hidden">
+            <h2>Get Your Custom Migration Roadmap</h2>
+            <p>Our SAP experts will prepare a detailed assessment based on your inputs</p>
+            <div class="form-row">
+                <div class="form-group"><label>First Name *</label><input type="text" id="firstName" placeholder="John" required></div>
+                <div class="form-group"><label>Last Name *</label><input type="text" id="lastName" placeholder="Smith" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full"><label>Work Email *</label><input type="email" id="email" placeholder="john.smith@company.com" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Organization *</label><input type="text" id="organization" placeholder="Acme Corporation" required></div>
+                <div class="form-group"><label>Role</label><input type="text" id="role" placeholder="IT Director"></div>
+            </div>
+            <button class="btn" onclick="submitLead()">Send My Assessment →</button>
+            <p style="font-size: 11px; color: #78909c; text-align: center; margin-top: 15px;">🔒 Your data is secure. We never share with third parties.</p>
+        </div>
+
+        <div id="thankYou" class="cta-section hidden">
+            <h3>✅ Assessment Request Received!</h3>
+            <p>A Visionblox SAP specialist will contact you within 24 hours with your custom migration roadmap.</p>
+            <a href="mailto:khaalis.wooden@visionblox.com?subject=SAP%20Migration%20Assessment" class="btn" style="display: inline-block; width: auto;">Schedule Call Now</a>
+        </div>
+
+        <div class="footer">© 2026 Visionblox LLC | CAGE: 9Z4X2 | <a href="https://visionblox.com">visionblox.com</a></div>
+    </div>
+
+<script>
+var calcData = {};
+
+function updateCountdown() {
+    var deadline = new Date('2027-12-31');
+    var now = new Date();
+    var diff = deadline - now;
+    var months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+    document.getElementById('countdown').textContent = months + ' Months Remaining';
+    calcData.monthsRemaining = months;
+}
+
+function formatCurrency(num) {
+    if (num >= 1000000) return '$' + (num / 1000000).toFixed(1) + 'M';
+    if (num >= 1000) return '$' + Math.round(num / 1000) + 'K';
+    return '$' + num;
+}
+
+function updateCalc() {
+    var spend = parseInt(document.getElementById('spendSlider').value);
+    var users = parseInt(document.getElementById('usersSlider').value);
+    var trans = parseInt(document.getElementById('transSlider').value);
+    var version = document.getElementById('erpVersion').value;
+    var approach = document.getElementById('migrationApproach').value;
+
+    document.getElementById('spendValue').textContent = formatCurrency(spend);
+    document.getElementById('usersValue').textContent = users.toLocaleString();
+    document.getElementById('transValue').textContent = trans.toLocaleString();
+
+    var baseCostPct = 0.40;
+    if (approach === 'greenfield') baseCostPct = 0.55;
+    if (approach === 'hybrid') baseCostPct = 0.45;
+    if (version === 'r3') baseCostPct += 0.15;
+    if (version === 'ecc5') baseCostPct += 0.10;
+
+    var migrationCost = spend * baseCostPct;
+
+    var baseSavingsPct = 0.15;
+    if (document.getElementById('optWorkflow').checked) baseSavingsPct += 0.05;
+    if (document.getElementById('optAnalytics').checked) baseSavingsPct += 0.04;
+    if (document.getElementById('optCloud').checked) baseSavingsPct += 0.06;
+    if (document.getElementById('optAPI').checked) baseSavingsPct += 0.03;
+
+    var annualSavings = spend * baseSavingsPct;
+    var threeYearSavings = annualSavings * 3;
+    var roi = Math.round(((threeYearSavings - migrationCost) / migrationCost) * 100);
+    var payback = (migrationCost / annualSavings).toFixed(1);
+    var fiveYearBenefit = (annualSavings * 5) - migrationCost;
+
+    document.getElementById('roiValue').textContent = roi + '%';
+    document.getElementById('roiValue').style.color = roi >= 100 ? '#4caf50' : (roi >= 50 ? '#ff9800' : '#f44336');
+    document.getElementById('migrationCost').textContent = formatCurrency(migrationCost);
+    document.getElementById('annualSavings').textContent = formatCurrency(annualSavings);
+    document.getElementById('paybackPeriod').textContent = payback + ' years';
+    document.getElementById('fiveYearBenefit').textContent = formatCurrency(fiveYearBenefit);
+
+    var months = calcData.monthsRemaining || 23;
+    var estDuration = approach === 'greenfield' ? 18 : (approach === 'hybrid' ? 12 : 9);
+    var timelineUsed = Math.min(100, Math.round((estDuration / months) * 100));
+    var risk = timelineUsed > 80 ? 'High Risk' : (timelineUsed > 50 ? 'Moderate Risk' : 'Low Risk');
+    var riskColor = timelineUsed > 80 ? '#f44336' : (timelineUsed > 50 ? '#ff9800' : '#4caf50');
+
+    document.getElementById('timelineFill').style.width = timelineUsed + '%';
+    document.getElementById('timelineFill').style.background = riskColor;
+    document.getElementById('monthsRemaining').textContent = months + ' months remaining';
+    document.getElementById('riskLevel').textContent = risk;
+    document.getElementById('riskLevel').style.color = riskColor;
+
+    calcData = { spend: spend, users: users, trans: trans, version: version, approach: approach, migrationCost: migrationCost, annualSavings: annualSavings, roi: roi, payback: payback, monthsRemaining: months };
+}
+
+function toggleOpt(el) {
+    el.classList.toggle('checked');
+    var cb = el.querySelector('input');
+    cb.checked = !cb.checked;
+    updateCalc();
+}
+
+function showLeadForm() {
+    document.getElementById('calculatorSection').classList.add('hidden');
+    document.getElementById('leadForm').classList.remove('hidden');
+}
+
+function submitLead() {
+    var fn = document.getElementById('firstName').value.trim();
+    var ln = document.getElementById('lastName').value.trim();
+    var em = document.getElementById('email').value.trim();
+    var org = document.getElementById('organization').value.trim();
+    var role = document.getElementById('role').value.trim();
+    if (!fn || !ln || !em || !org) { alert('Please fill in all required fields.'); return; }
+
+    var data = {
+        name: fn + ' ' + ln,
+        email: em,
+        company: org,
+        role: role || 'Not specified',
+        source: 'SAP S/4HANA Migration ROI Calculator',
+        score: calcData.roi + '% ROI',
+        details: JSON.stringify(calcData)
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbzijvZInzi0SI21ZScj-THIbTNhAzN9rOKENCPjlKKLzVhtyXGfQC6Yqh6z98H9LjYZ/exec', {
+        method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
+    }).catch(function(e) { console.log(e); });
+
+    document.getElementById('leadForm').classList.add('hidden');
+    document.getElementById('thankYou').classList.remove('hidden');
+}
+
+updateCountdown();
+updateCalc();
+</script>
+</body>
+</html>
