@@ -12,11 +12,7 @@ import {
   Mail,
   Phone,
   CheckCircle,
-  Building,
-  TrendingUp,
-  BarChart3,
-  Ticket,
-  FolderKanban
+  Building
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { COMPANY } from '@/lib/utils'
@@ -114,47 +110,8 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
             >
-              {[
-                { name: 'Pro-Sales', tagline: 'CRM Excellence', color: '#10B981', href: '/products/pro-sales', icon: TrendingUp },
-                { name: 'Pro-Biz', tagline: 'Business Intelligence', color: '#8B5CF6', href: '/products/pro-biz', icon: BarChart3 },
-                { name: 'Pro-People', tagline: 'Workforce Management', color: '#EC4899', href: '/products/pro-people', icon: Users },
-                { name: 'Pro-Ticket', tagline: 'Service Management', color: '#EF4444', href: '/products/pro-ticket', icon: Ticket },
-              ].map((product, index) => {
-                const Icon = product.icon
-                return (
-                  <Link key={product.name} href={product.href}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all"
-                    >
-                      <div
-                        className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                        style={{ backgroundColor: `${product.color}20` }}
-                      >
-                        <Icon 
-                          className="w-6 h-6"
-                          style={{ color: product.color }}
-                        />
-                      </div>
-                      <h3 
-                        className="font-display font-semibold mb-1 group-hover:text-accent-primary transition-colors"
-                        style={{ color: product.color }}
-                      >
-                        {product.name}
-                      </h3>
-                      <p className="text-text-tertiary text-sm">
-                        {product.tagline}
-                      </p>
-                    </motion.div>
-                  </Link>
-                )
-              })}
-              <div className="col-span-2 bg-background-tertiary rounded-xl p-6 border border-white/5">
+              <div className="bg-background-tertiary rounded-xl p-6 border border-white/5">
                 <p className="text-text-secondary text-sm text-center">
                   10+ products. 20+ services. One unified vision. Enterprise operations, reimagined.
                 </p>
