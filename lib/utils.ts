@@ -46,28 +46,22 @@ export const COMPANY = {
 
 /**
  * Assessment tools / calculators (external links)
- * Each connects to Google Sheets via webhook for lead capture:
- * - Sheet: https://docs.google.com/spreadsheets/d/1-CGWDlwAilR2Q_MKyE7tNrMP7Sf_PnrABonNDALzSXs/
- * - Webhook: configurable via ASSESSMENT_WEBHOOK_URL env
+ * Home to SAP Migration and Enterprise Assessment Suite.
  */
 export const TOOLS = [
   {
-    id: 'dod-compliance',
-    title: 'DoD Compliance Readiness Assessment',
-    description: 'Evaluate zero-trust and compliance posture in 2 minutes',
-    url: 'https://eloquent-churros-6a929a.netlify.app/',
+    id: 'sap-migration',
+    title: 'SAP S/4 HANA Migration Readiness Assessment',
+    description:
+      'Discover your migration timeline, estimated costs, and readiness score for transitioning from SAP ECC/R/3 to S/4 HANA. Get a personalized roadmap and potential savings.',
+    url: 'https://luxury-lamington-69160b.netlify.app/',
   },
   {
-    id: 'sap-s4hana-roi',
-    title: 'SAP S/4HANA Migration ROI Calculator',
-    description: 'Calculate potential savings and timeline for S/4HANA migration',
-    url: 'https://nimble-daffodil-ff9878.netlify.app/',
-  },
-  {
-    id: 'digital-transformation',
-    title: 'Digital Transformation Readiness Assessment',
-    description: 'Discover the right services to accelerate your enterprise evolution',
-    url: 'https://luminous-cheesecake-d7c9dd.netlify.app/',
+    id: 'enterprise-assessment-suite',
+    title: 'Enterprise Assessment Suite',
+    description:
+      'Digital Transformation Readiness, LotGrid ROI Calculator, and Document Accessibility (Section 508) assessments. Tailored insights and recommendations in minutes.',
+    url: 'https://ubiquitous-madeleine-acc591.netlify.app/',
   },
 ] as const
 
@@ -97,6 +91,7 @@ export const NAV_LINKS = [
     ],
   },
   { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
   {
     label: 'Contact',

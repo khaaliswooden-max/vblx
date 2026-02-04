@@ -33,7 +33,7 @@ export default function ToolsPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {TOOLS.map((tool, index) => (
               <motion.div
                 key={tool.id}
@@ -58,7 +58,7 @@ export default function ToolsPage() {
                       trackingType="external"
                       className="inline-flex items-center gap-2 text-accent-primary font-medium text-sm hover:text-accent-hover transition-colors"
                     >
-                      Open calculator
+                      Open assessment
                       <ArrowRight className="w-4 h-4" />
                     </TrackingLink>
                   </CardFooter>
