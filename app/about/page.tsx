@@ -99,7 +99,7 @@ export default function AboutPage() {
                 platforms that enable organizations to operate at their best.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Our comprehensive product suite and professional services represent 
+                Our professional services represent 
                 a unified approach to enterprise operations, from CRM and business intelligence 
                 to workforce management and compliance. Not disconnected tools, but a 
                 cohesive operating system for the modern enterprise.
@@ -113,7 +113,7 @@ export default function AboutPage() {
             >
               <div className="bg-background-tertiary rounded-xl p-6 border border-white/5">
                 <p className="text-text-secondary text-sm text-center">
-                  10+ products. 20+ services. One unified vision. Enterprise operations, reimagined.
+                  20+ services. One unified vision. Enterprise operations, reimagined.
                 </p>
               </div>
             </motion.div>
