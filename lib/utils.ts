@@ -71,11 +71,25 @@ export const TOOLS = [
     url: 'https://poetic-banoffee-a6f976.netlify.app/#assessment',
   },
   {
+    id: 'lotgrid-parking-visitor',
+    title: 'LotGrid Parking & Visitor Management ROI Assessment',
+    description:
+      'Quantify parking and visitor management inefficiencies across labor, leakage, and operations. Estimate annual savings and ROI from implementing LotGrid\'s platform for your facility.',
+    url: 'https://timely-hamster-f5a51f.netlify.app/',
+  },
+  {
     id: 'enterprise-assessment-suite',
     title: 'Enterprise Assessment Suite',
     description:
       'Digital Transformation Readiness, LotGrid ROI Calculator, and Document Accessibility (Section 508) assessments. Tailored insights and recommendations in minutes.',
     url: 'https://ubiquitous-madeleine-acc591.netlify.app/',
+  },
+  {
+    id: 'document-accessibility-score',
+    title: 'Document Accessibility Score Calculator',
+    description:
+      'Assess Section 508 & WCAG 2.1 AA compliance for your document inventory and estimate potential savings from AI-powered remediation.',
+    url: 'https://astounding-daffodil-2eaf9f.netlify.app/',
   },
 ] as const
 
