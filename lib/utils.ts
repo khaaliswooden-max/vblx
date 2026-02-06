@@ -46,7 +46,7 @@ export const COMPANY = {
 
 /**
  * Assessment tools / calculators (external links)
- * Home to SAP Migration and Enterprise Assessment Suite.
+ * Home to SAP Migration and Digital Transformation Readiness Assessment.
  */
 export const TOOLS = [
   {
@@ -78,11 +78,11 @@ export const TOOLS = [
     url: 'https://timely-hamster-f5a51f.netlify.app/',
   },
   {
-    id: 'enterprise-assessment-suite',
-    title: 'Enterprise Assessment Suite',
+    id: 'digital-transformation-readiness',
+    title: 'Digital Transformation Readiness Assessment',
     description:
-      'Digital Transformation Readiness, LotGrid ROI Calculator, and Document Accessibility (Section 508) assessments. Tailored insights and recommendations in minutes.',
-    url: 'https://ubiquitous-madeleine-acc591.netlify.app/',
+      'Discover the right services to accelerate your enterprise evolution. This 5-minute assessment analyzes your current state, identifies gaps, and recommends tailored solutions across SAP, AI/ML, Development, and Risk & Compliance.',
+    url: 'https://resplendent-fairy-e1b773.netlify.app/',
   },
   {
     id: 'document-accessibility-score',
