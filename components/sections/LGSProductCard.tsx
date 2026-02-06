@@ -51,22 +51,16 @@ const LGSProductCard = () => {
       <div className="relative p-8 pb-6">
         <div className="flex items-start justify-between mb-6">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              {/* LotGrid Systems Logo */}
-              <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
-                <Image
-                  src="/lotgrid-logo.png"
-                  alt="LotGrid Systems Logo"
-                  width={64}
-                  height={64}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-text-primary tracking-tight">LotGrid Systems</h3>
-                <span className="text-xs font-mono text-accent-primary/80 tracking-wider">LGS</span>
-              </div>
+            {/* LotGrid Systems Logo (full lockup: icon + LotGrid + SYSTEMS) */}
+            <div className="mb-2">
+              <Image
+                src="/lotgrid-logo.png"
+                alt="LotGrid Systems"
+                width={280}
+                height={84}
+                className="object-contain"
+                priority
+              />
             </div>
             <p className="text-text-secondary text-sm max-w-sm">
               Smart Parking & Visitor Management Platform

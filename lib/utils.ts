@@ -57,6 +57,20 @@ export const TOOLS = [
     url: 'https://luxury-lamington-69160b.netlify.app/',
   },
   {
+    id: 'iso-27001',
+    title: 'ISO 27001 Readiness Assessment',
+    description:
+      'Evaluate your organization\'s information security maturity and certification readiness in under 5 minutes. Get a readiness score, gap analysis, and estimated timeline to certification.',
+    url: 'https://reliable-gumption-55bfd8.netlify.app/',
+  },
+  {
+    id: 'cmmc-level-2',
+    title: 'CMMC Level 2 Readiness Assessment & Cost Calculator',
+    description:
+      'Assess CMMC Level 2 readiness, estimate costs, and build a compliance roadmap. For defense contractors—get your readiness score and prioritized roadmap in under 5 minutes.',
+    url: 'https://poetic-banoffee-a6f976.netlify.app/#assessment',
+  },
+  {
     id: 'enterprise-assessment-suite',
     title: 'Enterprise Assessment Suite',
     description:
