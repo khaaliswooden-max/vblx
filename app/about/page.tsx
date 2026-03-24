@@ -1,350 +1,464 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { 
-  MapPin, 
-  Award, 
-  Users, 
-  Globe, 
-  Target, 
-  Shield,
-  Mail,
-  Phone,
-  CheckCircle,
-  Building
-} from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { COMPANY } from '@/lib/utils'
 import LeadershipSection from '@/components/sections/Leadership'
 
-export default function AboutPage() {
-  const values = [
-    {
-      icon: Target,
-      title: 'Mission Focus',
-      description: 'We build software for institutions. Every line of code serves a purpose.',
-    },
-    {
-      icon: Shield,
-      title: 'Trust & Security',
-      description: 'Security isn\'t a feature—it\'s the foundation. We engineer for compliance from day one.',
-    },
-    {
-      icon: Users,
-      title: 'Client Partnership',
-      description: 'Your success is our success. We\'re partners, not just vendors.',
-    },
-    {
-      icon: Award,
-      title: 'Technical Excellence',
-      description: 'We don\'t cut corners. Quality and precision define everything we deliver.',
-    },
-  ]
+// ─── Fade-in hook ─────────────────────────────────────────────────────────────
 
-  const certifications = [
-    { name: 'Minority-Owned', description: 'Certified MBE' },
-    { name: 'GSA MAS Springboard', description: 'Federal Contract Vehicle' },
-    { name: 'SOC 2 Type II', description: 'Security & Availability' },
-    { name: 'ISO 27001', description: 'Information Security' },
-  ]
+function useFadeIn() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    el.style.opacity = '0'
+    el.style.transform = 'translateY(14px)'
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = '1'
+          el.style.transform = 'none'
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.07 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+  return ref
+}
+
+// ─── Contrast Table ───────────────────────────────────────────────────────────
+
+const CONTRAST_ROWS = [
+  { left: '20+ service categories',          right: '5 healthcare IT domains' },
+  { left: 'Generic "healthcare experience"', right: '$3.3M documented delivery' },
+  { left: 'Cited HIPAA compliance',          right: 'HITRUST-audited staff on team' },
+  { left: 'Commercial IT portfolio',         right: 'Federal-analog past performance' },
+  { left: 'Staffing augmentation model',     right: 'Direct delivery, named personnel' },
+  { left: 'Broad NAICS targeting',           right: 'Healthcare-specific set-aside pursuit' },
+]
+
+function ContrastTable() {
+  return (
+    <div
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        borderRadius: '2px',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Header */}
+      <div
+        className="grid grid-cols-[1fr_auto_1fr] gap-2 px-5 py-3"
+        style={{ borderBottom: '1px solid rgba(46,168,145,0.2)' }}
+      >
+        <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+          GENERALIST IT FIRM
+        </p>
+        <p className="font-mono text-vbx-teal tracking-[0.08em] text-center" style={{ fontSize: '0.625rem' }}>
+          {'//'}
+        </p>
+        <p className="font-mono text-vbx-white tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+          VISIONBLOX
+        </p>
+      </div>
+      {/* Rows */}
+      {CONTRAST_ROWS.map((row, i) => (
+        <div
+          key={i}
+          className="grid grid-cols-[1fr_auto_1fr] gap-2 px-5 py-3"
+          style={{
+            background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)',
+            borderBottom: i < CONTRAST_ROWS.length - 1 ? '1px solid rgba(46,168,145,0.06)' : 'none',
+          }}
+        >
+          <p className="font-mono text-vbx-muted" style={{ fontSize: '0.75rem', lineHeight: '1.5' }}>
+            {row.left}
+          </p>
+          <p className="font-mono text-vbx-teal text-center" style={{ fontSize: '0.75rem' }}>
+            {'//'}
+          </p>
+          <p className="font-mono text-vbx-white" style={{ fontSize: '0.75rem', lineHeight: '1.5' }}>
+            {row.right}
+          </p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ─── Credential Column ────────────────────────────────────────────────────────
+
+function CredField({ label, value }: { label: string; value: React.ReactNode }) {
+  return (
+    <div className="mb-4">
+      <p className="font-mono text-vbx-muted mb-0.5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+        {label}
+      </p>
+      <p className="font-mono text-vbx-white" style={{ fontSize: '0.875rem' }}>
+        {value}
+      </p>
+    </div>
+  )
+}
+
+// ─── Rationale Block ─────────────────────────────────────────────────────────
+
+function RationaleBlock({
+  num, label, headline, body,
+}: { num: string; label: string; headline: string; body: string }) {
+  const ref = useFadeIn()
+  return (
+    <div
+      ref={ref}
+      style={{
+        borderLeft: '3px solid #2EA891',
+        padding: '28px 24px',
+        background: 'rgba(255,255,255,0.03)',
+        borderRadius: '2px',
+      }}
+    >
+      <p className="font-mono text-vbx-teal mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+        {num} {label}
+      </p>
+      <h3 className="font-display text-vbx-white mb-3" style={{ fontSize: '1.25rem', lineHeight: '1.3' }}>
+        {headline}
+      </h3>
+      <p className="font-sans text-vbx-muted" style={{ fontSize: '0.9375rem', lineHeight: '1.75' }}>
+        {body}
+      </p>
+    </div>
+  )
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+export default function AboutPage() {
+  const heroRef    = useRef<HTMLDivElement>(null)
+  const missionRef = useFadeIn()
+  const whatRef    = useFadeIn()
+  const credRef    = useFadeIn()
+  const footprintRef = useFadeIn()
+
+  useEffect(() => {
+    const el = heroRef.current
+    if (!el) return
+    el.style.opacity = '0'
+    el.style.transform = 'translateY(16px)'
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
+    requestAnimationFrame(() => {
+      el.style.opacity = '1'
+      el.style.transform = 'none'
+    })
+  }, [])
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
-      {/* Hero Section */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent-primary/5 to-transparent pointer-events-none" />
-        
-        <div className="container-wide relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center"
+    <div className="bg-vbx-navy min-h-screen">
+
+      {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
+        <div className="container-wide relative" ref={heroRef}>
+          <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
+            {'// ABOUT VISIONBLOX // HEALTHCARE IT // FEDERAL & SLED'}
+          </p>
+          <h1
+            className="font-display text-vbx-white mb-6"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1.1', maxWidth: '820px' }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent-primary/10 text-accent-primary text-sm font-medium mb-6">
-              About Visionblox
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              Building the Operating Systems for
-              <span className="text-accent-primary"> Enterprise Operations</span>
-            </h1>
-            <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
-              Visionblox LLC is a minority-owned technology consultancy specializing in 
-              AI-driven federal solutions, healthcare IT modernization, and enterprise 
-              cloud migration.
-            </p>
-          </motion.div>
+            The Healthcare IT Infrastructure Firm for Federal &amp; SLED.
+          </h1>
+          <p className="font-sans text-vbx-muted mb-8 max-w-[640px]" style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>
+            Visionblox LLC is a minority-owned federal contractor specializing exclusively in
+            healthcare IT infrastructure — patient portal systems, Medicaid modernization, EMR
+            integration, healthcare AI, and compliance architecture for federal agencies and state
+            health authorities. Our team has delivered $3.3M in documented healthcare IT
+            engagements at Kaiser Permanente, California DHCS, VCare Urgent Care, and Cigna.
+          </p>
+          <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
+            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;GSA MAS
+          </p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 data-line" />
       </section>
 
-      {/* Mission Statement */}
-      <section className="section-padding bg-background-secondary">
-        <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Our Mission
-              </h2>
-              <p className="text-xl text-text-primary mb-6 font-display">
-                &ldquo;We build software for institutions.&rdquo;
-              </p>
-              <p className="text-text-secondary text-lg mb-6 leading-relaxed">
-                From federal agencies to healthcare systems, from Fortune 500 enterprises 
-                to emerging growth companies—we provide the operational intelligence 
-                platforms that enable organizations to operate at their best.
-              </p>
-              <p className="text-text-secondary text-lg leading-relaxed">
-                Our professional services represent 
-                a unified approach to enterprise operations, from CRM and business intelligence 
-                to workforce management and compliance. Not disconnected tools, but a 
-                cohesive operating system for the modern enterprise.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-background-tertiary rounded-xl p-6 border border-white/5">
-                <p className="text-text-secondary text-sm text-center">
-                  20+ services. One unified vision. Enterprise operations, reimagined.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
+      {/* ── SECTION 2: MISSION STATEMENT ──────────────────────────────────── */}
       <section className="section-padding">
         <div className="container-wide">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Our Values
-            </h2>
-            <p className="text-text-secondary text-lg">
-              The principles that guide everything we build and every relationship we form.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => {
-              const Icon = value.icon
-              return (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5 text-center"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-accent-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-7 h-7 text-accent-primary" />
-                  </div>
-                  <h3 className="text-lg font-display font-semibold mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-text-secondary text-sm">
-                    {value.description}
-                  </p>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Info */}
-      <section className="section-padding bg-background-secondary">
-        <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Company Details */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+          <div className="max-w-[720px] mx-auto text-center" ref={missionRef}>
+            <blockquote
+              className="font-display text-vbx-white mb-10"
+              style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.125rem)', lineHeight: '1.4' }}
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
-                Company Information
-              </h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Building className="w-6 h-6 text-accent-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-text-primary">{COMPANY.name}</h3>
-                    <p className="text-text-secondary">{COMPANY.status}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-accent-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-text-primary">Headquarters</h3>
-                    <p className="text-text-secondary">{COMPANY.headquarters}</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 p-4 bg-background-tertiary rounded-xl">
-                  <div>
-                    <div className="text-text-tertiary text-sm mb-1">CAGE Code</div>
-                    <div className="font-mono font-bold text-accent-primary">{COMPANY.cageCode}</div>
-                  </div>
-                  <div>
-                    <div className="text-text-tertiary text-sm mb-1">UEI</div>
-                    <div className="font-mono font-bold text-accent-primary">{COMPANY.uei}</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Certifications */}
-              <div className="mt-8">
-                <h3 className="font-display font-semibold mb-4">Certifications & Status</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {certifications.map((cert) => (
-                    <div 
-                      key={cert.name}
-                      className="flex items-start gap-2 p-3 bg-background-tertiary rounded-lg"
-                    >
-                      <CheckCircle className="w-5 h-5 text-accent-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-medium text-text-primary text-sm">{cert.name}</div>
-                        <div className="text-text-tertiary text-xs">{cert.description}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Global Presence */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
-                Global Presence
-              </h2>
-
-              <div className="grid grid-cols-1 gap-4">
-                {COMPANY.locations.map((location, index) => (
-                  <motion.div
-                    key={location.city}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-center gap-4 p-4 bg-background-tertiary rounded-xl border border-white/5"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Globe className="w-5 h-5 text-accent-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium text-text-primary">{location.city}</div>
-                      <div className="text-text-tertiary text-sm">{location.country}</div>
-                    </div>
-                    {location.type === 'HQ' && (
-                      <span className="px-2 py-1 text-xs rounded bg-accent-primary/10 text-accent-primary">
-                        Headquarters
-                      </span>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-8 p-6 bg-background-tertiary rounded-xl border border-white/5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-accent-primary/10 flex items-center justify-center">
-                    <Users className="w-5 h-5 text-accent-primary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-text-primary">Global Team</div>
-                    <div className="text-text-tertiary text-sm">Serving clients worldwide</div>
-                  </div>
-                </div>
-                <p className="text-text-secondary text-sm">
-                  With offices across the Americas, Middle East, and Asia, we provide 
-                  local expertise with global capabilities to serve clients in any time zone.
+              &ldquo;Healthcare data infrastructure is not a technology problem. It is a
+              governance problem. We build the systems that make governance possible.&rdquo;
+            </blockquote>
+            <div className="space-y-5 text-left">
+              {[
+                'Every engagement Visionblox accepts begins with one question: what does the institution need to see in order to govern its data? From that answer, we build the integration layer, the compliance architecture, and the data pipelines that make it visible and auditable.',
+                'We have done this for a state Medicaid authority operating under CMS federal standards. We have done this for one of the largest integrated healthcare networks in the country. We have done this for a Fortune 500 health insurer processing millions of claims per day.',
+                'We are prepared to do it for the federal agencies and state authorities evaluating us for their next contract.',
+              ].map((p, i) => (
+                <p key={i} className="font-sans text-vbx-muted text-center" style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>
+                  {p}
                 </p>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </div>
         </div>
+        <div className="data-line mt-16" />
       </section>
 
-      {/* Leadership */}
+      {/* ── SECTION 3: WHAT WE ARE ────────────────────────────────────────── */}
+      <section className="section-padding">
+        <div className="container-wide" ref={whatRef}>
+          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            {'// 01 WHAT WE ARE'}
+          </p>
+          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            A Healthcare IT Firm. Not a Generalist Shop.
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left column */}
+            <div className="space-y-5">
+              {[
+                'Visionblox made a deliberate strategic decision to focus our federal and SLED pursuit exclusively on healthcare IT. Not because it is the only domain where our team has delivered — it is not — but because it is the domain where our delivery record is deepest, our staff credentials are most concentrated, and the federal procurement landscape rewards specificity over breadth.',
+                'A firm that claims expertise across 20 service categories cannot credibly claim healthcare IT specialization to a source selection board. We can. Our past performance, our technical staff, our compliance posture, and our capture strategy are all organized around a single vertical.',
+                'That is the firm that wins healthcare IT contracts.',
+              ].map((p, i) => (
+                <p key={i} className="font-sans text-vbx-muted" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+                  {p}
+                </p>
+              ))}
+            </div>
+
+            {/* Right column — contrast table */}
+            <ContrastTable />
+          </div>
+        </div>
+        <div className="data-line mt-16" />
+      </section>
+
+      {/* ── SECTION 4: COMPANY CREDENTIALS ───────────────────────────────── */}
+      <section
+        className="section-padding"
+        style={{ background: 'rgba(255,255,255,0.02)' }}
+      >
+        <div className="container-wide" ref={credRef}>
+          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            {'// 02 COMPANY CREDENTIALS'}
+          </p>
+          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            Federal Identity &amp; Compliance Posture
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {/* Column 1 — Federal Identity */}
+            <div
+              style={{
+                borderLeft: '2px solid rgba(46,168,145,0.3)',
+                paddingLeft: '1.5rem',
+              }}
+            >
+              <p className="font-mono text-vbx-teal mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+                FEDERAL IDENTITY
+              </p>
+              <CredField label="ENTITY NAME"       value="Visionblox LLC" />
+              <CredField label="CAGE CODE"          value="9Z4X2" />
+              <CredField label="UEI"                value="H4X2Z7R9E3E3" />
+              <CredField label="NAICS CODES"        value={
+                <span>541511&nbsp;&nbsp;·&nbsp;&nbsp;541512&nbsp;&nbsp;·&nbsp;&nbsp;541519&nbsp;&nbsp;·&nbsp;&nbsp;518210</span>
+              } />
+              <CredField label="CONTRACT VEHICLES"  value={
+                <span>GSA MAS Springboard&nbsp;&nbsp;·&nbsp;&nbsp;Set-Aside Eligible</span>
+              } />
+            </div>
+
+            {/* Column 2 — Business Designations */}
+            <div
+              style={{
+                borderLeft: '2px solid rgba(46,168,145,0.3)',
+                paddingLeft: '1.5rem',
+              }}
+            >
+              <p className="font-mono text-vbx-teal mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+                BUSINESS DESIGNATIONS
+              </p>
+              <CredField label="MINORITY-OWNED SMALL BUSINESS" value="Certified MBE" />
+              <CredField label="SDVOSB ELIGIBLE"              value="Service-Connected Disabled Veteran Leadership" />
+              <CredField label="WOSB TEAMING AVAILABLE"       value="Via AG Grace (active teaming partner)" />
+              <CredField label="HEADQUARTERS"                  value="San Jose, CA  ·  Est. 2020" />
+            </div>
+
+            {/* Column 3 — Compliance & Security */}
+            <div
+              style={{
+                borderLeft: '2px solid rgba(46,168,145,0.3)',
+                paddingLeft: '1.5rem',
+              }}
+            >
+              <p className="font-mono text-vbx-teal mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+                COMPLIANCE &amp; SECURITY POSTURE
+              </p>
+              {[
+                { label: 'HIPAA',           value: 'Direct delivery — 4 healthcare clients' },
+                { label: 'HITRUST CSF',     value: 'Third-party audit staff on team' },
+                { label: 'MITA',            value: 'CA DHCS delivery — CMS standard' },
+                { label: 'SECTION 508/ADA', value: 'Direct delivery — KP Appointment Center' },
+                { label: 'FEDRAMP-AWARE',   value: 'AWS GovCloud / Azure Gov architecture' },
+                { label: 'FISMA ALIGNMENT', value: 'NIST RMF security architecture' },
+                { label: 'SOC 2 TYPE II',   value: '' },
+                { label: 'ISO 27001',       value: '' },
+              ].map((item) => (
+                <div key={item.label} className="mb-3">
+                  <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+                    {item.label}
+                  </p>
+                  {item.value && (
+                    <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem' }}>
+                      {item.value}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+        <div className="data-line mt-16" />
+      </section>
+
+      {/* ── SECTION 5: LEADERSHIP ─────────────────────────────────────────── */}
       <LeadershipSection />
 
-      {/* Contact CTA */}
-      <section className="section-padding bg-background-secondary">
-        <div className="container-wide">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 rounded-2xl p-8 md:p-12 border border-white/10"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                  Let&apos;s Build Something Together
-                </h2>
-                <p className="text-text-secondary text-lg">
-                  Whether you&apos;re looking to transform operations, win more contracts, 
-                  or achieve compliance excellence—we&apos;re ready to help.
+      {/* ── SECTION 6: DELIVERY FOOTPRINT ────────────────────────────────── */}
+      <section
+        className="section-padding"
+        style={{ background: 'rgba(255,255,255,0.02)' }}
+      >
+        <div className="container-wide" ref={footprintRef}>
+          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            {'// 04 DELIVERY FOOTPRINT'}
+          </p>
+          <h2 className="font-display text-vbx-white mb-6" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+            Where We Deliver
+          </h2>
+          <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+            Visionblox operates across five locations with on-site and remote delivery capacity
+            for federal and SLED healthcare IT engagements. On-site delivery has been executed
+            at California DHCS (Sacramento) and Kaiser Permanente (Northern California). Remote
+            delivery operates across all active engagements.
+          </p>
+
+          <div className="space-y-0 max-w-[640px]">
+            {[
+              { city: 'SAN JOSE, CA',     role: 'HEADQUARTERS',             note: 'PRIMARY FEDERAL BD' },
+              { city: 'PHILADELPHIA, PA', role: 'EAST COAST DELIVERY',      note: 'FEDERAL REGION III' },
+              { city: 'MUSCAT, OMAN',     role: 'MIDDLE EAST DELIVERY',     note: '' },
+              { city: 'DUBAI, UAE',       role: 'GULF REGION DELIVERY',     note: '' },
+              { city: 'CHENNAI, INDIA',   role: 'ENGINEERING & DATA OPS',   note: '' },
+            ].map((loc, i) => (
+              <div
+                key={loc.city}
+                className="grid grid-cols-[160px_1fr] gap-4 py-3"
+                style={{ borderBottom: i < 4 ? '1px solid rgba(46,168,145,0.08)' : 'none' }}
+              >
+                <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+                  {loc.city}
+                </p>
+                <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+                  {'// '}{loc.role}
+                  {loc.note && <span className="text-vbx-teal">&nbsp;&nbsp;{'// '}&nbsp;&nbsp;{loc.note}</span>}
                 </p>
               </div>
-              <div className="flex flex-col gap-4 lg:items-end">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/contact/commercial">
-                    <Button variant="primary" size="lg">
-                      Commercial Inquiry
-                    </Button>
-                  </Link>
-                  <Link href="/contact/federal">
-                    <Button variant="outline" size="lg">
-                      Federal/SLED Inquiry
-                    </Button>
-                  </Link>
-                </div>
-                <div className="flex items-center gap-4 text-text-secondary text-sm">
-                  <a 
-                    href={`mailto:${COMPANY.contact.email}`}
-                    className="flex items-center gap-2 hover:text-accent-primary transition-colors"
-                  >
-                    <Mail className="w-4 h-4" />
-                    {COMPANY.contact.email}
-                  </a>
-                  <a 
-                    href={`tel:${COMPANY.contact.phone.replace(/[^\d+]/g, '')}`}
-                    className="flex items-center gap-2 hover:text-accent-primary transition-colors"
-                  >
-                    <Phone className="w-4 h-4" />
-                    {COMPANY.contact.phone}
-                  </a>
-                </div>
-              </div>
+            ))}
+          </div>
+
+          <p className="font-mono text-vbx-muted mt-8" style={{ fontSize: '0.75rem', letterSpacing: '0.08em' }}>
+            {'// ON-SITE DELIVERY AVAILABLE FOR FEDERAL & SLED HEALTHCARE ENGAGEMENTS'}
+          </p>
+        </div>
+        <div className="data-line mt-16" />
+      </section>
+
+      {/* ── SECTION 7: PROCUREMENT RATIONALE ─────────────────────────────── */}
+      <section className="section-padding">
+        <div className="container-wide">
+          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            {'// 05 PROCUREMENT RATIONALE'}
+          </p>
+          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            The Case for Visionblox
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <RationaleBlock
+              num="01"
+              label="PAST PERFORMANCE"
+              headline="Healthcare IT at Federal-Analog Scale"
+              body="$3.3M in documented healthcare delivery across Kaiser Permanente (commercial federal analog — 100K+ daily users, Epic integration, Cures Act compliance) and California DHCS (MITA-compliant, CMS standard, $2.1M direct award). These are not adjacent-industry references. They are healthcare IT references."
+            />
+            <RationaleBlock
+              num="02"
+              label="SET-ASIDE ACCESS"
+              headline="Minority-Owned + SDVOSB Leadership + WOSB Teaming"
+              body="Minority-Owned Small Business with Service-Connected Disabled Veteran leadership and an active WOSB teaming relationship via AG Grace. Three set-aside pathways for healthcare RFPs that include small business evaluation factors."
+            />
+            <RationaleBlock
+              num="03"
+              label="TECHNICAL STAFF"
+              headline="Named Personnel with Verifiable Healthcare Credentials"
+              body="Every technical capability claim on this site is anchored to a named individual with documented delivery history. Epic integration: Akil Chellam — Kaiser Permanente, 4 years. MITA compliance: Saravanan Swaminathan — CA DHCS, on-site. HITRUST security: Tony Paul — global healthcare audit, Wipro."
+            />
+            <RationaleBlock
+              num="04"
+              label="STRATEGIC FOCUS"
+              headline="One Vertical. Full Depth."
+              body="Visionblox does not pursue healthcare IT alongside 19 other service categories. It is the primary federal and SLED capture vertical. That focus produces deeper technical preparation, more relevant teaming relationships, and stronger past performance alignment than a generalist firm pursuing healthcare as one of many tracks."
+            />
+          </div>
+        </div>
+        <div className="data-line mt-16" />
+      </section>
+
+      {/* ── SECTION 8: CTA ────────────────────────────────────────────────── */}
+      <section className="section-padding bg-vbx-navy">
+        <div className="container-wide">
+          <div className="max-w-[700px] mx-auto text-center">
+            <h2
+              className="font-display text-vbx-white mb-6"
+              style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}
+            >
+              If you are evaluating Visionblox for a healthcare IT requirement, we are prepared to respond.
+            </h2>
+            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+              We provide capability briefings, CPARS-format past performance documentation, and
+              technical staff résumés for active federal and SLED procurement evaluations.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <a
+                href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                className="btn-gold"
+              >
+                REQUEST A CAPABILITY BRIEFING
+              </a>
+              <Link href="/pastperformance" className="btn-teal-outline">
+                VIEW PAST PERFORMANCE REGISTER
+              </Link>
             </div>
-          </motion.div>
+            <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}>
+              KHAALIS WOODEN&nbsp;&nbsp;//&nbsp;&nbsp;(256) 988-1130&nbsp;&nbsp;//&nbsp;&nbsp;KHAALIS.WOODEN@VISIONBLOX.COM
+            </p>
+          </div>
+          <div className="data-line mt-16" />
         </div>
       </section>
-    </main>
+
+    </div>
   )
 }

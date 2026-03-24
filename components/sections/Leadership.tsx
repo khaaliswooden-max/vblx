@@ -1,155 +1,242 @@
-// Leadership.tsx - React Component for vblx.org/about
-// Uses Tailwind CSS classes matching the site's dark theme
+'use client'
 
-import React from 'react';
+import { useEffect, useRef } from 'react'
 
-interface Leader {
-  name: string;
-  initials: string;
-  title: string;
-  bio: string;
-  linkedin: string;
-  email: string;
+// ─── Profile Data ─────────────────────────────────────────────────────────────
+
+interface Profile {
+  name: string
+  title: string
+  body: string
+  certs: string
+  linkedin?: string
 }
 
-const LeadershipSection = () => {
-  const executives: Leader[] = [];
+// Ordered per brief: healthcare-credentialed first, technical staff second
+const PROFILES: Profile[] = [
+  {
+    name: 'Khaalis Wooden',
+    title: 'DIRECTOR, ENTERPRISE CAPTURE & COMPLIANCE',
+    body: '15+ years spanning U.S. Army logistics, Amazon operations, and federal contracting. Leading Visionblox\'s Healthcare IT federal capture strategy — pipeline development, opportunity qualification, RFP response, and teaming execution. Service-Connected Disabled Veteran. Active pursuit portfolio includes VA, HHS, state Medicaid, and SLED health agency opportunities.',
+    certs: 'PMP · CISA (pursuing) · CISM (pursuing) · CRISC (pursuing) · MBA — SNHU 2026',
+    linkedin: 'https://linkedin.com/in/khaalis-wooden-380336305',
+  },
+  {
+    name: 'Akil R. Chellam',
+    title: 'CEO / PRINCIPAL ARCHITECT — HEALTHCARE IT',
+    body: 'The deepest single-person healthcare IT portfolio on the team. Served as Technical Product Owner at Kaiser Permanente across 7+ product modules over multiple years — Appointment Center, Pharmacy Center, Online Payment, eVisits, Video Visits, Claim Status. Delivered 21st Century Cures Act compliance in production. Built Epic HealthConnect integrations via SOAP, REST, and Kafka. Primary proposal figure for any healthcare IT prime bid where Epic integration or Cures Act compliance is evaluated.',
+    certs: 'AWS Solutions Architect (Associate) · AWS Cloud Practitioner · PMP · PGP AI/ML — UT McCombs',
+  },
+  {
+    name: 'Saravanan Swaminathan',
+    title: 'SENIOR SOLUTION ARCHITECT — MEDICAID & EMR',
+    body: 'On-site delivery at California DHCS for the MITA-compliant CFRS modernization — the state Medicaid authority\'s Cost and Finance Reporting System. Built HL7 ETL pipelines and a full patient/provider portal on microservices for VCare Urgent Care. Deep .NET, SQL Server, and Azure stack. Visionblox\'s strongest individual credential for state Medicaid and CMS-adjacent procurement evaluations.',
+    certs: 'Certified Scrum Master (CSM) · 15+ years enterprise delivery',
+    linkedin: 'https://linkedin.com/in/saravanan-swaminathan',
+  },
+  {
+    name: 'Tony Paul',
+    title: 'CHIEF INFORMATION SECURITY OFFICER',
+    body: '13 years in information security, healthcare sector dominant. Most recent pre-Visionblox role: conducting third-party security assessments for a global healthcare organization against the HITRUST Common Security Framework at Wipro. End-to-end vendor risk management across acquired entities globally. The differentiator on any federal healthcare RFP that evaluates security posture — HITRUST audit personnel on staff versus firms that cite HIPAA attestation only.',
+    certs: 'CISA · CRISC · CISM · LA-ISO27001 · CSA STAR · PIMS (GDPR) · 13 years healthcare security',
+    linkedin: 'https://linkedin.com/in/selvakumar-paulraj-a253b941',
+  },
+  {
+    name: 'Antony Jayaraj',
+    title: 'DIRECTOR, DATA ENGINEERING & PRODUCTS',
+    body: 'AI/ML lead. Delivered the document intelligence system underpinning the CA DHCS outcome: 96% OCR accuracy, 60% labor cost reduction on Medicaid document processing workflows. Stack: Python, Spark, Kafka, Pandas, Scikit-learn, Keras, Snowflake. Applicable to HHS document processing, CMS audit intelligence, VA health data analytics, and population health management RFPs.',
+    certs: 'PGP AI/ML — UT Austin McCombs · Multi-national data architecture',
+    linkedin: 'https://linkedin.com/in/antony-jayaraj',
+  },
+  {
+    name: 'Magesh Ramalingam',
+    title: 'FULL STACK TECH LEAD — HEALTHCARE SYSTEMS',
+    body: '20 years enterprise delivery. Healthcare-specific track record at Kaiser Permanente (Appointment Center, Node.js APIs on Cloud Foundry/Apigee, Section 508/ADA) and Cigna (millions of medical claims daily on AWS Batch/Lambda/Spark). The infrastructure and API lead for patient portal builds and claims pipeline architecture.',
+    certs: 'AWS Cloud Practitioner · AWS AI Practitioner · Section 508 delivery',
+  },
+  {
+    name: 'Peter Jayaraj',
+    title: 'DIRECTOR, SAP PRODUCTS',
+    body: 'SAP S/4HANA and BTP Integration specialist. Multi-national deployment experience including enterprise cloud migration and B2B integrations. Available for healthcare ERP and financial system integration requirements where SAP infrastructure intersects with health agency operations.',
+    certs: 'SAP S/4HANA · SAP BTP · Enterprise Architecture',
+    linkedin: 'https://linkedin.com/in/peter-jayaraj',
+  },
+]
 
-  const leaders: Leader[] = [
-    {
-      name: "Khaalis Wooden",
-      initials: "KW",
-      title: "Director of Enterprise Capture & Compliance",
-      bio: "Leading federal business development and compliance initiatives with over 15 years of experience in government contracting, supply chain, and digital transformation.",
-      linkedin: "https://linkedin.com/in/khaalis-wooden-380336305",
-      email: "khaalis.wooden@visionblox.com"
-    },
-    {
-      name: "Antony Jayaraj",
-      initials: "AJ",
-      title: "Director, Data Engineering & Products",
-      bio: "Multi-national data leader with expertise in AI/ML, enterprise architecture, and product deployment. PGP in AI & Machine Learning from UT Austin McCombs.",
-      linkedin: "https://linkedin.com/in/antony-jayaraj",
-      email: "antony.jayaraj@visionblox.com"
-    },
-    {
-      name: "Peter Jayaraj",
-      initials: "PJ",
-      title: "Director, SAP Products",
-      bio: "SAP S/4 HANA and BTP Integration specialist with expertise in cloud migration, B2B integrations, and enterprise solution architecture across multinational deployments.",
-      linkedin: "https://linkedin.com/in/peter-jayaraj",
-      email: "peter.jayaraj@visionblox.com"
-    },
-    {
-      name: "Tony Paul",
-      initials: "TP",
-      title: "Chief Information Security Officer",
-      bio: "13+ years in Information Security, Risk Management, and Compliance. CISA, CRISC, CISM certified with expertise in ISO27001, SOC2, HITRUST, and TPRM.",
-      linkedin: "https://linkedin.com/in/selvakumar-paulraj-a253b941",
-      email: "tony.paul@visionblox.com"
-    },
-    {
-      name: "Saravanan Swaminathan",
-      initials: "SS",
-      title: "Senior Solution Architect",
-      bio: "15+ years designing enterprise solutions. Certified Scrum Master with AWS expertise, specializing in .NET Core, microservices, and healthcare/education systems.",
-      linkedin: "https://linkedin.com/in/saravanan-swaminathan",
-      email: "saravanan.swaminathan@visionblox.com"
-    },
-    {
-      name: "Khrishanth M",
-      initials: "KM",
-      title: "Technical Lead",
-      bio: "7+ years building high-performance web applications. Full-stack expertise in React, Node.js, Next.js, and real-time systems with Socket.io.",
-      linkedin: "https://linkedin.com/in/khrishanth-m",
-      email: "khrishanth.m@visionblox.com"
-    },
-    {
-      name: "Sandhiya Ganesan",
-      initials: "SG",
-      title: "Senior Associate Projects",
-      bio: "6.5+ years in web application development. Expert in Node.js, NestJS, and AWS services with experience in payment gateway integrations.",
-      linkedin: "https://linkedin.com/in/sandhiya-ganesan",
-      email: "sandhiya.ganesan@visionblox.com"
-    },
-    {
-      name: "Vinoth Kanna",
-      initials: "VK",
-      title: "Senior Technical Architect",
-      bio: "12+ years in web development with 6.5+ years in React. Full-stack expertise spanning PHP, React Native, and modern JavaScript frameworks.",
-      linkedin: "https://linkedin.com/in/vinoth-kanna",
-      email: "vinoth.kanna@visionblox.com"
-    }
-  ];
+// Engineering team — grouped as a single entry
+const ENGINEERING_TEAM = {
+  groupTitle: 'SENIOR ENGINEERS — FULL STACK',
+  body: 'Full-stack development capacity across React, Node.js, Next.js, NestJS, PHP, and AWS services. Supporting healthcare portal builds, patient-facing interface development, and healthcare application modernization engagements.',
+  certs: 'React · Node.js · Next.js · NestJS · PHP · AWS',
+  members: [
+    { name: 'Khrishanth M',      title: 'Technical Lead',             linkedin: 'https://linkedin.com/in/khrishanth-m' },
+    { name: 'Sandhiya Ganesan',  title: 'Senior Associate Projects',  linkedin: 'https://linkedin.com/in/sandhiya-ganesan' },
+    { name: 'Vinoth Kanna',      title: 'Senior Technical Architect', linkedin: 'https://linkedin.com/in/vinoth-kanna' },
+  ],
+}
 
-  const LinkedInIcon = () => (
-    <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-    </svg>
-  );
+// ─── Profile Card ─────────────────────────────────────────────────────────────
 
-  const EmailIcon = () => (
-    <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-    </svg>
-  );
-
-  const LeaderCard = ({ leader, isExecutive = false }: { leader: Leader; isExecutive?: boolean }) => (
-    <div className={`bg-[#1a1a1a] rounded-xl p-6 flex gap-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(45,212,191,0.1)] ${isExecutive ? 'max-w-[500px]' : ''}`}>
-      <div className="w-20 h-20 min-w-[80px] bg-gradient-to-br from-[#2dd4bf] to-[#14b8a6] rounded-lg flex items-center justify-center text-2xl font-semibold text-[#0a0a0a]">
-        {leader.initials}
-      </div>
-      <div className="flex-1">
-        <h3 className="text-white text-xl font-semibold mb-1">{leader.name}</h3>
-        <p className="text-[#2dd4bf] text-[0.95rem] font-medium mb-3">{leader.title}</p>
-        <p className="text-[#9ca3af] text-sm leading-relaxed mb-4">{leader.bio}</p>
-        <div className="flex gap-3">
-          <a 
-            href={leader.linkedin} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center text-[#9ca3af] transition-all duration-200 hover:bg-[#2dd4bf] hover:text-[#0a0a0a]"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon />
-          </a>
-          <a 
-            href={`mailto:${leader.email}`}
-            className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center text-[#9ca3af] transition-all duration-200 hover:bg-[#2dd4bf] hover:text-[#0a0a0a]"
-            aria-label="Email"
-          >
-            <EmailIcon />
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+function ProfileCard({ profile }: { profile: Profile }) {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    el.style.opacity = '0'
+    el.style.transform = 'translateY(10px)'
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease'
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = '1'
+          el.style.transform = 'none'
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
 
   return (
-    <section className="bg-[#0a0a0a] py-20 px-5">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-white text-5xl font-semibold mb-4">Leadership</h2>
-        <p className="text-[#9ca3af] text-lg">The team driving our mission forward.</p>
-      </div>
-
-      {/* Executive Row */}
-      {executives.length > 0 && (
-        <div className="flex justify-center mb-6">
-          {executives.map((exec, index) => (
-            <LeaderCard key={index} leader={exec} isExecutive={true} />
-          ))}
-        </div>
+    <div
+      ref={ref}
+      style={{
+        borderLeft: '3px solid #2EA891',
+        padding: '24px 20px 20px 24px',
+        background: 'rgba(255,255,255,0.02)',
+        borderRadius: '2px',
+      }}
+    >
+      <h3 className="font-display text-vbx-white mb-1" style={{ fontSize: '1.25rem', lineHeight: '1.3' }}>
+        {profile.name}
+      </h3>
+      <p className="font-mono text-vbx-muted mb-4 tracking-[0.08em]" style={{ fontSize: '0.6875rem' }}>
+        {profile.title}
+      </p>
+      <p className="font-sans text-vbx-muted mb-4" style={{ fontSize: '0.9375rem', lineHeight: '1.75' }}>
+        {profile.body}
+      </p>
+      <p className="font-mono text-vbx-teal" style={{ fontSize: '0.6875rem', letterSpacing: '0.06em' }}>
+        {profile.certs}
+      </p>
+      {profile.linkedin && (
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block font-mono text-vbx-muted hover:text-vbx-teal transition-colors mt-3"
+          style={{ fontSize: '0.6875rem', letterSpacing: '0.06em' }}
+        >
+          → LinkedIn
+        </a>
       )}
+    </div>
+  )
+}
 
-      {/* Leadership Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
-        {leaders.map((leader, index) => (
-          <LeaderCard key={index} leader={leader} />
+// ─── Engineering Team Group Card ──────────────────────────────────────────────
+
+function EngineeringGroupCard() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    el.style.opacity = '0'
+    el.style.transform = 'translateY(10px)'
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease'
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = '1'
+          el.style.transform = 'none'
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        borderLeft: '3px solid rgba(46,168,145,0.35)',
+        padding: '24px 20px 20px 24px',
+        background: 'rgba(255,255,255,0.02)',
+        borderRadius: '2px',
+      }}
+    >
+      <h3 className="font-display text-vbx-white mb-1" style={{ fontSize: '1.25rem', lineHeight: '1.3' }}>
+        Visionblox Engineering Team
+      </h3>
+      <p className="font-mono text-vbx-muted mb-4 tracking-[0.08em]" style={{ fontSize: '0.6875rem' }}>
+        {ENGINEERING_TEAM.groupTitle}
+      </p>
+      <p className="font-sans text-vbx-muted mb-5" style={{ fontSize: '0.9375rem', lineHeight: '1.75' }}>
+        {ENGINEERING_TEAM.body}
+      </p>
+
+      {/* Sub-list of engineers */}
+      <div className="space-y-2 mb-4">
+        {ENGINEERING_TEAM.members.map((m) => (
+          <div key={m.name} className="flex items-center gap-3">
+            <span className="font-sans text-vbx-white" style={{ fontSize: '0.875rem' }}>
+              {m.name}
+            </span>
+            <span className="font-mono text-vbx-muted" style={{ fontSize: '0.625rem', letterSpacing: '0.06em' }}>
+              {m.title}
+            </span>
+            <a
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-vbx-muted hover:text-vbx-teal transition-colors"
+              style={{ fontSize: '0.625rem', letterSpacing: '0.06em' }}
+            >
+              → LinkedIn
+            </a>
+          </div>
         ))}
       </div>
-    </section>
-  );
-};
 
-export default LeadershipSection;
+      <p className="font-mono text-vbx-teal" style={{ fontSize: '0.6875rem', letterSpacing: '0.06em' }}>
+        {ENGINEERING_TEAM.certs}
+      </p>
+    </div>
+  )
+}
+
+// ─── Section ──────────────────────────────────────────────────────────────────
+
+export default function LeadershipSection() {
+  return (
+    <section className="section-padding">
+      <div className="container-wide">
+        <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+          {'// 03 LEADERSHIP & KEY PERSONNEL'}
+        </p>
+        <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+          The Team Behind the Deliveries
+        </h2>
+        <p className="font-sans text-vbx-muted mb-10 max-w-[640px]" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+          Visionblox&apos;s healthcare IT capability is inseparable from the individuals who
+          delivered it. The profiles below reflect direct delivery history — not managed
+          services or staffing placement. Each person named here was on-site or technically
+          accountable for the engagement cited.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {PROFILES.map((profile) => (
+            <ProfileCard key={profile.name} profile={profile} />
+          ))}
+          <EngineeringGroupCard />
+        </div>
+      </div>
+      <div className="data-line mt-16" />
+    </section>
+  )
+}
