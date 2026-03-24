@@ -1,225 +1,162 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { STATS } from '@/lib/utils'
 
-export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+const FULL_HEADLINE = 'Healthcare Data\nInfrastructure\nfor the Institutions\nThat Govern It.'
 
-  // Particle animation
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    let animationFrameId: number
-    let particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      size: number
-      alpha: number
-    }> = []
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    const createParticles = () => {
-      particles = []
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000)
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2 + 0.5,
-          alpha: Math.random() * 0.5 + 0.1,
-        })
-      }
-    }
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      particles.forEach((particle) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(81, 199, 168, ${particle.alpha})`
-        ctx.fill()
-      })
-
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach((p2) => {
-          const dx = p1.x - p2.x
-          const dy = p1.y - p2.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-
-          if (dist < 150) {
-            ctx.beginPath()
-            ctx.moveTo(p1.x, p1.y)
-            ctx.lineTo(p2.x, p2.y)
-            ctx.strokeStyle = `rgba(81, 199, 168, ${0.1 * (1 - dist / 150)})`
-            ctx.stroke()
-          }
-        })
-      })
-
-      animationFrameId = requestAnimationFrame(draw)
-    }
-
-    resize()
-    createParticles()
-    draw()
-
-    window.addEventListener('resize', () => {
-      resize()
-      createParticles()
-    })
-
-    return () => {
-      cancelAnimationFrame(animationFrameId)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
-
+function DataGridSVG() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 z-0"
-        style={{ opacity: 0.6 }}
-      />
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden" aria-hidden="true">
+      {/* Slowly rotating outer ring */}
+      <svg
+        className="absolute inset-0 w-full h-full animate-rotate-slow"
+        viewBox="0 0 400 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ opacity: 0.25 }}
+      >
+        <circle cx="200" cy="200" r="190" stroke="#2EA891" strokeWidth="0.5" strokeDasharray="4 8"/>
+        <circle cx="200" cy="200" r="155" stroke="#2EA891" strokeWidth="0.5" strokeDasharray="2 12"/>
+        <circle cx="200" cy="200" r="118" stroke="#2EA891" strokeWidth="0.5" strokeDasharray="6 6"/>
+        <circle cx="200" cy="200" r="80"  stroke="#2EA891" strokeWidth="0.5"/>
+        <circle cx="200" cy="200" r="44"  stroke="#2EA891" strokeWidth="1"/>
+        {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => {
+          const rad = (deg * Math.PI) / 180
+          return (
+            <circle
+              key={i}
+              cx={200 + 190 * Math.cos(rad)}
+              cy={200 + 190 * Math.sin(rad)}
+              r={i % 3 === 0 ? 4 : 2.5}
+              fill="#2EA891"
+              opacity={i % 3 === 0 ? 0.9 : 0.5}
+            />
+          )
+        })}
+        {[15,75,135,195,255,315].map((deg, i) => {
+          const rad = (deg * Math.PI) / 180
+          return (
+            <circle key={`m${i}`} cx={200 + 155 * Math.cos(rad)} cy={200 + 155 * Math.sin(rad)} r={2} fill="#2EA891" opacity={0.6}/>
+          )
+        })}
+        <line x1="10"  y1="200" x2="390" y2="200" stroke="#2EA891" strokeWidth="0.3" opacity="0.3"/>
+        <line x1="200" y1="10"  x2="200" y2="390" stroke="#2EA891" strokeWidth="0.3" opacity="0.3"/>
+        <line x1="60"  y1="60"  x2="340" y2="340" stroke="#2EA891" strokeWidth="0.3" opacity="0.15"/>
+        <line x1="340" y1="60"  x2="60"  y2="340" stroke="#2EA891" strokeWidth="0.3" opacity="0.15"/>
+        <circle cx="200" cy="200" r="6"  fill="#2EA891" opacity="0.9"/>
+        <circle cx="200" cy="200" r="12" fill="none" stroke="#2EA891" strokeWidth="1" opacity="0.4"/>
+      </svg>
 
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-30 z-[1]" />
-
-      {/* Radial Gradient */}
-      <div className="absolute inset-0 z-[2]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 rounded-full blur-[120px]" />
+      {/* Node grid */}
+      <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 gap-3 p-12" style={{ opacity: 0.35 }}>
+        {Array.from({ length: 36 }).map((_, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-center"
+            style={{ animation: `dotPulse ${1.5 + (i % 5) * 0.4}s infinite`, animationDelay: `${(i * 0.08) % 2}s` }}
+          >
+            <div
+              className="rounded-full"
+              style={{
+                width:  i % 7 === 0 ? '6px' : '3px',
+                height: i % 7 === 0 ? '6px' : '3px',
+                background: i % 11 === 0 ? '#F7B801' : '#2EA891',
+              }}
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Content */}
-      <div className="container-wide relative z-10 pt-20">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-background-secondary border border-white/10 rounded-full mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
-            <span className="text-sm text-text-secondary">
-              Minority-Owned · GSA MAS Springboard
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-display-md md:text-display-lg lg:text-display-xl font-bold tracking-tight mb-6"
-          >
-            <span className="text-text-primary">The Operating System for</span>
-            <br />
-            <span className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
-              Enterprise Operations
-            </span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-body-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10"
-          >
-            Software for operational intelligence, procurement, and compliance.
-            We build tools for institutions.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <Link
-              href="/products"
-              className="inline-flex items-center justify-center gap-3 font-medium transition-all duration-300 rounded-lg text-lg px-8 py-4 bg-accent-primary text-background-primary hover:bg-accent-hover hover:shadow-glow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary"
-            >
-              Explore Products
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link href="/contact">
-              <Button variant="outline" size="xl">
-                Request Demo
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-[#344669]/10"
-          >
-            {STATS.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                className="text-center"
-              >
-                <div className="font-display text-3xl md:text-4xl font-bold text-accent-primary mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-text-tertiary">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-text-tertiary"
-          >
-            <span className="text-xs uppercase tracking-wider">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
-          </motion.div>
-        </motion.div>
+      <div className="absolute bottom-8 right-8 font-mono text-xs text-vbx-teal tracking-[0.1em]" style={{ opacity: 0.6 }}>
+        SYS // 99.8% UPTIME
       </div>
-    </section>
+    </div>
   )
 }
 
+function TypewriterHeadline() {
+  const [displayed, setDisplayed] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
+  const indexRef = useRef(0)
+
+  useEffect(() => {
+    const chars = FULL_HEADLINE.split('')
+    const interval = setInterval(() => {
+      if (indexRef.current < chars.length) {
+        setDisplayed(chars.slice(0, indexRef.current + 1).join(''))
+        indexRef.current++
+      } else {
+        clearInterval(interval)
+        setTimeout(() => setShowCursor(false), 2000)
+      }
+    }, 38)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <h1
+      className="font-display text-vbx-white"
+      style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: '1.1', letterSpacing: '-0.01em', whiteSpace: 'pre-line' }}
+    >
+      {displayed}
+      {showCursor && (
+        <span
+          className="inline-block bg-vbx-teal"
+          style={{ width: '3px', height: '0.85em', marginLeft: '3px', verticalAlign: 'text-bottom', animation: 'blink 0.8s step-end infinite' }}
+        />
+      )}
+    </h1>
+  )
+}
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen bg-vbx-navy flex items-center overflow-hidden pt-20">
+      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40 pointer-events-none"/>
+      <div
+        className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at center, rgba(46,168,145,0.07) 0%, transparent 70%)' }}
+      />
+
+      <div className="container-wide w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 lg:gap-0 items-center min-h-[80vh] py-16">
+
+          {/* Left — Text */}
+          <div className="flex flex-col gap-8 pr-0 lg:pr-16">
+            <TypewriterHeadline />
+
+            <p className="font-sans text-vbx-muted" style={{ fontSize: '1.125rem', lineHeight: '1.7', maxWidth: '540px' }}>
+              Visionblox builds the systems that move patient data, process Medicaid
+              claims, and integrate EMR infrastructure — engineered to the standards
+              that federal and state agencies evaluate, audit, and award.
+            </p>
+
+            <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.15em' }}>
+              CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;FEDERAL-READY
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link href="/healthcare-it" className="btn-teal">
+                VIEW HEALTHCARE PORTFOLIO
+              </Link>
+              <a
+                href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                className="btn-teal-outline"
+              >
+                REQUEST A BRIEFING
+              </a>
+            </div>
+          </div>
+
+          {/* Right — Data grid */}
+          <div className="hidden lg:block relative" style={{ height: '480px' }}>
+            <DataGridSVG />
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 data-line"/>
+    </section>
+  )
+}
