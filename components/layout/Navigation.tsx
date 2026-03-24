@@ -17,7 +17,7 @@ const TOP_LINKS = [
 // ─── Main Navigation ──────────────────────────────────────────────────────────
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled]       = useState(false)
+  const [isScrolled, setIsScrolled]         = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -59,8 +59,6 @@ export default function Navigation() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-
-            {/* Healthcare IT */}
             {TOP_LINKS.map((link) => (
               <Link
                 key={link.label}
@@ -75,7 +73,6 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-
           </div>
 
           {/* CTA */}
@@ -111,7 +108,6 @@ export default function Navigation() {
             style={{ background: 'rgba(14,18,38,0.98)' }}
           >
             <div className="container-wide py-6 space-y-1">
-
               {TOP_LINKS.map((link) => (
                 <Link
                   key={link.label}
