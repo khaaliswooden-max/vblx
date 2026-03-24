@@ -490,7 +490,7 @@ export default function IndustryDetailPage() {
                   See how we&apos;ve helped organizations in your industry achieve results.
                 </p>
               </div>
-              <Link href="/case-studies" className="hidden md:block">
+              <Link href="/pastperformance" className="hidden md:block">
                 <Button variant="outline">
                   View All Case Studies
                 </Button>
@@ -508,7 +508,7 @@ export default function IndustryDetailPage() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link href={`/case-studies/${study.id}`}>
+                    <Link href={`/pastperformance/${study.id}`}>
                       <div className="group bg-background-secondary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
                         <div className="flex items-center gap-2 mb-4">
                           <span 
@@ -546,7 +546,7 @@ export default function IndustryDetailPage() {
             </div>
 
             <div className="mt-8 text-center md:hidden">
-              <Link href="/case-studies">
+              <Link href="/pastperformance">
                 <Button variant="outline">
                   View All Case Studies
                 </Button>

@@ -44,7 +44,7 @@ const SOLUTION_AREAS = [
 const TOP_LINKS = [
   { label: 'Healthcare IT', href: '/healthcare-it', highlight: true },
   { label: 'About',         href: '/about' },
-  { label: 'Past Performance', href: '/case-studies' },
+  { label: 'Past Performance', href: '/pastperformance' },
 ]
 
 // ─── Mega-menu proof panel ────────────────────────────────────────────────────
@@ -92,7 +92,7 @@ function ProofPanel() {
       </div>
 
       <Link
-        href="/case-studies"
+        href="/pastperformance"
         className="font-mono text-vbx-teal hover:text-vbx-white transition-colors mt-4"
         style={{ fontSize: '0.6875rem', letterSpacing: '0.08em' }}
       >

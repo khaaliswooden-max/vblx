@@ -97,7 +97,7 @@ export default function IndustriesPage() {
                     </Link>
                     <div className="mt-auto flex items-center justify-between gap-4">
                       <Link
-                        href="/case-studies"
+                        href="/pastperformance"
                         className="text-sm text-text-tertiary hover:text-accent-primary transition-colors"
                       >
                         {caseStudies.length} case{' '}
@@ -174,7 +174,7 @@ export default function IndustriesPage() {
                       </Link>
                       <div className="mt-auto flex items-center justify-between gap-4">
                         <Link
-                          href="/case-studies"
+                          href="/pastperformance"
                           className="text-sm text-text-tertiary hover:text-accent-primary transition-colors"
                         >
                           {caseStudies.length} case{' '}
@@ -205,7 +205,7 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <Link href="/case-studies">
+            <Link href="/pastperformance">
               <Button variant="outline" size="lg">
                 View All Case Studies
               </Button>
@@ -307,7 +307,7 @@ export default function IndustriesPage() {
                   Schedule a Consultation
                 </Button>
               </Link>
-              <Link href="/case-studies">
+              <Link href="/pastperformance">
                 <Button variant="outline" size="lg">
                   View Case Studies
                 </Button>
