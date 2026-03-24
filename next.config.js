@@ -8,6 +8,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // ── /services index → /solutions ────────────────────────────────────
+      {
+        source: '/services',
+        destination: '/solutions',
+        permanent: true,
+      },
       // ── /case-studies index → /pastperformance ──────────────────────────
       {
         source: '/case-studies',
