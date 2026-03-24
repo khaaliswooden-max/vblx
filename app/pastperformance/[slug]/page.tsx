@@ -5,16 +5,15 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, ArrowLeft, Quote, Calendar, Users, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { getCaseStudyById, CASE_STUDIES, SERVICE_CATEGORIES } from '@/lib/caseStudiesData'
-import { INDUSTRIES } from '@/lib/industriesData'
+import { ENGAGEMENTS, getEngagementBySlug } from '@/lib/pastPerformanceData'
 
 export default function PastPerformanceDetailPage() {
   const params = useParams()
   const slug = params.slug as string
 
-  const caseStudy = getCaseStudyById(slug)
+  const engagement = getEngagementBySlug(slug)
 
-  if (!caseStudy) {
+  if (!engagement) {
     return (
       <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
@@ -28,10 +27,37 @@ export default function PastPerformanceDetailPage() {
     )
   }
 
-  const serviceCategory = SERVICE_CATEGORIES[caseStudy.serviceCategory]
-  const industry = INDUSTRIES[caseStudy.industryId as keyof typeof INDUSTRIES]
-  const relatedCaseStudies = CASE_STUDIES
-    .filter(cs => cs.id !== caseStudy.id && (cs.serviceCategory === caseStudy.serviceCategory || cs.industryId === caseStudy.industryId))
+  const serviceCategory = { name: 'Healthcare IT Engagement', color: '#2EA891' }
+  const caseStudy = {
+    id: engagement.slug,
+    title: engagement.project,
+    subtitle: engagement.client,
+    publishedDate: '2026-01-01',
+    duration: engagement.period,
+    teamSize: `${engagement.personnel.length} key personnel`,
+    products: engagement.stack.slice(0, 6),
+    summary: `${engagement.client} - ${engagement.project}`,
+    challenge: engagement.federalApplicability,
+    solution: engagement.stack.join(' | '),
+    implementation: engagement.personnel.join(' | '),
+    results: engagement.outcomes.join('\n\n'),
+    quote: {
+      text: engagement.outcomes[0] ?? 'Delivered measurable outcomes for complex healthcare IT requirements.',
+      author: engagement.personnel[0]?.split(' (')[0] ?? 'Visionblox Delivery Team',
+      title: 'Program Lead',
+    },
+    metrics: [
+      { value: engagement.contractValue, label: 'Contract Value' },
+      { value: `${engagement.federalRelevance}/10`, label: 'Federal Relevance' },
+      { value: `${engagement.stack.length}`, label: 'Core Technologies' },
+      { value: `${engagement.outcomes.length}`, label: 'Documented Outcomes' },
+    ],
+    tags: ['Healthcare IT', 'Past Performance', ...engagement.stack.slice(0, 3)],
+    client: engagement.client,
+    industry: 'Healthcare',
+  }
+  const relatedCaseStudies = ENGAGEMENTS
+    .filter(cs => cs.slug !== engagement.slug)
     .slice(0, 3)
 
   return (
@@ -75,13 +101,9 @@ export default function PastPerformanceDetailPage() {
                 >
                   {serviceCategory.name}
                 </span>
-                {industry && (
-                  <Link href={`/industries/${caseStudy.industryId}`}>
-                    <span className="px-3 py-1 text-sm rounded bg-background-secondary text-text-secondary hover:text-text-primary transition-colors">
-                      {industry.name}
-                    </span>
-                  </Link>
-                )}
+                <span className="px-3 py-1 text-sm rounded bg-background-secondary text-text-secondary">
+                  Healthcare
+                </span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
@@ -392,17 +414,17 @@ export default function PastPerformanceDetailPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedCaseStudies.map((study, index) => {
-                const studyCategory = SERVICE_CATEGORIES[study.serviceCategory]
+                const studyCategory = serviceCategory
 
                 return (
                   <motion.div
-                    key={study.id}
+                    key={study.slug}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link href={`/pastperformance/${study.id}`}>
+                    <Link href={`/pastperformance/${study.slug}`}>
                       <div className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
                         <div className="flex items-center gap-2 mb-3">
                           <span
@@ -411,13 +433,13 @@ export default function PastPerformanceDetailPage() {
                           >
                             {studyCategory.name}
                           </span>
-                          <span className="text-text-tertiary text-xs">{study.industry}</span>
+                          <span className="text-text-tertiary text-xs">Healthcare</span>
                         </div>
                         <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
-                          {study.title}
+                          {study.project}
                         </h3>
                         <p className="text-text-secondary text-sm mb-4 line-clamp-2">
-                          {study.summary}
+                          {study.client}
                         </p>
                         <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                           Read more <ArrowRight className="w-4 h-4" />
