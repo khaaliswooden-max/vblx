@@ -349,7 +349,7 @@ export default function AboutPage() {
             Where We Deliver
           </h2>
           <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
-            Visionblox operates across five locations with on-site and remote delivery capacity
+            Visionblox operates across four locations with on-site and remote delivery capacity
             for federal and SLED healthcare IT engagements. On-site delivery has been executed
             at California DHCS (Sacramento) and Kaiser Permanente (Northern California). Remote
             delivery operates across all active engagements.
@@ -359,14 +359,13 @@ export default function AboutPage() {
             {[
               { city: 'SAN JOSE, CA',     role: 'HEADQUARTERS',             note: 'PRIMARY FEDERAL BD' },
               { city: 'PHILADELPHIA, PA', role: 'EAST COAST DELIVERY',      note: 'FEDERAL REGION III' },
-              { city: 'MUSCAT, OMAN',     role: 'MIDDLE EAST DELIVERY',     note: '' },
-              { city: 'DUBAI, UAE',       role: 'GULF REGION DELIVERY',     note: '' },
+              { city: 'HUNTSVILLE, AL',   role: 'FEDERAL DELIVERY HUB',     note: 'FEDERAL REGION IV' },
               { city: 'CHENNAI, INDIA',   role: 'ENGINEERING & DATA OPS',   note: '' },
             ].map((loc, i) => (
               <div
                 key={loc.city}
                 className="grid grid-cols-[160px_1fr] gap-4 py-3"
-                style={{ borderBottom: i < 4 ? '1px solid rgba(46,168,145,0.08)' : 'none' }}
+                style={{ borderBottom: i < 3 ? '1px solid rgba(46,168,145,0.08)' : 'none' }}
               >
                 <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
                   {loc.city}

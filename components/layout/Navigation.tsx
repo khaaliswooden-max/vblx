@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -9,8 +11,8 @@ import { cn } from '@/lib/utils'
 // ─── Nav structure ────────────────────────────────────────────────────────────
 
 const TOP_LINKS = [
-  { label: 'Healthcare IT', href: '/healthcare-it', highlight: true },
-  { label: 'About',         href: '/about' },
+  { label: 'Healthcare IT',    href: '/healthcare-it' },
+  { label: 'About',            href: '/about' },
   { label: 'Past Performance', href: '/pastperformance' },
 ]
 
@@ -19,6 +21,7 @@ const TOP_LINKS = [
 export default function Navigation() {
   const [isScrolled, setIsScrolled]         = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60)
@@ -44,35 +47,36 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <rect width="32" height="32" fill="#2EA891" fillOpacity="0.12"/>
-              <rect x="6" y="6" width="8" height="8" fill="#2EA891"/>
-              <rect x="18" y="6" width="8" height="8" fill="#2EA891" fillOpacity="0.5"/>
-              <rect x="6" y="18" width="8" height="8" fill="#2EA891" fillOpacity="0.5"/>
-              <rect x="18" y="18" width="8" height="8" fill="#2EA891"/>
-            </svg>
-            <span className="text-vbx-white font-sans font-semibold tracking-wide text-base" style={{ letterSpacing: '0.05em' }}>
-              VISIONBLOX
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/visionblox-logo.png"
+              alt="Visionblox"
+              width={140}
+              height={40}
+              style={{ objectFit: 'contain' }}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            {TOP_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={cn(
-                  'px-4 py-2 text-sm font-sans uppercase tracking-[0.08em] transition-colors',
-                  link.highlight
-                    ? 'text-vbx-teal border-b-2 border-vbx-teal pb-1.5'
-                    : 'text-vbx-white/80 hover:text-vbx-white'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {TOP_LINKS.map((link) => {
+              const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={cn(
+                    'px-4 py-2 text-sm font-sans uppercase tracking-[0.08em] transition-colors',
+                    isActive
+                      ? 'text-vbx-teal border-b-2 border-vbx-teal pb-1.5'
+                      : 'text-vbx-white hover:text-vbx-teal'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
 
           {/* CTA */}
@@ -108,19 +112,22 @@ export default function Navigation() {
             style={{ background: 'rgba(14,18,38,0.98)' }}
           >
             <div className="container-wide py-6 space-y-1">
-              {TOP_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={cn(
-                    'block py-3 text-sm uppercase tracking-[0.08em] font-sans',
-                    link.highlight ? 'text-vbx-teal' : 'text-vbx-white'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {TOP_LINKS.map((link) => {
+                const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      'block py-3 text-sm uppercase tracking-[0.08em] font-sans',
+                      isActive ? 'text-vbx-teal' : 'text-vbx-white'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
 
               <div className="pt-4 border-t border-vbx-teal/20">
                 <a
