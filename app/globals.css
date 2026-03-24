@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 /* ============================================
-   VBLX Design System - CSS Variables
+   VBX Design System — Palantir for Healthcare
    ============================================ */
 
 :root {
-  /* Background Colors */
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F8F9FA;
-  --color-bg-tertiary: #F1F3F5;
-  --color-bg-elevated: #FFFFFF;
+  /* VBX Brand Palette */
+  --vbx-navy:    #232D5A;
+  --vbx-teal:    #2EA891;
+  --vbx-gold:    #F7B801;
+  --vbx-gray:    #F0F0F0;
+  --vbx-charcoal:#2E2E2E;
+  --vbx-white:   #F5F5F0;
+  --vbx-muted:   #8892A4;
 
-  /* Accent Colors */
-  --color-accent-primary: #51C7A8;
-  --color-accent-secondary: #8A67B4;
-  --color-accent-tertiary: #F79462;
-  --color-accent-hover: #3DB896;
-
-  /* Text Colors */
-  --color-text-primary: #344669;
-  --color-text-secondary: #5A6B8A;
-  --color-text-tertiary: #8A95B0;
-  --color-text-inverse: #FFFFFF;
-
-  /* Platform Colors */
-  --color-austra: #3182CE;
-  --color-aureon: #6B46C1;
-  --color-civium: #38B2AC;
+  /* Legacy aliases (keep for any remaining components) */
+  --color-bg-primary: #232D5A;
+  --color-bg-secondary: #1B2347;
+  --color-bg-tertiary: #1A2140;
+  --color-bg-elevated: #2A3560;
+  --color-accent-primary: #2EA891;
+  --color-accent-secondary: #F7B801;
+  --color-accent-tertiary: #F7B801;
+  --color-accent-hover: #26957F;
+  --color-text-primary: #F5F5F0;
+  --color-text-secondary: #8892A4;
+  --color-text-tertiary: #6B7589;
+  --color-text-inverse: #232D5A;
 
   /* Typography */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', Menlo, monospace;
+  --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+  --font-sans:    'DM Sans', 'Instrument Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', 'IBM Plex Mono', 'Courier New', monospace;
 
   /* Spacing */
   --spacing-section: 6rem;
@@ -45,8 +45,8 @@
   --transition-slow: 500ms ease;
 
   /* Borders */
-  --border-color: rgba(52, 70, 105, 0.12);
-  --border-color-hover: rgba(52, 70, 105, 0.24);
+  --border-color: rgba(46, 168, 145, 0.15);
+  --border-color-hover: rgba(46, 168, 145, 0.35);
 }
 
 /* ============================================
@@ -67,11 +67,16 @@ body {
 }
 
 body {
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  background: var(--vbx-navy);
+  color: var(--vbx-white);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent white flash on load */
+html {
+  background: #232D5A;
 }
 
 /* ============================================
@@ -87,17 +92,43 @@ body {
 }
 
 /* ============================================
+   Data-Line Separator (teal terminal rule)
+   ============================================ */
+
+.data-line {
+  border-top: 1px solid var(--vbx-teal);
+  position: relative;
+}
+
+.data-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--vbx-teal);
+  animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ============================================
    Selection Styles
    ============================================ */
 
 ::selection {
-  background: var(--color-accent-primary);
-  color: var(--color-text-inverse);
+  background: var(--vbx-teal);
+  color: var(--vbx-navy);
 }
 
 ::-moz-selection {
-  background: var(--color-accent-primary);
-  color: var(--color-text-inverse);
+  background: var(--vbx-teal);
+  color: var(--vbx-navy);
 }
 
 /* ============================================
@@ -105,21 +136,21 @@ body {
    ============================================ */
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: #1B2347;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-bg-tertiary);
-  border-radius: 4px;
+  background: #2EA891;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+  background: #26957F;
 }
 
 /* ============================================
@@ -127,7 +158,7 @@ body {
    ============================================ */
 
 :focus-visible {
-  outline: 2px solid var(--color-accent-primary);
+  outline: 2px solid var(--vbx-teal);
   outline-offset: 2px;
 }
 
@@ -145,83 +176,10 @@ a {
    ============================================ */
 
 .bg-grid-pattern {
-  background-image: 
-    linear-gradient(rgba(52, 70, 105, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 70, 105, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-.bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.02;
-}
-
-/* ============================================
-   Gradient Utilities
-   ============================================ */
-
-.gradient-radial {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(81, 199, 168, 0.1) 0%,
-    transparent 70%
-  );
-}
-
-.gradient-austra {
-  background: linear-gradient(135deg, var(--color-austra) 0%, #63B3ED 100%);
-}
-
-.gradient-aureon {
-  background: linear-gradient(135deg, var(--color-aureon) 0%, #9F7AEA 100%);
-}
-
-.gradient-civium {
-  background: linear-gradient(135deg, var(--color-civium) 0%, #4FD1C5 100%);
-}
-
-/* ============================================
-   Glow Effects
-   ============================================ */
-
-.glow-accent {
-  box-shadow: 0 0 40px rgba(81, 199, 168, 0.3);
-}
-
-.glow-austra {
-  box-shadow: 0 0 40px rgba(49, 130, 206, 0.3);
-}
-
-.glow-aureon {
-  box-shadow: 0 0 40px rgba(107, 70, 193, 0.3);
-}
-
-.glow-civium {
-  box-shadow: 0 0 40px rgba(56, 178, 172, 0.3);
-}
-
-/* ============================================
-   Animation Utilities
-   ============================================ */
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(81, 199, 168, 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+  background-image:
+    linear-gradient(rgba(46, 168, 145, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 168, 145, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 /* ============================================
@@ -262,3 +220,177 @@ a {
   }
 }
 
+/* ============================================
+   Animation Keyframes
+   ============================================ */
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0%   { opacity: 0; transform: translateX(-24px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes accentBarIn {
+  0%   { width: 0; opacity: 0; }
+  100% { width: 3px; opacity: 1; }
+}
+
+/* ============================================
+   Utility Animation Classes
+   ============================================ */
+
+.animate-fade-in    { animation: fadeIn 0.5s ease-out both; }
+.animate-fade-up    { animation: fadeUp 0.6s ease-out both; }
+.animate-slide-left { animation: slideInLeft 0.6s ease-out both; }
+
+/* ============================================
+   CTA Button Hover Interactions
+   ============================================ */
+
+.btn-gold {
+  background: var(--vbx-gold);
+  color: var(--vbx-navy);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms ease, letter-spacing 200ms ease;
+  display: inline-block;
+}
+
+.btn-gold:hover {
+  background: #FFD44D;
+  letter-spacing: 0.18em;
+}
+
+.btn-teal-outline {
+  background: transparent;
+  color: var(--vbx-teal);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid var(--vbx-teal);
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease;
+  display: inline-block;
+}
+
+.btn-teal-outline:hover {
+  background: rgba(46, 168, 145, 0.1);
+}
+
+.btn-teal {
+  background: var(--vbx-teal);
+  color: var(--vbx-navy);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms ease;
+  display: inline-block;
+}
+
+.btn-teal:hover {
+  background: #26957F;
+}
+
+/* ============================================
+   Past Performance Accent Bar
+   ============================================ */
+
+.engagement-row {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.engagement-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--vbx-teal);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+.engagement-row.visible::before {
+  transform: scaleY(1);
+}
+
+/* ============================================
+   Capability Table
+   ============================================ */
+
+.capability-table tr.visible td:first-child {
+  border-left-width: 3px;
+}
+
+/* ============================================
+   Typewriter Cursor
+   ============================================ */
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  background: var(--vbx-teal);
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* ============================================
+   Mono identifier tags
+   ============================================ */
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--vbx-teal);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   Legacy gradient / glow (keep for compatibility)
+   ============================================ */
+
+.gradient-radial {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(46, 168, 145, 0.1) 0%,
+    transparent 70%
+  );
+}

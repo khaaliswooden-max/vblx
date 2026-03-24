@@ -1,159 +1,115 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { Linkedin, Mail, Phone, MapPin } from 'lucide-react'
-import { COMPANY } from '@/lib/utils'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
-    <footer className="bg-background-secondary border-t border-[#344669]/10">
+    <footer style={{ background: '#1B2347' }} className="border-t border-vbx-teal/20">
       <div className="container-wide section-padding">
-        {/* Main Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center mb-6">
-              <Image
-                src="/visionblox-logo.png"
-                alt="Visionblox"
-                width={200}
-                height={44}
-                className="h-11 w-auto"
-              />
-            </Link>
-            <p className="text-text-secondary text-sm leading-relaxed mb-6">
-              {COMPANY.tagline}. {COMPANY.mission}.
+
+        {/* Three-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+
+          {/* Column 1 — Identity */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" fill="#2EA891" fillOpacity="0.12"/>
+                <rect x="6" y="6" width="8" height="8" fill="#2EA891"/>
+                <rect x="18" y="6" width="8" height="8" fill="#2EA891" fillOpacity="0.5"/>
+                <rect x="6" y="18" width="8" height="8" fill="#2EA891" fillOpacity="0.5"/>
+                <rect x="18" y="18" width="8" height="8" fill="#2EA891"/>
+              </svg>
+              <span className="font-display text-vbx-white text-xl tracking-wide">Visionblox LLC</span>
+            </div>
+            <p className="text-vbx-muted text-sm font-sans mb-6 leading-relaxed">
+              AI-Powered Healthcare IT · Federal &amp; SLED
             </p>
-            <div className="flex gap-4">
-              <a
-                href={COMPANY.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-background-tertiary rounded-lg text-text-secondary hover:text-accent-primary hover:bg-background-elevated transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href={`mailto:${COMPANY.contact.email}`}
-                className="p-2 bg-background-tertiary rounded-lg text-text-secondary hover:text-accent-primary hover:bg-background-elevated transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+            <div className="space-y-1.5">
+              <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
+                CAGE: <span className="text-vbx-teal">9Z4X2</span>
+              </p>
+              <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
+                UEI: <span className="text-vbx-teal">H4X2Z7R9E3E3</span>
+              </p>
+              <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
+                NAICS: <span className="text-vbx-white/70">541511 · 541512 · 541519 · 518210</span>
+              </p>
             </div>
           </div>
 
-          {/* Product Suite */}
+          {/* Column 2 — Designations */}
           <div>
-            <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-text-tertiary mb-6">
-              Product Suite
+            <h4 className="font-mono text-xs text-vbx-muted uppercase tracking-[0.12em] mb-6">
+              Designations &amp; Compliance
             </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/products"
-                  className="text-text-secondary hover:text-text-primary transition-colors text-sm"
-                >
-                  View Product Suite
-                </Link>
-              </li>
-            </ul>
+            <div className="space-y-2">
+              {[
+                'MINORITY-OWNED SMALL BUSINESS',
+                'GSA MAS HOLDER',
+                'HIPAA COMPLIANT',
+                'HITRUST-AUDITED SECURITY STAFF',
+                'SECTION 508 DELIVERED',
+                'FEDRAMP-ARCHITECTURE-AWARE',
+              ].map((item) => (
+                <p key={item} className="font-mono text-xs text-vbx-teal tracking-[0.06em]">
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
 
-          {/* Company */}
+          {/* Column 3 — Contact */}
           <div>
-            <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-text-tertiary mb-6">
-              Company
+            <h4 className="font-mono text-xs text-vbx-muted uppercase tracking-[0.12em] mb-6">
+              Point of Contact
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about" className="text-text-secondary hover:text-text-primary transition-colors text-sm">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-text-secondary hover:text-text-primary transition-colors text-sm">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries" className="text-text-secondary hover:text-text-primary transition-colors text-sm">
-                  Industries
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-text-secondary hover:text-text-primary transition-colors text-sm">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-text-tertiary mb-6">
-              Contact
-            </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent-primary flex-shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <div className="text-text-primary">{COMPANY.headquarters}</div>
-                  <div className="text-text-tertiary">Headquarters</div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-accent-primary flex-shrink-0 mt-0.5" />
-                <a
-                  href={`mailto:${COMPANY.contact.email}`}
-                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
-                >
-                  {COMPANY.contact.email}
+            <p className="text-vbx-white font-sans font-medium mb-1">Khaalis Wooden</p>
+            <p className="text-vbx-muted font-sans text-sm mb-5 leading-snug">
+              Director of Enterprise Capture &amp; Compliance
+            </p>
+            <div className="space-y-2">
+              <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
+                <a href="tel:+12569881130" className="hover:text-vbx-white transition-colors">
+                  (256) 988-1130
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-accent-primary flex-shrink-0 mt-0.5" />
+              </p>
+              <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
                 <a
-                  href={`tel:${COMPANY.contact.phone.replace(/[^\d+]/g, '')}`}
-                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                  href="mailto:khaalis.wooden@visionblox.com"
+                  className="hover:text-vbx-teal transition-colors"
                 >
-                  {COMPANY.contact.phone}
+                  khaalis.wooden@visionblox.com
                 </a>
-              </li>
-            </ul>
+              </p>
+              <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
+                <a
+                  href="https://www.visionblox.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-vbx-white transition-colors"
+                >
+                  www.visionblox.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-[#344669]/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-text-tertiary">
-            <span>© {currentYear} {COMPANY.name}</span>
-            <span className="hidden md:inline">•</span>
-            <span>CAGE: {COMPANY.cageCode}</span>
-            <span className="hidden md:inline">•</span>
-            <span>UEI: {COMPANY.uei}</span>
-          </div>
-          <div className="flex items-center gap-6 text-sm text-text-tertiary">
-            <Link href="/privacy" className="hover:text-text-primary transition-colors">
-              Privacy Policy
+        {/* Bottom bar */}
+        <div className="mt-16 data-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="font-mono text-xs text-vbx-muted tracking-[0.08em] uppercase">
+            © 2026 VISIONBLOX LLC&nbsp;&nbsp;//&nbsp;&nbsp;INTERNAL CAPABILITIES DATA — BD USE
+          </p>
+          <div className="flex items-center gap-6 font-mono text-xs text-vbx-muted tracking-[0.06em]">
+            <Link href="/privacy" className="hover:text-vbx-white transition-colors uppercase">
+              Privacy
             </Link>
-            <Link href="/terms" className="hover:text-text-primary transition-colors">
-              Terms of Service
+            <Link href="/terms" className="hover:text-vbx-white transition-colors uppercase">
+              Terms
             </Link>
           </div>
         </div>
 
-        {/* Certification Badge */}
-        <div className="mt-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-background-tertiary rounded-full text-xs text-text-tertiary">
-            <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-            {COMPANY.status}
-          </div>
-        </div>
       </div>
     </footer>
   )
 }
-

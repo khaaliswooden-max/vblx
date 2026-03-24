@@ -1,44 +1,25 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import { GoogleAnalytics } from '@/components/analytics'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: 'Visionblox | Enterprise Operating Systems',
-  description: 'Software for operational intelligence, procurement, and compliance. We build tools for institutions.',
-  keywords: ['enterprise software', 'operational intelligence', 'AI platforms', 'procurement', 'compliance', 'federal solutions'],
+  title: 'Visionblox | Healthcare Data Infrastructure',
+  description: 'Healthcare data infrastructure for the institutions that govern it. Epic EMR, MITA-compliant Medicaid systems, and federal-ready AI pipelines.',
+  keywords: ['healthcare IT', 'Epic EMR', 'MITA', 'HIPAA', 'Medicaid modernization', 'federal healthcare', 'HL7', 'FHIR'],
   authors: [{ name: 'Visionblox LLC' }],
   openGraph: {
-    title: 'Visionblox | Enterprise Operating Systems',
-    description: 'Software for operational intelligence, procurement, and compliance. We build tools for institutions.',
+    title: 'Visionblox | Healthcare Data Infrastructure',
+    description: 'Healthcare data infrastructure for the institutions that govern it.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Visionblox',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Visionblox | Enterprise Operating Systems',
-    description: 'Software for operational intelligence, procurement, and compliance. We build tools for institutions.',
+    title: 'Visionblox | Healthcare Data Infrastructure',
+    description: 'Healthcare data infrastructure for the institutions that govern it.',
   },
   robots: {
     index: true,
@@ -52,11 +33,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
-    >
-      <body className="min-h-screen bg-background-primary text-text-primary font-sans antialiased">
+    <html lang="en">
+      <head>
+        {/* Google Fonts — loaded at runtime */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-screen bg-vbx-navy text-vbx-white font-sans antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -66,7 +54,6 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <GoogleAnalytics />
         <Navigation />
         <main className="flex-1">
@@ -77,4 +64,3 @@ export default function RootLayout({
     </html>
   )
 }
-
