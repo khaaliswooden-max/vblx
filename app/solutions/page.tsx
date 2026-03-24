@@ -195,7 +195,7 @@ function DomainSection({ domain }: { domain: typeof DOMAINS[0] }) {
                'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
 
   return (
-    <div ref={ref}>
+    <div ref={ref} id={`domain-${domain.number}`}>
       <div className="data-line mb-10" />
       <p className="font-mono text-vbx-teal mb-3 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
         {'// '}{domain.number}&nbsp;&nbsp;{domain.category}
