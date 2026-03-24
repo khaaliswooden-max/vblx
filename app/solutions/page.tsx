@@ -327,7 +327,7 @@ export default function SolutionsPage() {
               >
                 REQUEST A FEDERAL BRIEFING
               </a>
-              <Link href="/case-studies" className="btn-teal-outline">
+              <Link href="/pastperformance" className="btn-teal-outline">
                 VIEW PAST PERFORMANCE
               </Link>
             </div>

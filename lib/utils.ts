@@ -118,7 +118,7 @@ export const NAV_LINKS = [
       { label: 'View All Services', href: '/services', description: '20 service offerings' },
     ],
   },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Past Performance', href: '/pastperformance' },
   { label: 'Tools', href: '/tools' },
   { label: 'About', href: '/about' },
   {
