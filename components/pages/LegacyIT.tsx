@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import Link from 'next/link'
 
 const SUB_CARDS = [
   {
@@ -141,41 +140,9 @@ const STYLES = `
     font-size: 15px;
     line-height: 1.65;
     min-height: 100vh;
+    padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
   }
-
-  .vbx-nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(13,15,26,0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--vbx-border2);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem; height: 56px;
-  }
-  .vbx-nav-brand {
-    font-family: var(--vbx-mono); font-size: 1rem; font-weight: 700;
-    color: var(--vbx-text); letter-spacing: 0.04em;
-    text-transform: lowercase; text-decoration: none;
-  }
-  .vbx-nav-links {
-    display: flex; align-items: center; gap: 0.25rem; list-style: none;
-  }
-  .vbx-nav-links a {
-    font-family: var(--vbx-mono); font-size: 0.72rem; color: var(--vbx-muted);
-    letter-spacing: 0.06em; text-transform: uppercase;
-    padding: 0.4rem 0.7rem; border-radius: 3px;
-    transition: color 0.2s, background 0.2s; text-decoration: none;
-  }
-  .vbx-nav-links a:hover, .vbx-nav-links a.active {
-    color: var(--vbx-teal); background: rgba(46,168,145,0.08);
-  }
-  .vbx-nav-cta {
-    font-family: var(--vbx-mono); font-size: 0.7rem; letter-spacing: 0.08em;
-    text-transform: uppercase; background: var(--vbx-teal); color: #000;
-    padding: 0.4rem 1rem; border-radius: 2px; font-weight: 700;
-    transition: opacity 0.2s; text-decoration: none;
-  }
-  .vbx-nav-cta:hover { opacity: 0.85; }
 
   .vbx-hero {
     padding: 5rem 2rem 3.5rem; max-width: 1100px;
@@ -326,37 +293,10 @@ const STYLES = `
   }
   .vbx-btn-secondary:hover { background: rgba(46,168,145,0.07); }
 
-  .vbx-footer { background: var(--vbx-bg2); border-top: 1px solid var(--vbx-border2); padding: 2.5rem 2rem; }
-  .vbx-footer-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem;
-  }
-  .vbx-footer-brand   { font-family: var(--vbx-mono); font-size: 0.78rem; color: var(--vbx-text); font-weight: 700; margin-bottom: 0.5rem; }
-  .vbx-footer-tagline { font-family: var(--vbx-mono); font-size: 0.65rem; color: var(--vbx-muted); margin-bottom: 0.8rem; }
-  .vbx-footer-ids     { font-family: var(--vbx-mono); font-size: 0.63rem; color: var(--vbx-muted); line-height: 1.8; }
-  .vbx-footer h5 {
-    font-family: var(--vbx-mono); font-size: 0.62rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--vbx-muted); margin-bottom: 0.8rem;
-  }
-  .vbx-footer ul    { list-style: none; }
-  .vbx-footer ul li { font-family: var(--vbx-mono); font-size: 0.65rem; color: #8a90aa; line-height: 2; }
-  .vbx-footer-bottom {
-    max-width: 1100px; margin: 1.5rem auto 0;
-    padding-top: 1.2rem; border-top: 1px solid var(--vbx-border2);
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 0.5rem;
-  }
-  .vbx-footer-bottom span, .vbx-footer-bottom a {
-    font-family: var(--vbx-mono); font-size: 0.6rem;
-    color: var(--vbx-muted); letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .vbx-footer-bottom a { margin-left: 1rem; text-decoration: none; }
   .vbx-note    { font-family: var(--vbx-mono); font-size: 0.68rem; color: var(--vbx-muted); margin-top: 1rem; }
   .vbx-note-sm { font-family: var(--vbx-mono); font-size: 0.65rem; color: var(--vbx-muted); margin-top: 0.9rem; }
 
   @media (max-width: 768px) {
-    .vbx-nav-links { display: none; }
-    .vbx-footer-inner { grid-template-columns: 1fr; }
     .vbx-service-table { font-size: 0.8rem; }
     .vbx-service-table th, .vbx-service-table td { padding: 0.65rem 0.6rem; }
   }
@@ -378,37 +318,6 @@ export default function LegacyIT() {
 
   return (
     <div className="vbx-page">
-      <nav className="vbx-nav">
-        <Link href="/" className="vbx-nav-brand">
-          visionblox
-        </Link>
-        <ul className="vbx-nav-links">
-          <li>
-            <Link href="/healthcare-it">Healthcare IT</Link>
-          </li>
-          <li>
-            <Link href="/healthcare-it">Critical Access Hospitals</Link>
-          </li>
-          <li>
-            <Link href="/cahsp">CAHSP</Link>
-          </li>
-          <li>
-            <Link href="/legacy-it" className="active">
-              Legacy IT
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/pastperformance">Past Performance</Link>
-          </li>
-        </ul>
-        <a href={HREF_BRIEF} className="vbx-nav-cta">
-          Request Briefing
-        </a>
-      </nav>
-
       <header className="vbx-hero">
         <div className="vbx-hero-meta">
           CAGE: 9Z4X2 &nbsp;//&nbsp; UEI: H4X2Z7R9E3E3 &nbsp;//&nbsp;{' '}
@@ -599,53 +508,6 @@ export default function LegacyIT() {
         </div>
       </div>
 
-      <footer className="vbx-footer">
-        <div className="vbx-footer-inner">
-          <div>
-            <div className="vbx-footer-brand">visionblox</div>
-            <div className="vbx-footer-tagline">Legacy IT Services · Federal &amp; SLED</div>
-            <div className="vbx-footer-ids">
-              CAGE: 9Z4X2
-              <br />
-              UEI: H4X2Z7R9E3E3
-              <br />
-              NAICS: 541511 · 541512 · 541519 · 518210
-            </div>
-          </div>
-          <div>
-            <h5>Designations &amp; Compliance</h5>
-            <ul>{DESIGNATIONS.map((d) => <li key={d}>{d}</li>)}</ul>
-          </div>
-          <div>
-            <h5>Point of Contact</h5>
-            <ul>
-              <li>Khaalis Wooden</li>
-              <li>Director, Enterprise Capture &amp; Compliance</li>
-              <li>
-                <a href="tel:+12569881130" style={{ color: 'var(--vbx-teal)' }}>
-                  (256) 988-1130
-                </a>
-              </li>
-              <li>
-                <a href="mailto:khaalis.wooden@visionblox.com" style={{ color: 'var(--vbx-teal)' }}>
-                  khaalis.wooden@visionblox.com
-                </a>
-              </li>
-              <li style={{ marginTop: '0.4rem' }}>
-                <Link href="/" style={{ color: 'var(--vbx-muted)' }}>
-                  Home
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="vbx-footer-bottom">
-          <span>© 2026 Visionblox LLC &nbsp;//&nbsp; Legacy IT Services — BD Use</span>
-          <div>
-            <Link href="mailto:khaalis.wooden@visionblox.com">Contact</Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

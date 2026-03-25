@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 
-const CHROMELESS = ['/legacy-it']
+const CHROMELESS: string[] = []
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
