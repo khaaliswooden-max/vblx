@@ -159,10 +159,10 @@ const ENGINE_ROWS = [
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function SectionLabel({ children }: { children: string }) {
+function SectionLabel({ label }: { label: string }) {
   return (
     <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
-      {children}
+      {'// '}{label}
     </p>
   )
 }
@@ -209,7 +209,7 @@ export default function CAHPage() {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide relative">
-          <SectionLabel>// CRITICAL ACCESS HOSPITALS</SectionLabel>
+          <SectionLabel label="CRITICAL ACCESS HOSPITALS" />
           <h1
             className="font-display text-vbx-white mb-7"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', lineHeight: '1.15', maxWidth: '860px' }}
@@ -259,7 +259,7 @@ export default function CAHPage() {
       {/* ── THE GAP ───────────────────────────────────────────────────────── */}
       <section className="section-padding">
         <div ref={problemRef} className="container-wide">
-          <SectionLabel>// THE GAP</SectionLabel>
+          <SectionLabel label="THE GAP" />
 
           {/* Data table */}
           <div
@@ -325,7 +325,7 @@ export default function CAHPage() {
         style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(46,168,145,0.1)' }}
       >
         <div ref={expertiseRef} className="container-wide">
-          <SectionLabel>// DOMAIN TRACK RECORD</SectionLabel>
+          <SectionLabel label="DOMAIN TRACK RECORD" />
           <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
             Before the models, the math, and the architecture — Visionblox has direct Healthcare IT delivery
             experience that maps to CAH operational challenges.
@@ -341,7 +341,7 @@ export default function CAHPage() {
       {/* ── CAH TRANSFORMATION ENGINE ─────────────────────────────────────── */}
       <section className="section-padding">
         <div ref={engineRef} className="container-wide">
-          <SectionLabel>// CAH TRANSFORMATION ENGINE</SectionLabel>
+          <SectionLabel label="CAH TRANSFORMATION ENGINE" />
           <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
             The CAH Transformation Engine is Visionblox&apos;s computational research framework for quantifying
             and closing the performance gap at Critical Access Hospitals.
@@ -398,7 +398,7 @@ export default function CAHPage() {
         <div ref={ctaRef} className="container-wide">
           <div className="data-line mb-12" />
           <div className="max-w-[640px]">
-            <SectionLabel>// ENGAGE</SectionLabel>
+            <SectionLabel label="ENGAGE" />
             <p className="font-sans text-vbx-muted mb-8" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
               Federal health IT. State Medicaid modernization. CAH infrastructure transformation.
             </p>
