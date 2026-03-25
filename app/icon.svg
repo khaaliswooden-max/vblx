@@ -1,0 +1,11 @@
+<svg viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Visionblox">
+  <!-- Purple sector — upper-left -->
+  <polygon points="100,95 100,19 56,19"         fill="#9070C4"/>
+  <polygon points="100,95 56,19 12,95 34,133"   fill="#6448A0"/>
+  <!-- Orange sector — upper-right -->
+  <polygon points="100,95 144,19 188,95 166,133" fill="#F4A880"/>
+  <polygon points="100,95 100,19 144,19"         fill="#D87055"/>
+  <!-- Teal sector — bottom -->
+  <polygon points="100,95 100,171 144,171 166,133" fill="#35CC9A"/>
+  <polygon points="100,95 34,133 56,171 100,171"   fill="#18A070"/>
+</svg>

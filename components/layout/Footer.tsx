@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import VisionbloxLogo from '@/components/ui/VisionbloxLogo'
 
 export default function Footer() {
   return (
@@ -10,15 +11,8 @@ export default function Footer() {
 
           {/* Column 1 — Identity */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" fill="#2EA891" fillOpacity="0.12"/>
-                <rect x="6" y="6" width="8" height="8" fill="#2EA891"/>
-                <rect x="18" y="6" width="8" height="8" fill="#2EA891" fillOpacity="0.5"/>
-                <rect x="6" y="18" width="8" height="8" fill="#2EA891" fillOpacity="0.5"/>
-                <rect x="18" y="18" width="8" height="8" fill="#2EA891"/>
-              </svg>
-              <span className="font-display text-vbx-white text-xl tracking-wide">Visionblox LLC</span>
+            <div className="mb-4">
+              <VisionbloxLogo variant="full" width={120} textColor="#F5F5F0" />
             </div>
             <p className="text-vbx-muted text-sm font-sans mb-6 leading-relaxed">
               AI-Powered Healthcare IT · Federal &amp; SLED

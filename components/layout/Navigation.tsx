@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import VisionbloxLogo from '@/components/ui/VisionbloxLogo'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -48,14 +48,7 @@ export default function Navigation() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image
-              src="/visionblox-logo.png"
-              alt="Visionblox"
-              width={140}
-              height={40}
-              style={{ objectFit: 'contain' }}
-              priority
-            />
+            <VisionbloxLogo variant="horizontal" width={160} textColor="#F5F5F0" />
           </Link>
 
           {/* Desktop nav */}
