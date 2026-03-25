@@ -420,8 +420,8 @@ export default function LegacyIT() {
           <em>Federal-Grade</em> Delivery.
         </h1>
         <div className="vbx-hero-sub">
-          Fed/SLED Subcontracting &nbsp;<span className="gold">//</span>&nbsp; IT Staffing &nbsp;
-          <span className="gold">//</span>&nbsp; On-Premise &nbsp;<span className="gold">//</span>&nbsp; Remote À La
+          Fed/SLED Subcontracting &nbsp;<span className="gold">{'//'}</span>&nbsp; IT Staffing &nbsp;
+          <span className="gold">{'//'}</span>&nbsp; On-Premise &nbsp;<span className="gold">{'//'}</span>&nbsp; Remote À La
           Carte
         </div>
         <p className="vbx-hero-body">
@@ -578,7 +578,7 @@ export default function LegacyIT() {
         {COMPLIANCE_ITEMS.map((item, i) => (
           <span key={item}>
             {item}
-            {i < COMPLIANCE_ITEMS.length - 1 && <span className="sep"> // </span>}
+            {i < COMPLIANCE_ITEMS.length - 1 && <span className="sep">{' // '}</span>}
           </span>
         ))}
       </div>
