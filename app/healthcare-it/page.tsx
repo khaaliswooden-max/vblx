@@ -129,28 +129,24 @@ const OPPORTUNITIES = [
     tier: 'TIER 1 // HIGHEST CONFIDENCE',
     headline: 'State Medicaid Modernization',
     body: 'MITA-compliant system architecture is a direct past performance match. Saravanan\'s CA DHCS delivery is a qualifying reference for any state pursuing MITA transition or MMIS modernization. Target states: CA (relationship exists), WA DOH (active pipeline), MD Medicaid.',
-    probability: 'WIN PROBABILITY: 55–70%',
     tierColor: '#F7B801',
   },
   {
     tier: 'TIER 1 // HIGH CONFIDENCE',
     headline: 'Patient Portal / Digital Front Door',
     body: 'Kaiser and VCare Urgent Care work maps directly to VA Veteran-Facing Digital Modernization, HHS agency web portal RFPs, and Indian Health Service patient access projects.',
-    probability: 'WIN PROBABILITY: 50–65% // SET-ASIDE DEPENDENT',
     tierColor: '#F7B801',
   },
   {
     tier: 'TIER 2 // TECHNICAL DISCRIMINATOR',
     headline: 'Healthcare AI / Document Intelligence',
     body: '96% OCR accuracy at a state Medicaid agency is a quantified differentiator most small firms cannot match. Target: HHS document processing, CMS audit intelligence, state health department document management RFPs.',
-    probability: 'WIN PROBABILITY: 50–65% // TECHNICAL DISCRIMINATOR',
     tierColor: '#2EA891',
   },
   {
     tier: 'TIER 3 // BUILD YEAR',
     headline: 'Federal Agency Healthcare IT (Build Track)',
     body: 'VA OIT, HHS, HRSA, AHRQ, CMS IT. Current strategy: win SLED health contract FY26 → use as federal-analog reference → prime federal health IT FY27–28. Not a FY26 prime pursuit — a FY26 capability-build year.',
-    probability: 'CURRENT WIN PROBABILITY: 30–40% SOLO // TARGET: 50–60% WITH FEDERAL PP',
     tierColor: '#8892A4',
   },
 ]
@@ -416,8 +412,7 @@ export default function HealthcareITPage() {
                   {opp.tier}
                 </p>
                 <h3 className="font-display text-vbx-white text-xl mb-4">{opp.headline}</h3>
-                <p className="font-sans text-vbx-muted text-sm leading-relaxed mb-6">{opp.body}</p>
-                <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">{opp.probability}</p>
+                <p className="font-sans text-vbx-muted text-sm leading-relaxed">{opp.body}</p>
               </div>
             ))}
           </div>
