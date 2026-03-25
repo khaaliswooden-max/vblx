@@ -14,9 +14,9 @@ const TOP_LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Past Performance', href: '/pastperformance' },
-  { label: 'Critical Access Hospitals', href: '/cah' },
+  { label: 'CAH', href: '/cah' },
   { label: 'CAHSP', href: '/cahsp' },
-  { label: 'Legacy IT', href: '/legacy-it' },
+  { label: 'IT Services', href: '/legacy-it' },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
@@ -55,7 +55,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0">
             {TOP_LINKS.map((link) => {
               const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
               return (
@@ -63,7 +63,7 @@ export default function Navigation() {
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    'px-4 py-2 text-sm font-sans uppercase tracking-[0.08em] transition-colors',
+                    'px-3 py-2 text-xs font-sans uppercase tracking-[0.06em] transition-colors',
                     isActive
                       ? 'text-vbx-teal border-b-2 border-vbx-teal pb-1.5'
                       : 'text-vbx-white hover:text-vbx-teal'
