@@ -503,7 +503,7 @@ export default function LegacyIT() {
           ))}
         </div>
         <p className="vbx-note">
-          // Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React, React Native, Angular,
+          {'//'} Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React, React Native, Angular,
           Node.js). Resumes furnished on request under NDA.
         </p>
       </section>
@@ -548,7 +548,7 @@ export default function LegacyIT() {
           </table>
         </div>
         <p className="vbx-note-sm">
-          // Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on
+          {'//'} Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on
           vehicle. Contact for details.
         </p>
       </section>
@@ -642,8 +642,7 @@ export default function LegacyIT() {
         <div className="vbx-footer-bottom">
           <span>© 2026 Visionblox LLC &nbsp;//&nbsp; Legacy IT Services — BD Use</span>
           <div>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
+            <Link href="mailto:khaalis.wooden@visionblox.com">Contact</Link>
           </div>
         </div>
       </footer>
