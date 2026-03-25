@@ -11,8 +11,9 @@ import { cn } from '@/lib/utils'
 // ─── Nav structure ────────────────────────────────────────────────────────────
 
 const TOP_LINKS = [
-  { label: 'Healthcare IT',    href: '/healthcare-it' },
-  { label: 'About',            href: '/about' },
+  { label: 'Healthcare IT', href: '/healthcare-it' },
+  { label: 'Legacy IT', href: '/legacy-it' },
+  { label: 'About', href: '/about' },
   { label: 'Past Performance', href: '/pastperformance' },
 ]
 

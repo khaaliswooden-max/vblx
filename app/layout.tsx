@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navigation from '@/components/layout/Navigation'
-import Footer from '@/components/layout/Footer'
+import SiteChrome from '@/components/layout/SiteChrome'
 import { GoogleAnalytics } from '@/components/analytics'
 
 export const metadata: Metadata = {
@@ -55,11 +54,7 @@ export default function RootLayout({
           />
         </noscript>
         <GoogleAnalytics />
-        <Navigation />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   )
