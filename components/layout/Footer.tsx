@@ -27,6 +27,11 @@ export default function Footer() {
               <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
                 NAICS: <span className="text-vbx-white/70">541511 · 541512 · 541519 · 518210</span>
               </p>
+              <p className="font-mono text-xs tracking-[0.06em] mt-2">
+                <span className="inline-block bg-vbx-teal/15 text-vbx-teal border border-vbx-teal/30 rounded px-2 py-0.5">
+                  GSA MAS SIN 54151HEAL — Health IT Services
+                </span>
+              </p>
             </div>
           </div>
 
