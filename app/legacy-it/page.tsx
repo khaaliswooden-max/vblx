@@ -405,8 +405,7 @@ export default function LegacyITPage() {
           ))}
         </div>
         <p style={{ fontFamily: mono, fontSize: '0.68rem', color: textMuted, marginTop: '1rem' }}>
-          // Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React,
-          React Native, Angular, Node.js). Resumes furnished on request under NDA.
+          {'// Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React, React Native, Angular, Node.js). Resumes furnished on request under NDA.'}
         </p>
       </section>
 
@@ -447,8 +446,7 @@ export default function LegacyITPage() {
           </table>
         </div>
         <p style={{ fontFamily: mono, fontSize: '0.65rem', color: textMuted, marginTop: '0.9rem' }}>
-          // Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime
-          or sub depending on vehicle. Contact for details.
+          {'// Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on vehicle. Contact for details.'}
         </p>
       </section>
 
