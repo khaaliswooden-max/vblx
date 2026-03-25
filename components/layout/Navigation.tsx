@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils'
 const TOP_LINKS = [
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Legacy IT', href: '/legacy-it' },
+  { label: 'CAHSP', href: '/cahsp' },
   { label: 'About', href: '/about' },
   { label: 'Past Performance', href: '/pastperformance' },
 ]

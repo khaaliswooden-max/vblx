@@ -420,8 +420,8 @@ export default function LegacyIT() {
           <em>Federal-Grade</em> Delivery.
         </h1>
         <div className="vbx-hero-sub">
-          Fed/SLED Subcontracting &nbsp;<span className="gold">//</span>&nbsp; IT Staffing &nbsp;
-          <span className="gold">//</span>&nbsp; On-Premise &nbsp;<span className="gold">//</span>&nbsp; Remote À La
+          Fed/SLED Subcontracting &nbsp;<span className="gold">{'//'}</span>&nbsp; IT Staffing &nbsp;
+          <span className="gold">{'//'}</span>&nbsp; On-Premise &nbsp;<span className="gold">{'//'}</span>&nbsp; Remote À La
           Carte
         </div>
         <p className="vbx-hero-body">
@@ -503,7 +503,7 @@ export default function LegacyIT() {
           ))}
         </div>
         <p className="vbx-note">
-          // Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React, React Native, Angular,
+          {'//'} Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React, React Native, Angular,
           Node.js). Resumes furnished on request under NDA.
         </p>
       </section>
@@ -548,7 +548,7 @@ export default function LegacyIT() {
           </table>
         </div>
         <p className="vbx-note-sm">
-          // Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on
+          {'//'} Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on
           vehicle. Contact for details.
         </p>
       </section>
@@ -578,7 +578,7 @@ export default function LegacyIT() {
         {COMPLIANCE_ITEMS.map((item, i) => (
           <span key={item}>
             {item}
-            {i < COMPLIANCE_ITEMS.length - 1 && <span className="sep"> // </span>}
+            {i < COMPLIANCE_ITEMS.length - 1 && <span className="sep">{' // '}</span>}
           </span>
         ))}
       </div>
@@ -642,8 +642,7 @@ export default function LegacyIT() {
         <div className="vbx-footer-bottom">
           <span>© 2026 Visionblox LLC &nbsp;//&nbsp; Legacy IT Services — BD Use</span>
           <div>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
+            <Link href="mailto:khaalis.wooden@visionblox.com">Contact</Link>
           </div>
         </div>
       </footer>
