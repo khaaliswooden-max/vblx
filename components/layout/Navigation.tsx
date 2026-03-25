@@ -11,10 +11,10 @@ import { cn } from '@/lib/utils'
 // ─── Nav structure ────────────────────────────────────────────────────────────
 
 const TOP_LINKS = [
-  { label: 'Healthcare IT',         href: '/healthcare-it' },
-  { label: 'Critical Access Hospitals', href: '/cah' },
-  { label: 'About',                 href: '/about' },
-  { label: 'Past Performance',      href: '/pastperformance' },
+  { label: 'Healthcare IT', href: '/healthcare-it' },
+  { label: 'Legacy IT', href: '/legacy-it' },
+  { label: 'About', href: '/about' },
+  { label: 'Past Performance', href: '/pastperformance' },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
