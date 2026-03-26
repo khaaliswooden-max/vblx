@@ -27,15 +27,15 @@ export default function VisionbloxLogo({
   // ── Icon mark ─────────────────────────────────────────────────────────────
   const Mark = () => (
     <g>
-      {/* Purple — upper-left */}
-      <polygon points="5,85 5,35 48,10 91,35"       fill="#9070C4" />
-      <polygon points="91,35 91,85 48,110 5,85"      fill="#6448A0" />
-      {/* Salmon — upper-right */}
-      <polygon points="109,85 109,35 152,10 195,35"  fill="#F4A880" />
-      <polygon points="195,35 195,85 152,110 109,85" fill="#D87055" />
-      {/* Teal — bottom */}
-      <polygon points="57,125 100,100 143,125"                      fill="#35CC9A" />
-      <polygon points="57,125 57,175 100,200 143,175 143,125"       fill="#18A070" />
+      {/* Purple block — upper-left */}
+      <polygon points="37,0 111,0 76,63 0,63"        fill="#6456A2" />
+      <polygon points="0,63 76,63 111,130 37,130"     fill="#9182BC" />
+      {/* Salmon block — upper-right */}
+      <polygon points="143,0 218,0 181,65 107,65"     fill="#F8A98C" />
+      <polygon points="218,0 255,65 218,130 181,65"   fill="#F58D63" />
+      {/* Teal block — bottom */}
+      <polygon points="166,95 201,155 166,217 130,155" fill="#63C3A7" />
+      <polygon points="54,160 130,155 166,217 89,222"  fill="#1DB588" />
     </g>
   )
 
@@ -59,9 +59,9 @@ export default function VisionbloxLogo({
     const w = width ?? 40
     return (
       <svg
-        viewBox="0 0 200 210"
+        viewBox="0 0 256 224"
         width={w}
-        height={Math.round(w * 210 / 200)}
+        height={Math.round(w * 224 / 256)}
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         role="img"
@@ -78,18 +78,18 @@ export default function VisionbloxLogo({
     // Icon scaled ×0.25 → 50×52.5, centred in 58px height
     return (
       <svg
-        viewBox="0 0 320 58"
+        viewBox="0 0 340 60"
         width={w}
-        height={Math.round(w * 58 / 320)}
+        height={Math.round(w * 60 / 340)}
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-label="Visionblox"
       >
-        <g transform="translate(3,3) scale(0.25)">
+        <g transform="translate(2,2) scale(0.25)">
           <Mark />
         </g>
-        <Text x={62} y={41} size={32} />
+        <Text x={70} y={42} size={32} />
       </svg>
     )
   }
@@ -98,9 +98,9 @@ export default function VisionbloxLogo({
   const w = width ?? 160
   return (
     <svg
-      viewBox="0 0 200 280"
+      viewBox="0 0 256 300"
       width={w}
-      height={Math.round(w * 280 / 200)}
+      height={Math.round(w * 300 / 256)}
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
@@ -108,8 +108,8 @@ export default function VisionbloxLogo({
     >
       <Mark />
       <text
-        x="100"
-        y="258"
+        x="128"
+        y="272"
         textAnchor="middle"
         fontFamily="DM Sans, Instrument Sans, system-ui, sans-serif"
         fontSize="34"
