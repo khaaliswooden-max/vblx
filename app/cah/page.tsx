@@ -404,11 +404,11 @@ export default function CAHPage() {
             </p>
             <div className="flex flex-col gap-2 mb-8">
               <a
-                href="mailto:kwooden@visionblox.com"
+                href="mailto:khaalis.wooden@visionblox.com"
                 className="font-mono text-vbx-teal hover:text-vbx-white transition-colors"
                 style={{ fontSize: '0.9375rem' }}
               >
-                kwooden@visionblox.com
+                khaalis.wooden@visionblox.com
               </a>
               <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}>
                 CAGE: 9Z4X2&nbsp;&nbsp;|&nbsp;&nbsp;UEI: H4X2Z7R9E3E3
@@ -418,7 +418,7 @@ export default function CAHPage() {
               </p>
             </div>
             <a
-              href="mailto:kwooden@visionblox.com?subject=CAH%20Infrastructure%20Transformation"
+              href="mailto:khaalis.wooden@visionblox.com?subject=CAH%20Infrastructure%20Transformation"
               className="btn-gold"
             >
               REQUEST A BRIEFING
