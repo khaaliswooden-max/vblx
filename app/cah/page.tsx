@@ -380,12 +380,53 @@ export default function CAHPage() {
             <p className="font-mono text-vbx-teal mb-2" style={{ fontSize: '0.6875rem', letterSpacing: '0.1em' }}>
               PUBLISHED RESEARCH
             </p>
-            <p className="font-sans text-vbx-white mb-1" style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}>
-              &ldquo;Reimagining Critical Access Hospitals: A First-Principles Approach to Rural Healthcare Sustainability&rdquo;
+            <a
+              href="https://dx.doi.org/10.2139/ssrn.6470579"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-vbx-white mb-1 block hover:text-vbx-teal transition-colors"
+              style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}
+            >
+              &ldquo;GRHD: Get Rural Health Done&rdquo;
+            </a>
+            <p className="font-mono text-vbx-muted mb-3" style={{ fontSize: '0.75rem', letterSpacing: '0.04em' }}>
+              A.K. Wooden, Sr.&nbsp; · &nbsp;Visionblox LLC&nbsp; · &nbsp;SSRN Health Policy and Innovation Series, 2026
             </p>
-            <p className="font-mono text-vbx-muted" style={{ fontSize: '0.75rem', letterSpacing: '0.04em' }}>
-              A.K. Wooden&nbsp; · &nbsp;Visionblox LLC&nbsp; · &nbsp;SSRN Health Policy and Innovation Series, 2025
-            </p>
+            <div className="flex gap-3">
+              <a
+                href="https://dx.doi.org/10.2139/ssrn.6470579"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono"
+                style={{
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.08em',
+                  color: 'rgba(46,168,145,0.9)',
+                  border: '1px solid rgba(46,168,145,0.4)',
+                  padding: '4px 10px',
+                  borderRadius: '2px',
+                  textDecoration: 'none',
+                }}
+              >
+                VIEW PAPER →
+              </a>
+              <a
+                href="/GRHD_Paper.pdf"
+                download="GRHD_Paper.pdf"
+                className="font-mono"
+                style={{
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.08em',
+                  color: 'rgba(46,168,145,0.9)',
+                  border: '1px solid rgba(46,168,145,0.4)',
+                  padding: '4px 10px',
+                  borderRadius: '2px',
+                  textDecoration: 'none',
+                }}
+              >
+                DOWNLOAD PDF ↓
+              </a>
+            </div>
           </div>
         </div>
       </section>
