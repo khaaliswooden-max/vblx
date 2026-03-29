@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import VisionbloxLogo from '@/components/ui/VisionbloxLogo'
 
 const FULL_HEADLINE = 'Healthcare Data\nInfrastructure\nfor the Institutions\nThat Govern It.'
 
@@ -173,6 +174,7 @@ export default function Hero() {
 
           {/* Left — Text */}
           <div className="flex flex-col gap-8 pr-0 lg:pr-16">
+            <VisionbloxLogo variant="horizontal" width={200} textColor="#F5F5F0" />
             <TypewriterHeadline />
 
             <p className="font-sans text-vbx-muted" style={{ fontSize: '1.125rem', lineHeight: '1.7', maxWidth: '540px' }}>
