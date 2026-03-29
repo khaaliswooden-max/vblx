@@ -1,9 +1,19 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const FULL_HEADLINE = 'Healthcare Data\nInfrastructure\nfor the Institutions\nThat Govern It.'
+
+const SLIDES = [
+  '/slides/slide-1.png',
+  '/slides/slide-2.png',
+  '/slides/slide-3.png',
+  '/slides/slide-4.png',
+]
+const SLIDE_DURATION = 5000  // ms per slide
+const FADE_DURATION  = 1000  // ms crossfade
 
 function DataGridSVG() {
   return (
@@ -111,15 +121,54 @@ function TypewriterHeadline() {
 }
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReducedMotion(mq.matches)
+    if (mq.matches) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % SLIDES.length)
+    }, SLIDE_DURATION)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative min-h-screen bg-vbx-navy flex items-center overflow-hidden pt-20">
-      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40 pointer-events-none"/>
+
+      {/* Slideshow background */}
+      {SLIDES.map((src, i) => (
+        <Image
+          key={src}
+          src={src}
+          alt=""
+          fill
+          priority={i === 0}
+          className="object-cover"
+          style={{
+            zIndex: 0,
+            opacity: reducedMotion ? (i === 0 ? 1 : 0) : (i === currentIndex ? 1 : 0),
+            transition: `opacity ${FADE_DURATION}ms ease-in-out`,
+          }}
+          aria-hidden="true"
+        />
+      ))}
+
+      {/* Dark overlay for legibility */}
       <div
-        className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(46,168,145,0.07) 0%, transparent 70%)' }}
+        className="absolute inset-0"
+        style={{ background: 'rgba(35,45,90,0.65)', zIndex: 1 }}
       />
 
-      <div className="container-wide w-full">
+      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40 pointer-events-none" style={{ zIndex: 2 }}/>
+      <div
+        className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at center, rgba(46,168,145,0.07) 0%, transparent 70%)', zIndex: 2 }}
+      />
+
+      <div className="container-wide w-full relative" style={{ zIndex: 10 }}>
         <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 lg:gap-0 items-center min-h-[80vh] py-16">
 
           {/* Left — Text */}
@@ -156,7 +205,33 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 data-line"/>
+      {/* Slide indicators */}
+      {!reducedMotion && (
+        <div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2"
+          style={{ zIndex: 10 }}
+          aria-hidden="true"
+        >
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              style={{
+                width: i === currentIndex ? '24px' : '6px',
+                height: '6px',
+                borderRadius: '3px',
+                background: i === currentIndex ? '#2EA891' : 'rgba(46,168,145,0.35)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'width 300ms ease, background 300ms ease',
+                padding: 0,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      <div className="absolute bottom-0 left-0 right-0 data-line" style={{ zIndex: 10 }}/>
     </section>
   )
 }
