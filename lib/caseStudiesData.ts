@@ -98,7 +98,7 @@ export const kaiserVCareCase: CaseStudy = {
   heroImage: '/images/case-studies/kaiser-portal.jpg',
   summary: 'Deployed a secure patient portal serving 100,000+ daily users with Epic EMR integration, achieving 99.8% uptime SLA and transforming how patients access healthcare services.',
   challenge: 'West Coast Integrated Healthcare System needed a modern, secure patient portal capable of handling massive daily traffic while maintaining seamless integration with their Epic EMR system. The existing solution struggled with performance during peak hours and lacked mobile optimization.',
-  solution: `Visionblox architected and developed the VCare Patient Portal using Angular-based UI with Node.js APIs deployed as Docker containers on Cloud Foundry. The solution integrated:
+  solution: `Visionblox architected and developed the Patient Portal using Angular-based UI with Node.js APIs deployed as Docker containers on Cloud Foundry. The solution integrated:
 
 • Chatbot functionality for appointment scheduling
 • Google Maps integration for facility location

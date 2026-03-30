@@ -22,7 +22,7 @@ export const ENGAGEMENTS: Engagement[] = [
   {
     number: '01',
     client: 'Kaiser Permanente',
-    project: 'VCare Patient Portal - Digital Health Platform',
+    project: 'Patient Portal - Digital Health Platform',
     contractValue: '$1,200,000',
     period: '2019 - 2023',
     location: 'West Coast (on-site + remote)',
