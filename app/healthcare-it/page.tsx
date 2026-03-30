@@ -8,7 +8,7 @@ import Link from 'next/link'
 const ENGAGEMENTS = [
   {
     client: 'Kaiser Permanente',
-    project: 'VCare Patient Portal',
+    project: 'Patient Portal',
     relevance: '10 / 10',
     relevanceNote: 'PRIMARY FEDERAL REFERENCE',
     relevanceColor: '#F7B801',

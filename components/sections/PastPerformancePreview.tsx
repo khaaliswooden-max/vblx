@@ -6,7 +6,7 @@ import Link from 'next/link'
 const ENGAGEMENTS = [
   {
     client: 'KAISER PERMANENTE',
-    project: 'VCare Patient Portal',
+    project: 'Patient Portal',
     tags: 'Epic · HL7 · Cures Act · SSO · 99.8% SLA',
     score: '10/10',
   },
