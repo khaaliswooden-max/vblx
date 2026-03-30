@@ -49,12 +49,6 @@ const PROFILES: Profile[] = [
     linkedin: 'https://linkedin.com/in/antony-jayaraj',
   },
   {
-    name: 'Magesh Ramalingam',
-    title: 'FULL STACK TECH LEAD — HEALTHCARE SYSTEMS',
-    body: '20 years enterprise delivery. Healthcare-specific track record at Kaiser Permanente (Appointment Center, Node.js APIs on Cloud Foundry/Apigee, Section 508/ADA) and Cigna (millions of medical claims daily on AWS Batch/Lambda/Spark). The infrastructure and API lead for patient portal builds and claims pipeline architecture.',
-    certs: 'AWS Cloud Practitioner · AWS AI Practitioner · Section 508 delivery',
-  },
-  {
     name: 'Peter Jayaraj',
     title: 'DIRECTOR, SAP PRODUCTS',
     body: 'SAP S/4HANA and BTP Integration specialist. Multi-national deployment experience including enterprise cloud migration and B2B integrations. Available for healthcare ERP and financial system integration requirements where SAP infrastructure intersects with health agency operations.',

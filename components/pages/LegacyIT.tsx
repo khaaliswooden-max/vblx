@@ -53,11 +53,6 @@ const STAFF = [
     bio: 'CSM · 15+ years. On-site delivery at California DHCS MITA-compliant CFRS modernization. HL7 ETL, full patient portal, microservices architecture. Strongest credential for state Medicaid and CMS-adjacent scope.',
   },
   {
-    role: 'Full Stack Tech Lead // Enterprise Delivery',
-    name: 'Magesh Ramalingam',
-    bio: 'AWS Cloud & AI Practitioner · 20 years enterprise. Kaiser Permanente Appointment Center, Cigna claims processing (AWS Batch / Spark). Section 508/ADA delivery at scale. Available for T&M or FFP task orders.',
-  },
-  {
     role: 'CISO // Security & Compliance',
     name: 'Tony Paul',
     bio: 'CISA · CRISC · CISM · LA-ISO27001 · CSA STAR · PIMS (GDPR). 13 years information security. HITRUST framework assessments at global healthcare organizations. Discriminator on any RFP requiring credentialed security staff.',

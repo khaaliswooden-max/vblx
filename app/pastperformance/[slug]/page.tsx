@@ -47,7 +47,6 @@ export default function PastPerformanceDetailPage() {
       title: 'Program Lead',
     },
     metrics: [
-      { value: engagement.contractValue, label: 'Contract Value' },
       { value: `${engagement.federalRelevance}/10`, label: 'Federal Relevance' },
       { value: `${engagement.stack.length}`, label: 'Core Technologies' },
       { value: `${engagement.outcomes.length}`, label: 'Documented Outcomes' },

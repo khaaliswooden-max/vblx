@@ -150,7 +150,7 @@ export const kaiserVCareCase: CaseStudy = {
   publishedDate: '2023-12-15',
   featured: true,
   technologies: ['Angular', 'Node.js', 'Docker', 'Cloud Foundry', 'Apigee', 'Epic EMR', 'Kafka'],
-  teamLeads: ['Akil Chellam', 'Magesh Ramalingam'],
+  teamLeads: ['Akil Chellam'],
   year: '2023',
   value: '$1.2M',
 }
@@ -668,7 +668,7 @@ export const voyaPortalCase: CaseStudy = {
   publishedDate: '2023-08-15',
   featured: false,
   technologies: ['WebSphere Portal 8.5', 'Aurelia', 'C3.js', 'RESTful Services'],
-  teamLeads: ['Magesh Ramalingam'],
+  teamLeads: ['Akil Chellam'],
   year: '2015-2023',
   value: '$2.2M',
 }
@@ -1100,7 +1100,7 @@ export const lowesEmployeeCase: CaseStudy = {
   publishedDate: '2015-06-15',
   featured: false,
   technologies: ['WebSphere Portal', 'Siebel', 'Sterling Commerce', 'Outlook', 'Bunchball'],
-  teamLeads: ['Magesh Ramalingam'],
+  teamLeads: ['Akil Chellam'],
   year: '2009-2015',
   value: '$1.4M',
 }
@@ -1161,7 +1161,7 @@ export const tescoProductCase: CaseStudy = {
   publishedDate: '2009-05-15',
   featured: false,
   technologies: ['.NET Compact Framework', 'Web Services', 'SQL Server', 'Clear Case'],
-  teamLeads: ['Magesh Ramalingam'],
+  teamLeads: ['Akil Chellam'],
   year: '2007-2009',
   value: '$950K',
 }
@@ -1285,7 +1285,7 @@ export const cignaRebateCase: CaseStudy = {
   publishedDate: '2024-03-15',
   featured: false,
   technologies: ['AWS Batch', 'Lambda', 'Fargate', 'EMR', 'Apache Spark', 'Spring Boot'],
-  teamLeads: ['Magesh Ramalingam'],
+  teamLeads: ['Akil Chellam'],
   year: '2023-2024',
   value: '$1.8M',
 }
@@ -1347,7 +1347,7 @@ export const nylMobileCase: CaseStudy = {
   publishedDate: '2024-05-15',
   featured: false,
   technologies: ['Spring Boot', 'Google Firebase', 'Mobile APIs', 'Enterprise Services'],
-  teamLeads: ['Magesh Ramalingam'],
+  teamLeads: ['Akil Chellam'],
   year: '2023-2024',
   value: '$1.3M',
 }

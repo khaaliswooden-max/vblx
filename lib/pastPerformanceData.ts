@@ -29,7 +29,6 @@ export const ENGAGEMENTS: Engagement[] = [
     federalRelevance: 10,
     personnel: [
       'Akil R. Chellam (TPO / Architect)',
-      'Magesh Ramalingam (Technical Architect)',
     ],
     stack: [
       'Epic HealthConnect', 'SOAP/REST', 'Kafka', 'AEM 6.5',
@@ -106,7 +105,7 @@ export const ENGAGEMENTS: Engagement[] = [
     period: 'TBD',
     location: 'Remote',
     federalRelevance: 8,
-    personnel: ['Magesh Ramalingam (Tech Lead)'],
+    personnel: ['Akil R. Chellam (Tech Lead)'],
     stack: [
       'AWS Batch', 'Lambda', 'Fargate', 'EMR',
       'Apache Spark', 'Spring Boot', 'Serverless Architecture',
