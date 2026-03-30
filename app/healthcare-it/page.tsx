@@ -66,7 +66,7 @@ const ENGAGEMENTS = [
 
 const CAPABILITIES = [
   { capability: 'Epic EMR Integration',             depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
-  { capability: 'HL7 Data Processing (ETL)',         depth: 'Direct delivery',                      personnel: 'Saravanan Swaminathan' },
+  { capability: 'HL7 Data Processing (ETL)',         depth: 'Direct delivery',                      personnel: 'Saravanan · Antony' },
   { capability: 'Patient Portal Architecture',       depth: '3 projects delivered',                 personnel: 'Akil · Saravanan' },
   { capability: 'MITA-Compliant System Design',      depth: 'Direct delivery',                      personnel: 'Saravanan Swaminathan' },
   { capability: 'Medicaid Legacy Modernization',     depth: 'Direct delivery',                      personnel: 'Saravanan Swaminathan' },
