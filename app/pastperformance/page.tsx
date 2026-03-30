@@ -90,19 +90,6 @@ function EngagementRow({ eng }: { eng: Engagement }) {
           {eng.project}
         </p>
 
-        {/* Data fields row */}
-        <div className="flex flex-wrap gap-x-6 gap-y-1 mb-3">
-          <p className="font-mono text-vbx-muted" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
-            CONTRACT VALUE&nbsp;&nbsp;//&nbsp;&nbsp;<span className="text-vbx-white">{eng.contractValue}</span>
-          </p>
-          <p className="font-mono text-vbx-muted" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
-            PERIOD&nbsp;&nbsp;//&nbsp;&nbsp;<span className="text-vbx-white">{eng.period}</span>
-          </p>
-          <p className="font-mono text-vbx-muted" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
-            LOCATION&nbsp;&nbsp;//&nbsp;&nbsp;<span className="text-vbx-white">{eng.location}</span>
-          </p>
-        </div>
-
         <p className="font-mono mb-4" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
           FEDERAL RELEVANCE SCORE:&nbsp;
           <span style={{ color: relevanceColor, fontSize: '0.9rem' }}>

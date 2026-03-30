@@ -9,8 +9,6 @@ const ENGAGEMENTS = [
   {
     client: 'Kaiser Permanente',
     project: 'VCare Patient Portal',
-    value: '$1,200,000',
-    period: '2023',
     relevance: '10 / 10',
     relevanceNote: 'PRIMARY FEDERAL REFERENCE',
     relevanceColor: '#F7B801',
@@ -26,8 +24,6 @@ const ENGAGEMENTS = [
     client: 'California DHCS',
     clientSuffix: '// State Medicaid Authority',
     project: 'Cost & Finance Reporting System (CFRS)',
-    value: '$2,100,000',
-    period: '2022',
     relevance: '10 / 10',
     relevanceNote: 'MITA-COMPLIANT // CMS-ADJACENT',
     relevanceColor: '#F7B801',
@@ -42,8 +38,6 @@ const ENGAGEMENTS = [
   {
     client: 'VCare Urgent Care',
     project: 'Patient & Provider Portal',
-    value: 'TCV PENDING DOCUMENTATION',
-    period: '',
     relevance: '9 / 10',
     relevanceNote: 'HL7/FHIR DISCRIMINATOR',
     relevanceColor: '#2EA891',
@@ -57,8 +51,6 @@ const ENGAGEMENTS = [
   {
     client: 'Cigna',
     project: 'Manufacturer Rebate Sharing // Claims Processing',
-    value: 'TCV PENDING DOCUMENTATION',
-    period: '',
     relevance: '8 / 10',
     relevanceNote: 'CLAIMS SCALE // CMS-ANALOGOUS',
     relevanceColor: '#2EA891',
@@ -75,16 +67,16 @@ const ENGAGEMENTS = [
 const CAPABILITIES = [
   { capability: 'Epic EMR Integration',             depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
   { capability: 'HL7 Data Processing (ETL)',         depth: 'Direct delivery',                      personnel: 'Saravanan Swaminathan' },
-  { capability: 'Patient Portal Architecture',       depth: '3 projects delivered',                 personnel: 'Akil · Saravanan · Magesh' },
+  { capability: 'Patient Portal Architecture',       depth: '3 projects delivered',                 personnel: 'Akil · Saravanan' },
   { capability: 'MITA-Compliant System Design',      depth: 'Direct delivery',                      personnel: 'Saravanan Swaminathan' },
   { capability: 'Medicaid Legacy Modernization',     depth: 'Direct delivery',                      personnel: 'Saravanan Swaminathan' },
   { capability: 'Healthcare AI / OCR / NLP',         depth: 'Quantified outcome — 96% accuracy',   personnel: 'Antony Jayaraj' },
-  { capability: 'Claims Processing at Scale',        depth: 'Direct delivery — millions/day',       personnel: 'Magesh Ramalingam' },
-  { capability: 'Healthcare Cloud Architecture',     depth: 'Direct delivery — AWS',                personnel: 'Magesh · Saravanan' },
+  { capability: 'Claims Processing at Scale',        depth: 'Direct delivery — millions/day',       personnel: 'Akil Chellam' },
+  { capability: 'Healthcare Cloud Architecture',     depth: 'Direct delivery — AWS',                personnel: 'Akil · Saravanan' },
   { capability: 'Cures Act / Information Blocking',  depth: 'Direct compliance delivery',           personnel: 'Akil Chellam' },
   { capability: 'HIPAA Security & HITRUST Audits',   depth: '13 years documented',                  personnel: 'Tony Paul' },
-  { capability: 'Section 508 / ADA Accessibility',   depth: 'Direct delivery',                      personnel: 'Magesh Ramalingam' },
-  { capability: 'Telehealth / eVisit Platforms',     depth: 'Direct delivery',                      personnel: 'Magesh Ramalingam' },
+  { capability: 'Section 508 / ADA Accessibility',   depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
+  { capability: 'Telehealth / eVisit Platforms',     depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
 ]
 
 // ─── Personnel Data ───────────────────────────────────────────────────────────
@@ -101,12 +93,6 @@ const TEAM = [
     title: 'Senior Solution Architect',
     bio: 'On-site delivery at California DHCS, the state Medicaid authority, for the MITA-compliant CFRS modernization. Built HL7 ETL pipelines and a full patient/provider portal on microservices. VBX\'s strongest credential for state Medicaid and CMS-adjacent opportunities.',
     certs: 'Certified Scrum Master (CSM) · Deep .NET / SQL Server / Azure',
-  },
-  {
-    name: 'Magesh Ramalingam',
-    title: 'Full Stack Tech Lead',
-    bio: '20 years of enterprise delivery. KP Appointment Center (Node.js / Cloud Foundry / Apigee) and Cigna claims processing (AWS Batch / Lambda / Spark). Section 508/ADA delivery experience at scale.',
-    certs: 'AWS Cloud Practitioner · AWS AI Practitioner',
   },
   {
     name: 'Tony Paul',
@@ -264,13 +250,6 @@ export default function HealthcareITPage() {
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mb-4">
                     <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">PROJECT</span>
                     <span className="font-sans text-vbx-white text-sm">{eng.project}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-x-6 gap-y-1 mb-4">
-                    <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">VALUE</span>
-                    <span className="font-mono text-vbx-white text-sm">
-                      {eng.value}
-                      {eng.period && <span className="text-vbx-muted ml-2">{'// '}{eng.period}</span>}
-                    </span>
                   </div>
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mb-6">
                     <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">RELEVANCE</span>
