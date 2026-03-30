@@ -48,18 +48,6 @@ const ENGAGEMENTS = [
       'HL7/FHIR fluency is a mandatory technical discriminator on federal healthcare IT RFPs.',
     ],
   },
-  {
-    client: 'Cigna',
-    project: 'Manufacturer Rebate Sharing // Claims Processing',
-    relevance: '8 / 10',
-    relevanceNote: 'CLAIMS SCALE // CMS-ANALOGOUS',
-    relevanceColor: '#2EA891',
-    technologies: ['AWS Batch', 'Lambda', 'Fargate', 'EMR', 'Apache Spark', 'Spring Boot'],
-    outcomes: [
-      'Millions of medical claims processed daily via cloud-native serverless pipeline.',
-      'Architecture directly analogous to CMS/Medicare claims processing and VA payment system modernization.',
-    ],
-  },
 ]
 
 // ─── Capability Matrix Data ───────────────────────────────────────────────────
