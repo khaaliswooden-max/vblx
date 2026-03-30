@@ -16,7 +16,7 @@ export default function MissionBlock() {
             institution need to see? From there, we build the integration layer, the
             compliance architecture, and the data pipelines that make the answer
             visible. We have done this at Kaiser Permanente, at California DHCS,
-            and at Cigna. We are prepared to do it for the federal agencies and state
+            We are prepared to do it for the federal agencies and state
             authorities that govern American healthcare.
           </p>
         </div>

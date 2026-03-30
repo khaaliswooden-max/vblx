@@ -116,7 +116,7 @@ const DOMAINS = [
     number: '05',
     category: 'CLAIMS & PAYER SYSTEMS',
     headline: 'Claims Processing Infrastructure',
-    body: 'Cloud-native claims processing pipelines at payer scale — millions of medical claims per day, delivered at Cigna using AWS Batch, Lambda, Fargate, and Apache Spark. Architecture directly analogous to CMS/Medicare claims processing and VA payment system modernization. The technical template exists. It has been run in production.',
+    body: 'Cloud-native claims processing pipelines at payer scale — millions of medical claims per day using AWS Batch, Lambda, Fargate, and Apache Spark. Architecture directly analogous to CMS/Medicare claims processing and VA payment system modernization. The technical template exists. It has been run in production.',
     cards: [
       {
         tag: 'CLAIMS PROCESSING',

@@ -1228,68 +1228,6 @@ export const hcpssEducationCase: CaseStudy = {
   value: '$1.2M',
 }
 
-export const cignaRebateCase: CaseStudy = {
-  id: 'cigna-rebate-sharing',
-  title: 'Healthcare Insurer Manufacturer Rebate Sharing Platform',
-  subtitle: 'Millions of Medical Claims Processed Daily',
-  client: 'Healthcare Insurer',
-  industry: 'Healthcare',
-  industryId: 'healthcare',
-  serviceCategory: 'operations',
-  products: ['Pro-Biz', 'Pro-Ticket'],
-  heroImage: '/images/case-studies/cigna-rebate.jpg',
-  summary: 'Designed and built cross-functional solutions processing millions of medical claims daily using AWS services including Batch, Lambda, Fargate, and EMR with Apache Spark.',
-  challenge: 'A healthcare insurer needed a scalable platform to process manufacturer rebate sharing across millions of daily medical claims, requiring complex calculations and cross-functional coordination.',
-  solution: `Visionblox designed solutions leveraging AWS services:
-
-• AWS Batch, Lambda, Fargate, and EMR
-• Optimal service selection for each business use case
-• Large-scale Spring Boot applications in Apache Spark
-• Complex rebate calculation processing`,
-  implementation: `Platform development over 18 months:
-
-**Phase 1: Architecture**
-• AWS service selection
-• Processing pipeline design
-
-**Phase 2: Development**
-• Spark applications
-• Batch processing
-
-**Phase 3: Scale**
-• Performance optimization
-• Volume testing`,
-  results: `Claims processing transformed:
-
-**Scale Achieved**
-• Millions of daily claims processed
-• AWS native architecture
-
-**Processing Power**
-• Spark-based calculations
-• End-to-end automation`,
-  metrics: [
-    { value: 'Millions', label: 'Daily Claims', description: 'Processing volume' },
-    { value: 'AWS Native', label: 'Architecture', description: 'Batch, Lambda, Fargate, EMR' },
-    { value: 'Spark', label: 'Processing', description: 'Large-scale calculations' },
-    { value: 'Cross-Func', label: 'Solution', description: 'End-to-end automation' },
-  ],
-  quote: {
-    text: 'The rebate platform processes at a scale we never thought possible. AWS and Spark have been game-changers.',
-    author: 'VP of Technology',
-    title: 'Healthcare Insurer',
-  },
-  tags: ['Healthcare', 'AWS', 'Big Data', 'Spark', 'Claims Processing'],
-  duration: '18 months implementation',
-  teamSize: '6 Visionblox consultants',
-  publishedDate: '2024-03-15',
-  featured: false,
-  technologies: ['AWS Batch', 'Lambda', 'Fargate', 'EMR', 'Apache Spark', 'Spring Boot'],
-  teamLeads: ['Akil Chellam'],
-  year: '2023-2024',
-  value: '$1.8M',
-}
-
 export const nylMobileCase: CaseStudy = {
   id: 'new-york-life-mobile',
   title: 'Life Insurance Company Mobile App Payment Features',
@@ -1488,7 +1426,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   strakeAviationCase,
   // Portfolio case studies - Healthcare
   vcareUrgentCareCase,
-  cignaRebateCase,
+
   globalHealthcareHitrustCase,
   // Portfolio case studies - Technology
   sapLabsProcurementCase,

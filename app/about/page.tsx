@@ -176,7 +176,7 @@ export default function AboutPage() {
             healthcare IT infrastructure — patient portal systems, Medicaid modernization, EMR
             integration, healthcare AI, and compliance architecture for federal agencies and state
             health authorities. Our team has delivered $3.3M in documented healthcare IT
-            engagements at Kaiser Permanente, California DHCS, VCare Urgent Care, and Cigna.
+            engagements at Kaiser Permanente, California DHCS, and VCare Urgent Care.
           </p>
           <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
             CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;GSA MAS

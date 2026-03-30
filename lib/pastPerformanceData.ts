@@ -94,30 +94,6 @@ export const ENGAGEMENTS: Engagement[] = [
   },
   {
     number: '04',
-    client: 'Cigna',
-    project: 'Manufacturer Rebate Sharing / Claims Processing Pipeline',
-    contractValue: 'TCV PENDING DOCUMENTATION',
-    period: 'TBD',
-    location: 'Remote',
-    federalRelevance: 8,
-    personnel: ['Akil R. Chellam (Tech Lead)'],
-    stack: [
-      'AWS Batch', 'Lambda', 'Fargate', 'EMR',
-      'Apache Spark', 'Spring Boot', 'Serverless Architecture',
-    ],
-    outcomes: [
-      'Millions of medical claims processed daily via cloud-native pipeline',
-      'Cross-functional rebate sharing solution for complex calculations at payer scale',
-      'Full serverless/cloud-native architecture: Batch, Lambda, Fargate, EMR',
-      'Apache Spark for large-scale claims processing and calculation workflows',
-    ],
-    federalApplicability:
-      'Payer-side healthcare infrastructure at this scale is directly analogous to CMS/Medicare claims processing at HHS, VA payment systems, and TRICARE claims adjudication. The architectural pattern has been validated in production at commercial payer scale.',
-
-    slug: 'cigna-rebate-sharing',
-  },
-  {
-    number: '05',
     client: 'Global Healthcare Organization (via Wipro)',
     project: 'HITRUST Security Assessment Program',
     contractValue: 'CONFIDENTIAL',
