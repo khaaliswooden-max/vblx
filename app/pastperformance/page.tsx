@@ -2,42 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { ENGAGEMENTS, getFederalRelevanceColor, type CitationStatus, type Engagement } from '@/lib/pastPerformanceData'
-
-// ─── Citation Badge ───────────────────────────────────────────────────────────
-
-function CitationBadge({ citation }: { citation: CitationStatus }) {
-  if (citation.type === 'citable') {
-    return (
-      <span
-        className="font-mono inline-block px-3 py-1"
-        style={{
-          background: '#2EA891',
-          color: '#0E1226',
-          fontSize: '0.6875rem',
-          letterSpacing: '0.08em',
-          borderRadius: '2px',
-        }}
-      >
-        {citation.label}
-      </span>
-    )
-  }
-  return (
-    <span
-      className="font-mono inline-block px-3 py-1"
-      style={{
-        background: '#F7B801',
-        color: '#0E1226',
-        fontSize: '0.6875rem',
-        letterSpacing: '0.08em',
-        borderRadius: '2px',
-      }}
-    >
-      {citation.label}
-    </span>
-  )
-}
+import { ENGAGEMENTS, getFederalRelevanceColor, type Engagement } from '@/lib/pastPerformanceData'
 
 // ─── Engagement Row ───────────────────────────────────────────────────────────
 
@@ -143,14 +108,8 @@ function EngagementRow({ eng }: { eng: Engagement }) {
           </p>
         </div>
 
-        {/* Citation + link */}
+        {/* Link */}
         <div className="flex flex-wrap items-center gap-4">
-          <div>
-            <p className="font-mono text-vbx-muted mb-1.5 tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
-              PROPOSAL CITATION STATUS
-            </p>
-            <CitationBadge citation={eng.citation} />
-          </div>
           <Link
             href={`/pastperformance/${eng.slug}`}
             className="font-mono text-vbx-teal hover:text-vbx-white transition-colors self-end"

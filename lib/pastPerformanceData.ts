@@ -1,7 +1,3 @@
-export type CitationStatus =
-  | { type: 'citable'; label: string }
-  | { type: 'pending'; label: string }
-
 export interface Engagement {
   number: string
   client: string
@@ -14,7 +10,6 @@ export interface Engagement {
   stack: string[]
   outcomes: string[]
   federalApplicability: string
-  citation: CitationStatus
   slug: string
 }
 
@@ -44,7 +39,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Epic HealthConnect integration, Cures Act compliance, and 99.8% uptime at 100K+ daily users map directly to VA OIT, HHS, and state Medicaid RFP evaluation criteria. Primary citable reference for any federal RFP requiring EMR integration experience.',
-    citation: { type: 'citable', label: 'CITABLE // $1.2M VERIFIED' },
+
     slug: 'kaiser-vcare-portal',
   },
   {
@@ -70,7 +65,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'MITA compliance is the CMS federal architectural standard for all state Medicaid agencies. This engagement demonstrates adherence to the federal CMS framework - not merely state government experience. Directly maps to CMS, HHS, HRSA, and any state Medicaid modernization procurement evaluation.',
-    citation: { type: 'citable', label: 'CITABLE // $2.1M VERIFIED' },
+
     slug: 'ca-dhcs-medicaid',
   },
   {
@@ -94,7 +89,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'HL7 ETL experience is directly applicable to VA Cerner/Oracle Health migrations, HHS FHIR API requirements, and any RFP involving EMR data interoperability. HL7/FHIR fluency is a mandatory technical discriminator on federal healthcare IT RFPs.',
-    citation: { type: 'pending', label: 'TCV PENDING DOCUMENTATION' },
+
     slug: 'vcare-urgent-care',
   },
   {
@@ -118,7 +113,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Payer-side healthcare infrastructure at this scale is directly analogous to CMS/Medicare claims processing at HHS, VA payment systems, and TRICARE claims adjudication. The architectural pattern has been validated in production at commercial payer scale.',
-    citation: { type: 'pending', label: 'TCV PENDING DOCUMENTATION' },
+
     slug: 'cigna-rebate-sharing',
   },
   {
@@ -142,7 +137,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       "HITRUST framework experience is a genuine technical discriminator against firms that cite HIPAA without credentialed audit personnel on staff. Tony Paul's CISA, CRISC, CISM, and HITRUST credentials apply directly to VA, HHS, and CMS security volume evaluations. HIPAA compliance attestation is supported by demonstrated HITRUST audit execution - not self-certification.",
-    citation: { type: 'citable', label: 'CITABLE // PERSONNEL RECORD' },
+
     slug: 'global-healthcare-hitrust',
   },
 ]
