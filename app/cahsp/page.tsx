@@ -513,10 +513,12 @@ export default function CAHSPPage() {
         <section style={sectionStyle} id="part3">
           <span style={sectionLabel}>Part III — Problem Taxonomy</span>
           <h2 style={h2Style}>The 5 Problem Classes CAHSP Must Solve</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 20, margin: '28px 0' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: 20, margin: '28px 0' }}>
             <ProblemCard catLabel="CLASS 1" title="Financial Structure Prediction" analog="Template-Based Modeling (TBM)." targets={['Operating margin optimization', 'Denial-rate reduction', 'Labor-cost ratio optimization']} source="CMS HCRIS / MBQIP" />
             <ProblemCard catLabel="CLASS 2" title="Clinical Quality Optimization" analog="TBM with high accuracy targets." targets={['Readmission reduction', 'Transfer optimization', 'HCAHPS improvement']} source="MBQIP / CMS Hospital Compare" />
             <ProblemCard catLabel="CLASS 3" catBg={C.teal} title="Operational Architecture (Novel)" analog="Free Modeling (FM)." targets={['AI-native triage', 'Federated RCM intelligence', 'Dynamic swing-bed optimization']} source="Prospective pilot measurement" />
+            <ProblemCard catLabel="CLASS 4" catBg="#8e44ad" title="Workforce & Staffing Architecture" analog="Protein complex / oligomer prediction. Multiple interacting agents with interdependent constraints — the hardest structural class." targets={['Travel nurse dependency reduction while maintaining 24/7 coverage under 80–120 FTE cap', 'Tele-specialist coverage optimization: specialty access without permanent hire', 'Burn-out index minimization via predictive scheduling under rural geographic constraints', 'Pipeline modeling: HRSA NHSC and rural health scholar pipeline to 5-year staffing adequacy']} source="HRSA Area Health Resources Files, Flex Monitoring Team workforce data" />
+            <ProblemCard catLabel="CLASS 5" catBg={C.red} title="Solution Confidence Estimation (CAHSP-C)" analog="Estimation of Model Accuracy (EMA). AlphaFold 2's pLDDT score — knowing where it was uncertain — was as important as the prediction itself." targets={['Per-intervention confidence index: probability that predicted financial impact is within ±15% of actual', 'Transferability index: probability that intervention effect from peer CAH applies to target CAH', 'Payer-mix sensitivity score: outcome degradation under a 10% Medicaid shift', 'Implementation failure mode map: what breaks first, under what conditions, at what probability']} source="Monte Carlo simulation against HCRIS variance; prospective pilot tracking" />
           </div>
         </section>
 
