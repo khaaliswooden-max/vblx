@@ -446,7 +446,7 @@ export default function CAHSPPage() {
         <div style={{ position: 'absolute', top: -80, right: -80, width: 400, height: 400, border: '1px solid rgba(46,168,145,0.2)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: -120, left: '30%', width: 600, height: 300, border: '1px solid rgba(247,184,1,0.1)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.15em', color: C.teal, textTransform: 'uppercase', marginBottom: 18 }}>Visionblox LLC · Zuup Innovation Lab · CAH Transformation Engine</div>
+          <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.15em', color: C.teal, textTransform: 'uppercase', marginBottom: 18 }}>Visionblox LLC · <a href="https://zuup.org" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Zuup Innovation Lab</a> · CAH Transformation Engine</div>
           <h1 style={{ fontFamily: SERIF, fontSize: 52, fontWeight: 900, lineHeight: 1.1, marginBottom: 12 }}>
             <span style={{ color: C.gold }}>CAHSP</span>
             <br />
@@ -590,7 +590,7 @@ Dual mandate constraint: FI and QI floors required`}</MathBlock>
           <div>Critical Assessment of Hospital Sustainability &amp; Performance</div>
         </div>
         <div style={{ textAlign: 'right' }}>
-          <strong style={{ color: 'white' }}>Visionblox LLC · Zuup Innovation Lab</strong>
+          <strong style={{ color: 'white' }}>Visionblox LLC · <a href="https://zuup.org" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Zuup Innovation Lab</a></strong>
           <br />
           CAH Transformation Engine · March 2026
           <br />
