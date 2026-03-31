@@ -148,6 +148,16 @@ export default function PastPerformancePage() {
             Delivery depth, technical stack, quantified outcomes, and federal relevance scoring are
             provided for every engagement.
           </p>
+          <div className="mb-8">
+            <a
+              href="/CapStatement_Visionblox_HC_v2.pdf"
+              download
+              className="btn-teal-outline inline-flex items-center gap-2"
+              style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
+            >
+              ↓ DOWNLOAD CAPABILITY STATEMENT
+            </a>
+          </div>
           <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
             CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;HIPAA COMPLIANT
           </p>
