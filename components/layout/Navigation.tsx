@@ -17,6 +17,7 @@ const TOP_LINKS = [
   { label: 'CAH', href: '/cah' },
   { label: 'CAHSP', href: '/cahsp' },
   { label: 'IT Services', href: '/legacy-it' },
+  { label: 'BPMS', href: '/bpms' },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
