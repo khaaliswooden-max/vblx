@@ -173,7 +173,7 @@ export default function BPMSPage() {
 
           <p style={{ fontSize: '1.3rem', fontWeight: 300, lineHeight: 1.7, color: '#1C1C1C', maxWidth: 720 }}>
             The BPMS covers the problems that own the budget and the bid requirements but never make the keynote —{' '}
-            <strong style={{ fontWeight: 500, color: '#232D5A' }}>the annual cost report nobody reads until the facility is six weeks from closure, the ABAP remediation scope that was never honestly defined before the SOW was signed, the CUI boundary that was drawn wrong and hasn't been touched since.</strong>
+            <strong style={{ fontWeight: 500, color: '#232D5A' }}>the annual cost report nobody reads until the facility is six weeks from closure, the ABAP remediation scope that was never honestly defined before the SOW was signed, the CUI boundary that was drawn wrong and hasn&apos;t been touched since.</strong>
           </p>
 
           <p style={{ fontSize: '1rem', lineHeight: 1.75, color: '#5A5A5A', maxWidth: 700, marginTop: '1.5rem' }}>
