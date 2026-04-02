@@ -22,12 +22,6 @@ const ENGAGEMENTS = [
     tags: 'HL7 ETL · Microservices · AWS · PHI',
     score: '9/10',
   },
-  {
-    client: 'CIGNA',
-    project: 'Manufacturer Rebate Sharing // Claims Processing',
-    tags: 'AWS Batch · Spark · Lambda · Claims Scale',
-    score: '8/10',
-  },
 ]
 
 export default function PastPerformancePreview() {
