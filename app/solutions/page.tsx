@@ -126,7 +126,7 @@ const DOMAINS = [
         href: '/services/cloud-technology',
       },
     ],
-    ppRef: '// DELIVERED: CIGNA CLAIMS PROCESSING · TCV PENDING DOCUMENTATION · FEDERAL RELEVANCE: 8/10',
+    ppRef: '',
   },
 ]
 
