@@ -455,7 +455,7 @@ export default function CAHSPPage() {
             Sustainability &amp; Performance
           </h1>
           <p style={{ fontSize: 18, fontWeight: 300, color: 'rgba(255,255,255,0.75)', maxWidth: 680, marginBottom: 36, lineHeight: 1.6 }}>
-            The CAH-equivalent of CASP — a structured, empirical benchmark for evaluating computational solutions to the dual mandate of ≥5% annual operating margin growth and highest achievable patient care quality across all 1,355+ Critical Access Hospitals.
+            The CAH-equivalent of CASP — a structured, empirical benchmark for evaluating computational solutions to the dual mandate of ≥5% annual operating margin growth and highest achievable patient care quality across all 1,377 Critical Access Hospitals.
           </p>
         </div>
       </header>
@@ -578,7 +578,7 @@ Dual mandate constraint: FI and QI floors required`}</MathBlock>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16, margin: '28px 0' }}>
             <StatTile bg={C.navy} value="5" label="Problem Classes" />
             <StatTile bg={C.teal} value="85" label="Breakthrough Score" />
-            <StatTile bg="white" value="1,355+" label="Target CAHs" color={C.navy} borderColor={C.border} />
+            <StatTile bg="white" value="1,377" label="Target CAHs" color={C.navy} borderColor={C.border} />
             <StatTile bg={C.gold} value="24mo" label="Validation Window" color={C.charcoal} />
           </div>
         </section>
