@@ -96,6 +96,7 @@ function AnimatedCounter({
 }
 
 // ─── Proof Bar Stats ──────────────────────────────────────────────────────────
+// Source: CMS Provider of Services (POS) file, FY2024
 
 const PROOF_STATS = [
   { end: 1377,  prefix: '',   suffix: '',    decimals: 0, label: 'CAHs in scope',                         gold: false },

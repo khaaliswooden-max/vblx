@@ -16,6 +16,7 @@ const TOP_LINKS = [
   { label: 'Past Performance', href: '/pastperformance' },
   { label: 'CAH', href: '/cah' },
   { label: 'CAHSP', href: '/cahsp' },
+  { label: 'Dashboard', href: '/dashboard' },
   { label: 'IT Services', href: '/legacy-it' },
   { label: 'BPMS', href: '/bpms' },
 ]
