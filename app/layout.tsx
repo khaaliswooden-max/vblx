@@ -4,6 +4,7 @@ import SiteChrome from '@/components/layout/SiteChrome'
 import { GoogleAnalytics } from '@/components/analytics'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://visionblox.org'),
   title: 'Visionblox | Healthcare Data Infrastructure',
   description: 'Healthcare data infrastructure for the institutions that govern it. Epic EMR, MITA-compliant Medicaid systems, and federal-ready AI pipelines.',
   keywords: ['healthcare IT', 'Epic EMR', 'MITA', 'HIPAA', 'Medicaid modernization', 'federal healthcare', 'HL7', 'FHIR'],
@@ -11,14 +12,24 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Visionblox | Healthcare Data Infrastructure',
     description: 'Healthcare data infrastructure for the institutions that govern it.',
+    url: 'https://visionblox.org',
     type: 'website',
     locale: 'en_US',
     siteName: 'Visionblox',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Visionblox — Healthcare Data Infrastructure',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Visionblox | Healthcare Data Infrastructure',
     description: 'Healthcare data infrastructure for the institutions that govern it.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
