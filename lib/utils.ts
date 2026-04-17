@@ -33,7 +33,7 @@ export const COMPANY = {
     { city: 'Chennai', country: 'India', type: 'Office' },
   ],
   contact: {
-    name: 'Khaalis Wooden',
+    name: 'Khaalis Wooden, MBA',
     title: 'Director of Enterprise Capture & Compliance',
     email: 'khaalis.wooden@visionblox.com',
     phone: '+1 (210) 429-4227',

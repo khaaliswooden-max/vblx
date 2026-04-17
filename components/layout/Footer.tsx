@@ -61,7 +61,7 @@ export default function Footer() {
             <h4 className="font-mono text-xs text-vbx-muted uppercase tracking-[0.12em] mb-6">
               Point of Contact
             </h4>
-            <p className="text-vbx-white font-sans font-medium mb-1">Khaalis Wooden</p>
+            <p className="text-vbx-white font-sans font-medium mb-1">Khaalis Wooden, MBA</p>
             <p className="text-vbx-muted font-sans text-sm mb-5 leading-snug">
               Director of Enterprise Capture &amp; Compliance
             </p>
