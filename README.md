@@ -240,7 +240,7 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 
 ## Contact
 
-**Khaalis Wooden** — Director of Enterprise Capture & Compliance
+**Khaalis Wooden, MBA** — Director of Enterprise Capture & Compliance
 
 - Email: [khaalis.wooden@visionblox.com](mailto:khaalis.wooden@visionblox.com)
 - Phone: +1 (210) 429-4227

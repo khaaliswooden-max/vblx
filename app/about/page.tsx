@@ -451,7 +451,7 @@ export default function AboutPage() {
               </Link>
             </div>
             <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}>
-              KHAALIS WOODEN&nbsp;&nbsp;//&nbsp;&nbsp;(256) 988-1130&nbsp;&nbsp;//&nbsp;&nbsp;KHAALIS.WOODEN@VISIONBLOX.COM
+              KHAALIS WOODEN, MBA&nbsp;&nbsp;//&nbsp;&nbsp;(256) 988-1130&nbsp;&nbsp;//&nbsp;&nbsp;KHAALIS.WOODEN@VISIONBLOX.COM
             </p>
           </div>
           <div className="data-line mt-16" />
