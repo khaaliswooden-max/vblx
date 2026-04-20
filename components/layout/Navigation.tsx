@@ -15,7 +15,6 @@ const TOP_LINKS = [
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Past Performance', href: '/pastperformance' },
   { label: 'IT Services', href: '/legacy-it' },
-  { label: 'BPMS', href: '/bpms' },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
