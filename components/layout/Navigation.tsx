@@ -14,8 +14,6 @@ const TOP_LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Past Performance', href: '/pastperformance' },
-  { label: 'CAH', href: '/cah' },
-  { label: 'CAHSP', href: '/cahsp' },
   { label: 'IT Services', href: '/legacy-it' },
   { label: 'BPMS', href: '/bpms' },
 ]
