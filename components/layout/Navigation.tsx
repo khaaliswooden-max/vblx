@@ -10,11 +10,12 @@ import { cn } from '@/lib/utils'
 
 // ─── Nav structure ────────────────────────────────────────────────────────────
 
-const TOP_LINKS = [
+const TOP_LINKS: Array<{ label: string; href: string; external?: boolean }> = [
   { label: 'About', href: '/about' },
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Past Performance', href: '/pastperformance' },
   { label: 'IT Services', href: '/legacy-it' },
+  { label: 'CAH/RH', href: 'https://ruralhealth.xyz', external: true },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
@@ -55,13 +56,29 @@ export default function Navigation() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-0">
             {TOP_LINKS.map((link) => {
+              const baseClasses = 'px-3 py-2 text-xs font-sans uppercase tracking-[0.06em] transition-colors'
+
+              if (link.external) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(baseClasses, 'text-vbx-white hover:text-vbx-teal')}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
+
               const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
               return (
                 <Link
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    'px-3 py-2 text-xs font-sans uppercase tracking-[0.06em] transition-colors',
+                    baseClasses,
                     isActive
                       ? 'text-vbx-teal border-b-2 border-vbx-teal pb-1.5'
                       : 'text-vbx-white hover:text-vbx-teal'
@@ -107,6 +124,23 @@ export default function Navigation() {
           >
             <div className="container-wide py-6 space-y-1">
               {TOP_LINKS.map((link) => {
+                const baseClasses = 'block py-3 text-sm uppercase tracking-[0.08em] font-sans'
+
+                if (link.external) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(baseClasses, 'text-vbx-white')}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                }
+
                 const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
                 return (
                   <Link
@@ -114,7 +148,7 @@ export default function Navigation() {
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
-                      'block py-3 text-sm uppercase tracking-[0.08em] font-sans',
+                      baseClasses,
                       isActive ? 'text-vbx-teal' : 'text-vbx-white'
                     )}
                   >
