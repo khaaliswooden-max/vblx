@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, ArrowLeft, Quote, Calendar, Users, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { ENGAGEMENTS, getEngagementBySlug } from '@/lib/pastPerformanceData'
+import { ENGAGEMENTS, getEngagementBySlug, CATEGORY_META } from '@/lib/pastPerformanceData'
 
 export default function PastPerformanceDetailPage() {
   const params = useParams()
@@ -27,7 +27,8 @@ export default function PastPerformanceDetailPage() {
     )
   }
 
-  const serviceCategory = { name: 'Healthcare IT Engagement', color: '#2EA891' }
+  const meta = CATEGORY_META[engagement.category]
+  const serviceCategory = { name: `${meta.label} Engagement`, color: meta.color }
   const caseStudy = {
     id: engagement.slug,
     title: engagement.project,
@@ -42,7 +43,7 @@ export default function PastPerformanceDetailPage() {
     implementation: engagement.personnel.join(' | '),
     results: engagement.outcomes.join('\n\n'),
     quote: {
-      text: engagement.outcomes[0] ?? 'Delivered measurable outcomes for complex healthcare IT requirements.',
+      text: engagement.outcomes[0] ?? 'Delivered measurable outcomes against demanding IT services requirements.',
       author: engagement.personnel[0]?.split(' (')[0] ?? 'Visionblox Delivery Team',
       title: 'Program Lead',
     },
@@ -51,9 +52,9 @@ export default function PastPerformanceDetailPage() {
       { value: `${engagement.stack.length}`, label: 'Core Technologies' },
       { value: `${engagement.outcomes.length}`, label: 'Documented Outcomes' },
     ],
-    tags: ['Healthcare IT', 'Past Performance', ...engagement.stack.slice(0, 3)],
+    tags: [meta.label, 'Past Performance', ...engagement.stack.slice(0, 3)],
     client: engagement.client,
-    industry: 'Healthcare',
+    industry: meta.label,
   }
   const relatedCaseStudies = ENGAGEMENTS
     .filter(cs => cs.slug !== engagement.slug)
@@ -101,7 +102,7 @@ export default function PastPerformanceDetailPage() {
                   {serviceCategory.name}
                 </span>
                 <span className="px-3 py-1 text-sm rounded bg-background-secondary text-text-secondary">
-                  Healthcare
+                  {caseStudy.industry}
                 </span>
               </div>
 
@@ -413,7 +414,7 @@ export default function PastPerformanceDetailPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedCaseStudies.map((study, index) => {
-                const studyCategory = serviceCategory
+                const studyMeta = CATEGORY_META[study.category]
 
                 return (
                   <motion.div
@@ -428,11 +429,11 @@ export default function PastPerformanceDetailPage() {
                         <div className="flex items-center gap-2 mb-3">
                           <span
                             className="px-2 py-1 text-xs font-mono rounded"
-                            style={{ backgroundColor: `${studyCategory.color}20`, color: studyCategory.color }}
+                            style={{ backgroundColor: `${studyMeta.color}20`, color: studyMeta.color }}
                           >
-                            {studyCategory.name}
+                            {studyMeta.label}
                           </span>
-                          <span className="text-text-tertiary text-xs">Healthcare</span>
+                          <span className="text-text-tertiary text-xs">{study.federalRelevance}/10</span>
                         </div>
                         <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
                           {study.project}
