@@ -291,6 +291,36 @@ const STYLES = `
   .vbx-note    { font-family: var(--vbx-mono); font-size: 0.68rem; color: var(--vbx-muted); margin-top: 1rem; }
   .vbx-note-sm { font-family: var(--vbx-mono); font-size: 0.65rem; color: var(--vbx-muted); margin-top: 0.9rem; }
 
+  .vbx-capstat {
+    max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem;
+    border-bottom: 1px solid var(--vbx-border2);
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 2rem; align-items: center;
+  }
+  .vbx-capstat-meta {
+    font-family: var(--vbx-mono); font-size: 0.65rem; color: var(--vbx-teal);
+    letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .vbx-capstat h3 {
+    font-size: 1.2rem; font-weight: 700; color: #fff;
+    margin-bottom: 0.4rem; letter-spacing: -0.01em;
+  }
+  .vbx-capstat p {
+    font-size: 0.88rem; color: var(--vbx-muted); line-height: 1.6; max-width: 620px;
+  }
+  .vbx-capstat-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--vbx-mono); font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 700; padding: 0.85rem 1.6rem;
+    background: var(--vbx-teal); color: #000; border-radius: 2px;
+    transition: opacity 0.2s; text-decoration: none; white-space: nowrap;
+  }
+  .vbx-capstat-btn:hover { opacity: 0.85; }
+  .vbx-capstat-btn::before { content: '↓'; font-weight: 900; }
+  @media (max-width: 640px) {
+    .vbx-capstat { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 768px) {
     .vbx-service-table { font-size: 0.8rem; }
     .vbx-service-table th, .vbx-service-table td { padding: 0.65rem 0.6rem; }
@@ -355,6 +385,20 @@ export default function LegacyIT() {
           &ldquo;Federal programs don&apos;t always need transformation. They need a subcontractor who shows up,
           integrates cleanly, and delivers on the SOW. That is what Legacy IT at Visionblox is built to do.&rdquo;
         </blockquote>
+      </div>
+
+      <div className="vbx-capstat">
+        <div>
+          <div className="vbx-capstat-meta">// Capability Statement · PDF</div>
+          <h3>Visionblox IT Capability Statement</h3>
+          <p>
+            Single-page brief covering NAICS codes, certifications, core competencies, key personnel, and past
+            performance. Suitable for prime teaming packages, agency capability libraries, and RFI responses.
+          </p>
+        </div>
+        <a href={HREF_CAPSTAT} className="vbx-capstat-btn" download>
+          Download PDF
+        </a>
       </div>
 
       <section className="vbx-section">
