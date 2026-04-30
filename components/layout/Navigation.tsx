@@ -15,7 +15,7 @@ const TOP_LINKS: Array<{ label: string; href: string; external?: boolean }> = [
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Past Performance', href: '/pastperformance' },
   { label: 'IT Services', href: '/legacy-it' },
-  { label: 'CAH/RH', href: 'https://ruralhealth.xyz', external: true },
+  { label: 'Rural Health IT', href: 'https://ruralhealth.xyz', external: true },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
