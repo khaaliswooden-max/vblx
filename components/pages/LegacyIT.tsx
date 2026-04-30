@@ -389,7 +389,7 @@ export default function LegacyIT() {
 
       <div className="vbx-capstat">
         <div>
-          <div className="vbx-capstat-meta">// Capability Statement · PDF</div>
+          <div className="vbx-capstat-meta">{'// Capability Statement · PDF'}</div>
           <h3>Visionblox IT Capability Statement</h3>
           <p>
             Single-page brief covering NAICS codes, certifications, core competencies, key personnel, and past
