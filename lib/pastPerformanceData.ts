@@ -215,7 +215,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Demonstrates large-scale ERP modernization and cloud migration delivery comparable in scope to GSA, DoD, and civilian agency S/4HANA programs. Reusable component library and unified portal pattern apply directly to federal shared-services portal consolidations.',
-    slug: 'meta-sap-analytics',
+    slug: 'fortune10-tech-s4hana',
   },
   {
     number: '06',
@@ -240,7 +240,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Multi-country, multi-system integration engineering is directly relevant to federal supply-chain and ERP integration programs requiring secure B2B exchange and global payroll/HR data replication.',
-    slug: 'basf-sap-integration',
+    slug: 'fortune500-chem-sap-btp',
   },
   {
     number: '07',
@@ -265,7 +265,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Direct SLED government experience delivering a regulated claims management system. Maps to DOL OWCP, VA benefits, and state workers\' comp / unemployment modernization programs.',
-    slug: 'dc-owc-workers-comp',
+    slug: 'municipal-workers-comp',
   },
   {
     number: '08',
@@ -290,7 +290,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Microservices modernization of a regulated lending platform aligns with USDA Farm Credit, SBA, and Treasury financial-systems modernization criteria. Demonstrates configurable workflow engine plus regulated document generation at scale.',
-    slug: 'agfirst-loan-modernization',
+    slug: 'agricultural-lending-modernization',
   },
   {
     number: '09',
@@ -315,7 +315,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Long-tenure enterprise data platform delivery with production ML and NLP maps to federal data-modernization initiatives (e.g., Treasury, CMS analytics, civilian-agency data fabrics). Demonstrates Snowflake, Python, and ML engineering depth required for AI/ML evaluation factors.',
-    slug: 'porch-group-data',
+    slug: 'media-data-ml-platform',
   },
   {
     number: '10',
@@ -390,7 +390,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'FAA-certified data pipeline delivery is directly relevant to FAA, DoD aviation, and DHS logistics RFPs. Real-time analytics plus regulatory certification execution differentiate against pure-development bidders.',
-    slug: 'strake-aviation',
+    slug: 'commercial-aviation-intelligence',
   },
 ]
 
@@ -403,10 +403,6 @@ export function getFederalRelevanceColor(score: number) {
   if (score >= 9) return '#F7B801'
   if (score >= 8) return '#F97316'
   return '#94A3B8'
-}
-
-export function getEngagementsByCategory(category: EngagementCategory) {
-  return ENGAGEMENTS.filter((e) => e.category === category)
 }
 
 export const ENGAGEMENT_CATEGORIES: EngagementCategory[] = [
