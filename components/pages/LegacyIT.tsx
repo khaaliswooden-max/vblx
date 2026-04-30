@@ -309,7 +309,7 @@ export default function LegacyIT() {
   }, [])
 
   const HREF_BRIEF = 'mailto:khaalis.wooden@visionblox.com?subject=Legacy%20IT%20Services%20Inquiry'
-  const HREF_CAPSTAT = 'mailto:khaalis.wooden@visionblox.com?subject=Capabilities%20Statement%20Request'
+  const HREF_CAPSTAT = '/VBX_CapStatement_IT.pdf'
 
   return (
     <div className="vbx-page">
@@ -497,7 +497,7 @@ export default function LegacyIT() {
           <a href={HREF_BRIEF} className="vbx-btn-primary">
             Request a Briefing
           </a>
-          <a href={HREF_CAPSTAT} className="vbx-btn-secondary">
+          <a href={HREF_CAPSTAT} className="vbx-btn-secondary" download>
             Download Capabilities Statement
           </a>
         </div>
