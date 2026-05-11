@@ -1,7 +1,7 @@
 # VBLX — Visionblox Enterprise Platform
 
 <p align="center">
-  <img src="public/visionblox-logo.svg" alt="Visionblox Logo" width="120"/>
+  <img src="public/visionblox-logo.png" alt="Visionblox Logo" width="360"/>
 </p>
 
 <p align="center">
