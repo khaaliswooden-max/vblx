@@ -227,8 +227,7 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 
 - San Jose, CA (HQ)
 - Philadelphia, PA
-- Muscat, Oman
-- Dubai, UAE
+- Huntsville, AL
 - Chennai, India
 
 ---
