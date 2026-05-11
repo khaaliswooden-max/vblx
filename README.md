@@ -1,17 +1,18 @@
-# VBLX — Visionblox Enterprise Platform
+# VBLX — Visionblox Healthcare IT Platform
 
 <p align="center">
   <img src="public/visionblox-logo.svg" alt="Visionblox Logo" width="120"/>
 </p>
 
 <p align="center">
-  <strong>The Operating System for Enterprise Operations</strong><br>
-  <em>Software for operational intelligence, procurement, and compliance. We build tools for institutions.</em>
+  <strong>Healthcare Data Infrastructure for the Institutions That Govern It.</strong><br>
+  <em>Healthcare IT modernization, Rural Health IT, and enterprise IT services — engineered to federal and state audit standards.</em>
 </p>
 
 <p align="center">
   <a href="https://visionblox.com">Website</a> •
-  <a href="#products">Products</a> •
+  <a href="#focus-areas">Focus Areas</a> •
+  <a href="#capability-pillars">Capabilities</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#getting-started">Getting Started</a> •
   <a href="#deployment">Deployment</a>
@@ -29,35 +30,39 @@
 
 ## Overview
 
-VBLX is the next-generation web presence for **Visionblox LLC**, a minority-owned technology consultancy specializing in AI-driven federal solutions, healthcare IT modernization, and enterprise cloud migration.
+VBLX is the web presence for **Visionblox LLC**, a minority-owned technology firm focused on **Healthcare IT modernization, Rural Health IT, and enterprise IT services** for federal agencies, state Medicaid programs, health systems, and Critical Access / Rural Health providers.
 
-This repository contains the Palantir-inspired redesign that transforms Visionblox from an IT services provider into an **enterprise operating system builder**—positioning three unified platforms at the core of the company's market presence.
+The site is built around three public pillars — **Healthcare IT**, **Rural Health IT**, and **IT Services** — backed by a documented past performance portfolio and federal contracting credentials.
 
-### Design Philosophy
+### Positioning
 
-- **Operational Gravity**: Dark themes, restrained color palettes, precise typography
-- **Product Excellence**: Comprehensive product suite for enterprise operations
-- **Technical Authority**: Deep documentation, architectural depth over marketing abstractions
-- **Mission Alignment**: "We build software for institutions."
+- **Healthcare-first**: Epic EMR integration, HL7 pipelines, MITA-compliant Medicaid architecture, patient portals, healthcare AI/NLP/OCR.
+- **Rural Health focus**: Dedicated practice for Critical Access Hospitals and Rural Health Clinics, surfaced through [ruralhealth.xyz](https://ruralhealth.xyz).
+- **IT services backbone**: Enterprise IT services and legacy modernization that fund and feed the healthcare work.
+- **Federal-ready**: CAGE 9Z4X2, UEI H4X2Z7R9E3E3, minority-owned, GSA MAS Springboard, HIPAA / HITRUST / FedRAMP-aware delivery.
 
 ---
 
-## Products
+## Focus Areas
 
-Our product suite delivers enterprise-grade solutions across key operational domains:
+The three top-level practices that drive the site's information architecture and capture motion.
 
-| Product | Category | Description |
-|---------|----------|-------------|
-| **Pro-Sales** | CRM Excellence | Revolutionize sales process management and customer relationships |
-| **Pro-Biz** | Business Intelligence | Drive strategic decisions with powerful analytics |
-| **Pro-People** | Workforce Management | Intelligent HR and people management solutions |
-| **Pro-Project** | Project Management | Deliver projects on time and budget |
-| **Pro-Task** | Task Automation | Streamline workflows with intelligent automation |
-| **Pro-Ticket** | Service Management | Exceptional customer service and support |
-| **Pro-Visit** | Visitor Management | Secure and streamline facility access |
-| **Pro-Assure** | Quality Assurance | Comprehensive warranty and quality management |
-| **Pro-Pupil** | Education Management | Transform educational administration |
-| **DocSnip** | Document Intelligence | Effortless data extraction and management |
+| Area | Route | What it covers |
+|------|-------|----------------|
+| **Healthcare IT** | `/healthcare-it` | State Medicaid modernization, patient portals & digital front door, healthcare AI / document intelligence, federal agency healthcare IT build track. |
+| **Rural Health IT** | [ruralhealth.xyz](https://ruralhealth.xyz) | Dedicated practice for Critical Access Hospitals (CAH) and Rural Health Clinics (RHC) — connectivity, EMR enablement, compliance, and rural-grant-aligned IT. |
+| **IT Services** | `/it-services` | Enterprise IT services, infrastructure, support, and legacy system modernization for commercial and public-sector clients. |
+| **Past Performance** | `/pastperformance` | Documented delivery record across Kaiser Permanente, California DHCS, VCare Urgent Care, and federal/state programs. |
+
+---
+
+## Capability Pillars
+
+Surfaced on the homepage and used in capability statements.
+
+1. **Healthcare Data Systems** — Epic EMR integration, HL7 data pipelines, MITA-compliant Medicaid architecture, and patient portal infrastructure (delivered at Kaiser Permanente, California DHCS, VCare Urgent Care).
+2. **Compliance & Security Architecture** — HIPAA, HITRUST audits, 21st Century Cures Act, Section 508 ADA, FedRAMP-aware deployment on AWS GovCloud and Azure Government. 13 years of healthcare security leadership on staff.
+3. **Healthcare AI & Document Intelligence** — NLP, OCR, and ML pipelines purpose-built for healthcare data. 96% document processing accuracy and 60% labor reduction delivered at a state Medicaid agency. Python, Spark, Kafka, Snowflake.
 
 ---
 
@@ -71,7 +76,7 @@ Our product suite delivers enterprise-grade solutions across key operational dom
 | **Animation** | Framer Motion 11 | Page transitions, micro-interactions |
 | **Icons** | Lucide React | Consistent iconography |
 | **Hosting** | Vercel | Edge CDN, auto-deploy, preview URLs |
-| **CMS** | Sanity v3 | Headless content management |
+| **CMS** | Sanity v3 | Headless content management (embedded `/studio`) |
 
 ---
 
@@ -79,14 +84,14 @@ Our product suite delivers enterprise-grade solutions across key operational dom
 
 ### Prerequisites
 
-- Node.js 18.17+ 
+- Node.js 18.17+
 - npm or yarn
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/kwoodensr/vblx.git
+git clone https://github.com/khaaliswooden-max/vblx.git
 cd vblx
 
 # Install dependencies
@@ -130,31 +135,29 @@ vblx/
 ├── app/
 │   ├── globals.css          # Design system + CSS variables
 │   ├── layout.tsx           # Root layout with fonts
-│   ├── page.tsx             # Homepage
-│   ├── products/            # Product pages
-│   ├── services/            # Service pages
+│   ├── page.tsx             # Homepage (Hero, Capability Pillars, Past Performance preview)
+│   ├── healthcare-it/       # Healthcare IT practice page
+│   ├── it-services/         # IT Services practice page
+│   ├── pastperformance/     # Past performance portfolio
+│   ├── solutions/           # Cross-cutting solutions
 │   ├── industries/          # Industry pages
-│   ├── case-studies/        # Case study pages
-│   ├── contact/             # Contact forms (commercial, federal)
+│   ├── case-studies/        # Case studies
+│   ├── about/               # About + leadership
+│   ├── contact/             # Briefing / capture intake
 │   └── studio/              # Sanity Studio (embedded)
 ├── components/
 │   ├── ui/                  # Reusable components
-│   ├── layout/              # Layout components
-│   └── sections/            # Page sections
-├── lib/
-│   ├── utils.ts             # Utilities + constants
-│   ├── productsData.ts      # Product content data
-│   ├── servicesData.ts      # Services content data
-│   ├── industriesData.ts    # Industries content data
-│   └── caseStudiesData.ts   # Case studies data
-├── sanity/
-│   ├── schemaTypes/         # Content schemas
-│   └── lib/                 # Client + queries
-├── public/                  # Static assets
-├── sanity.config.ts         # Sanity configuration
-├── tailwind.config.ts       # Tailwind configuration
+│   ├── layout/              # Navigation, footer
+│   └── sections/            # Hero, CapabilityPillars, PastPerformancePreview, etc.
+├── lib/                     # Utilities + content data
+├── sanity/                  # Schemas + client
+├── public/                  # Static assets + slide imagery
+├── sanity.config.ts
+├── tailwind.config.ts
 └── package.json
 ```
+
+Note: Rural Health IT lives at the external property [ruralhealth.xyz](https://ruralhealth.xyz) and is linked from the main nav rather than served from this app.
 
 ---
 
@@ -164,18 +167,18 @@ vblx/
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--color-bg-primary` | `#0D0D0D` | Main backgrounds |
-| `--color-bg-secondary` | `#1A1A1A` | Cards, sections |
-| `--color-accent-primary` | `#00D4AA` | CTAs, highlights |
-| `--color-accent-secondary` | `#3B82F6` | Links, secondary |
+| `vbx-navy` | Deep navy | Primary background |
+| `vbx-teal` | `#2EA891` | CTAs, accents, data viz |
+| `vbx-gold` | `#F7B801` | Briefing CTA, highlights |
+| `vbx-white` | `#F5F5F0` | Body text on dark |
 
 ### Typography
 
 | Type | Font | Usage |
 |------|------|-------|
-| Display | Space Grotesk | Heroes, large headings |
-| Sans | Inter | Body text, UI elements |
-| Mono | JetBrains Mono | Code, technical content |
+| Display | Space Grotesk | Hero, section headings |
+| Sans | Inter | Body text, UI |
+| Mono | JetBrains Mono | Codes, credentials, technical chrome |
 
 ---
 
@@ -194,26 +197,18 @@ npx vercel
 
 ### Environment Variables
 
-Create `.env.local` for local development:
-
 ```env
+# Sanity (required for /studio + CMS-backed content)
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+
 # Analytics (optional)
 NEXT_PUBLIC_GA_ID=UA-XXXXXXXX-X
 
-# CRM Integration (optional)
+# Lead capture webhook (optional)
 CRM_WEBHOOK_URL=https://your-crm-endpoint
 ```
-
----
-
-## Roadmap
-
-- [x] **Phase 1**: Foundation — Design system, components, homepage
-- [x] **Phase 2**: Product pages — Product suite detail pages
-- [x] **Phase 3**: Intake forms — Commercial + Federal/SLED lead capture
-- [x] **Phase 4**: Content depth — Case studies, industries, services
-- [x] **Phase 5**: CMS integration — Sanity headless CMS *(embedded studio at /studio)*
-- [x] **Phase 6**: Analytics — Conversion tracking, A/B testing
 
 ---
 
@@ -230,11 +225,11 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 
 ### Global Presence
 
-- 🇺🇸 San Jose, CA (HQ)
-- 🇺🇸 Philadelphia, PA
-- 🇴🇲 Muscat, Oman
-- 🇦🇪 Dubai, UAE
-- 🇮🇳 Chennai, India
+- San Jose, CA (HQ)
+- Philadelphia, PA
+- Muscat, Oman
+- Dubai, UAE
+- Chennai, India
 
 ---
 
@@ -245,16 +240,17 @@ CRM_WEBHOOK_URL=https://your-crm-endpoint
 - Email: [khaalis.wooden@visionblox.com](mailto:khaalis.wooden@visionblox.com)
 - Phone: +1 (210) 429-4227
 - LinkedIn: [Visionblox](https://www.linkedin.com/company/100849749/)
+- Briefings: `mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing`
 
 ---
 
 ## License
 
-Proprietary. © 2025 Visionblox LLC. All rights reserved.
+Proprietary. © 2026 Visionblox LLC. All rights reserved.
 
 ---
 
 <p align="center">
-  <strong>Visionblox</strong> — We build the operating systems that power enterprise operations.<br>
-  <em>From data to decision. From complexity to clarity.</em>
+  <strong>Visionblox</strong> — Healthcare data infrastructure for the institutions that govern it.<br>
+  <em>Healthcare IT • Rural Health IT • IT Services</em>
 </p>
