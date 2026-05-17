@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 const TOP_LINKS: Array<{ label: string; href: string; external?: boolean }> = [
   { label: 'About', href: '/about' },
   { label: 'Healthcare IT', href: '/healthcare-it' },
-  { label: 'Rural Health IT', href: 'https://ruralhealth.xyz', external: true },
+  { label: 'Rural Health IT', href: 'https://ruralhealth.xyz/', external: true },
   { label: 'IT Services', href: '/it-services' },
   { label: 'Past Performance', href: '/pastperformance' },
 ]
