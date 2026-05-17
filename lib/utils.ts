@@ -34,7 +34,7 @@ export const COMPANY = {
   ],
   contact: {
     name: 'Khaalis Wooden, MBA',
-    title: 'Director of Enterprise Capture & Compliance',
+    title: 'Director of Capture',
     email: 'khaalis.wooden@visionblox.com',
     phone: '+1 (210) 429-4227',
   },

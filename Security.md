@@ -86,7 +86,7 @@ Subject: [SECURITY] Brief description of vulnerability
 If email is not suitable, contact directly:
 
 **Khaalis Wooden**  
-Director of Enterprise Capture & Compliance  
+Director of Capture  
 Phone: +1 (210) 429-4227  
 
 ---
