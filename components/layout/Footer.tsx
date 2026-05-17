@@ -63,7 +63,7 @@ export default function Footer() {
             </h4>
             <p className="text-vbx-white font-sans font-medium mb-1">Khaalis Wooden, MBA</p>
             <p className="text-vbx-muted font-sans text-sm mb-5 leading-snug">
-              Director of Enterprise Capture &amp; Compliance
+              Director of Capture
             </p>
             <div className="space-y-2">
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
