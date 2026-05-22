@@ -455,7 +455,7 @@ export default function CAHSPPage() {
             Sustainability &amp; Performance
           </h1>
           <p style={{ fontSize: 18, fontWeight: 300, color: 'rgba(255,255,255,0.75)', maxWidth: 680, marginBottom: 36, lineHeight: 1.6 }}>
-            The CAH-equivalent of CASP — a structured, empirical benchmark for evaluating computational solutions to the dual mandate of ≥5% annual operating margin growth and highest achievable patient care quality across all 1,355+ Critical Access Hospitals.
+            The CAH-equivalent of CASP — a structured, empirical benchmark for evaluating computational solutions to the dual mandate of ≥5% annual operating margin growth and highest achievable patient care quality across all 1,377 Critical Access Hospitals.
           </p>
         </div>
       </header>
@@ -513,6 +513,11 @@ export default function CAHSPPage() {
         <section style={sectionStyle} id="part3">
           <span style={sectionLabel}>Part III — Problem Taxonomy</span>
           <h2 style={h2Style}>The 5 Problem Classes CAHSP Must Solve</h2>
+          <Callout variant="gold" label="Gap Analysis Reference">
+            <p style={{ fontSize: 13.5, margin: 0, lineHeight: 1.7 }}>
+              The problem taxonomy below is grounded in three gap-analysis documents produced during the Phase 0 research sprint: <strong>gap-analysis-1.md</strong> (data pipeline gaps), <strong>gap-analysis-2.md</strong> (optimization model gaps), and <strong>gap-analysis-3.md</strong> (site–repo alignment gaps). These are available in the <a href="https://github.com/khaaliswooden-max/cah" target="_blank" rel="noopener noreferrer" style={{ color: '#b88000' }}>khaaliswooden-max/cah</a> repository.
+            </p>
+          </Callout>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))', gap: 20, margin: '28px 0' }}>
             <ProblemCard catLabel="CLASS 1" title="Financial Structure Prediction" analog="Template-Based Modeling (TBM)." targets={['Operating margin optimization', 'Denial-rate reduction', 'Labor-cost ratio optimization']} source="CMS HCRIS / MBQIP" />
             <ProblemCard catLabel="CLASS 2" title="Clinical Quality Optimization" analog="TBM with high accuracy targets." targets={['Readmission reduction', 'Transfer optimization', 'HCAHPS improvement']} source="MBQIP / CMS Hospital Compare" />
@@ -549,6 +554,11 @@ export default function CAHSPPage() {
           <MathBlock>{`CAHSP(i, t) = 100 * sum_j [w_j * phi_j(Delta s_j(i,t))]
 Weights: FI 0.30, QI 0.30, OI 0.20, WI 0.10, CI 0.10
 Dual mandate constraint: FI and QI floors required`}</MathBlock>
+          <Callout variant="navy" label="Optimization Architecture">
+            <p style={{ fontSize: 13.5, margin: 0, lineHeight: 1.75 }}>
+              The underlying optimizer uses dual-objective SQP (θ=0.6 quality weight) with Charnes-Cooper fractional programming for the margin objective. The full Pareto front is generated via the ε-constraint method across 20 operating points. <strong>Robust optimization</strong> uses the Bertsimas-Sim budget-of-uncertainty model (Gamma=3), which provides an explicit bound on the probability of constraint violation under CMS parameter uncertainty — replacing heuristic safety margins with a provable guarantee. All three solution types (nominal, Pareto, robust) feed into the CAHSP composite score computation in <code>cahsp_score.py</code>.
+            </p>
+          </Callout>
         </section>
 
         <section style={sectionStyle} id="part7">
@@ -556,7 +566,7 @@ Dual mandate constraint: FI and QI floors required`}</MathBlock>
           <h2 style={h2Style}>Implementation Phases</h2>
           <div style={{ margin: '28px 0', position: 'relative' }}>
             <div style={{ position: 'absolute', left: 24, top: 0, bottom: 0, width: 2, background: `linear-gradient(to bottom, ${C.teal}, ${C.navy})` }} />
-            <PhaseItem code="P0" state="active" label="Now" title="Baseline scoring and target classification" desc="Build HCRIS baseline and classify Type A/B facilities." />
+            <PhaseItem code="P0" state="active" label="Now" title="Baseline scoring and target classification" desc="Build HCRIS baseline across 1,377 CAHs and classify Type A/B facilities. CAHSP composite score computed via cahsp_score.py (FI/QI/OI/WI/CI formula; dual-mandate floors enforced). WA/MT pilot data ingested via step1 --states WA,MT flag." />
             <PhaseItem code="P1" state="active" label="Q3 2026" title="Type A benchmark cycle" desc="Run and score known-template interventions." />
             <PhaseItem code="P2" label="Q1 2027" title="Type B benchmark cycle" desc="Evaluate novel architectures under prospective scoring." />
           </div>
@@ -578,7 +588,7 @@ Dual mandate constraint: FI and QI floors required`}</MathBlock>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16, margin: '28px 0' }}>
             <StatTile bg={C.navy} value="5" label="Problem Classes" />
             <StatTile bg={C.teal} value="85" label="Breakthrough Score" />
-            <StatTile bg="white" value="1,355+" label="Target CAHs" color={C.navy} borderColor={C.border} />
+            <StatTile bg="white" value="1,377" label="Target CAHs" color={C.navy} borderColor={C.border} />
             <StatTile bg={C.gold} value="24mo" label="Validation Window" color={C.charcoal} />
           </div>
         </section>
