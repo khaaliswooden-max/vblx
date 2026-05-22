@@ -149,11 +149,34 @@ const ENGINE_ROWS = [
   },
   {
     label: 'HCRIS Data Pipeline',
-    body: 'Direct ingestion of CMS Healthcare Cost Report Information System data for Washington and Montana CAH facilities. Auto-citation engine converts raw cost report line items into auditable benchmark claims — closing the translation gap between federal data and facility-level intelligence.',
+    body: 'Direct ingestion of CMS Healthcare Cost Report Information System data for Washington and Montana (pilot) CAH facilities. Auto-citation engine converts raw cost report line items into auditable benchmark claims — closing the translation gap between federal data and facility-level intelligence.',
   },
   {
     label: 'ARIS-2025 Architecture',
     body: 'AI-native reference architecture for CAH infrastructure: FHIR R4 interoperability layer, edge AI on Jetson Orin hardware (67–275 TOPS), Starlink LEO + SD-WAN failover, federated learning under NIST 800-53 Moderate baseline. Designed for Minimum Viable CAH Infrastructure: 1–2 IT FTE, 25/3 Mbps rural broadband, limited EHR interoperability.',
+  },
+]
+
+// ─── Research Depth Cards ─────────────────────────────────────────────────────
+
+const RESEARCH_CARDS = [
+  {
+    label: 'MV-CAHI SPECIFICATION',
+    title: 'Minimum Viable CAH Infrastructure',
+    body: 'Formal infrastructure floor for computational viability: 1–2 IT FTE, 25/3 Mbps rural broadband, Jetson Orin edge node (67–275 TOPS), Starlink LEO failover, NIST 800-53 Moderate baseline. MV-CAHI constraints bound every optimization run — solutions that require infrastructure beyond this spec are excluded from the feasible set.',
+    signals: 'MV-CAHI.md · 42 CFR § 485 · NIST 800-53',
+  },
+  {
+    label: 'OPTIMIZATION METHODOLOGY',
+    title: 'Multi-Objective Optimization & Robust Design',
+    body: 'Dual-objective SQP (θ=0.6 quality weight) with Charnes-Cooper fractional programming for margin. ε-constraint method generates the full Pareto front across 20 operating points — revealing the margin–quality trade-off curve for any CAH configuration. Bertsimas-Sim robust optimization (Gamma=3) bounds solutions against CMS parameter uncertainty, with P(violation) guaranteed.',
+    signals: 'Lagrangian · SQP · Pareto · Bertsimas-Sim Robust · Monte Carlo',
+  },
+  {
+    label: 'VALIDATION PLAN',
+    title: 'Phase 1 Empirical Validation',
+    body: 'HCRIS-grounded baseline across all 1,377 CAHs (CMS Q1 2026). WA/MT pilot: apply optimization models to actual cost report data, compare predicted vs. realized margin improvement. MBQIP quality bridge links the 7-measure composite to the optimization quality objective. CAHSP composite score (FI/QI/OI/WI/CI) provides the GDT_TS-equivalent benchmark.',
+    signals: 'HCRIS · MBQIP · CAHSP v1.0 · PHASE1_EMPIRICAL_VALIDATION.md',
   },
 ]
 
@@ -194,13 +217,40 @@ function ExpertiseCard({ card }: { card: typeof EXPERTISE_CARDS[0] }) {
   )
 }
 
+function ResearchCard({ card }: { card: typeof RESEARCH_CARDS[0] }) {
+  return (
+    <div
+      className="flex flex-col h-full p-6"
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(247,184,1,0.18)',
+        borderRadius: '2px',
+      }}
+    >
+      <p className="font-mono mb-3" style={{ fontSize: '0.625rem', letterSpacing: '0.14em', color: '#F7B801' }}>
+        {card.label}
+      </p>
+      <h3 className="font-sans text-vbx-white font-medium mb-3" style={{ fontSize: '1rem' }}>
+        {card.title}
+      </h3>
+      <p className="font-sans text-vbx-muted flex-1" style={{ fontSize: '0.875rem', lineHeight: '1.7' }}>
+        {card.body}
+      </p>
+      <p className="font-mono mt-4" style={{ fontSize: '0.625rem', letterSpacing: '0.06em', color: 'rgba(46,168,145,0.7)' }}>
+        {card.signals}
+      </p>
+    </div>
+  )
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function CAHPage() {
-  const problemRef  = useFadeIn()
+  const problemRef   = useFadeIn()
   const expertiseRef = useFadeIn()
-  const engineRef   = useFadeIn()
-  const ctaRef      = useFadeIn()
+  const engineRef    = useFadeIn()
+  const researchRef  = useFadeIn()
+  const ctaRef       = useFadeIn()
 
   return (
     <div className="bg-vbx-navy min-h-screen">
@@ -427,6 +477,25 @@ export default function CAHPage() {
                 DOWNLOAD PDF ↓
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RESEARCH & TECHNICAL DEPTH ────────────────────────────────────── */}
+      <section
+        className="section-padding"
+        style={{ background: 'rgba(247,184,1,0.03)', borderTop: '1px solid rgba(247,184,1,0.1)' }}
+      >
+        <div ref={researchRef} className="container-wide">
+          <SectionLabel label="RESEARCH & TECHNICAL DEPTH" />
+          <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            The methodology behind the engine — infrastructure specifications, optimization architecture,
+            and empirical validation protocol grounded in CMS data.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {RESEARCH_CARDS.map((card) => (
+              <ResearchCard key={card.label} card={card} />
+            ))}
           </div>
         </div>
       </section>
