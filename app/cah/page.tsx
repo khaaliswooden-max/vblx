@@ -1,207 +1,77 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 
-// ─── Fade-in hook ─────────────────────────────────────────────────────────────
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
-function useFadeIn() {
+const SCOPE = [
+  { label: 'PHASE 1 PILOT', count: '89 CAHs', detail: 'Washington (39) + Montana (50)', note: 'WSHA + MHA benchmark networks', color: '#F7B801' },
+  { label: 'NATIONAL PIPELINE', count: '1,377 CAHs', detail: 'Full CMS Hospital Compare dataset', note: 'All US Critical Access Hospitals', color: '#2EA891' },
+]
+
+const DOCS = [
+  { file: 'gap-analysis-1.md', title: 'Gap Analysis — Opportunity Map', desc: '$1.97M/yr opportunity: operating margin (−2.3%), denial rate (8.7%), labor cost ratio (58.2%).' },
+  { file: 'gap-analysis-2.md', title: 'Gap Analysis — Priority Actions', desc: 'ROI-ranked interventions: pre-bill scrubbing (+$298K/90d), staffing (+$580K/6mo), swing-bed (+$185K/12mo).' },
+  { file: 'gap-analysis-3.md', title: 'Gap Analysis — Confidence Assessment', desc: '70% overall grounding score across 6 validation dimensions. Regulatory compliance: 95%.' },
+  { file: 'PHASE1_EMPIRICAL_VALIDATION.md', title: 'Phase 1 Empirical Validation', desc: '30-day evidence base: WA/MT state data, WSHA/MHA benchmarks, CARC/RARC denial code mapping.' },
+  { file: 'OPERATIONAL_BENCHMARKS.md', title: 'Operational Benchmarks', desc: '39 daily/weekly/monthly KPIs with staff checklists. Green/Yellow/Red/Black status tracking.' },
+  { file: 'MV-CAHI.md', title: 'MV-CAHI Specification', desc: 'Minimum Viable CAH Infrastructure: clinical, financial, technical, workforce, and computational baselines.' },
+  { file: 'OPTIMIZATION.md', title: 'Optimization Framework', desc: 'Lagrangian dual-objective model. KKT conditions. Sequential Quadratic Programming execution.' },
+  { file: 'pareto.py', title: 'Pareto Front Generator', desc: 'Complete Pareto frontier across profit–quality trade-off space. Configurable epsilon and weight vectors.' },
+  { file: 'robust.py', title: 'Robust Optimization', desc: 'Bertsimas–Sim robust formulation under input data uncertainty. Gamma-parameterized constraint tightening.' },
+]
+
+const PHASES = [
+  {
+    execLabel: 'Phase 1',
+    execFile: 'PHASE1_EMPIRICAL_VALIDATION.md',
+    execDesc: '30-day empirical benchmark evidence base for WA + MT CAHs.',
+    deplLabel: 'P0',
+    deplDesc: 'Now — HCRIS baseline scoring and Type A/B facility classification.',
+    deplColor: '#F7B801',
+  },
+  {
+    execLabel: 'Phase 2',
+    execFile: 'phase2_optimization_execution.py',
+    execDesc: 'Lagrangian dual-objective optimization → Pareto frontier.',
+    deplLabel: 'P1',
+    deplDesc: 'Q3 2026 — Type A benchmark cycle (known-template interventions).',
+    deplColor: '#2EA891',
+  },
+  {
+    execLabel: 'Phase 3',
+    execFile: 'phase3_pilot_execution.py',
+    execDesc: 'Pilot implementation and prospective ROI validation.',
+    deplLabel: 'P2',
+    deplDesc: 'Q1 2027 — Type B benchmark cycle (novel architecture evaluation).',
+    deplColor: '#8892A4',
+  },
+]
+
+// ─── Scroll reveal ────────────────────────────────────────────────────────────
+
+function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const el = ref.current
     if (!el) return
     el.style.opacity = '0'
-    el.style.transform = 'translateY(14px)'
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
+    el.style.transform = 'translateY(12px)'
+    el.style.transition = `opacity 0.45s ease ${delay}ms, transform 0.45s ease ${delay}ms`
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.opacity = '1'
-          el.style.transform = 'none'
-          obs.disconnect()
-        }
-      },
-      { threshold: 0.07 }
+      ([entry]) => { if (entry.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'none'; obs.disconnect() } },
+      { threshold: 0.1 }
     )
     obs.observe(el)
     return () => obs.disconnect()
-  }, [])
-  return ref
-}
-
-// ─── Animated Counter ─────────────────────────────────────────────────────────
-
-function AnimatedCounter({
-  end,
-  prefix = '',
-  suffix = '',
-  duration = 1500,
-  decimals = 0,
-  gold = false,
-}: {
-  end: number
-  prefix?: string
-  suffix?: string
-  duration?: number
-  decimals?: number
-  gold?: boolean
-}) {
-  const [current, setCurrent] = useState(0)
-  const [started, setStarted] = useState(false)
-  const ref = useRef<HTMLSpanElement>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.5 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [started])
-
-  useEffect(() => {
-    if (!started) return
-    const startTime = performance.now()
-    const step = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1)
-      const ease = 1 - Math.pow(1 - progress, 3)
-      setCurrent(end * ease)
-      if (progress < 1) requestAnimationFrame(step)
-      else setCurrent(end)
-    }
-    requestAnimationFrame(step)
-  }, [started, end, duration])
-
-  const display = decimals > 0 ? current.toFixed(decimals) : Math.round(current).toString()
-
-  return (
-    <span
-      ref={ref}
-      className="font-mono"
-      style={{
-        fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-        lineHeight: 1,
-        color: gold ? '#F7B801' : '#2EA891',
-      }}
-    >
-      {prefix}{display}{suffix}
-    </span>
-  )
-}
-
-// ─── Proof Bar Stats ──────────────────────────────────────────────────────────
-
-const PROOF_STATS = [
-  { end: 1377,  prefix: '',   suffix: '',    decimals: 0, label: 'CAHs in scope',                         gold: false },
-  { end: 1.97,  prefix: '$',  suffix: 'M',   decimals: 2, label: 'avg annual improvement potential / facility', gold: true },
-  { end: 2.3,   prefix: '~', suffix: '%',   decimals: 1, label: 'avg operating margin (sector median: −2.3%)', gold: true },
-  { end: 25,    prefix: '',   suffix: '',    decimals: 0, label: 'max licensed beds — core regulatory constraint', gold: true },
-]
-
-// ─── Gap Table Data ───────────────────────────────────────────────────────────
-
-const GAP_ROWS = [
-  { metric: 'Operating Margin',  baseline: '−2.3%', target: '+0.5%', gap: '2.8 pts' },
-  { metric: 'Denial Rate',       baseline: '8.7%',  target: '5.0%',  gap: '3.7 pts' },
-  { metric: 'Labor Cost Ratio',  baseline: '58.2%', target: '52.0%', gap: '6.2 pts' },
-]
-
-// ─── Expertise Card Data ──────────────────────────────────────────────────────
-
-const EXPERTISE_CARDS = [
-  {
-    title: 'EMR & Interoperability',
-    bullets: [
-      'Kaiser Permanente: Epic HealthConnect integration via SOAP/REST/Kafka. 99.8% uptime. 100K+ daily users.',
-      'VCare Urgent Care: HL7 ETL pipeline, full PHI surface, microservices.',
-    ],
-    signals: 'HL7 · FHIR R4 · Epic · 21st Century Cures Act',
-  },
-  {
-    title: 'Medicaid & Government Systems',
-    bullets: [
-      'CA DHCS CFRS: MITA-compliant Medicaid cost reporting modernization. 60% labor reduction. Real-time statewide reporting.',
-    ],
-    signals: 'MITA · CMS Framework · SQL Server · Azure DevOps',
-  },
-  {
-    title: 'Healthcare AI',
-    bullets: [
-      'Document intelligence: 96% accuracy, 60% labor cost reduction on CA DHCS cost reporting.',
-      'AI/ML stack: Python, Spark, Kafka, Scikit-learn, Keras.',
-    ],
-    signals: 'OCR · NLP · Predictive Analytics · Population Health',
-  },
-]
-
-// ─── Engine Rows ──────────────────────────────────────────────────────────────
-
-const ENGINE_ROWS = [
-  {
-    label: 'Mathematical Optimization',
-    body: 'Lagrangian constrained optimization models CAH resource allocation under hard regulatory bounds: 25-bed cap, 96-hour length-of-stay limit, 35-mile distance requirement. KKT conditions define the feasibility frontier. Output: facility-specific intervention priorities with quantified margin impact.',
-  },
-  {
-    label: 'HCRIS Data Pipeline',
-    body: 'Direct ingestion of CMS Healthcare Cost Report Information System data for Washington and Montana CAH facilities. Auto-citation engine converts raw cost report line items into auditable benchmark claims — closing the translation gap between federal data and facility-level intelligence.',
-  },
-  {
-    label: 'ARIS-2025 Architecture',
-    body: 'AI-native reference architecture for CAH infrastructure: FHIR R4 interoperability layer, edge AI on Jetson Orin hardware (67–275 TOPS), Starlink LEO + SD-WAN failover, federated learning under NIST 800-53 Moderate baseline. Designed for Minimum Viable CAH Infrastructure: 1–2 IT FTE, 25/3 Mbps rural broadband, limited EHR interoperability.',
-  },
-]
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
-
-function SectionLabel({ label }: { label: string }) {
-  return (
-    <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
-      {'// '}{label}
-    </p>
-  )
-}
-
-function ExpertiseCard({ card }: { card: typeof EXPERTISE_CARDS[0] }) {
-  return (
-    <div
-      className="flex flex-col h-full p-6"
-      style={{
-        background: 'rgba(255,255,255,0.04)',
-        borderLeft: '2px solid #2EA891',
-        borderRadius: '2px',
-      }}
-    >
-      <h3 className="font-sans text-vbx-white font-medium mb-4" style={{ fontSize: '1.0625rem' }}>
-        {card.title}
-      </h3>
-      <ul className="flex flex-col gap-2 mb-4 flex-1">
-        {card.bullets.map((b, i) => (
-          <li key={i} className="font-sans text-vbx-muted" style={{ fontSize: '0.875rem', lineHeight: '1.65' }}>
-            · {b}
-          </li>
-        ))}
-      </ul>
-      <p className="font-mono text-vbx-teal" style={{ fontSize: '0.6875rem', letterSpacing: '0.06em' }}>
-        {card.signals}
-      </p>
-    </div>
-  )
+  }, [delay])
+  return <div ref={ref}>{children}</div>
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function CAHPage() {
-  const problemRef  = useFadeIn()
-  const expertiseRef = useFadeIn()
-  const engineRef   = useFadeIn()
-  const ctaRef      = useFadeIn()
-
   return (
     <div className="bg-vbx-navy min-h-screen">
 
@@ -209,261 +79,185 @@ export default function CAHPage() {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide relative">
-          <SectionLabel label="CRITICAL ACCESS HOSPITALS" />
+          <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
+            {'// CAH // CRITICAL ACCESS HOSPITAL TRANSFORMATION ENGINE'}
+          </p>
+          <p className="font-mono mb-3 tracking-[0.1em]" style={{ fontSize: '0.7rem', color: 'rgba(46,168,145,0.6)' }}>
+            VISIONBLOX LLC&nbsp;&nbsp;&times;&nbsp;&nbsp;ZUUP INNOVATION LAB
+          </p>
           <h1
             className="font-display text-vbx-white mb-7"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', lineHeight: '1.15', maxWidth: '860px' }}
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1.1', maxWidth: '820px' }}
           >
-            1,377 facilities.&nbsp; 44–48% operating at a loss.&nbsp;
-            <span style={{ color: '#F7B801' }}>$1.97M</span> average improvement potential per facility.
+            CAH Transformation Engine
           </h1>
-          <p className="font-sans text-vbx-muted mb-12 max-w-[660px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
-            Visionblox is building the computational and operational infrastructure to close that gap —
-            grounded in CMS cost reports, peer-reviewed research, and AI-native architecture.
+          <p className="font-sans text-vbx-muted mb-8 max-w-[640px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
+            Dual-objective optimization for Critical Access Hospitals — simultaneously
+            targeting a 5% operating margin improvement and MBQIP quality benchmarks
+            within federal regulatory constraints (42 CFR §&thinsp;485.610–647).
           </p>
-
-          {/* Proof bar */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-0"
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(46,168,145,0.15)',
-              borderRadius: '2px',
-            }}
-          >
-            {PROOF_STATS.map((stat, i) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center text-center gap-3 px-6 py-8"
-                style={{
-                  borderRight: i < PROOF_STATS.length - 1 ? '1px solid rgba(46,168,145,0.15)' : 'none',
-                }}
-              >
-                <AnimatedCounter
-                  end={stat.end}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
-                  gold={stat.gold}
-                />
-                <span className="font-sans text-vbx-muted leading-snug max-w-[140px]" style={{ fontSize: '0.8125rem' }}>
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://cah-zeta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-teal-outline"
+            >
+              OPEN LIVE DASHBOARD &rarr;
+            </a>
+            <Link href="/cahsp" className="btn-gold">VIEW CAHSP ROADMAP</Link>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 data-line" />
       </section>
 
-      {/* ── THE GAP ───────────────────────────────────────────────────────── */}
-      <section className="section-padding">
-        <div ref={problemRef} className="container-wide">
-          <SectionLabel label="THE GAP" />
-
-          {/* Data table */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '2fr 1fr 1fr 1fr',
-              border: '1px solid rgba(46,168,145,0.2)',
-              borderRadius: '2px',
-              overflow: 'hidden',
-              maxWidth: '720px',
-            }}
-          >
-            {/* Header row */}
-            {['Metric', 'Baseline', 'Target', 'Gap'].map((h) => (
-              <div
-                key={h}
-                className="font-mono text-vbx-teal px-5 py-3"
-                style={{
-                  fontSize: '0.6875rem',
-                  letterSpacing: '0.1em',
-                  background: 'rgba(46,168,145,0.08)',
-                  borderBottom: '1px solid rgba(46,168,145,0.2)',
-                }}
-              >
-                {h.toUpperCase()}
-              </div>
+      {/* ── GEOGRAPHIC SCOPE ──────────────────────────────────────────────── */}
+      <section id="scope" className="section-padding bg-vbx-navy">
+        <div className="container-wide">
+          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 01'}&nbsp;&nbsp;GEOGRAPHIC SCOPE</p>
+          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            Pilot vs. Pipeline
+          </h2>
+          <p className="font-sans text-vbx-muted mb-10 max-w-[640px]" style={{ fontSize: '0.9375rem', lineHeight: '1.7' }}>
+            The Phase 1 empirical validation is scoped to Washington and Montana,
+            leveraging WSHA and MHA benchmark networks for state-specific ground truth.
+            The underlying pipeline architecture processes the full national CAH dataset.
+          </p>
+          <div className="data-line mb-10" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {SCOPE.map((s, i) => (
+              <Reveal key={s.label} delay={i * 100}>
+                <div className="p-6" style={{ border: `1px solid ${s.color}40`, background: 'rgba(255,255,255,0.02)', borderRadius: '2px' }}>
+                  <p className="font-mono text-xs tracking-[0.12em] mb-3" style={{ color: s.color }}>{s.label}</p>
+                  <p className="font-display text-vbx-white mb-2" style={{ fontSize: '2rem' }}>{s.count}</p>
+                  <p className="font-sans text-vbx-muted text-sm mb-1">{s.detail}</p>
+                  <p className="font-mono text-xs" style={{ color: 'rgba(46,168,145,0.6)' }}>{s.note}</p>
+                </div>
+              </Reveal>
             ))}
-            {/* Data rows */}
-            {GAP_ROWS.map((row, i) => (
-              <div
-                key={row.metric}
-                style={{
-                  display: 'contents',
-                }}
-              >
-                {[row.metric, row.baseline, row.target, row.gap].map((cell, j) => (
-                  <div
-                    key={j}
-                    className="font-mono px-5 py-4"
-                    style={{
-                      fontSize: '0.875rem',
-                      color: j === 0 ? '#F5F5F0' : j === 3 ? '#F7B801' : '#8892A4',
-                      background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
-                      borderBottom: i < GAP_ROWS.length - 1 ? '1px solid rgba(46,168,145,0.1)' : 'none',
-                    }}
-                  >
-                    {cell}
-                  </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PHASE CROSS-REFERENCE ─────────────────────────────────────────── */}
+      <section className="section-padding" style={{ background: 'rgba(255,255,255,0.02)' }}>
+        <div className="container-wide">
+          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 02'}&nbsp;&nbsp;PHASE REFERENCE</p>
+          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            Execution Phases &harr; Deployment Cycle
+          </h2>
+          <p className="font-sans text-vbx-muted mb-10 max-w-[640px]" style={{ fontSize: '0.9375rem', lineHeight: '1.7' }}>
+            Two independent naming systems coexist. <strong className="text-vbx-white">Execution phases</strong> (Phase&nbsp;1/2/3)
+            are repo file milestones. <strong className="text-vbx-white">Deployment cycle labels</strong> (P0/P1/P2)
+            are CAHSP roadmap stages. They map 1-to-1 but are not interchangeable.
+          </p>
+          <div className="data-line mb-8" />
+          <div className="overflow-x-auto">
+            <table className="w-full" style={{ borderCollapse: 'collapse', minWidth: '580px' }}>
+              <thead>
+                <tr style={{ borderBottom: '2px solid #2EA891', background: 'rgba(46,168,145,0.06)' }}>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Execution (Repo)</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">File</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Deployment (CAHSP)</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Timeline</th>
+                </tr>
+              </thead>
+              <tbody>
+                {PHASES.map((p, i) => (
+                  <tr key={p.execLabel} style={{ background: i % 2 === 1 ? 'rgba(255,255,255,0.03)' : 'transparent', borderBottom: '1px solid rgba(46,168,145,0.08)' }}>
+                    <td className="py-3 px-4">
+                      <span className="font-mono text-sm text-vbx-white">{p.execLabel}</span>
+                      <p className="font-sans text-xs text-vbx-muted mt-0.5">{p.execDesc}</p>
+                    </td>
+                    <td className="py-3 px-4 font-mono text-xs" style={{ color: 'rgba(46,168,145,0.75)' }}>{p.execFile}</td>
+                    <td className="py-3 px-4">
+                      <span className="font-mono text-sm font-bold" style={{ color: p.deplColor }}>{p.deplLabel}</span>
+                    </td>
+                    <td className="py-3 px-4 font-sans text-xs text-vbx-muted">{p.deplDesc}</td>
+                  </tr>
                 ))}
-              </div>
-            ))}
+              </tbody>
+            </table>
           </div>
-
-          <p className="font-sans text-vbx-muted mt-4" style={{ fontSize: '0.6875rem', letterSpacing: '0.02em' }}>
-            Source: CMS HCRIS cost reports, Flex Monitoring Team, Chartis 2025 Rural Health State of the State
-          </p>
         </div>
       </section>
 
-      {/* ── DOMAIN TRACK RECORD ───────────────────────────────────────────── */}
+      {/* ── DOCUMENTATION INDEX ───────────────────────────────────────────── */}
+      <section className="section-padding bg-vbx-navy">
+        <div className="container-wide">
+          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 03'}&nbsp;&nbsp;DOCUMENTATION INDEX</p>
+          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            Repository Assets
+          </h2>
+          <p className="font-sans text-vbx-muted mb-10 max-w-[640px]" style={{ fontSize: '0.9375rem', lineHeight: '1.7' }}>
+            The CAH repo ships production-quality analytical documentation alongside
+            the optimization code. All files below are in the&nbsp;
+            <span className="font-mono text-vbx-teal">khaaliswooden-max/cah</span> repository.
+          </p>
+          <div className="data-line mb-8" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {DOCS.map((doc, i) => (
+              <Reveal key={doc.file} delay={i * 60}>
+                <div
+                  className="p-5 h-full"
+                  style={{ border: '1px solid rgba(46,168,145,0.18)', background: 'rgba(255,255,255,0.02)', borderRadius: '2px' }}
+                >
+                  <p className="font-mono text-xs tracking-[0.06em] mb-2" style={{ color: 'rgba(46,168,145,0.7)' }}>
+                    {doc.file}
+                  </p>
+                  <p className="font-sans text-vbx-white text-sm font-medium mb-2">{doc.title}</p>
+                  <p className="font-sans text-vbx-muted" style={{ fontSize: '0.8125rem', lineHeight: '1.6' }}>{doc.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PARTNER ATTRIBUTION ───────────────────────────────────────────── */}
       <section
-        className="section-padding"
-        style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(46,168,145,0.1)' }}
+        className="py-14"
+        style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(46,168,145,0.1)', borderBottom: '1px solid rgba(46,168,145,0.1)' }}
       >
-        <div ref={expertiseRef} className="container-wide">
-          <SectionLabel label="DOMAIN TRACK RECORD" />
-          <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
-            Before the models, the math, and the architecture — Visionblox has direct Healthcare IT delivery
-            experience that maps to CAH operational challenges.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {EXPERTISE_CARDS.map((card) => (
-              <ExpertiseCard key={card.title} card={card} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CAH TRANSFORMATION ENGINE ─────────────────────────────────────── */}
-      <section className="section-padding">
-        <div ref={engineRef} className="container-wide">
-          <SectionLabel label="CAH TRANSFORMATION ENGINE" />
-          <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
-            The CAH Transformation Engine is Visionblox&apos;s computational research framework for quantifying
-            and closing the performance gap at Critical Access Hospitals.
-          </p>
-
-          <div className="flex flex-col gap-0" style={{ maxWidth: '900px' }}>
-            {ENGINE_ROWS.map((row, i) => (
-              <div
-                key={row.label}
-                className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 md:gap-10 py-7"
-                style={{
-                  borderTop: '1px solid rgba(46,168,145,0.15)',
-                  borderBottom: i === ENGINE_ROWS.length - 1 ? '1px solid rgba(46,168,145,0.15)' : 'none',
-                }}
-              >
-                <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.06em', paddingTop: '2px' }}>
-                  {row.label}
-                </p>
-                <p className="font-sans text-vbx-muted" style={{ fontSize: '0.9375rem', lineHeight: '1.75' }}>
-                  {row.body}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Publication callout */}
-          <div
-            className="mt-10 p-6"
-            style={{
-              background: 'rgba(46,168,145,0.06)',
-              border: '1px solid rgba(46,168,145,0.2)',
-              borderRadius: '2px',
-              maxWidth: '720px',
-            }}
-          >
-            <p className="font-mono text-vbx-teal mb-2" style={{ fontSize: '0.6875rem', letterSpacing: '0.1em' }}>
-              PUBLISHED RESEARCH
-            </p>
-            <a
-              href="https://dx.doi.org/10.2139/ssrn.6470579"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-vbx-white mb-1 block hover:text-vbx-teal transition-colors"
-              style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}
-            >
-              &ldquo;GRHD: Get Rural Health Done&rdquo;
-            </a>
-            <p className="font-mono text-vbx-muted mb-3" style={{ fontSize: '0.75rem', letterSpacing: '0.04em' }}>
-              A.K. Wooden, Sr.&nbsp; · &nbsp;Visionblox LLC&nbsp; · &nbsp;SSRN Health Policy and Innovation Series, 2026
-            </p>
-            <div className="flex gap-3">
-              <a
-                href="https://dx.doi.org/10.2139/ssrn.6470579"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono"
-                style={{
-                  fontSize: '0.6875rem',
-                  letterSpacing: '0.08em',
-                  color: 'rgba(46,168,145,0.9)',
-                  border: '1px solid rgba(46,168,145,0.4)',
-                  padding: '4px 10px',
-                  borderRadius: '2px',
-                  textDecoration: 'none',
-                }}
-              >
-                VIEW PAPER →
-              </a>
-              <a
-                href="/GRHD_Paper.pdf"
-                download="GRHD_Paper.pdf"
-                className="font-mono"
-                style={{
-                  fontSize: '0.6875rem',
-                  letterSpacing: '0.08em',
-                  color: 'rgba(46,168,145,0.9)',
-                  border: '1px solid rgba(46,168,145,0.4)',
-                  padding: '4px 10px',
-                  borderRadius: '2px',
-                  textDecoration: 'none',
-                }}
-              >
-                DOWNLOAD PDF ↓
-              </a>
+        <div className="container-wide">
+          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-8">{'// 04'}&nbsp;&nbsp;PARTNERSHIP</p>
+          <div className="flex flex-col md:flex-row gap-10">
+            <div className="flex-1">
+              <h3 className="font-display text-vbx-white text-xl mb-3">VISIONBLOX LLC</h3>
+              <p className="font-sans text-vbx-muted text-sm leading-relaxed">
+                System architecture, optimization engine, FHIR data pipeline, dashboard infrastructure,
+                regulatory constraint modeling, and deployment. CAGE: 9Z4X2 &middot; UEI: H4X2Z7R9E3E3.
+              </p>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-vbx-white text-xl mb-3">ZUUP INNOVATION LAB</h3>
+              <p className="font-sans text-vbx-muted text-sm leading-relaxed">
+                Research partnership providing domain expertise in rural healthcare operations,
+                benchmark network access, and clinical workflow validation for WA and MT pilot sites.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── ENGAGE CTA ────────────────────────────────────────────────────── */}
-      <section
-        className="section-padding"
-        style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(46,168,145,0.12)' }}
-      >
-        <div ref={ctaRef} className="container-wide">
+      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      <section className="section-padding bg-vbx-navy">
+        <div className="container-wide">
           <div className="data-line mb-12" />
-          <div className="max-w-[640px]">
-            <SectionLabel label="ENGAGE" />
-            <p className="font-sans text-vbx-muted mb-8" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
-              Federal health IT. State Medicaid modernization. CAH infrastructure transformation.
+          <div className="max-w-[660px] mx-auto text-center">
+            <h2 className="font-display text-vbx-white mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}>
+              Deploying this at a Critical Access Hospital?
+            </h2>
+            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+              Visionblox and Zuup Innovation Lab provide briefings for CAH administrators,
+              rural health networks, and state hospital associations evaluating the CAHSP platform.
             </p>
-            <div className="flex flex-col gap-2 mb-8">
-              <a
-                href="mailto:khaalis.wooden@visionblox.com"
-                className="font-mono text-vbx-teal hover:text-vbx-white transition-colors"
-                style={{ fontSize: '0.9375rem' }}
-              >
-                khaalis.wooden@visionblox.com
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="mailto:khaalis.wooden@visionblox.com?subject=CAH%20Transformation%20Engine%20Briefing" className="btn-gold">
+                REQUEST A BRIEFING
               </a>
-              <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}>
-                CAGE: 9Z4X2&nbsp;&nbsp;|&nbsp;&nbsp;UEI: H4X2Z7R9E3E3
-              </p>
-              <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}>
-                NAICS: 541511 · 541512 · 541519 · 518210
-              </p>
+              <Link href="/cahsp" className="btn-teal-outline">VIEW CAHSP ROADMAP</Link>
             </div>
-            <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=CAH%20Infrastructure%20Transformation"
-              className="btn-gold"
-            >
-              REQUEST A BRIEFING
-            </a>
           </div>
           <div className="data-line mt-12" />
         </div>
