@@ -81,12 +81,12 @@ export default function Footer() {
               </p>
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
                 <a
-                  href="https://www.visionblox.com"
+                  href="https://visionblox.org"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-vbx-white transition-colors"
                 >
-                  www.visionblox.com
+                  visionblox.org
                 </a>
               </p>
             </div>
