@@ -6,6 +6,15 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+  async rewrites() {
+    return [
+      // ── Capability card / "Quick Facts" leave-behind ────────────────────
+      // Served from the static file at public/quick-facts.html.
+      // /card is the canonical URL encoded by all printed & on-page QR codes.
+      { source: '/quick-facts', destination: '/quick-facts.html' },
+      { source: '/card', destination: '/quick-facts.html' },
+    ]
+  },
   async redirects() {
     return [
       // ── /services index → /solutions ────────────────────────────────────

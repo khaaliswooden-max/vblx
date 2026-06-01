@@ -10,12 +10,15 @@ import { cn } from '@/lib/utils'
 
 // ─── Nav structure ────────────────────────────────────────────────────────────
 
-const TOP_LINKS: Array<{ label: string; href: string; external?: boolean }> = [
+const TOP_LINKS: Array<{ label: string; href: string; external?: boolean; hard?: boolean }> = [
   { label: 'About', href: '/about' },
   { label: 'Healthcare IT', href: '/healthcare-it' },
   { label: 'Rural Health IT', href: 'https://ruralhealth.xyz/', external: true },
   { label: 'IT Services', href: '/it-services' },
   { label: 'Past Performance', href: '/pastperformance' },
+  // Static capability card served via rewrite (public/quick-facts.html) —
+  // use a hard navigation rather than the client router.
+  { label: 'Quick Facts', href: '/quick-facts', hard: true },
 ]
 
 // ─── Main Navigation ──────────────────────────────────────────────────────────
@@ -65,6 +68,18 @@ export default function Navigation() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className={cn(baseClasses, 'text-vbx-white hover:text-vbx-teal')}
+                  >
+                    {link.label}
+                  </a>
+                )
+              }
+
+              if (link.hard) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
                     className={cn(baseClasses, 'text-vbx-white hover:text-vbx-teal')}
                   >
                     {link.label}
@@ -133,6 +148,19 @@ export default function Navigation() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(baseClasses, 'text-vbx-white')}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                }
+
+                if (link.hard) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(baseClasses, 'text-vbx-white')}
                     >
