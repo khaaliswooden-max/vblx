@@ -127,7 +127,7 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2022',
     location: 'Sacramento, CA (on-site)',
     federalRelevance: 10,
-    personnel: ['Saravanan Swaminathan (Senior Solution Architect)'],
+    personnel: ['Akil R. Chellum (Senior Solution Architect)'],
     stack: [
       'MITA', '.NET Core 2.0', 'Angular', 'Azure DevOps',
       'SQL Server', 'SSIS', 'SSRS', 'SOA', 'REST/Web API',
@@ -149,11 +149,11 @@ export const ENGAGEMENTS: Engagement[] = [
     client: 'VCare Urgent Care',
     project: 'Patient & Provider Portal - Full EMR Integration',
     category: 'healthcare-it',
-    contractValue: 'TCV PENDING DOCUMENTATION',
+    contractValue: 'Estimated ~$1.05M (range $800K-$1.5M)',
     period: 'TBD',
     location: 'Remote',
     federalRelevance: 9,
-    personnel: ['Saravanan Swaminathan (Senior Solution Architect / Technical Manager)'],
+    personnel: ['Akil R. Chellum (Senior Solution Architect / Technical Manager)'],
     stack: [
       'HL7 ETL', 'Microservices', 'Angular', 'SQL Server',
       'SSRS', 'AWS S3', 'Pre-signed URLs', 'PHI Data Management',
