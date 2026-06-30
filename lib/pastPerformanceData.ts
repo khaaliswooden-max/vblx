@@ -352,6 +352,19 @@ export function getEngagementBySlug(slug: string) {
   return ENGAGEMENTS.find((engagement) => engagement.slug === slug)
 }
 
+// Derive a sortable recency value from a free-form `period` string so
+// engagements can be ordered latest → earliest.
+//  - Ongoing work ("2026 - Present") ranks highest.
+//  - Otherwise the latest 4-digit year mentioned is used (covers single
+//    years like "2022" and ranges like "2016 - 2024 (8 years)").
+//  - Entries with no parseable year ("TBD", "13-year tenure") rank last.
+export function getPeriodSortValue(period: string): number {
+  if (/present/i.test(period)) return Number.POSITIVE_INFINITY
+  const years = period.match(/\d{4}/g)
+  if (years) return Math.max(...years.map(Number))
+  return Number.NEGATIVE_INFINITY
+}
+
 export function getFederalRelevanceColor(score: number) {
   if (score >= 10) return '#2EA891'
   if (score >= 9) return '#F7B801'

@@ -7,6 +7,7 @@ import {
   CATEGORY_META,
   ENGAGEMENT_CATEGORIES,
   getFederalRelevanceColor,
+  getPeriodSortValue,
   type Engagement,
   type EngagementCategory,
 } from '@/lib/pastPerformanceData'
@@ -214,8 +215,13 @@ export default function PastPerformancePage() {
   }, [])
 
   const filtered = useMemo(() => {
-    if (filter === 'all') return ENGAGEMENTS
-    return ENGAGEMENTS.filter((e) => e.category === filter)
+    const list = filter === 'all' ? ENGAGEMENTS : ENGAGEMENTS.filter((e) => e.category === filter)
+    // Order latest → earliest by engagement period.
+    return [...list].sort((a, b) => {
+      const av = getPeriodSortValue(a.period)
+      const bv = getPeriodSortValue(b.period)
+      return av === bv ? 0 : bv - av
+    })
   }, [filter])
 
   // Aggregate stats reflect the full IT services portfolio, not just healthcare.
