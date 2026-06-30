@@ -221,7 +221,10 @@ export default function PastPerformancePage() {
   // Aggregate stats reflect the full IT services portfolio, not just healthcare.
   const stats = useMemo(() => {
     const totalNumeric = ENGAGEMENTS.reduce((sum, e) => {
-      const n = Number(e.contractValue.replace(/[^0-9.]/g, ''))
+      // Parse only the first money figure so range/estimate suffixes
+      // (e.g. "$550,000 (est. range $450K–$750K)") don't inflate the total.
+      const match = e.contractValue.match(/[\d,]+(?:\.\d+)?/)
+      const n = match ? Number(match[0].replace(/,/g, '')) : NaN
       return Number.isFinite(n) ? sum + n : sum
     }, 0)
     const millions = Math.round(totalNumeric / 100000) / 10 // one decimal in $M
