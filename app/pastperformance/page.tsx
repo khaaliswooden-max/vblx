@@ -7,6 +7,7 @@ import {
   CATEGORY_META,
   ENGAGEMENT_CATEGORIES,
   getFederalRelevanceColor,
+  getPeriodSortValue,
   type Engagement,
   type EngagementCategory,
 } from '@/lib/pastPerformanceData'
@@ -76,7 +77,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
 
         {/* Meta row: contract value · period · location */}
         <div className="flex flex-wrap gap-x-6 gap-y-1 mb-4 font-mono text-vbx-muted" style={{ fontSize: '0.6875rem', letterSpacing: '0.05em' }}>
-          <span>TCV:&nbsp;<span className="text-vbx-white">{eng.contractValue}</span></span>
+          <span>TCV:&nbsp;<span className="text-vbx-white">Confidential</span></span>
           <span>PERIOD:&nbsp;<span className="text-vbx-white">{eng.period}</span></span>
           <span>LOCATION:&nbsp;<span className="text-vbx-white">{eng.location}</span></span>
         </div>
@@ -214,8 +215,13 @@ export default function PastPerformancePage() {
   }, [])
 
   const filtered = useMemo(() => {
-    if (filter === 'all') return ENGAGEMENTS
-    return ENGAGEMENTS.filter((e) => e.category === filter)
+    const list = filter === 'all' ? ENGAGEMENTS : ENGAGEMENTS.filter((e) => e.category === filter)
+    // Order latest → earliest by engagement period.
+    return [...list].sort((a, b) => {
+      const av = getPeriodSortValue(a.period)
+      const bv = getPeriodSortValue(b.period)
+      return av === bv ? 0 : bv - av
+    })
   }, [filter])
 
   // Aggregate stats reflect the full IT services portfolio, not just healthcare.

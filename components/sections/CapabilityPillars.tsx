@@ -4,7 +4,7 @@ const PILLARS = [
   {
     index: '01',
     headline: 'Healthcare Data Systems',
-    body: 'Epic EMR integration, HL7 data pipelines, MITA-compliant Medicaid architecture, and patient portal infrastructure — delivered at Kaiser Permanente, California DHCS, and VCare Urgent Care.',
+    body: 'Epic EMR integration, HL7 data pipelines, MITA-compliant Medicaid architecture, and patient portal infrastructure — delivered at Kaiser Permanente and California DHCS.',
   },
   {
     index: '02',

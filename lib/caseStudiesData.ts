@@ -417,71 +417,6 @@ export const strakeAviationCase: CaseStudy = {
   value: '$800K',
 }
 
-export const vcareUrgentCareCase: CaseStudy = {
-  id: 'vcare-urgent-care',
-  title: 'Urgent Care Network EMR Integration Platform',
-  subtitle: 'Unified Patient Experience Across Multiple Facilities',
-  client: 'Regional Urgent Care Network',
-  industry: 'Healthcare',
-  industryId: 'healthcare',
-  serviceCategory: 'operations',
-  products: ['Pro-Portal', 'Pro-Integration'],
-  heroImage: '/images/case-studies/vcare-urgent.jpg',
-  summary: 'Built a comprehensive patient portal with microservices architecture integrating EMR systems to manage patient demographics, appointments, health records, insurance, and lab reports across urgent care facilities.',
-  challenge: 'A regional urgent care network needed a unified platform to manage patient information across multiple facilities while integrating with various EMR systems. The existing fragmented systems created data silos and poor patient experience.',
-  solution: `Visionblox designed a microservices architecture using .NET Core 3.0 with Angular frontend:
-
-• EMR integration via HL7 data transformation
-• Secure document storage on AWS S3 with pre-signed URLs
-• Admin tools for provider scheduling and resource management
-• HIPAA-compliant data handling`,
-  implementation: `Platform built over 8 months:
-
-**Phase 1: Architecture**
-• Microservices design
-• EMR integration layer
-• Security framework
-
-**Phase 2: Core Features**
-• Patient demographics
-• Appointment management
-• Health records access
-
-**Phase 3: Integration**
-• Multi-site deployment
-• Real-time data sync`,
-  results: `Unified platform delivered:
-
-**Integration Success**
-• Multi-site platform unified
-• HL7 standard compliance
-• Real-time cross-facility sync
-
-**Security & Compliance**
-• HIPAA-compliant document storage
-• Secure patient data management`,
-  metrics: [
-    { value: 'Multi-Site', label: 'Integration', description: 'Unified platform deployment' },
-    { value: 'HL7', label: 'Standard', description: 'Healthcare data integration' },
-    { value: 'AWS S3', label: 'Secure Storage', description: 'HIPAA-compliant documents' },
-    { value: 'Real-time', label: 'Data Sync', description: 'Cross-facility sync' },
-  ],
-  quote: {
-    text: 'Our patient experience has been transformed. Information flows seamlessly across all our facilities now.',
-    author: 'Medical Director',
-    title: 'Regional Urgent Care Network',
-  },
-  tags: ['Healthcare', 'EMR', 'Microservices', 'Patient Portal', 'HL7'],
-  duration: '8 months implementation',
-  teamSize: '6 Visionblox consultants',
-  publishedDate: '2024-04-15',
-  featured: false,
-  technologies: ['.NET Core', 'Angular', 'AWS S3', 'HL7', 'SQL Server', 'Microservices'],
-  teamLeads: ['Saravanan Swaminathan', 'Akil Chellam'],
-  year: '2024',
-  value: '$800K',
-}
-
 export const sapLabsProcurementCase: CaseStudy = {
   id: 'sap-labs-procurement',
   title: 'Enterprise Software Company Procurement Invoice Automation',
@@ -1425,8 +1360,6 @@ export const CASE_STUDIES: CaseStudy[] = [
   basfSapCase,
   strakeAviationCase,
   // Portfolio case studies - Healthcare
-  vcareUrgentCareCase,
-
   globalHealthcareHitrustCase,
   // Portfolio case studies - Technology
   sapLabsProcurementCase,
