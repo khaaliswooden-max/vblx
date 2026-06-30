@@ -392,6 +392,60 @@ export const ENGAGEMENTS: Engagement[] = [
       'FAA-certified data pipeline delivery is directly relevant to FAA, DoD aviation, and DHS logistics RFPs. Real-time analytics plus regulatory certification execution differentiate against pure-development bidders.',
     slug: 'commercial-aviation-intelligence',
   },
+  {
+    number: '13',
+    client: 'Howard County Public School System (HCPSS)',
+    project: 'Enterprise Applications & Data Platform - SIS, LMS, Data Warehouse & Data Quality',
+    category: 'data-ai',
+    contractValue: 'TCV PENDING DOCUMENTATION',
+    period: 'TBD',
+    location: 'Maryland (Remote)',
+    federalRelevance: 8,
+    personnel: ['Saravanan Swaminathan (Data Platform Architect)'],
+    stack: [
+      'Synergy SIS (Edupoint)', 'Canvas LMS (Instructure)', 'Snowflake',
+      'Workday ERP', 'MS SQL Server', 'OneRoster / SIF Rostering',
+      'Power BI', 'Cloud ELT', 'Active Directory SSO / MFA',
+    ],
+    outcomes: [
+      'Unified four interdependent platforms - Synergy SIS, Canvas LMS, Snowflake data warehouse, and data quality - under one governance umbrella as a single source of truth',
+      'SIS-to-LMS rostering integration (OneRoster / SIF) auto-provisioning Canvas courses and users from authoritative Synergy records',
+      'Enterprise Data Warehouse on Snowflake consolidating student, staff, course, attendance, assessment, and finance data into conformed dimensional models',
+      'Cross-cutting data quality layer profiling, validating, and reconciling records at every system handoff before anomalies propagate downstream',
+      'MSDE state-compliance reporting datasets produced from curated, FERPA-aligned extracts',
+      'Role-based access aligned to Active Directory groups with row/column-level controls on sensitive student data',
+    ],
+    federalApplicability:
+      'Multi-system data platform governance with Snowflake warehousing, MSDE state reporting, and FERPA-aligned access controls maps directly to U.S. Department of Education, state SIS modernization, and federal data-quality / master-data-management evaluation criteria. Demonstrates single-source-of-truth delivery across SIS, LMS, ERP, and analytics layers.',
+    slug: 'hcpss-enterprise-data-platform',
+  },
+  {
+    number: '14',
+    client: 'SolGenie Technologies / Horizon Global',
+    project: 'SAP BTP Integration Solutioning - B2B / EDI Transaction Transformation',
+    category: 'enterprise-sap',
+    contractValue: 'TCV PENDING DOCUMENTATION',
+    period: 'TBD',
+    location: 'Remote',
+    federalRelevance: 7,
+    personnel: ['Visionblox SAP Integration Team'],
+    stack: [
+      'SAP BTP', 'Cloud Foundry', 'SAP HANA Cloud', 'Cloud Integration',
+      'API Management', 'Open Connectors', 'Integration Advisor',
+      'EDI AS2', 'EDIFACT / ANSI X12', 'OData / REST / SOAP',
+    ],
+    outcomes: [
+      'Up to 50% reduction in manual IT maintenance and runtime cost using SAP integration flows',
+      'Reliable real-time synchronization handling 100,000+ daily transactions across complex multi-system environments',
+      'EDI AS2 integration scenarios delivered: order receipt/validation, acknowledgement, changes, shipping/logistics, invoicing, and payment/remittance',
+      'Legacy SAP PO 7.5 landscape migrated to SAP BTP Cloud Integration',
+      'SAP CRM and Gateway services integrated with R/3 and cloud applications; industry-specific solution migrated to S/4 core',
+      'Agile / Scrum delivery with daily standups, sprint planning, desk checks, and weekly stakeholder status reviews',
+    ],
+    federalApplicability:
+      'Multi-protocol B2B / EDI integration (AS2, EDIFACT, ANSI X12) on SAP BTP Cloud Integration, with legacy SAP PO migration and high-volume real-time transaction synchronization, aligns with federal supply-chain, ERP integration, and inter-agency data-exchange modernization requirements.',
+    slug: 'solgenie-sap-btp-integration',
+  },
 ]
 
 export function getEngagementBySlug(slug: string) {
