@@ -127,7 +127,7 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2022',
     location: 'Sacramento, CA (on-site)',
     federalRelevance: 10,
-    personnel: ['Saravanan Swaminathan (Senior Solution Architect)'],
+    personnel: ['Akil R. Chellum (Senior Solution Architect)'],
     stack: [
       'MITA', '.NET Core 2.0', 'Angular', 'Azure DevOps',
       'SQL Server', 'SSIS', 'SSRS', 'SOA', 'REST/Web API',
