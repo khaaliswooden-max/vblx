@@ -146,30 +146,6 @@ export const ENGAGEMENTS: Engagement[] = [
   },
   {
     number: '03',
-    client: 'VCare Urgent Care',
-    project: 'Patient & Provider Portal - Full EMR Integration',
-    category: 'healthcare-it',
-    contractValue: '$1,050,000',
-    period: 'TBD',
-    location: 'Remote',
-    federalRelevance: 9,
-    personnel: ['Akil R. Chellum (Senior Solution Architect / Technical Manager)'],
-    stack: [
-      'HL7 ETL', 'Microservices', 'Angular', 'SQL Server',
-      'SSRS', 'AWS S3', 'Pre-signed URLs', 'PHI Data Management',
-    ],
-    outcomes: [
-      'End-to-end patient portal: demographics, scheduling, health records, insurance, lab reports - complete PHI data surface',
-      'HL7 data extraction, transformation, and loading from underlying EMR',
-      'Provider portal: doctor availability, billing/payment, resource management',
-      'AWS S3 pre-signed URL pattern for secure PHI document storage/retrieval',
-    ],
-    federalApplicability:
-      'HL7 ETL experience is directly applicable to VA Cerner/Oracle Health migrations, HHS FHIR API requirements, and any RFP involving EMR data interoperability. HL7/FHIR fluency is a mandatory technical discriminator on federal healthcare IT RFPs.',
-    slug: 'vcare-urgent-care',
-  },
-  {
-    number: '04',
     client: 'Global Healthcare Organization (via Wipro)',
     project: 'HITRUST Security Assessment Program',
     category: 'security-compliance',
@@ -193,7 +169,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'global-healthcare-hitrust',
   },
   {
-    number: '05',
+    number: '04',
     client: 'Fortune 10 Technology Company',
     project: 'Enterprise SAP S/4HANA Cloud Transformation',
     category: 'enterprise-sap',
@@ -218,7 +194,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'fortune10-tech-s4hana',
   },
   {
-    number: '06',
+    number: '05',
     client: 'Fortune 500 Multinational Chemical Manufacturer',
     project: 'SAP BTP Cloud Integration & Global Payroll Platform',
     category: 'enterprise-sap',
@@ -243,7 +219,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'fortune500-chem-sap-btp',
   },
   {
-    number: '07',
+    number: '06',
     client: 'Media & Consumer Data Company',
     project: 'Enterprise Data Platform & ML Models',
     category: 'data-ai',
@@ -268,7 +244,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'media-data-ml-platform',
   },
   {
-    number: '08',
+    number: '07',
     client: 'Multiple Global Clients (US + Europe)',
     project: 'ISO 27001 / 27017 / 27018 / 22301 / 9001 Certification Programs',
     category: 'security-compliance',
@@ -293,7 +269,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'iso27001-certifications',
   },
   {
-    number: '09',
+    number: '08',
     client: 'Howard County Public School System (HCPSS)',
     project: 'Enterprise Applications & Data Platform - SIS, LMS, Data Warehouse & Data Quality',
     category: 'data-ai',
@@ -320,7 +296,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'hcpss-enterprise-data-platform',
   },
   {
-    number: '10',
+    number: '09',
     client: 'SolGenie Technologies / Horizon Global',
     project: 'SAP BTP Integration Solutioning - B2B / EDI Transaction Transformation',
     category: 'enterprise-sap',

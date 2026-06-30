@@ -16,12 +16,6 @@ const ENGAGEMENTS = [
     tags: 'MITA · .NET · Azure · SQL Server · AI/OCR',
     score: '10/10',
   },
-  {
-    client: 'VCARE URGENT CARE',
-    project: 'Patient & Provider Portal',
-    tags: 'HL7 ETL · Microservices · AWS · PHI',
-    score: '9/10',
-  },
 ]
 
 export default function PastPerformancePreview() {

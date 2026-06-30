@@ -33,7 +33,7 @@ const DOMAINS = [
     number: '02',
     category: 'PATIENT DATA & PORTAL INFRASTRUCTURE',
     headline: 'Patient Portal & EMR Integration',
-    body: 'Patient-facing and provider-facing portal infrastructure — built on Epic HealthConnect, HL7 data pipelines, and FHIR-adjacent architectures. Delivered at Kaiser Permanente (100K+ daily users, 99.8% uptime) and VCare Urgent Care (full PHI data surface). Directly applicable to VA Veteran-Facing Digital Modernization, HHS agency portals, and Indian Health Service patient access RFPs.',
+    body: 'Patient-facing and provider-facing portal infrastructure — built on Epic HealthConnect, HL7 data pipelines, and FHIR-adjacent architectures. Delivered at Kaiser Permanente (100K+ daily users, 99.8% uptime, full PHI data surface). Directly applicable to VA Veteran-Facing Digital Modernization, HHS agency portals, and Indian Health Service patient access RFPs.',
     cards: [
       {
         tag: 'EMR INTEGRATION',
@@ -57,7 +57,7 @@ const DOMAINS = [
         href: '/services/web-development',
       },
     ],
-    ppRef: '// DELIVERED: KAISER PERMANENTE VCARE · $1.2M · 2023 · FEDERAL RELEVANCE: 10/10',
+    ppRef: '// DELIVERED: KAISER PERMANENTE · $1.2M · 2023 · FEDERAL RELEVANCE: 10/10',
   },
   {
     number: '03',

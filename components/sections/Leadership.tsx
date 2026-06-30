@@ -30,7 +30,7 @@ const PROFILES: Profile[] = [
   {
     name: 'Saravanan Swaminathan',
     title: 'SENIOR SOLUTION ARCHITECT — MEDICAID & EMR',
-    body: 'On-site delivery at California DHCS for the MITA-compliant CFRS modernization — the state Medicaid authority\'s Cost and Finance Reporting System. Built HL7 ETL pipelines and a full patient/provider portal on microservices for VCare Urgent Care. Deep .NET, SQL Server, and Azure stack. Visionblox\'s strongest individual credential for state Medicaid and CMS-adjacent procurement evaluations.',
+    body: 'On-site delivery at California DHCS for the MITA-compliant CFRS modernization — the state Medicaid authority\'s Cost and Finance Reporting System. Built HL7 ETL pipelines and full patient/provider portal architecture on microservices. Deep .NET, SQL Server, and Azure stack. Visionblox\'s strongest individual credential for state Medicaid and CMS-adjacent procurement evaluations.',
     certs: 'Certified Scrum Master (CSM) · 15+ years enterprise delivery',
     linkedin: 'https://linkedin.com/in/saravanan-swaminathan',
   },

@@ -35,19 +35,6 @@ const ENGAGEMENTS = [
       'MITA compliance is the CMS federal standard for all state Medicaid agencies — this engagement directly maps to CMS, HHS, and HRSA procurement evaluations.',
     ],
   },
-  {
-    client: 'VCare Urgent Care',
-    project: 'Patient & Provider Portal',
-    relevance: '9 / 10',
-    relevanceNote: 'HL7/FHIR DISCRIMINATOR',
-    relevanceColor: '#2EA891',
-    technologies: ['HL7 ETL', 'Microservices', 'Angular', 'SQL Server', 'AWS S3 (Pre-signed URLs)', 'Full PHI Data Surface'],
-    outcomes: [
-      'End-to-end patient and provider portal — demographics, scheduling, health records, insurance, lab reports, billing.',
-      'HL7 data extraction, transformation, and loading from underlying EMR.',
-      'HL7/FHIR fluency is a mandatory technical discriminator on federal healthcare IT RFPs.',
-    ],
-  },
 ]
 
 // ─── Capability Matrix Data ───────────────────────────────────────────────────
@@ -55,7 +42,7 @@ const ENGAGEMENTS = [
 const CAPABILITIES = [
   { capability: 'Epic EMR Integration',             depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
   { capability: 'HL7 Data Processing (ETL)',         depth: 'Direct delivery',                      personnel: 'Saravanan · Antony' },
-  { capability: 'Patient Portal Architecture',       depth: '3 projects delivered',                 personnel: 'Akil · Saravanan' },
+  { capability: 'Patient Portal Architecture',       depth: '2 projects delivered',                 personnel: 'Akil · Saravanan' },
   { capability: 'MITA-Compliant System Design',      depth: 'Direct delivery',                      personnel: 'Saravanan · Akil' },
   { capability: 'Medicaid Legacy Modernization',     depth: 'Direct delivery',                      personnel: 'Saravanan · Akil' },
   { capability: 'Healthcare AI / OCR / NLP',         depth: 'Quantified outcome — 96% accuracy',   personnel: 'Antony Jayaraj' },
@@ -108,7 +95,7 @@ const OPPORTUNITIES = [
   {
     tier: 'TIER 1 // HIGH CONFIDENCE',
     headline: 'Patient Portal / Digital Front Door',
-    body: 'Kaiser and VCare Urgent Care work maps directly to VA Veteran-Facing Digital Modernization, HHS agency web portal RFPs, and Indian Health Service patient access projects.',
+    body: 'Kaiser Permanente patient portal work maps directly to VA Veteran-Facing Digital Modernization, HHS agency web portal RFPs, and Indian Health Service patient access projects.',
     tierColor: '#F7B801',
   },
   {

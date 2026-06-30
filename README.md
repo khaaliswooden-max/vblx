@@ -52,7 +52,7 @@ The three top-level practices that drive the site's information architecture and
 | **Healthcare IT** | `/healthcare-it` | State Medicaid modernization, patient portals & digital front door, healthcare AI / document intelligence, federal agency healthcare IT build track. |
 | **Rural Health IT** | [ruralhealth.xyz](https://ruralhealth.xyz) | Dedicated practice for Critical Access Hospitals (CAH) and Rural Health Clinics (RHC) — connectivity, EMR enablement, compliance, and rural-grant-aligned IT. |
 | **IT Services** | `/it-services` | Enterprise IT services, infrastructure, support, and legacy system modernization for commercial and public-sector clients. |
-| **Past Performance** | `/pastperformance` | Documented delivery record across Kaiser Permanente, California DHCS, VCare Urgent Care, and federal/state programs. |
+| **Past Performance** | `/pastperformance` | Documented delivery record across Kaiser Permanente, California DHCS, and federal/state programs. |
 
 ---
 
@@ -60,7 +60,7 @@ The three top-level practices that drive the site's information architecture and
 
 Surfaced on the homepage and used in capability statements.
 
-1. **Healthcare Data Systems** — Epic EMR integration, HL7 data pipelines, MITA-compliant Medicaid architecture, and patient portal infrastructure (delivered at Kaiser Permanente, California DHCS, VCare Urgent Care).
+1. **Healthcare Data Systems** — Epic EMR integration, HL7 data pipelines, MITA-compliant Medicaid architecture, and patient portal infrastructure (delivered at Kaiser Permanente, California DHCS).
 2. **Compliance & Security Architecture** — HIPAA, HITRUST audits, 21st Century Cures Act, Section 508 ADA, FedRAMP-aware deployment on AWS GovCloud and Azure Government. 13 years of healthcare security leadership on staff.
 3. **Healthcare AI & Document Intelligence** — NLP, OCR, and ML pipelines purpose-built for healthcare data. 96% document processing accuracy and 60% labor reduction delivered at a state Medicaid agency. Python, Spark, Kafka, Snowflake.
 
