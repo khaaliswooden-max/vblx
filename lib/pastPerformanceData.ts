@@ -149,7 +149,7 @@ export const ENGAGEMENTS: Engagement[] = [
     client: 'VCare Urgent Care',
     project: 'Patient & Provider Portal - Full EMR Integration',
     category: 'healthcare-it',
-    contractValue: 'Estimated ~$1.05M (range $800K-$1.5M)',
+    contractValue: 'Estimated ~$1,050,000 (range $800K-$1.5M)',
     period: 'TBD',
     location: 'Remote',
     federalRelevance: 9,
