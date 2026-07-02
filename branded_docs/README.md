@@ -30,3 +30,4 @@ matching the VBX PNG deck.
 - `VBX_USOnlyDeliveryRoster_MontanaMasterAI_v2_20260629.docx`
 - `VBX_AIVendorStackAudit_MontanaMasterAI_v2_20260629.docx`
 - `VBX_CloudArchitectureUSOnlyPostureMemo_MontanaMasterAI_v2_20260629.docx`
+- `VBX_AwardCaptureBrief_Montana_MasterAI_20260629.docx`
