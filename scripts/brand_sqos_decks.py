@@ -128,14 +128,20 @@ def brand(src_pptx, color_logo, ko_logo, ratio, hero_idxs, out_pptx):
                 t = _text(sh)
                 if t.startswith("VISIONBLOX") and "ZUUP" in t and "·" in t:
                     _remove(sh)
-            for sh in list(s.shapes):                    # lift captions out of footer band
+            # Lift only genuine full-width, left-anchored bottom captions that
+            # would collide with the gold rule / footer logo. Restricting to
+            # left<2.0 + width>6.0 excludes right-side card captions, the
+            # CONFIDENTIAL banner (top-right on content slides), and the narrow
+            # page-number box — all of which the branding must leave in place.
+            for sh in list(s.shapes):
                 if not sh.has_text_frame:
                     continue
+                left = Emu(sh.left).inches
                 top = Emu(sh.top).inches
                 h = Emu(sh.height).inches
                 w = Emu(sh.width).inches
-                if w > 2.0 and (top + h) > 6.86:
-                    sh.top = Inches(max(0.0, 6.82 - h))
+                if left < 2.0 and w > 6.0 and (top + h) > 6.90:
+                    sh.top = Inches(max(0.0, 6.88 - h))
             _add_rule(s, 0.7, 6.96, 11.93, 0.028, GOLD)
             _add_logo(s, logo, 0.7, 7.0, 1.05, ratio)
     prs.save(out_pptx)
