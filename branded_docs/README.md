@@ -73,3 +73,21 @@ python scripts/brand_sqos_decks.py \
 ```
 
 Requires `python-pptx` and `Pillow`.
+
+---
+
+# VBX-Branded SQ-OS One-Pager (ZUUP Innovation Lab)
+
+A designed one-pager delivered in three linked formats. Its original palette
+was a generic blue (`#1F4FD8`) on near-black (`#0D1117`); it was remapped to the
+VBX palette and given a logo brand strip, keeping the HTML as the master and
+re-rendering the PDF from it (headless Chromium, A4).
+
+- `SQOS_OnePager.html` — master; VBX palette + white logo brand strip with teal rule.
+- `SQOS_OnePager.pdf` — re-rendered from the HTML (single A4 page).
+- `SQOS_OnePager.docx` — Word version; cell shading, fonts and borders remapped to
+  the VBX palette, with the logo strip added at the top.
+
+Palette remap: `#0D1117`→`#232D5A` (navy), `#1F4FD8`→`#2EA891` (teal),
+`#7EA0FF`→`#7FD4C1` (light teal), `#EEF2FF`→`#E7F5F1` (teal-tint),
+`#243044`→`#2A3560`, `#5B6673`→`#8892A4`.
