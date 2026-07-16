@@ -21,6 +21,8 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_ALIGN_VERTICAL
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+from docx.text.paragraph import Paragraph
+from docx.table import Table
 
 NAVY = RGBColor(0x23, 0x2D, 0x5A)
 TEAL = RGBColor(0x2E, 0xA8, 0x91)
@@ -98,16 +100,54 @@ def build_header(header, descriptor, logo):
     _border(div, "bottom", TEAL_HEX, 12, 1)
 
 
+def _table_top_border(table, color, sz=8):
+    tblPr = table._tbl.tblPr
+    borders = tblPr.find(qn("w:tblBorders"))
+    if borders is None:
+        borders = OxmlElement("w:tblBorders")
+        tblPr.append(borders)
+    top = borders.find(qn("w:top"))
+    if top is None:
+        top = OxmlElement("w:top")
+        borders.append(top)
+    top.set(qn("w:val"), "single"); top.set(qn("w:sz"), str(sz))
+    top.set(qn("w:space"), "0"); top.set(qn("w:color"), color)
+
+
 def style_footer(footer):
-    if not footer.paragraphs:
-        return
-    p = footer.paragraphs[0]
-    _border(p, "top", GOLD_HEX, 8, 4)
-    for r in p.runs:
-        r.font.name = "Arial"
-        if r.font.size is None:
-            r.font.size = Pt(7.5)
-        r.font.color.rgb = MUTED
+    """Gold top rule on the first footer block (paragraph or table) + muted Arial
+    styling on every footer run, including text/page-number fields inside footer
+    tables and later paragraphs. Existing fields are preserved (run-level edits)."""
+    def style_paras(paras):
+        for p in paras:
+            for r in p.runs:
+                r.font.name = "Arial"
+                if r.font.size is None:
+                    r.font.size = Pt(7.5)
+                r.font.color.rgb = MUTED
+
+    def style_tables(tables):
+        for t in tables:
+            for row in t.rows:
+                for c in row.cells:
+                    style_paras(c.paragraphs)
+                    style_tables(c.tables)
+
+    # gold top rule once, on the first block that has content (skip blank
+    # leading paragraphs so the rule sits above the actual footer content)
+    for child in footer._element:
+        if child.tag == qn("w:p"):
+            para = Paragraph(child, footer)
+            if para.text.strip() == "":
+                continue
+            _border(para, "top", GOLD_HEX, 8, 4)
+            break
+        if child.tag == qn("w:tbl"):
+            _table_top_border(Table(child, footer), GOLD_HEX)
+            break
+    # muted Arial on every footer run (paragraphs + nested table cells)
+    style_paras(footer.paragraphs)
+    style_tables(footer.tables)
 
 
 def strip_text(doc, phrases):
