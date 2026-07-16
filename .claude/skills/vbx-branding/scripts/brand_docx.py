@@ -111,7 +111,10 @@ def style_footer(footer):
 
 
 def strip_text(doc, phrases):
-    def fix(paras):
+    """Remove each phrase (and an adjacent '  |  ' separator) everywhere in the
+    document: body, nested tables at any depth, and header/footer paragraphs and
+    tables. Operates at the run level so fields (e.g. page numbers) survive."""
+    def fix_paras(paras):
         for p in paras:
             for r in p.runs:
                 for ph in phrases:
@@ -120,13 +123,20 @@ def strip_text(doc, phrases):
                         if ph in new:
                             new = new.replace(ph + "  |  ", "").replace(ph, "")
                         r.text = new
-    fix(doc.paragraphs)
-    for t in doc.tables:
-        for row in t.rows:
-            for c in row.cells:
-                fix(c.paragraphs)
+
+    def fix_tables(tables):
+        for t in tables:
+            for row in t.rows:
+                for c in row.cells:
+                    fix_paras(c.paragraphs)
+                    fix_tables(c.tables)  # recurse into nested tables
+
+    fix_paras(doc.paragraphs)
+    fix_tables(doc.tables)
     for s in doc.sections:
-        fix(s.header.paragraphs); fix(s.footer.paragraphs)
+        for hf in (s.header, s.footer):
+            fix_paras(hf.paragraphs)
+            fix_tables(hf.tables)
 
 
 def main():
