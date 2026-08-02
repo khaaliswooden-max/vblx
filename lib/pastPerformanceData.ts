@@ -322,6 +322,31 @@ export const ENGAGEMENTS: Engagement[] = [
       'Multi-protocol B2B / EDI integration (AS2, EDIFACT, ANSI X12) on SAP BTP Cloud Integration, with legacy SAP PO migration and high-volume real-time transaction synchronization, aligns with federal supply-chain, ERP integration, and inter-agency data-exchange modernization requirements.',
     slug: 'solgenie-sap-btp-integration',
   },
+  {
+    number: '10',
+    client: 'State of Montana — Department of Administration',
+    project: 'Master AI Products and Services (MAPS) Contract — Statewide AI Vehicle',
+    category: 'government-sled',
+    contractValue: 'Task-order based (master contract vehicle)',
+    period: '2026 - Present',
+    location: 'Statewide — Montana',
+    federalRelevance: 9,
+    personnel: ['Visionblox LLC (Prime — Track 1 & Track 2)'],
+    stack: [
+      'AI Products (Track 1)', 'AI Services (Track 2)', 'Master Contract Vehicle',
+      'SPB-RFP-2026-0608GW', 'Statewide Task Orders', 'Montana Procurement Act',
+    ],
+    outcomes: [
+      'Named a successful offeror on both Track 1 and Track 2 of the solicitation',
+      'Competitively evaluated against a field that included Fortune 500 systems integrators and national AI firms',
+      'Notice of Intent to Award posted June 30, 2026 under solicitation SPB-RFP-2026-0608GW',
+      'Awarded under the Montana Procurement Act with public scoring-matrix inspection',
+      'Positions Visionblox for statewide AI product and services task orders across Montana agencies',
+    ],
+    federalApplicability:
+      'Competitively awarded statewide master contract vehicle for AI products and services — a citable SLED prime award demonstrating that Visionblox competes and wins against Fortune 500 systems integrators and national AI firms in open AI procurements. Cite in state AI vehicle pursuits, federal AI services evaluations, and any SLED procurement requiring demonstrated AI contract award history.',
+    slug: 'montana-maps-master-contract',
+  },
 ]
 
 export function getEngagementBySlug(slug: string) {
