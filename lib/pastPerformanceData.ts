@@ -78,6 +78,7 @@ export const CATEGORY_META: Record<EngagementCategory, CategoryMeta> = {
 export interface Engagement {
   number: string
   client: string
+  logo?: { src: string; alt: string }
   project: string
   category: EngagementCategory
   contractValue: string
@@ -95,6 +96,7 @@ export const ENGAGEMENTS: Engagement[] = [
   {
     number: '01',
     client: 'Kaiser Permanente',
+    logo: { src: '/pp/kaiser-mark.png', alt: 'Kaiser Permanente mark' },
     project: 'Patient Portal - Digital Health Platform',
     category: 'healthcare-it',
     contractValue: '$1,200,000',
@@ -121,6 +123,7 @@ export const ENGAGEMENTS: Engagement[] = [
   {
     number: '02',
     client: 'California Department of Health Care Services (DHCS)',
+    logo: { src: '/pp/ca-state-seal.png', alt: 'Great Seal of the State of California' },
     project: 'Cost & Finance Reporting System (CFRS) - Medicaid Modernization',
     category: 'healthcare-it',
     contractValue: '$2,100,000',
@@ -271,6 +274,7 @@ export const ENGAGEMENTS: Engagement[] = [
   {
     number: '08',
     client: 'Howard County Public School System (HCPSS)',
+    logo: { src: '/awards/hcpss-logo.png', alt: 'Howard County Public School System logo' },
     project: 'Enterprise Applications & Data Platform - SIS, LMS, Data Warehouse & Data Quality',
     category: 'data-ai',
     contractValue: '$550,000',
@@ -298,6 +302,7 @@ export const ENGAGEMENTS: Engagement[] = [
   {
     number: '09',
     client: 'SolGenie Technologies / Horizon Global',
+    logo: { src: '/awards/solgenie-logo.png', alt: 'SolGenie Technologies logo' },
     project: 'SAP BTP Integration Solutioning - B2B / EDI Transaction Transformation',
     category: 'enterprise-sap',
     contractValue: '$650,000',
@@ -325,6 +330,7 @@ export const ENGAGEMENTS: Engagement[] = [
   {
     number: '10',
     client: 'State of Montana — Department of Administration',
+    logo: { src: '/awards/montana-doa-seal.png', alt: 'Montana Department of Administration seal' },
     project: 'Master AI Products and Services (MAPS) Contract — Statewide AI Vehicle',
     category: 'government-sled',
     contractValue: 'Task-order based (master contract vehicle)',
