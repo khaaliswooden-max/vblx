@@ -45,6 +45,8 @@ const AWARDS: Award[] = [
       'Positions Visionblox for statewide AI product and services task orders across Montana agencies',
       'Awarded under the Montana Procurement Act with public scoring-matrix inspection',
     ],
+    detailHref: '/pastperformance/montana-maps-master-contract',
+    detailLabel: 'Read Full Engagement Detail',
   },
   {
     number: '02',

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   ENGAGEMENTS,
@@ -50,7 +51,28 @@ function EngagementRow({ eng }: { eng: Engagement }) {
         className="px-5 md:px-8 pt-8 pb-7"
       >
         {/* Header row */}
-        <div className="flex flex-wrap items-start gap-x-6 gap-y-2 mb-2">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-2">
+          {eng.logo && (
+            <div
+              className="flex-shrink-0 flex items-center justify-center"
+              style={{
+                width: '64px',
+                height: '64px',
+                borderRadius: '4px',
+                border: `1px solid ${meta.color}33`,
+                background: 'rgba(245,245,240,0.06)',
+                padding: '8px',
+              }}
+            >
+              <Image
+                src={eng.logo.src}
+                alt={eng.logo.alt}
+                width={48}
+                height={48}
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </div>
+          )}
           <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.75rem' }}>
             {'// '}{eng.number}
           </p>
