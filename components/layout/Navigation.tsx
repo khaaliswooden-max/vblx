@@ -16,6 +16,7 @@ const TOP_LINKS: Array<{ label: string; href: string; external?: boolean; hard?:
   { label: 'Rural Health IT', href: 'https://ruralhealth.xyz/', external: true },
   { label: 'IT Services', href: '/it-services' },
   { label: 'Past Performance', href: '/pastperformance' },
+  { label: 'Awards', href: '/awards' },
   // Static capability card served via rewrite (public/quick-facts.html) —
   // use a hard navigation rather than the client router.
   { label: 'Quick Facts', href: '/quick-facts', hard: true },
