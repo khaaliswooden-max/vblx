@@ -226,13 +226,22 @@ export default function AwardsPage() {
       {/* ── AGGREGATE STATS ───────────────────────────────────────────────── */}
       <section className="py-10" style={{ borderBottom: '1px solid rgba(46,168,145,0.15)' }}>
         <div className="container-wide">
-          <div className="grid grid-cols-3 gap-0 divide-x divide-vbx-teal/20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-vbx-teal/20">
             {[
-              { value: '3',  label: 'Competitive Awards' },
-              { value: '1',  label: 'Statewide Master Contract Vehicle' },
-              { value: '2',  label: 'Active Delivery Engagements' },
+              {
+                value: String(AWARDS.length),
+                label: 'Competitive Awards',
+              },
+              {
+                value: String(AWARDS.filter((a) => a.status === 'MASTER CONTRACT VEHICLE').length),
+                label: 'Statewide Master Contract Vehicle',
+              },
+              {
+                value: String(AWARDS.filter((a) => a.status === 'ACTIVE DELIVERY').length),
+                label: 'Active Delivery Engagements',
+              },
             ].map((stat) => (
-              <div key={stat.label} className="text-center px-6 py-4 first:pl-0 last:pr-0">
+              <div key={stat.label} className="text-center px-6 py-4 sm:first:pl-0 sm:last:pr-0">
                 <p className="font-mono text-vbx-teal mb-1" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
                   {stat.value}
                 </p>
