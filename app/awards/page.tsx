@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 
 interface Award {
   number: string
+  logo: { src: string; alt: string }
   awardingBody: string
   title: string
   vehicle?: string
@@ -26,6 +28,7 @@ interface Award {
 const AWARDS: Award[] = [
   {
     number: '01',
+    logo: { src: '/awards/montana-doa-seal.png', alt: 'Montana Department of Administration seal' },
     awardingBody: 'State of Montana — Department of Administration',
     title: 'Master AI Products and Services (MAPS) Contract',
     vehicle: 'SPB-RFP-2026-0608GW',
@@ -45,6 +48,7 @@ const AWARDS: Award[] = [
   },
   {
     number: '02',
+    logo: { src: '/awards/hcpss-logo.png', alt: 'Howard County Public School System logo' },
     awardingBody: 'Howard County Public School System (HCPSS)',
     title: 'Enterprise Applications & Data Platform',
     status: 'ACTIVE DELIVERY',
@@ -65,6 +69,7 @@ const AWARDS: Award[] = [
   },
   {
     number: '03',
+    logo: { src: '/awards/solgenie-logo.png', alt: 'SolGenie Technologies logo' },
     awardingBody: 'SolGenie Technologies / Horizon Global',
     title: 'SAP BTP Integration Solutioning — B2B / EDI Transaction Transformation',
     status: 'ACTIVE DELIVERY',
@@ -94,7 +99,26 @@ function AwardCard({ award }: { award: Award }) {
         className="px-5 md:px-8 pt-8 pb-7"
       >
         {/* Header row */}
-        <div className="flex flex-wrap items-start gap-x-6 gap-y-2 mb-2">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-2">
+          <div
+            className="flex-shrink-0 flex items-center justify-center"
+            style={{
+              width: '64px',
+              height: '64px',
+              borderRadius: '4px',
+              border: `1px solid ${award.color}33`,
+              background: 'rgba(245,245,240,0.06)',
+              padding: '8px',
+            }}
+          >
+            <Image
+              src={award.logo.src}
+              alt={award.logo.alt}
+              width={48}
+              height={48}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
+          </div>
           <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.75rem' }}>
             {'// '}{award.number}
           </p>
