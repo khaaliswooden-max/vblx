@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Visionblox — Healthcare IT Cut Sheet</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 816px; }
+  body {
+    font-family: 'Liberation Sans', Arial, sans-serif;
+    color: #2E2E2E;
+    background: #FFFFFF;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 816px; min-height: 1056px; display: flex; flex-direction: column; }
+  .mono { font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace; }
+
+  /* ===== hero ===== */
+  .hero { background: #1E2749; color: #fff; padding: 18px 34px 18px 34px; }
+  .hero-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .hero-brand { display: flex; align-items: center; gap: 11px; }
+  .hero-mark { width: 44px; height: 37px; }
+  .hero-name { font-size: 22px; font-weight: bold; letter-spacing: 2.5px; }
+  .hero-tag { font-family: 'Liberation Mono', monospace; font-size: 8.5px; letter-spacing: 2.4px; color: #7FD4C1; margin-top: 3px; font-weight: bold; }
+  .hero-cage { font-family: 'Liberation Mono', monospace; font-size: 9px; letter-spacing: 1.2px; color: #F7B801; font-weight: bold; text-align: right; line-height: 1.7; }
+  .hero-kicker { font-family: 'Liberation Mono', monospace; font-size: 10px; letter-spacing: 3px; color: #F7B801; font-weight: bold; margin-bottom: 8px; }
+  .hero h1 { font-size: 28px; line-height: 1.14; letter-spacing: 0.4px; margin-bottom: 9px; }
+  .hero h1 .accent { color: #7FD4C1; }
+  .hero-sub { font-size: 11.5px; line-height: 1.5; color: #C9CFDE; max-width: 620px; }
+
+  /* ===== stat band ===== */
+  .stats { background: #2EA891; display: flex; }
+  .stat { flex: 1; text-align: center; padding: 11px 6px 10px 6px; border-right: 1px solid rgba(255,255,255,0.28); }
+  .stat:last-child { border-right: none; }
+  .stat .n { color: #F7B801; font-size: 25px; font-weight: bold; letter-spacing: 1px; }
+  .stat .l { color: #fff; font-family: 'Liberation Mono', monospace; font-size: 7.6px; letter-spacing: 1.6px; margin-top: 4px; font-weight: bold; }
+
+  /* ===== body ===== */
+  .body { flex: 1; padding: 15px 34px 6px 34px; }
+  .sect { font-family: 'Liberation Mono', monospace; font-size: 10px; font-weight: bold; letter-spacing: 2.4px; color: #2EA891; padding-bottom: 4px; border-bottom: 1px solid #D9DDE3; margin-bottom: 10px; position: relative; }
+  .sect::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 38px; height: 2px; background: #F7B801; }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .card { border: 1px solid #E0E3E9; border-left: 4px solid #F7B801; background: #FAFAF8; padding: 9px 12px; }
+  .card h3 { font-size: 12.5px; color: #1E2749; letter-spacing: 0.4px; margin-bottom: 6px; }
+  .card p { font-size: 9.6px; line-height: 1.45; color: #3A3F4C; }
+  .card .proof { font-family: 'Liberation Mono', monospace; font-size: 8px; color: #2EA891; margin-top: 7px; font-weight: bold; }
+  .card .proof::before { content: "\25B8 "; color: #F7B801; }
+
+  /* ===== proven with ===== */
+  .clients { display: flex; gap: 10px; margin-bottom: 20px; }
+  .client { flex: 1; text-align: center; border: 1px solid #DCE0E6; border-top: 3px solid #1E2749; padding: 9px 6px; }
+  .client .cn { font-size: 10.5px; font-weight: bold; color: #1E2749; letter-spacing: 0.4px; }
+  .client .cw { font-family: 'Liberation Mono', monospace; font-size: 7.2px; color: #6B7280; margin-top: 3px; line-height: 1.4; }
+  .client .cv { font-family: 'Liberation Mono', monospace; font-size: 8.4px; color: #2EA891; margin-top: 3px; font-weight: bold; }
+
+  /* ===== serve strip ===== */
+  .serve { display: flex; align-items: center; gap: 14px; background: #EDF6F3; border-left: 4px solid #2EA891; padding: 9px 14px; margin-bottom: 14px; }
+  .serve .sl { font-family: 'Liberation Mono', monospace; font-size: 8.5px; font-weight: bold; letter-spacing: 1.6px; color: #1E2749; white-space: nowrap; }
+  .serve .sv { font-size: 10px; color: #2E2E2E; line-height: 1.45; }
+  .serve .sv b { color: #1E2749; }
+
+  /* ===== differentiators ===== */
+  .diffs { display: flex; gap: 12px; margin-bottom: 8px; }
+  .diff { flex: 1; }
+  .diff .dh { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+  .diff .dia { color: #F7B801; font-size: 11px; }
+  .diff h4 { font-size: 10.5px; color: #1E2749; letter-spacing: 0.4px; }
+  .diff p { font-size: 8.8px; line-height: 1.42; color: #3A3F4C; }
+
+  /* ===== cta + footer ===== */
+  .cta { background: #232D5A; color: #fff; padding: 11px 34px; display: flex; align-items: center; justify-content: space-between; }
+  .cta .q { font-size: 13px; font-weight: bold; line-height: 1.4; max-width: 500px; }
+  .cta .attr { font-family: 'Liberation Mono', monospace; font-size: 8px; color: #7FD4C1; margin-top: 5px; letter-spacing: 0.6px; }
+  .cta-badges { display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+  .cta-badge { font-family: 'Liberation Mono', monospace; font-size: 7.4px; letter-spacing: 1px; padding: 3px 9px; border: 1px solid #F7B801; color: #F7B801; font-weight: bold; }
+
+  .naicsrow { display: flex; align-items: center; gap: 22px; padding: 8px 34px; }
+  .bt-label { font-family: 'Liberation Mono', monospace; font-size: 8.5px; font-weight: bold; letter-spacing: 1.8px; color: #2EA891; margin-bottom: 4px; }
+  .naics-codes { font-family: 'Liberation Mono', monospace; font-size: 10px; font-weight: bold; color: #1E2749; letter-spacing: 1px; }
+  .cbadges { display: flex; flex-wrap: wrap; gap: 5px; }
+  .cbadge { font-family: 'Liberation Mono', monospace; font-size: 7.3px; font-weight: bold; letter-spacing: 0.6px; padding: 3px 8px; border: 1px solid #232D5A; color: #232D5A; }
+  .cbadge.gold { border-color: #C89600; color: #A87E00; }
+
+  .ftr { background: #1E2749; color: #fff; display: flex; padding: 9px 34px 11px 34px; gap: 22px; align-items: flex-start; }
+  .ftr-label { font-family: 'Liberation Mono', monospace; font-size: 7.6px; letter-spacing: 1.6px; color: #F7B801; font-weight: bold; margin-bottom: 3px; }
+  .ftr-name { font-size: 14px; font-weight: bold; letter-spacing: 1px; }
+  .ftr-det { font-family: 'Liberation Mono', monospace; font-size: 7.6px; color: #C9CFDE; margin-top: 3px; line-height: 1.5; }
+  .ftr-right { margin-left: auto; text-align: right; flex-shrink: 0; }
+  .ftr-url { font-size: 13px; font-weight: bold; color: #2EA891; letter-spacing: 1px; white-space: nowrap; }
+  .ftr-cage { font-family: 'Liberation Mono', monospace; font-size: 7.6px; color: #F7B801; margin-top: 4px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-top">
+      <div class="hero-brand">
+        <svg class="hero-mark" viewBox="0 0 272 231" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#F58E64" d="M227.09 2.2l.62-.07c11.35 19.3 22.34 38.68 33.72 57.83 2.7 4.55 2.91 7.87.08 12.59-11.45 19.09-22.37 38.5-33.96 58.6-12.39-21.49-24.45-42.4-36.52-64.01 6.31-12 12.63-23.3 18.97-34.59C215.68 22.43 221.39 12.32 227.09 2.2z"/>
+          <path fill="#64C4A8" d="M137.97 159.84c12.2-21.29 24.4-42.59 37.05-64.67 1.46 2.33 2.52 3.9 3.47 5.54 10.41 17.97 20.89 35.91 31.09 54 1 1.77 1.25 5.01.3 6.69-11.61 20.54-23.52 40.91-36.01 61.46-1.61-.96-2.76-1.93-3.45-3.16-6.88-12.3-13.75-24.62-20.48-37-4.11-7.55-7.99-15.24-11.97-22.86z"/>
+          <path fill="#F8A98C" d="M226.62 2.13c-5.23 10.19-10.93 20.3-16.62 30.42-6.34 11.29-12.66 22.59-19.06 34.26-2 .04-3.93-.57-5.86-.58-20.98-.07-41.95-.04-62.93-.04h-6.76C127.05 44.34 139.23 23.32 151.67 2.08c24.67-.15 49.07-.08 74.95.05z"/>
+          <path fill="#6557A2" d="M45.97 2.46c24.74-.34 49.35-.36 74.41-.33-11.69 21.14-23.84 42.23-36.66 63.59-23.32.28-45.96.3-68.6.24-1.71-.01-3.43-.64-5.14-.98C21.93 44.25 33.88 23.51 45.97 2.46z"/>
+          <path fill="#1DB588" d="M137.51 159.86c4.45 7.61 8.32 15.29 12.42 22.84 6.74 12.39 13.6 24.7 20.48 37 .69 1.23 1.85 2.2 3.13 3.29-1.02.57-2.39 1.64-3.77 1.64-21.99.1-43.98.13-65.97-.03-1.62-.01-3.95-1.14-4.73-2.46-11.79-20.09-23.38-40.3-35-60.48-.15-.25-.07-.63-.18-1.78 24.44 0 48.79 0 73.62-.02z"/>
+          <path fill="#9182BC" d="M83.96 67.01c12.28 21.1 24.57 42.2 37.19 63.88-2.32.11-3.76.24-5.2.24-21.67.01-43.33-.08-65-.08-3.47.03-5.3-1.11-7-4.11C32.72 107.24 21.28 87.51 10.32 67.37c24.82-.36 49.23-.36 73.64-.36z"/>
+        </svg>
+        <div>
+          <div class="hero-name">VISIONBLOX</div>
+          <div class="hero-tag">BUILD WHAT DOESN'T EXIST YET</div>
+        </div>
+      </div>
+      <div class="hero-cage">CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3<br>GSA MAS HOLDER&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED SB</div>
+    </div>
+    <div class="hero-kicker">CUT SHEET &middot; HEALTHCARE IT &middot; FEDERAL &amp; SLED</div>
+    <h1>Healthcare data systems,<br>delivered at <span class="accent">federal scale.</span></h1>
+    <div class="hero-sub">Epic EMR integration, MITA-compliant Medicaid modernization, telehealth infrastructure, and healthcare AI &mdash; proven in production at Kaiser Permanente, California DHCS, and Cigna, and now backed by a competitively won statewide AI master contract.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">$3.3M</div><div class="l">CONTRACT PORTFOLIO VALUE</div></div>
+    <div class="stat"><div class="n">100K+</div><div class="l">DAILY USERS &middot; 99.8% SLA</div></div>
+    <div class="stat"><div class="n">96%</div><div class="l">AI DOC PROCESSING ACCURACY</div></div>
+    <div class="stat"><div class="n">60%</div><div class="l">CLIENT LABOR COST REDUCTION</div></div>
+  </div>
+
+  <div class="body">
+    <div class="sect">WHAT WE DELIVER</div>
+    <div class="cards">
+      <div class="card">
+        <h3>EMR INTEGRATION &amp; INTEROPERABILITY</h3>
+        <p>Epic HealthConnect integration, HL7/FHIR data pipelines, federated SSO, and 21st Century Cures Act information-blocking compliance &mdash; running in production, not in a pilot.</p>
+        <div class="proof">KAISER PERMANENTE &mdash; 100K+ DAILY USERS, ZERO-DOWNTIME RELEASES</div>
+      </div>
+      <div class="card">
+        <h3>MEDICAID &amp; MITA MODERNIZATION</h3>
+        <p>MITA-compliant Medicaid cost and finance systems built to the CMS federal architectural standard. Full SDLC: requirements through UAT, training, and statewide rollout.</p>
+        <div class="proof">CALIFORNIA DHCS &mdash; STATEWIDE REAL-TIME COST REPORTING</div>
+      </div>
+      <div class="card">
+        <h3>HEALTHCARE AI &amp; DOCUMENT INTELLIGENCE</h3>
+        <p>NLP, OCR, and ML pipelines purpose-built for healthcare data. 96% document-processing accuracy and 60% labor reduction delivered at a state Medicaid agency. CAH and rural health AI infrastructure.</p>
+        <div class="proof">MONTANA MAPS &mdash; STATEWIDE AI MASTER CONTRACT (BOTH TRACKS)</div>
+      </div>
+      <div class="card">
+        <h3>COMPLIANCE &amp; SECURITY ARCHITECTURE</h3>
+        <p>HIPAA, HITRUST audit execution, Section 508, FISMA alignment, FedRAMP-aware deployment on AWS GovCloud and Azure Government. CISA / CISM / CRISC credentialed staff resident.</p>
+        <div class="proof">13 YEARS HEALTHCARE SECURITY LEADERSHIP ON STAFF</div>
+      </div>
+    </div>
+
+    <div class="sect">PROVEN WITH</div>
+    <div class="clients">
+      <div class="client">
+        <div class="cn">KAISER PERMANENTE</div>
+        <div class="cw">VCare Patient Portal &middot; Epic &middot; Cures Act</div>
+        <div class="cv">$1.2M &middot; 2019&ndash;2023</div>
+      </div>
+      <div class="client">
+        <div class="cn">CALIFORNIA DHCS</div>
+        <div class="cw">Medicaid CFRS &middot; MITA &middot; AI/OCR</div>
+        <div class="cv">$2.1M &middot; 2022</div>
+      </div>
+      <div class="client">
+        <div class="cn">CIGNA</div>
+        <div class="cw">Claims at scale &middot; serverless AWS</div>
+        <div class="cv">Millions of claims/day</div>
+      </div>
+      <div class="client">
+        <div class="cn">STATE OF MONTANA</div>
+        <div class="cw">MAPS master AI contract &middot; Tracks 1 &amp; 2</div>
+        <div class="cv">2026&ndash;Present</div>
+      </div>
+    </div>
+
+    <div class="serve">
+      <div class="sl">WHO WE SERVE</div>
+      <div class="sv"><b>VA OIT</b> &middot; <b>HHS / CMS</b> &middot; <b>IHS</b> &middot; <b>HRSA</b> &middot; <b>State Medicaid agencies</b> &middot; <b>State DOH</b> &middot; <b>Critical Access &amp; rural hospitals</b> &mdash; as prime on SLED vehicles or integration-ready subcontractor to federal primes.</div>
+    </div>
+
+    <div class="sect">WHY VISIONBLOX</div>
+    <div class="diffs">
+      <div class="diff">
+        <div class="dh"><span class="dia">&#9672;</span><h4>PROVEN AT SCALE</h4></div>
+        <p>100K+ daily users at 99.8% SLA. Millions of claims a day. Production delivery for the nation's largest integrated health system.</p>
+      </div>
+      <div class="diff">
+        <div class="dh"><span class="dia">&#9672;</span><h4>SECURITY-FIRST STAFF</h4></div>
+        <p>Credentialed HITRUST audit execution &mdash; CISA, CISM, CRISC on staff. Compliance demonstrated, not self-attested.</p>
+      </div>
+      <div class="diff">
+        <div class="dh"><span class="dia">&#9672;</span><h4>FEDERAL-ANALOG PP</h4></div>
+        <p>MITA-compliant, CMS-adjacent architecture with citable references that map directly to VA, HHS, and HRSA evaluation criteria.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <div class="q">"Healthcare data is not a product problem. It is a systems problem. We solve the systems."</div>
+      <div class="attr">&mdash; Visionblox Engineering Mandate&nbsp;&nbsp;&middot;&nbsp;&nbsp;visionblox.org</div>
+    </div>
+    <div class="cta-badges">
+      <div class="cta-badge">SIN 54151HEAL &mdash; HEALTH IT SERVICES</div>
+      <div class="cta-badge">HIPAA &middot; HITRUST &middot; MITA &middot; CURES ACT</div>
+    </div>
+  </div>
+
+  <div class="naicsrow">
+    <div>
+      <div class="bt-label">NAICS CODES</div>
+      <div class="naics-codes">541511&nbsp; 541512&nbsp; 541519&nbsp; 518210</div>
+    </div>
+    <div style="flex:1;">
+      <div class="bt-label">COMPLIANCE &amp; CERTIFICATIONS</div>
+      <div class="cbadges">
+        <div class="cbadge">GSA MAS</div>
+        <div class="cbadge">HIPAA</div>
+        <div class="cbadge gold">HITRUST-AUDITED</div>
+        <div class="cbadge">MITA</div>
+        <div class="cbadge">SECTION 508</div>
+        <div class="cbadge">FEDRAMP-AWARE</div>
+        <div class="cbadge gold">21ST CENTURY CURES ACT</div>
+        <div class="cbadge">TAA COMPLIANT</div>
+        <div class="cbadge">SECTION 889</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <div>
+      <div class="ftr-label">PRIMARY CONTACT &mdash; CAPTURE &amp; BD</div>
+      <div class="ftr-name">KHAALIS WOODEN, MBA</div>
+      <div class="ftr-det">Director, Enterprise Capture &amp; Compliance&nbsp; &middot; &nbsp;(256) 988-1130&nbsp; &middot;<br>khaalis.wooden@visionblox.com</div>
+    </div>
+    <div>
+      <div class="ftr-label">TECHNICAL POC &mdash; EVALUATIONS</div>
+      <div class="ftr-name" style="font-size:12px;">ANTONY JAYARAJ</div>
+      <div class="ftr-det">Director, Data Engineering&nbsp; &middot; &nbsp;(510) 504-1543</div>
+    </div>
+    <div class="ftr-right">
+      <div class="ftr-url">VISIONBLOX.ORG</div>
+      <div class="ftr-cage">CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
