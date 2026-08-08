@@ -91,3 +91,27 @@ re-rendering the PDF from it (headless Chromium, A4).
 Palette remap: `#0D1117`→`#232D5A` (navy), `#1F4FD8`→`#2EA891` (teal),
 `#7EA0FF`→`#7FD4C1` (light teal), `#EEF2FF`→`#E7F5F1` (teal-tint),
 `#243044`→`#2A3560`, `#5B6673`→`#8892A4`.
+
+---
+
+# VBX-Branded Internal Docs — MAPS / Relian (August 2026)
+
+Three internal Montana Master AI documents given the standard VBX `.docx`
+treatment. Body content left as authored; the originals shipped with empty
+headers/footers, so the standard VBX footer was added (gold rule +
+`VISIONBLOX LLC | INTERNAL — CONFIDENTIAL | Page X of Y` with live
+`PAGE`/`NUMPAGES` fields) alongside the running logo header.
+
+## Files
+
+- `VBX_MAPSKickoffBrief_MontanaMasterAI_20260808.docx` — MAPS awardee kickoff
+  brief (descriptor: *MAPS Awardee Kickoff Brief — Montana Master AI*)
+- `VBX_RelianContractReconciliation_SPB260608GW_v1_1_20260808.docx` — internal
+  contract reconciliation, v1.1 (descriptor: *Relian Contract Reconciliation —
+  SPB26-0608GW-VSNBLX*)
+- `VBX_RelianBuildHandoff_CurrentVsDesired_v1_0_20260808.docx` — build-team
+  handoff, v1.0 (descriptor: *Relian Build Handoff — Current vs. Desired State*)
+- `source/` — the unbranded originals
+
+Reproduce with `.claude/skills/vbx-branding/scripts/brand_docx.py` (plus a
+footer build for docs whose footers start empty).
