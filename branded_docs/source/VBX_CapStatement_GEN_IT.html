@@ -62,7 +62,7 @@
   /* ===== past performance table ===== */
   table.pp { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
   table.pp th { background: #1E2749; color: #fff; font-family: 'Liberation Mono', monospace; font-size: 8px; letter-spacing: 1.2px; text-align: left; padding: 6px 8px; font-weight: bold; }
-  table.pp td { padding: 6px 8px; vertical-align: top; font-size: 8.3px; border-bottom: 1px solid #E4E7EC; }
+  table.pp td { padding: 5px 8px; vertical-align: top; font-size: 8.3px; border-bottom: 1px solid #E4E7EC; }
   table.pp tr.alt td { background: #F2F4F6; }
   .pp-client { font-size: 9.6px; font-weight: bold; color: #1E2749; letter-spacing: 0.4px; }
   .pp-proj { font-size: 8.2px; color: #3A3F4C; margin-top: 2px; }
@@ -72,6 +72,9 @@
   .pp-per { font-family: 'Liberation Mono', monospace; font-size: 7.5px; color: #6B7280; margin-top: 3px; }
   .pp-rel { font-family: 'Liberation Mono', monospace; font-size: 9.5px; font-weight: bold; color: #F7B801; }
   .pp-rel-sub { font-size: 7.1px; color: #8A6D00; margin-top: 2px; line-height: 1.28; }
+  tr.prime td { background: #FFFBEF; }
+  tr.prime td.c-client { border-left: 3px solid #F7B801; }
+  .pp-prime { display: inline-block; background: #F7B801; color: #1E2749; font-family: 'Liberation Mono', monospace; font-size: 6.6px; font-weight: bold; letter-spacing: 1px; padding: 1px 5px; margin-right: 5px; vertical-align: 1px; }
   td.c-client { width: 122px; }
   td.c-val { width: 82px; }
   td.c-rel { width: 74px; }
@@ -213,6 +216,16 @@
           <th>VALUE &amp;<br>PERIOD</th>
           <th>RELEVANCE</th>
         </tr>
+        <tr class="prime">
+          <td class="c-client">
+            <div class="pp-client"><span class="pp-prime">PRIME</span>STATE OF MONTANA</div>
+            <div class="pp-proj">Master AI Products &amp; Services Contract (SPB26-0608GW-VSNBLX)</div>
+            <div class="pp-tags">AI PRODUCTS &middot; AI SERVICES &middot; STATEWIDE VEHICLE</div>
+          </td>
+          <td><div class="pp-out">Competitively awarded statewide master contract &mdash; both tracks, executed Aug 2026. AI software solutions for state government operations.</div></td>
+          <td class="c-val"><div class="pp-val">Through 2028</div><div class="pp-per">Cooperative &middot; nationwide</div></td>
+          <td class="c-rel"><div class="pp-rel">9/10</div><div class="pp-rel-sub">SLED AI &middot; Federal AI Services</div></td>
+        </tr>
         <tr>
           <td class="c-client">
             <div class="pp-client">META PLATFORMS</div>
@@ -245,16 +258,6 @@
         </tr>
         <tr class="alt">
           <td class="c-client">
-            <div class="pp-client">STATE OF MONTANA</div>
-            <div class="pp-proj">Master AI Products &amp; Services (MAPS) Contract &mdash; Dept. of Administration</div>
-            <div class="pp-tags">AI PRODUCTS &middot; AI SERVICES &middot; STATEWIDE VEHICLE</div>
-          </td>
-          <td><div class="pp-out">Successful offeror on both tracks of the statewide AI master contract (SPB-RFP-2026-0608GW) &mdash; competitively won against Fortune 500 SIs and national AI firms. Vehicle for AI task orders across Montana agencies.</div></td>
-          <td class="c-val"><div class="pp-val">Task-Order Vehicle</div><div class="pp-per">2026&ndash;Present</div></td>
-          <td class="c-rel"><div class="pp-rel">9/10</div><div class="pp-rel-sub">SLED AI &middot; Federal AI Services</div></td>
-        </tr>
-        <tr>
-          <td class="c-client">
             <div class="pp-client">SOLGENIE / HORIZON GLOBAL</div>
             <div class="pp-proj">SAP BTP B2B / EDI Integration</div>
             <div class="pp-tags">SAP BTP &middot; EDI AS2 &middot; EDIFACT / ANSI X12</div>
@@ -263,7 +266,7 @@
           <td class="c-val"><div class="pp-val">$650,000</div><div class="pp-per">2026&ndash;Present</div></td>
           <td class="c-rel"><div class="pp-rel">7/10</div><div class="pp-rel-sub">Federal Supply Chain &middot; Data Exchange</div></td>
         </tr>
-        <tr class="alt">
+        <tr>
           <td class="c-client">
             <div class="pp-client">HOWARD COUNTY PUBLIC SCHOOLS</div>
             <div class="pp-proj">Enterprise Applications &amp; Data Platform</div>

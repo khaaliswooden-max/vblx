@@ -72,6 +72,9 @@
   .pp-per { font-family: 'Liberation Mono', monospace; font-size: 7.6px; color: #6B7280; margin-top: 3px; }
   .pp-rel { font-family: 'Liberation Mono', monospace; font-size: 9.5px; font-weight: bold; color: #F7B801; }
   .pp-rel-sub { font-size: 7.2px; color: #8A6D00; margin-top: 2px; line-height: 1.3; }
+  tr.prime td { background: #FFFBEF; }
+  tr.prime td.c-client { border-left: 3px solid #F7B801; }
+  .pp-prime { display: inline-block; background: #F7B801; color: #1E2749; font-family: 'Liberation Mono', monospace; font-size: 6.6px; font-weight: bold; letter-spacing: 1px; padding: 1px 5px; margin-right: 5px; vertical-align: 1px; }
   td.c-client { width: 128px; }
   td.c-val { width: 84px; }
   td.c-rel { width: 78px; }
@@ -212,6 +215,16 @@
           <th>VALUE &amp;<br>PERIOD</th>
           <th>RELEVANCE</th>
         </tr>
+        <tr class="prime">
+          <td class="c-client">
+            <div class="pp-client"><span class="pp-prime">PRIME</span>STATE OF MONTANA</div>
+            <div class="pp-proj">Master AI Products &amp; Services Contract (SPB26-0608GW-VSNBLX)</div>
+            <div class="pp-tags">AI PRODUCTS &middot; AI SERVICES &middot; STATEWIDE VEHICLE</div>
+          </td>
+          <td><div class="pp-out">Competitively awarded statewide master contract &mdash; both tracks, executed Aug 2026. AI software solutions for state government operations.</div></td>
+          <td class="c-val"><div class="pp-val">Through 2028</div><div class="pp-per">Cooperative &middot; nationwide</div></td>
+          <td class="c-rel"><div class="pp-rel">9/10</div><div class="pp-rel-sub">State DOH &middot; Rural Health AI</div></td>
+        </tr>
         <tr>
           <td class="c-client">
             <div class="pp-client">KAISER PERMANENTE</div>
@@ -234,16 +247,6 @@
         </tr>
         <tr>
           <td class="c-client">
-            <div class="pp-client">STATE OF MONTANA</div>
-            <div class="pp-proj">Master AI Products &amp; Services (MAPS) Contract &mdash; Dept. of Administration</div>
-            <div class="pp-tags">AI PRODUCTS &middot; AI SERVICES &middot; STATEWIDE VEHICLE</div>
-          </td>
-          <td><div class="pp-out">Named successful offeror on both tracks of the statewide AI master contract (SPB-RFP-2026-0608GW) &mdash; competitively evaluated against Fortune 500 SIs and national AI firms. Statewide vehicle for AI task orders, incl. rural health and CAH AI infrastructure.</div></td>
-          <td class="c-val"><div class="pp-val">Task-Order Vehicle</div><div class="pp-per">2026&ndash;Present</div></td>
-          <td class="c-rel"><div class="pp-rel">9/10</div><div class="pp-rel-sub">State DOH &middot; Rural Health AI</div></td>
-        </tr>
-        <tr class="alt">
-          <td class="c-client">
             <div class="pp-client">VCARE URGENT CARE</div>
             <div class="pp-proj">Patient &amp; Provider Portal</div>
             <div class="pp-tags">HL7 ETL &middot; Microservices &middot; AWS S3 &middot; PHI &middot; Angular</div>
@@ -252,7 +255,7 @@
           <td class="c-val"><div class="pp-val">TCV Pending</div><div class="pp-per">2023</div></td>
           <td class="c-rel"><div class="pp-rel">9/10</div><div class="pp-rel-sub">IHS &middot; HHS Digital</div></td>
         </tr>
-        <tr>
+        <tr class="alt">
           <td class="c-client">
             <div class="pp-client">CIGNA</div>
             <div class="pp-proj">Claims Processing at Scale</div>
