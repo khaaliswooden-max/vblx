@@ -115,3 +115,39 @@ headers/footers, so the standard VBX footer was added (gold rule +
 
 Reproduce with `.claude/skills/vbx-branding/scripts/brand_docx.py` (plus a
 footer build for docs whose footers start empty).
+
+---
+
+# VBX-Branded SEWP VI Collateral — TES Partner Package (August 2026)
+
+Two externally-supplied `.docx` files for the TES SEWP VI pursuit, **fully
+redesigned** (not just header/footer-stamped). The originals used flat gray
+`#F0F0F0` boxes with weak hierarchy; these were rebuilt from the content up on
+the VBX design system — a navy hero band with the knockout logo + tagline, a
+gold hero seam, teal-tint capability cards with teal top-accents, navy table
+header rows, gold-accented value figures, hairline row separators, and a
+gold-ruled navy footer band.
+
+## What was applied
+
+- **Hero band:** navy (`#232D5A`) with the knockout `visionblox` logo, the
+  `BUILD WHAT DOESN'T EXIST YET` tagline (light-teal), and a right-aligned
+  descriptor + CAGE/UEI over a gold (`#F7B801`) rule.
+- **Sections:** teal (`#2EA891`) letter-spaced eyebrow headers over a teal rule.
+- **Cards / tables:** teal-tint (`#E7F5F1`) card grid with teal top-accents;
+  navy header rows with white caps; alternating tint rows; gold value accents.
+- **Footer band:** navy strip over a gold rule carrying credentials + contact.
+- **Content:** preserved verbatim — on the Partner Profile every capability
+  keyword string is byte-for-byte identical for the TES catalog ingestion engine.
+
+## Files
+
+- `CapabilityStatement_Visionblox_v3.1_2026-08.docx` — 1-page capability
+  statement (+ `.pdf` render preview)
+- `Visionblox_SEWPVI_PartnerProfile_v1.0_2026-08.docx` — 2-page SEWP VI partner
+  profile, keywords + company information (+ `.pdf` render preview)
+- `source/CapabilityStatement_Visionblox_v3.1_2026-08_ORIGINAL.docx` — original
+- `source/Visionblox_SEWPVI_PartnerProfile_v1.0_2026-08_ORIGINAL.docx` — original
+
+The `.pdf` previews were rendered with LibreOffice; confirm pagination in Word
+before sending (Word and LibreOffice line-break slightly differently).
