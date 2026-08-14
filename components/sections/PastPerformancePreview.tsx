@@ -5,16 +5,25 @@ import Link from 'next/link'
 
 const ENGAGEMENTS = [
   {
+    client: 'STATE OF MONTANA',
+    project: 'Master AI Products & Services Contract',
+    tags: 'SPB26-0608GW-VSNBLX · Both Tracks · Statewide AI Vehicle',
+    score: 'PRIME',
+    prime: true,
+  },
+  {
     client: 'KAISER PERMANENTE',
     project: 'Patient Portal',
     tags: 'Epic · HL7 · Cures Act · SSO · 99.8% SLA',
     score: '10/10',
+    prime: false,
   },
   {
     client: 'CALIFORNIA DHCS',
     project: 'Cost & Finance Reporting System',
     tags: 'MITA · .NET · Azure · SQL Server · AI/OCR',
     score: '10/10',
+    prime: false,
   },
 ]
 
@@ -66,7 +75,8 @@ export default function PastPerformancePreview() {
               style={{
                 borderBottom: '1px solid rgba(46,168,145,0.1)',
                 padding: '1.25rem 0 1.25rem 1.5rem',
-                borderLeft: '3px solid rgba(46,168,145,0.5)',
+                borderLeft: eng.prime ? '3px solid #F7B801' : '3px solid rgba(46,168,145,0.5)',
+                background: eng.prime ? 'rgba(247,184,1,0.06)' : 'transparent',
                 opacity: 0,
                 transform: 'translateX(-16px)',
                 transition: 'opacity 0.5s ease, transform 0.5s ease',
@@ -93,8 +103,8 @@ export default function PastPerformancePreview() {
                   <span
                     className="font-mono text-xs tracking-[0.08em] border px-2 py-1"
                     style={{
-                      color: eng.score === '10/10' ? '#F7B801' : '#2EA891',
-                      borderColor: eng.score === '10/10' ? '#F7B801' : '#2EA891',
+                      color: eng.prime || eng.score === '10/10' ? '#F7B801' : '#2EA891',
+                      borderColor: eng.prime || eng.score === '10/10' ? '#F7B801' : '#2EA891',
                       borderRadius: '2px',
                     }}
                   >
