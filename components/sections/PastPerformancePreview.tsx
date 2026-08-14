@@ -5,7 +5,13 @@ import Link from 'next/link'
 
 const ENGAGEMENTS = [
   {
-    client: 'KAISER PERMANENTE',
+    client: 'STATE OF MONTANA',
+    project: 'Master AI Contract (MAPS)',
+    tags: 'Statewide AI Vehicle · Both Tracks · Cooperative Purchasing',
+    score: '9/10',
+  },
+  {
+    client: 'LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM',
     project: 'Patient Portal',
     tags: 'Epic · HL7 · Cures Act · SSO · 99.8% SLA',
     score: '10/10',

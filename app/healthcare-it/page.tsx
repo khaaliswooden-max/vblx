@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const ENGAGEMENTS = [
   {
-    client: 'Kaiser Permanente',
+    client: 'Leading National Integrated Healthcare System',
     project: 'Patient Portal',
     relevance: '10 / 10',
     relevanceNote: 'PRIMARY FEDERAL REFERENCE',
@@ -60,7 +60,7 @@ const TEAM = [
   {
     name: 'Akil R. Chellam',
     title: 'CEO / Principal Architect',
-    bio: 'Technical Product Owner at Kaiser Permanente across 7+ product modules for four years. Delivered 21st Century Cures Act compliance in production. Built Epic HealthConnect integrations. The primary proposal figure for any healthcare IT prime bid.',
+    bio: 'Technical Product Owner at a leading national integrated healthcare system across 7+ product modules for four years. Delivered 21st Century Cures Act compliance in production. Built Epic HealthConnect integrations. The primary proposal figure for any healthcare IT prime bid.',
     certs: 'AWS Solutions Architect (Associate) · AWS Cloud Practitioner · PMP · PGP AI/ML (UT McCombs)',
   },
   {
@@ -95,7 +95,7 @@ const OPPORTUNITIES = [
   {
     tier: 'TIER 1 // HIGH CONFIDENCE',
     headline: 'Patient Portal / Digital Front Door',
-    body: 'Kaiser Permanente patient portal work maps directly to VA Veteran-Facing Digital Modernization, HHS agency web portal RFPs, and Indian Health Service patient access projects.',
+    body: 'Leading national integrated healthcare system patient portal work maps directly to VA Veteran-Facing Digital Modernization, HHS agency web portal RFPs, and Indian Health Service patient access projects.',
     tierColor: '#F7B801',
   },
   {
@@ -190,7 +190,7 @@ export default function HealthcareITPage() {
             healthcare organizations at federal-analog scale. Our technical staff
             hold direct delivery experience in every major federal healthcare IT
             domain — not claimed capability, demonstrated delivery. $3.3M in
-            documented healthcare portfolio value across Kaiser Permanente and
+            documented healthcare portfolio value across a leading national integrated healthcare system and
             California DHCS.
           </p>
         </div>

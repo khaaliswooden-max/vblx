@@ -361,6 +361,12 @@ export default function IndustryDetailPage() {
                     <div className="font-semibold text-text-primary">{industry.contractVehicles.gsaStatus}</div>
                   </div>
                 )}
+                {industry.contractVehicles.masterContract && (
+                  <div className="md:col-span-2">
+                    <div className="text-text-tertiary text-sm mb-1">Master Contract Vehicle</div>
+                    <div className="font-semibold text-accent-secondary">{industry.contractVehicles.masterContract}</div>
+                  </div>
+                )}
                 {industry.contractVehicles.businessType && (
                   <div>
                     <div className="text-text-tertiary text-sm mb-1">Business Type</div>

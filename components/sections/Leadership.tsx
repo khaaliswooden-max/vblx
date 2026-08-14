@@ -24,7 +24,7 @@ const PROFILES: Profile[] = [
   {
     name: 'Akil R. Chellam',
     title: 'CEO / PRINCIPAL ARCHITECT — HEALTHCARE IT',
-    body: 'The deepest single-person healthcare IT portfolio on the team. Served as Technical Product Owner at Kaiser Permanente across 7+ product modules over multiple years — Appointment Center, Pharmacy Center, Online Payment, eVisits, Video Visits, Claim Status. Delivered 21st Century Cures Act compliance in production. Built Epic HealthConnect integrations via SOAP, REST, and Kafka. Primary proposal figure for any healthcare IT prime bid where Epic integration or Cures Act compliance is evaluated.',
+    body: 'The deepest single-person healthcare IT portfolio on the team. Served as Technical Product Owner at a leading national integrated healthcare system across 7+ product modules over multiple years — Appointment Center, Pharmacy Center, Online Payment, eVisits, Video Visits, Claim Status. Delivered 21st Century Cures Act compliance in production. Built Epic HealthConnect integrations via SOAP, REST, and Kafka. Primary proposal figure for any healthcare IT prime bid where Epic integration or Cures Act compliance is evaluated.',
     certs: 'AWS Solutions Architect (Associate) · AWS Cloud Practitioner · PMP · PGP AI/ML — UT McCombs',
   },
   {

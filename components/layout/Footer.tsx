@@ -28,8 +28,8 @@ export default function Footer() {
                 NAICS: <span className="text-vbx-white/70">541511 · 541512 · 541519 · 518210</span>
               </p>
               <p className="font-mono text-xs tracking-[0.06em] mt-2">
-                <span className="inline-block bg-vbx-teal/15 text-vbx-teal border border-vbx-teal/30 rounded px-2 py-0.5">
-                  GSA MAS SIN 54151HEAL — Health IT Services
+                <span className="inline-block bg-vbx-gold/15 text-vbx-gold border border-vbx-gold/30 rounded px-2 py-0.5 leading-relaxed">
+                  State of Montana Master AI Contract Holder — SPB26-0608GW-VSNBLX
                 </span>
               </p>
             </div>
@@ -43,7 +43,7 @@ export default function Footer() {
             <div className="space-y-2">
               {[
                 'MINORITY-OWNED SMALL BUSINESS',
-                'GSA MAS HOLDER',
+                'STATE OF MONTANA MAPS — BOTH TRACKS',
                 'HIPAA COMPLIANT',
                 'HITRUST-AUDITED SECURITY STAFF',
                 'SECTION 508 DELIVERED',

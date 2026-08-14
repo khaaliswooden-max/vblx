@@ -238,8 +238,9 @@ export default function PastPerformancePage() {
 
   const filtered = useMemo(() => {
     const list = filter === 'all' ? ENGAGEMENTS : ENGAGEMENTS.filter((e) => e.category === filter)
-    // Order latest → earliest by engagement period.
+    // Pinned flagship entries first, then latest → earliest by engagement period.
     return [...list].sort((a, b) => {
+      if (Boolean(a.pinnedFirst) !== Boolean(b.pinnedFirst)) return a.pinnedFirst ? -1 : 1
       const av = getPeriodSortValue(a.period)
       const bv = getPeriodSortValue(b.period)
       return av === bv ? 0 : bv - av
