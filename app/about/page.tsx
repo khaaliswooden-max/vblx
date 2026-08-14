@@ -176,7 +176,7 @@ export default function AboutPage() {
             healthcare IT infrastructure — patient portal systems, Medicaid modernization, EMR
             integration, healthcare AI, and compliance architecture for federal agencies and state
             health authorities. Our team has delivered $3.3M in documented healthcare IT
-            engagements at Kaiser Permanente and California DHCS.
+            engagements at a leading national integrated healthcare system and California DHCS.
           </p>
           <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
             CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;GSA MAS
@@ -309,7 +309,7 @@ export default function AboutPage() {
                 { label: 'HIPAA',           value: 'Direct delivery — 4 healthcare clients' },
                 { label: 'HITRUST CSF',     value: 'Third-party audit staff on team' },
                 { label: 'MITA',            value: 'CA DHCS delivery — CMS standard' },
-                { label: 'SECTION 508/ADA', value: 'Direct delivery — KP Appointment Center' },
+                { label: 'SECTION 508/ADA', value: 'Direct delivery — Appointment Center portal' },
                 { label: 'FEDRAMP-AWARE',   value: 'AWS GovCloud / Azure Gov architecture' },
                 { label: 'FISMA ALIGNMENT', value: 'NIST RMF security architecture' },
                 { label: 'SOC 2 TYPE II',   value: '' },
@@ -351,7 +351,7 @@ export default function AboutPage() {
           <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
             Visionblox operates across four locations with on-site and remote delivery capacity
             for federal and SLED healthcare IT engagements. On-site delivery has been executed
-            at California DHCS (Sacramento) and Kaiser Permanente (Northern California). Remote
+            at California DHCS (Sacramento) and a leading national integrated healthcare system (Northern California). Remote
             delivery operates across all active engagements.
           </p>
 
@@ -400,7 +400,7 @@ export default function AboutPage() {
               num="01"
               label="PAST PERFORMANCE"
               headline="Healthcare IT at Federal-Analog Scale"
-              body="$3.3M in documented healthcare delivery across Kaiser Permanente (commercial federal analog — 100K+ daily users, Epic integration, Cures Act compliance) and California DHCS (MITA-compliant, CMS standard, $2.1M direct award). These are not adjacent-industry references. They are healthcare IT references."
+              body="$3.3M in documented healthcare delivery across a leading national integrated healthcare system (commercial federal analog — 100K+ daily users, Epic integration, Cures Act compliance) and California DHCS (MITA-compliant, CMS standard, $2.1M direct award). These are not adjacent-industry references. They are healthcare IT references."
             />
             <RationaleBlock
               num="02"
@@ -412,7 +412,7 @@ export default function AboutPage() {
               num="03"
               label="TECHNICAL STAFF"
               headline="Named Personnel with Verifiable Healthcare Credentials"
-              body="Every technical capability claim on this site is anchored to a named individual with documented delivery history. Epic integration: Akil Chellam — Kaiser Permanente, 4 years. MITA compliance: Saravanan Swaminathan — CA DHCS, on-site. HITRUST security: Tony Paul — global healthcare audit, Wipro."
+              body="Every technical capability claim on this site is anchored to a named individual with documented delivery history. Epic integration: Akil Chellam — a leading national integrated healthcare system, 4 years. MITA compliance: Saravanan Swaminathan — CA DHCS, on-site. HITRUST security: Tony Paul — global healthcare audit, Wipro."
             />
             <RationaleBlock
               num="04"

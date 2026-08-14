@@ -71,6 +71,7 @@ export interface Industry {
     cageCode?: string
     uei?: string
     gsaStatus?: string
+    masterContract?: string
     businessType?: string
     naics?: string[]
   }
@@ -600,6 +601,8 @@ export const governmentIndustry: Industry = {
     cageCode: '9Z4X2',
     uei: 'H4X2Z7R9E3E3',
     gsaStatus: 'MAS Springboard (In Progress)',
+    masterContract:
+      'State of Montana Master AI Products & Services Contract — No. SPB26-0608GW-VSNBLX (both tracks; cooperative purchasing nationwide)',
     businessType: 'Minority-Owned Small Business',
     naics: ['541511', '541512', '541519', '518210', '541611'],
   },

@@ -182,7 +182,7 @@ export default function Hero() {
             </p>
 
             <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.15em' }}>
-              CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;FEDERAL-READY
+              CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;MONTANA MAPS AI CONTRACT
             </p>
 
             <div className="flex flex-wrap gap-4">

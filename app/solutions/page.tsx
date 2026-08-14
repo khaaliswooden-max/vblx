@@ -33,7 +33,7 @@ const DOMAINS = [
     number: '02',
     category: 'PATIENT DATA & PORTAL INFRASTRUCTURE',
     headline: 'Patient Portal & EMR Integration',
-    body: 'Patient-facing and provider-facing portal infrastructure — built on Epic HealthConnect, HL7 data pipelines, and FHIR-adjacent architectures. Delivered at Kaiser Permanente (100K+ daily users, 99.8% uptime, full PHI data surface). Directly applicable to VA Veteran-Facing Digital Modernization, HHS agency portals, and Indian Health Service patient access RFPs.',
+    body: 'Patient-facing and provider-facing portal infrastructure — built on Epic HealthConnect, HL7 data pipelines, and FHIR-adjacent architectures. Delivered at a leading national integrated healthcare system (100K+ daily users, 99.8% uptime, full PHI data surface). Directly applicable to VA Veteran-Facing Digital Modernization, HHS agency portals, and Indian Health Service patient access RFPs.',
     cards: [
       {
         tag: 'EMR INTEGRATION',
@@ -52,12 +52,12 @@ const DOMAINS = [
       {
         tag: 'TELEHEALTH',
         name: 'Telehealth & eVisit Platforms',
-        descriptor: 'eVisit and Video Visit infrastructure integrated into clinical portals. Delivered at Kaiser Permanente. Section 508 / ADA accessible. Applicable to VA telehealth modernization and IHS remote care RFPs.',
+        descriptor: 'eVisit and Video Visit infrastructure integrated into clinical portals. Delivered at a leading national integrated healthcare system. Section 508 / ADA accessible. Applicable to VA telehealth modernization and IHS remote care RFPs.',
         tech: ['Pexip', 'Node.js', 'Cloud Foundry', 'Section 508'],
         href: '/services/web-development',
       },
     ],
-    ppRef: '// DELIVERED: KAISER PERMANENTE · $1.2M · 2023 · FEDERAL RELEVANCE: 10/10',
+    ppRef: '// DELIVERED: LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM · $1.2M · 2023 · FEDERAL RELEVANCE: 10/10',
   },
   {
     number: '03',
@@ -105,7 +105,7 @@ const DOMAINS = [
       {
         tag: 'SECTION 508 / ADA',
         name: 'Accessible Healthcare Interface Design',
-        descriptor: 'Section 508 and ADA-compliant UI delivery for healthcare portals. Delivered at Kaiser Permanente Appointment Center. Mandatory for VA, HHS, and federal agency-facing healthcare applications.',
+        descriptor: 'Section 508 and ADA-compliant UI delivery for healthcare portals. Delivered at a leading national integrated healthcare system Appointment Center. Mandatory for VA, HHS, and federal agency-facing healthcare applications.',
         tech: ['WCAG 2.1 AA', 'Section 508', 'Angular', 'ADA'],
         href: '/services/cybersecurity',
       },
@@ -283,7 +283,10 @@ export default function SolutionsPage() {
               <p className="font-mono text-vbx-muted mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
                 CONTRACT VEHICLES
               </p>
-              <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+              <p className="font-mono text-vbx-gold" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+                STATE OF MONTANA MAPS&nbsp;&nbsp;·&nbsp;&nbsp;SPB26-0608GW-VSNBLX
+              </p>
+              <p className="font-mono text-vbx-white mt-1" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
                 GSA MAS&nbsp;&nbsp;·&nbsp;&nbsp;SET-ASIDE ELIGIBLE
               </p>
               <p className="font-mono text-vbx-teal mt-1" style={{ fontSize: '0.75rem' }}>

@@ -15,7 +15,7 @@ export default function MissionBlock() {
             Every Visionblox engagement begins with the same question: what does the
             institution need to see? From there, we build the integration layer, the
             compliance architecture, and the data pipelines that make the answer
-            visible. We have done this at Kaiser Permanente, at California DHCS,
+            visible. We have done this at a leading national integrated healthcare system, at California DHCS,
             We are prepared to do it for the federal agencies and state
             authorities that govern American healthcare.
           </p>

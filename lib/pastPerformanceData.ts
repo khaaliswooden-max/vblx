@@ -90,13 +90,14 @@ export interface Engagement {
   outcomes: string[]
   federalApplicability: string
   slug: string
+  /** Pins this engagement to the top of the registry regardless of period sort. */
+  pinnedFirst?: boolean
 }
 
 export const ENGAGEMENTS: Engagement[] = [
   {
-    number: '01',
-    client: 'Kaiser Permanente',
-    logo: { src: '/pp/kaiser-mark.png', alt: 'Kaiser Permanente mark' },
+    number: '02',
+    client: 'Leading National Integrated Healthcare System',
     project: 'Patient Portal - Digital Health Platform',
     category: 'healthcare-it',
     contractValue: '$1,200,000',
@@ -121,7 +122,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'kaiser-vcare-portal',
   },
   {
-    number: '02',
+    number: '03',
     client: 'California Department of Health Care Services (DHCS)',
     logo: { src: '/pp/ca-state-seal.png', alt: 'Great Seal of the State of California' },
     project: 'Cost & Finance Reporting System (CFRS) - Medicaid Modernization',
@@ -148,7 +149,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'ca-dhcs-medicaid',
   },
   {
-    number: '03',
+    number: '04',
     client: 'Global Healthcare Organization (via Wipro)',
     project: 'HITRUST Security Assessment Program',
     category: 'security-compliance',
@@ -172,7 +173,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'global-healthcare-hitrust',
   },
   {
-    number: '04',
+    number: '05',
     client: 'Fortune 10 Technology Company',
     project: 'Enterprise SAP S/4HANA Cloud Transformation',
     category: 'enterprise-sap',
@@ -197,7 +198,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'fortune10-tech-s4hana',
   },
   {
-    number: '05',
+    number: '06',
     client: 'Fortune 500 Multinational Chemical Manufacturer',
     project: 'SAP BTP Cloud Integration & Global Payroll Platform',
     category: 'enterprise-sap',
@@ -222,7 +223,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'fortune500-chem-sap-btp',
   },
   {
-    number: '06',
+    number: '07',
     client: 'Media & Consumer Data Company',
     project: 'Enterprise Data Platform & ML Models',
     category: 'data-ai',
@@ -247,7 +248,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'media-data-ml-platform',
   },
   {
-    number: '07',
+    number: '08',
     client: 'Multiple Global Clients (US + Europe)',
     project: 'ISO 27001 / 27017 / 27018 / 22301 / 9001 Certification Programs',
     category: 'security-compliance',
@@ -272,7 +273,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'iso27001-certifications',
   },
   {
-    number: '08',
+    number: '09',
     client: 'Howard County Public School System (HCPSS)',
     logo: { src: '/awards/hcpss-logo.png', alt: 'Howard County Public School System logo' },
     project: 'Enterprise Applications & Data Platform - SIS, LMS, Data Warehouse & Data Quality',
@@ -300,7 +301,7 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'hcpss-enterprise-data-platform',
   },
   {
-    number: '09',
+    number: '10',
     client: 'SolGenie Technologies / Horizon Global',
     logo: { src: '/awards/solgenie-logo.png', alt: 'SolGenie Technologies logo' },
     project: 'SAP BTP Integration Solutioning - B2B / EDI Transaction Transformation',
@@ -328,29 +329,31 @@ export const ENGAGEMENTS: Engagement[] = [
     slug: 'solgenie-sap-btp-integration',
   },
   {
-    number: '10',
-    client: 'State of Montana — Department of Administration',
-    logo: { src: '/awards/montana-doa-seal.png', alt: 'Montana Department of Administration seal' },
-    project: 'Master AI Products and Services (MAPS) Contract — Statewide AI Vehicle',
+    number: '01',
+    client: 'State of Montana — Master AI Products & Services Contract',
+    logo: { src: '/awards/montana-doa-seal.png', alt: 'State of Montana seal' },
+    project: 'Statewide Master AI Products and Services Contract (MAPS) — No. SPB26-0608GW-VSNBLX',
     category: 'government-sled',
-    contractValue: 'Task-order based (master contract vehicle)',
+    contractValue: 'Master contract vehicle (task-order based)',
     period: '2026 - Present',
-    location: 'Statewide — Montana',
+    location: 'Statewide — Montana (cooperative purchasing nationwide)',
     federalRelevance: 9,
+    pinnedFirst: true,
     personnel: ['Visionblox LLC (Prime — Track 1 & Track 2)'],
     stack: [
-      'AI Products (Track 1)', 'AI Services (Track 2)', 'Master Contract Vehicle',
-      'SPB-RFP-2026-0608GW', 'Statewide Task Orders', 'Montana Procurement Act',
+      'Statewide AI Vehicle', 'Track 1 & Track 2', 'eMACS Tier Two SOW',
+      'Relian™', 'VisionDoc AI', 'VisionAnalytics', 'Cooperative Purchasing',
     ],
     outcomes: [
-      'Named a successful offeror on both Track 1 and Track 2 of the solicitation',
-      'Competitively evaluated against a field that included Fortune 500 systems integrators and national AI firms',
-      'Notice of Intent to Award posted June 30, 2026 under solicitation SPB-RFP-2026-0608GW',
-      'Awarded under the Montana Procurement Act with public scoring-matrix inspection',
-      'Positions Visionblox for statewide AI product and services task orders across Montana agencies',
+      'Fully executed August 14, 2026; initial term through June 30, 2028, renewable up to 10 years total',
+      'Awarded on BOTH solicitation tracks (Track 1 and Track 2) under competitive RFP SPB-RFP-2026-0608GW',
+      'Statewide vehicle for AI software solutions across state government operations, agencies, and workforce functions',
+      'Montana agencies order via the eMACS Tier Two Statement of Work (SOW) process',
+      'Cooperative purchasing: public procurement units nationwide (state, local, federal, and tribal) may purchase at contract terms',
+      'Products on contract (Track 2): Relian™ (legacy migration), VisionDoc AI (document intelligence), and VisionAnalytics (pilot)',
     ],
     federalApplicability:
-      'Competitively awarded statewide master contract vehicle for AI products and services — a citable SLED prime award demonstrating that Visionblox competes and wins against Fortune 500 systems integrators and national AI firms in open AI procurements. Cite in state AI vehicle pursuits, federal AI services evaluations, and any SLED procurement requiring demonstrated AI contract award history.',
+      'A competitively awarded, fully executed statewide master contract vehicle for AI products and services — a citable SLED prime award. Selected on both solicitation tracks against a field that included Fortune 500 systems integrators and national AI firms. As a pre-qualification vehicle it is available to Montana agencies and, through cooperative purchasing, to public procurement units nationwide. Cite in state AI vehicle pursuits, federal AI services evaluations, and any SLED procurement requiring demonstrated AI contract award history.',
     slug: 'montana-maps-master-contract',
   },
 ]

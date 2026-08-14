@@ -45,7 +45,7 @@ const STAFF = [
   {
     role: 'Principal Architect // Cloud & Healthcare IT',
     name: 'Akil R. Chellam',
-    bio: 'AWS Solutions Architect · PMP · PGP AI/ML. Technical Product Owner at Kaiser Permanente (7+ product modules). 21st Century Cures Act compliance delivery in production. Primary proposal figure for Healthcare IT primes.',
+    bio: 'AWS Solutions Architect · PMP · PGP AI/ML. Technical Product Owner at a leading national integrated healthcare system (7+ product modules). 21st Century Cures Act compliance delivery in production. Primary proposal figure for Healthcare IT primes.',
   },
   {
     role: 'Senior Solution Architect // .NET & Medicaid',
@@ -201,6 +201,37 @@ export default function LegacyIT() {
             &ldquo;Federal programs don&apos;t always need transformation. They need a subcontractor who shows up,
             integrates cleanly, and delivers on the SOW. That is what Legacy IT at Visionblox is built to do.&rdquo;
           </blockquote>
+        </div>
+      </section>
+
+      {/* ── MAPS CONTRACT CALLOUT ─────────────────────────────────────────── */}
+      <section className="section-padding bg-vbx-navy">
+        <div className="container-wide">
+          <div
+            className="p-7 md:p-9"
+            style={{ border: '1px solid rgba(247,184,1,0.35)', background: 'rgba(247,184,1,0.05)', borderRadius: '4px' }}
+          >
+            <p className="font-mono text-vbx-gold text-sm tracking-[0.14em] mb-3">
+              {'// STATE OF MONTANA MAPS CONTRACT'}
+            </p>
+            <h3 className="font-display text-vbx-white mb-3" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
+              Relian™ legacy migration — now available on the Montana MAPS contract.
+            </h3>
+            <p className="font-sans text-vbx-muted max-w-[760px] mb-6" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+              Visionblox&apos;s AI-assisted legacy migration platform, Relian™, is available to Montana state
+              agencies as a task order under the State of Montana Master AI Products &amp; Services Contract
+              (No. SPB26-0608GW-VSNBLX) — and, through cooperative purchasing, to public procurement units
+              nationwide. Retire brittle legacy systems on an established contract vehicle, without a separate
+              solicitation.
+            </p>
+            <a
+              href="/pastperformance/montana-maps-master-contract"
+              className="font-mono text-vbx-gold hover:text-vbx-white transition-colors"
+              style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
+            >
+              → VIEW THE MAPS CONTRACT PROFILE
+            </a>
+          </div>
         </div>
       </section>
 

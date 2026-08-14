@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/Hero'
+import AwardBanner from '@/components/sections/AwardBanner'
 import MissionBlock from '@/components/sections/MissionBlock'
 import StatsStrip from '@/components/sections/StatsStrip'
 import CapabilityPillars from '@/components/sections/CapabilityPillars'
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <AwardBanner />
       <MissionBlock />
       <StatsStrip />
       <CapabilityPillars />
