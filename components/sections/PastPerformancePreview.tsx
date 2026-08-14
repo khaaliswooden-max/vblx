@@ -55,7 +55,7 @@ export default function PastPerformancePreview() {
 
         <div className="mb-10">
           <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">
-            {'// Federal-Analog Past Performance'}
+            {'// Past Performance & Contract Awards'}
           </p>
           <h2 className="font-display text-vbx-white" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Selected Engagements
@@ -114,7 +114,7 @@ export default function PastPerformancePreview() {
 
         <div className="mt-8">
           <Link
-            href="/healthcare-it"
+            href="/pastperformance"
             className="font-sans text-vbx-teal text-sm hover:text-vbx-white transition-colors tracking-wide"
           >
             → View Full Portfolio
