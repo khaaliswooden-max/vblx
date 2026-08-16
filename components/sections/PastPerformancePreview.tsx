@@ -9,18 +9,21 @@ const ENGAGEMENTS = [
     project: 'Master AI Contract (MAPS)',
     tags: 'Statewide AI Vehicle · Both Tracks · Cooperative Purchasing',
     score: '9/10',
+    prime: true,
   },
   {
     client: 'LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM',
     project: 'Patient Portal',
     tags: 'Epic · HL7 · Cures Act · SSO · 99.8% SLA',
     score: '10/10',
+    prime: false,
   },
   {
     client: 'CALIFORNIA DHCS',
     project: 'Cost & Finance Reporting System',
     tags: 'MITA · .NET · Azure · SQL Server · AI/OCR',
     score: '10/10',
+    prime: false,
   },
 ]
 
@@ -72,7 +75,8 @@ export default function PastPerformancePreview() {
               style={{
                 borderBottom: '1px solid rgba(46,168,145,0.1)',
                 padding: '1.25rem 0 1.25rem 1.5rem',
-                borderLeft: '3px solid rgba(46,168,145,0.5)',
+                borderLeft: eng.prime ? '3px solid #F7B801' : '3px solid rgba(46,168,145,0.5)',
+                background: eng.prime ? 'rgba(247,184,1,0.06)' : 'transparent',
                 opacity: 0,
                 transform: 'translateX(-16px)',
                 transition: 'opacity 0.5s ease, transform 0.5s ease',
@@ -81,6 +85,18 @@ export default function PastPerformancePreview() {
               <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-0">
                 {/* Client + project */}
                 <div className="flex-1 min-w-0">
+                  {eng.prime && (
+                    <span
+                      className="font-mono text-[0.625rem] tracking-[0.12em] border px-1.5 py-0.5 mr-2 align-middle"
+                      style={{
+                        color: '#F7B801',
+                        borderColor: '#F7B801',
+                        borderRadius: '2px',
+                      }}
+                    >
+                      PRIME
+                    </span>
+                  )}
                   <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">
                     {eng.client}
                   </span>
@@ -99,8 +115,8 @@ export default function PastPerformancePreview() {
                   <span
                     className="font-mono text-xs tracking-[0.08em] border px-2 py-1"
                     style={{
-                      color: eng.score === '10/10' ? '#F7B801' : '#2EA891',
-                      borderColor: eng.score === '10/10' ? '#F7B801' : '#2EA891',
+                      color: eng.prime || eng.score === '10/10' ? '#F7B801' : '#2EA891',
+                      borderColor: eng.prime || eng.score === '10/10' ? '#F7B801' : '#2EA891',
                       borderRadius: '2px',
                     }}
                   >
