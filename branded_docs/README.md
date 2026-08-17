@@ -199,3 +199,55 @@ truth, which stays readable for an email, a run-of-show doc, or a teleprompter.
 
 Reproduce with `scripts/brand_relian_deck.py --src <deck>.pptx --out <out>.pptx`
 then `scripts/add_relian_speaker_notes.py`.
+
+---
+
+# VBX-Branded Relian Substrate Briefing (Internal)
+
+`Relian_Substrate_Briefing.pptx` — the 8-slide internal technical briefing on why
+Relian is a substrate rather than a SaaS — re-styled onto the VBX brand system.
+Unlike the external capabilities deck, this one shipped on a *generic* navy/teal
+palette in Cambria/Calibri, so the work was a palette remap plus a type change,
+not just a lockup swap.
+
+## What was applied
+
+- **Dark slides (1 title, 7 closing):** the real **knockout** lockup (off-white
+  wordmark) — top-left at 1.85" on the title slide, top-right at 2.0" on the
+  closing slide, where the title occupies the left. The
+  `BUILD WHAT DOESN'T EXIST YET` tagline sits top-right in teal on the title
+  slide and footer-right on the closing slide.
+- **Content slides (2–6, 8):** the **full-color** lockup bottom-left over a gold
+  (`#F7B801`) footer accent rule, with a muted `INTERNAL · n / 8` mark at the
+  right. Bottom kicker captions are lifted clear of the new footer band.
+- **Palette remap:** `#14213D`→`#232D5A` (navy), `#1F2A44`→`#2A3560` (body ink),
+  `#0F8B8D`→`#26957F` on white / `#7FD4C1` light-teal on navy, `#5B6B85` and
+  `#8FA0C4`→`#8892A4` (muted), `#F3F6FC` and `#E4F3F2`→`#E7F5F1` (teal-tint),
+  `#0E1730`→`#1B2347` (navy-dark), `#9AA6BE`→`#8892A4` (shadows). Split by role
+  (fill / line / text) and by light vs. dark slide so contrast holds.
+- **Semantic layer preserved:** the Trutina `● MEASURED` / `● PARTIAL` /
+  `● PLAUSIBLE` chips keep their green and amber. The same green used
+  *decoratively* on the navy slides (the "Deterministic" chip, the `Q` markers)
+  became VBX gold instead.
+- **Typography:** Cambria/Calibri → Arial throughout.
+- **Content:** unchanged — no copy, figure, citation or attribution edited.
+
+## Files
+
+- `VBX_Relian_Substrate_Briefing.pptx` — branded deck (8 slides)
+- `VBX_Relian_Briefing_proof.png` — 8-slide proof contact sheet
+- `source/Relian_Substrate_Briefing.pptx` — original, unbranded
+
+## Reproduce
+
+```
+python scripts/brand_relian_briefing_deck.py \
+  --in branded_docs/source/Relian_Substrate_Briefing.pptx \
+  --out branded_docs/VBX_Relian_Substrate_Briefing.pptx \
+  --assets .claude/skills/vbx-branding/assets
+```
+
+LibreOffice could not load `.pptx` in the session that produced this deck, so the
+proof sheet was rendered with `scripts/pptx_to_html.py` + headless Chromium
+instead. Arial is wider than Calibri, so confirm line breaks in PowerPoint before
+external use.
