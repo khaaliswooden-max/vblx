@@ -18,7 +18,6 @@ Usage:
     python brand_relian_deck.py --in SRC.pptx --out OUT.pptx --assets DIR
 """
 import argparse
-import copy
 
 from pptx import Presentation
 from pptx.util import Inches, Pt, Emu

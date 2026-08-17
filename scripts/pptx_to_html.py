@@ -29,23 +29,26 @@ def find(el, path):
     return el.find(path) if el is not None else None
 
 
-def solid_hex(parent):
-    """Return #rrggbb for a direct a:solidFill child, or None."""
-    if parent is None:
-        return None
-    sf = parent.find(A + "solidFill")
-    if sf is None:
-        return None
-    c = sf.find(A + "srgbClr")
+def css_color(c):
+    """Turn an <a:srgbClr> element into a CSS color, honouring <a:alpha>."""
     if c is None:
         return None
+    val = c.get("val")
+    if not val:
+        return None
     alpha = c.find(A + "alpha")
-    hexv = "#" + c.get("val")
-    if alpha is not None:
-        a = int(alpha.get("val")) / 100000.0
-        r, g, b = (int(c.get("val")[i:i + 2], 16) for i in (0, 2, 4))
-        return f"rgba({r},{g},{b},{a:.3f})"
-    return hexv
+    if alpha is None:
+        return "#" + val
+    a = int(alpha.get("val")) / 100000.0
+    r, g, b = (int(val[i:i + 2], 16) for i in (0, 2, 4))
+    return f"rgba({r},{g},{b},{a:.3f})"
+
+
+def solid_hex(parent):
+    """Color of a direct a:solidFill child (fills, lines), or None."""
+    if parent is None:
+        return None
+    return css_color(find(parent.find(A + "solidFill"), A + "srgbClr"))
 
 
 def shape_css(sp):
@@ -86,12 +89,9 @@ def shape_css(sp):
         if sh is not None:
             blur = px(int(sh.get("blurRad") or 0))
             dist = px(int(sh.get("dist") or 0))
-            col = solid_hex(sh) or "#00000022"
-            c = sh.find(A + "srgbClr")
-            al = c.find(A + "alpha") if c is not None else None
-            if al is None and c is not None:
-                r, g, b = (int(c.get("val")[i:i + 2], 16) for i in (0, 2, 4))
-                col = f"rgba({r},{g},{b},0.35)"
+            # DrawingML nests the shadow color directly under a:outerShdw --
+            # there is no a:solidFill wrapper here, unlike fills and lines.
+            col = css_color(sh.find(A + "srgbClr")) or "rgba(0,0,0,0.13)"
             css.append(f"box-shadow:0 {dist:.1f}px {blur:.1f}px {col}")
     return ";".join(css)
 
