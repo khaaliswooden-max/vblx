@@ -193,7 +193,9 @@ truth, which stays readable for an email, a run-of-show doc, or a teleprompter.
 ## Files
 
 - `VBX_Relian_Capabilities_External.pptx` — branded deck (13 slides, with notes)
-- `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview
+- `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview.
+  **Predates the Relian mark swap** — it still shows the old shield placeholder
+  on slide 1. Re-render it where LibreOffice is available.
 - `source/Relian_Capabilities_External.pptx` — original, unbranded
 - `source/Relian_Capabilities_External_SpeakerNotes.md` — speaker notes source
 
@@ -251,3 +253,46 @@ LibreOffice could not load `.pptx` in the session that produced this deck, so th
 proof sheet was rendered with `scripts/pptx_to_html.py` + headless Chromium
 instead. Arial is wider than Calibri, so confirm line breaks in PowerPoint before
 external use.
+
+---
+
+# Relian™ Product Mark ("Ledger Mark")
+
+Both Relian decks originally opened on a teal disc with a generic stock glyph
+dropped in it — a layers icon on the Substrate Briefing, a shield on the external
+capabilities deck — standing in for a product mark that did not exist yet. Those
+placeholders are replaced on each deck's title slide with the real Relian mark:
+the `R` letterform over a teal baseline with a gold check.
+
+The disc and the glyph are both removed, and the mark sits on the navy background
+in their footprint — left-aligned to the slide's 0.60" margin, scaled so its ink
+is as tall as the disc it replaced. The generic glyph's relationship is dropped
+too, so the placeholder is no longer carried inside the `.pptx`.
+
+The mark is a *product* mark and does not displace the VisionBlox lockup: on both
+title slides the VBX knockout lockup still sits top-left, with the Relian mark
+below it and the product name below that.
+
+## Assets (`assets/relian/`)
+
+| File | |
+|---|---|
+| `relian_mark_dark.svg` / `.png` | off-white `R`, light-teal `#7FD4C1` rule, gold check — for navy backgrounds |
+| `relian_mark_light.svg` / `.png` | navy `R`, teal `#2EA891` rule, gold check — for light backgrounds |
+| `relian_mark_mono.svg` | single-color navy, for stamps and faxable output |
+| `relian_lockup_{dark,light,mono}.svg` | mark + `Relian` wordmark |
+
+The `.png` files are the SVGs rendered at 1600px and cropped to their ink bounds,
+which is what `scripts/swap_relian_mark.py` places (python-pptx cannot embed SVG).
+
+## Reproduce
+
+```
+python scripts/swap_relian_mark.py \
+  --deck branded_docs/VBX_Relian_Substrate_Briefing.pptx \
+  --mark branded_docs/assets/relian/relian_mark_dark.png
+```
+
+The script locates the disc and glyph structurally — a square teal-filled shape in
+the upper left, plus the picture inside its bounds — and fails loudly rather than
+guessing if a deck's title slide is not shaped that way.
