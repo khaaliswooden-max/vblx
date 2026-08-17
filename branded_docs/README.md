@@ -190,17 +190,32 @@ the speaker notes only ever existed as prose outside the file. All 13 are now
 written into the Notes pane (Arial 12), verbatim from the markdown source of
 truth, which stays readable for an email, a run-of-show doc, or a teleprompter.
 
+## Relian product mark
+
+The title slide's generic shield-in-a-teal-square placeholder is replaced with
+the real Relian **Ledger Mark** — see *Relian™ Product Mark ("Ledger Mark")*
+below, which covers both Relian decks.
+
+Only that one instance was a logo. The same shield glyph appears on slides 7,
+10 and 12 as ordinary card pictograms and is left alone.
+
 ## Files
 
 - `VBX_Relian_Capabilities_External.pptx` — branded deck (13 slides, with notes)
-- `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview.
-  **Predates the Relian mark swap** — it still shows the old shield placeholder
-  on slide 1. Re-render it where LibreOffice is available.
+- `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview, current
+  as of the Relian mark swap
 - `source/Relian_Capabilities_External.pptx` — original, unbranded
 - `source/Relian_Capabilities_External_SpeakerNotes.md` — speaker notes source
+- `assets/relian/` — Relian mark and lockup (see below)
 
-Reproduce with `scripts/brand_relian_deck.py --src <deck>.pptx --out <out>.pptx`
-then `scripts/add_relian_speaker_notes.py`.
+Reproduce in order — branding rebuilds the deck from source, so it runs first
+and the other two run on its output:
+
+    python scripts/brand_relian_deck.py --src branded_docs/source/Relian_Capabilities_External.pptx \
+        --out branded_docs/VBX_Relian_Capabilities_External.pptx
+    python scripts/swap_relian_mark.py --deck branded_docs/VBX_Relian_Capabilities_External.pptx \
+        --mark branded_docs/assets/relian/relian_mark_dark.png
+    python scripts/add_relian_speaker_notes.py
 
 ---
 
@@ -281,6 +296,7 @@ below it and the product name below that.
 | `relian_mark_light.svg` / `.png` | navy `R`, teal `#2EA891` rule, gold check — for light backgrounds |
 | `relian_mark_mono.svg` | single-color navy, for stamps and faxable output |
 | `relian_lockup_{dark,light,mono}.svg` | mark + `Relian` wordmark |
+| `concepts/relian_S{1,3,4}_*.svg` | the three unused concepts from the delivered package, kept for provenance |
 
 The `.png` files are the SVGs rendered at 1600px and cropped to their ink bounds,
 which is what `scripts/swap_relian_mark.py` places (python-pptx cannot embed SVG).
