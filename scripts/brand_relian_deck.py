@@ -50,6 +50,9 @@ LOGO_COLOR = os.path.normpath(os.path.join(SKILL_ASSETS, "visionblox-logo.png"))
 LOGO_KO = os.path.normpath(os.path.join(SKILL_ASSETS, "visionblox-logo-knockout.png"))
 
 WORDMARK = "VISIONBLOX"
+TAGLINE = "BUILD WHAT DOESN’T EXIST YET"
+TAGLINE_PT = 11
+TAGLINE_SPC = 300          # DrawingML character spacing (1/100 pt)
 HERO_LOGO_W = 2.2          # in
 FOOTER_LOGO_W = 1.0        # in
 RULE_TOP = 6.96            # in
@@ -175,12 +178,29 @@ def add_rule(slide, left, top, width, height, color):
     return sp
 
 
+def _style_tagline_run(run):
+    """Arial 11pt bold, teal, letter-spaced — the brand's tagline treatment."""
+    run.font.name = "Arial"
+    run.font.size = Pt(TAGLINE_PT)
+    run.font.bold = True
+    run.font.color.rgb = TEAL
+    run._r.get_or_add_rPr().set("spc", str(TAGLINE_SPC))
+
+
 def set_tagline(slide, existing=None, left=8.3, top=0.72, width=4.43):
-    """Place the tagline top-right in teal, reusing the authored one if present."""
+    """Place the tagline top-right in teal, reusing the authored one if present.
+
+    An authored tagline is re-styled as well as repositioned: the source deck's
+    happened to already be on-brand, but a reused shape that carries off-brand
+    type would otherwise survive the branding pass and leave the hero slides
+    inconsistent with each other.
+    """
     if existing is not None:
         existing.left, existing.top, existing.width = Inches(left), Inches(top), Inches(width)
         for para in existing.text_frame.paragraphs:
             para.alignment = PP_ALIGN.RIGHT
+            for run in para.runs:
+                _style_tagline_run(run)
         return existing
     tb = slide.shapes.add_textbox(Inches(left), Inches(top), Inches(width), Inches(0.3))
     tf = tb.text_frame
@@ -188,12 +208,8 @@ def set_tagline(slide, existing=None, left=8.3, top=0.72, width=4.43):
     p = tf.paragraphs[0]
     p.alignment = PP_ALIGN.RIGHT
     r = p.add_run()
-    r.text = "BUILD WHAT DOESN’T EXIST YET"
-    r.font.name = "Arial"
-    r.font.size = Pt(11)
-    r.font.bold = True
-    r.font.color.rgb = TEAL
-    r._r.get_or_add_rPr().set("spc", "300")   # brand letter-spacing
+    r.text = TAGLINE
+    _style_tagline_run(r)
     return tb
 
 
