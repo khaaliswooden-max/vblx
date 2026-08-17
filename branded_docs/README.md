@@ -190,15 +190,35 @@ the speaker notes only ever existed as prose outside the file. All 13 are now
 written into the Notes pane (Arial 12), verbatim from the markdown source of
 truth, which stays readable for an email, a run-of-show doc, or a teleprompter.
 
+## Relian product mark
+
+The authored deck stood the Relian product logo up as a generic Material-style
+shield glyph inside a teal rounded square. The title slide now carries the real
+Relian **Ledger Mark** — concept S2 of the delivered logo package, the R
+monogram with the teal baseline and gold check — in its dark variant (off-white
+monogram, light-teal bar, gold check) for the navy background.
+
+Only that one instance was a logo. The same shield glyph appears on slides 7,
+10 and 12 as ordinary card pictograms and is left alone; the swap keys off a
+size floor so card icons in identical teal swatches are never caught.
+
+Full logo package (4 concepts x mark/lockup x light/dark/mono) is preserved in
+`assets/relian-logo/`, alongside the rendered PNGs the deck embeds.
+
 ## Files
 
 - `VBX_Relian_Capabilities_External.pptx` — branded deck (13 slides, with notes)
 - `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview
 - `source/Relian_Capabilities_External.pptx` — original, unbranded
 - `source/Relian_Capabilities_External_SpeakerNotes.md` — speaker notes source
+- `assets/relian-logo/` — Relian logo SVG package + rendered marks
 
-Reproduce with `scripts/brand_relian_deck.py --src <deck>.pptx --out <out>.pptx`
-then `scripts/add_relian_speaker_notes.py`.
+Reproduce in order — branding rebuilds from source, so it runs first:
+
+    python scripts/brand_relian_deck.py --src branded_docs/source/Relian_Capabilities_External.pptx \
+        --out branded_docs/VBX_Relian_Capabilities_External.pptx
+    python scripts/swap_relian_mark.py
+    python scripts/add_relian_speaker_notes.py
 
 ---
 
