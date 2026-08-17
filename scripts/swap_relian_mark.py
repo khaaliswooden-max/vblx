@@ -1,41 +1,34 @@
 #!/usr/bin/env python3
 """
-Replace the generic placeholder logo on the Relian(TM) deck's title slide with
-the real Relian "Ledger Mark" (concept S2 — the R monogram with the teal
-baseline and gold check).
+Replace the generic placeholder glyph on a Relian deck's title slide with the
+real Relian "Ledger Mark".
 
-The authored deck stood the product logo up as a generic Material-style shield
-glyph inside a teal rounded square. That same shield is reused elsewhere in the
-deck as an ordinary card pictogram, so this only touches the one instance that
-acts as a LOGO: the square-container-plus-icon lockup on the title slide. The
-container goes away with it — a real mark carries its own color treatment and
-does not sit in a swatch.
+Both Relian decks open the same way: a teal (#2EA891) disc with a generic stock
+glyph dropped on top -- a layers icon on the Substrate Briefing, a shield on the
+external capabilities deck -- standing in for a product mark that did not exist
+yet. This removes the disc and the glyph together and places the real mark on the
+navy background in their footprint, left-aligned to the slide's 0.60in margin and
+scaled so the mark's ink is as tall as the disc it replaces.
 
-Variant is chosen by background: the dark mark (off-white monogram, light-teal
-bar, gold check) on navy, the light mark on white.
+The disc and glyph are located structurally (a square, teal-filled shape in the
+upper left, plus the picture inside its bounds) rather than by index, so the
+script fails loudly if a deck's layout is not what it expects.
 
-Run AFTER scripts/brand_relian_deck.py, which rebuilds the deck from source:
-
-    python scripts/brand_relian_deck.py --src <source>.pptx --out <deck>.pptx
-    python scripts/swap_relian_mark.py --deck <deck>.pptx
-    python scripts/add_relian_speaker_notes.py --deck <deck>.pptx
+Usage:
+    python scripts/swap_relian_mark.py \
+        --deck branded_docs/VBX_Relian_Substrate_Briefing.pptx \
+        --mark branded_docs/assets/relian/relian_mark_dark.png
 """
 import argparse
-import os
 
 from pptx import Presentation
 from pptx.util import Inches, Emu
 from PIL import Image
 
-ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                      os.pardir, "branded_docs", "assets", "relian-logo")
-MARK_DARK = os.path.normpath(os.path.join(ASSETS, "relian_mark_dark.png"))
-MARK_LIGHT = os.path.normpath(os.path.join(ASSETS, "relian_mark_light.png"))
-
-CONTAINER_FILL = "2EA891"       # teal swatch the placeholder icon sat in
-MARK_SCALE = 1.15               # an outlined mark needs a little more height than
-                                # the solid swatch it replaces to hold equal weight
-DARK_BGS = ("232D5A", "1B2247", "1B2347", "2A3560", "1A2140")
+DISC_FILL = "2EA891"        # vbx teal
+MAX_DISC_IN = 1.40          # discs are ~1.0-1.15in; anything larger is not one
+MAX_DISC_TOP_IN = 3.50      # the mark slot sits in the upper half of the slide
+SLIDE_MARGIN_IN = 0.60
 
 
 def _in(v):
@@ -51,72 +44,78 @@ def _fill_hex(sh):
     return None
 
 
-def _is_dark(slide):
+def find_disc(slide):
+    """The teal, square placeholder disc on the title slide."""
+    hits = []
     for sh in slide.shapes:
-        if sh.width and sh.height and _in(sh.width) > 13.0 and _in(sh.height) > 7.0:
-            if (_fill_hex(sh) or "") in DARK_BGS:
-                return True
-    return False
-
-
-def find_placeholder(slide, min_side=0.85):
-    """The logo lockup: a large square teal swatch with a picture centered in it.
-
-    Card pictograms use the same teal swatch at ~0.7" or smaller, so the size
-    floor is what separates the logo from ordinary iconography.
-    """
-    for sh in slide.shapes:
-        if sh.shape_type == 13 or not sh.width or not sh.height:
+        if sh.left is None or sh.shape_type == 13:
             continue
         w, h = _in(sh.width), _in(sh.height)
-        if _fill_hex(sh) != CONTAINER_FILL or w < min_side or abs(w - h) > 0.05:
-            continue
-        left, top = _in(sh.left), _in(sh.top)
-        for pic in slide.shapes:
-            if pic.shape_type != 13 or not pic.width:
-                continue
-            cx = _in(pic.left) + _in(pic.width) / 2.0
-            cy = _in(pic.top) + _in(pic.height) / 2.0
-            if left <= cx <= left + w and top <= cy <= top + h:
-                return sh, pic
-    return None
+        if (_fill_hex(sh) == DISC_FILL and abs(w - h) < 0.02
+                and w <= MAX_DISC_IN and _in(sh.top) <= MAX_DISC_TOP_IN):
+            hits.append(sh)
+    if len(hits) != 1:
+        raise SystemExit(f"expected exactly 1 placeholder disc, found {len(hits)}")
+    return hits[0]
 
 
-def swap(deck, out):
+def find_glyph(slide, disc):
+    """The picture sitting inside the disc's bounds."""
+    dl, dt, dr, db = (_in(disc.left), _in(disc.top),
+                      _in(disc.left) + _in(disc.width), _in(disc.top) + _in(disc.height))
+    hits = [sh for sh in slide.shapes
+            if sh.shape_type == 13 and sh.left is not None
+            and dl <= _in(sh.left) and dt <= _in(sh.top)
+            and _in(sh.left) + _in(sh.width) <= dr + 0.01
+            and _in(sh.top) + _in(sh.height) <= db + 0.01]
+    if len(hits) != 1:
+        raise SystemExit(f"expected exactly 1 glyph inside the disc, found {len(hits)}")
+    return hits[0]
+
+
+def swap(deck, mark_png, out):
     prs = Presentation(deck)
-    swapped = []
-    for i, slide in enumerate(prs.slides, 1):
-        found = find_placeholder(slide)
-        if not found:
-            continue
-        container, icon = found
-        left, side = _in(container.left), _in(container.height)
-        mid_y = _in(container.top) + side / 2.0
-        mark = MARK_DARK if _is_dark(slide) else MARK_LIGHT
-        for sh in (icon, container):
-            sh._element.getparent().remove(sh._element)
-        img = Image.open(mark)
-        ratio = img.size[0] / float(img.size[1])
-        h = side * MARK_SCALE
-        # left edge stays on the layout's text column; grow about the old center
-        slide.shapes.add_picture(mark, Inches(left), Inches(mid_y - h / 2.0),
-                                 Inches(h * ratio), Inches(h))
-        swapped.append((i, os.path.basename(mark), round(h * ratio, 3), round(h, 3)))
-    if not swapped:
-        raise SystemExit("no placeholder logo found — deck already swapped, or its layout changed")
+    slide = prs.slides[0]
+
+    disc = find_disc(slide)
+    glyph = find_glyph(slide, disc)
+    height = _in(disc.height)
+    top = _in(disc.top)
+
+    iw, ih = Image.open(mark_png).size          # pre-cropped to the ink bounds
+    width = height * iw / ih
+
+    # Take the disc's exact place in the z-order. Appending instead would be
+    # harmless here, but inserting at a fixed low index would bury the mark
+    # behind the full-slide background rectangle these decks draw first.
+    tree = slide.shapes._spTree
+    z = list(tree).index(disc._element)
+    glyph_rid = glyph._element.blip_rId
+    for sh in (glyph, disc):
+        sh._element.getparent().remove(sh._element)
+    # Removing the shape leaves the relationship -- and so the generic glyph
+    # itself -- inside the package. Drop it, or the icon we just "replaced" is
+    # still shipped in the .pptx.
+    slide.part.drop_rel(glyph_rid)
+
+    pic = slide.shapes.add_picture(mark_png, Inches(SLIDE_MARGIN_IN), Inches(top),
+                                   Inches(width), Inches(height))
+    tree.remove(pic._element)
+    tree.insert(z, pic._element)
+
     prs.save(out)
-    return out, swapped
+    print(f"{deck}: disc {height:.2f}in + glyph removed -> mark "
+          f"{width:.2f}x{height:.2f}in at ({SLIDE_MARGIN_IN}, {top:.2f})")
+    return out
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--deck", default="branded_docs/VBX_Relian_Capabilities_External.pptx")
-    ap.add_argument("--out", help="defaults to updating --deck in place")
+    ap.add_argument("--deck", required=True)
+    ap.add_argument("--mark", required=True)
+    ap.add_argument("--out")
     a = ap.parse_args()
-    out, swapped = swap(a.deck, a.out or a.deck)
-    for i, mark, w, h in swapped:
-        print("slide %-2d <- %s  %.3f x %.3f in" % (i, mark, w, h))
-    print("wrote:", out)
+    swap(a.deck, a.mark, a.out or a.deck)
 
 
 if __name__ == "__main__":
