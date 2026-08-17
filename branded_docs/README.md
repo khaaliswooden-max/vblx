@@ -151,3 +151,41 @@ gold-ruled navy footer band.
 
 The `.pdf` previews were rendered with LibreOffice; confirm pagination in Word
 before sending (Word and LibreOffice line-break slightly differently).
+
+---
+
+# VBX-Branded Relian™ Capabilities Deck (External)
+
+`Relian_Capabilities_External.pptx` — the 13-slide external capabilities deck for
+Relian™ — re-styled so **every slide carries the real `visionblox` logo +
+wordmark**. The deck already used the VBX palette, but the lockup was faked: a
+four-square placeholder drawn from autoshapes next to a *typed* "VISIONBLOX".
+Typing the wordmark is not allowed by the brand system; it is now the real
+embedded lockup on all 13 slides.
+
+## What was applied
+
+- **Dark hero slides (1 title, 12 closing):** the drawn placeholder mark and the
+  typed `VISIONBLOX` are removed and replaced with the real **knockout** lockup
+  (off-white wordmark) top-left at 2.2". The
+  `BUILD WHAT DOESN'T EXIST YET` tagline sits top-right in teal (`#2EA891`),
+  letter-spaced — moved out from under the lockup on slide 1, added on slide 12.
+- **Light content slides (2, 4, 5, 7–11):** the drawn footer mark + typed
+  wordmark are replaced with the real **full-color** lockup bottom-left, over
+  the footer accent rule thickened and set to gold (`#F7B801`). Page numbers and
+  the `Relian™ · Visionblox LLC` footer line are preserved.
+- **Dark content slides (3, 6) and references (13):** carried no footer in the
+  source; each now gets the same gold rule + lockup (knockout on navy,
+  full-color on white) so no slide is unmarked.
+- **Color normalization:** `#1B2247` → `#1B2347` (navy-dark) on the dark
+  backgrounds; `#5A6373` → `#8892A4` (vbx-muted) on secondary text and the
+  comparison table's left-hand column. All other colors were already on-token.
+- **Content:** unchanged — no copy, figure, citation, or contact detail edited.
+
+## Files
+
+- `VBX_Relian_Capabilities_External.pptx` — branded deck (13 slides)
+- `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview
+- `source/Relian_Capabilities_External.pptx` — original, unbranded
+
+Reproduce with `scripts/brand_relian_deck.py --src <deck>.pptx --out <out>.pptx`.
