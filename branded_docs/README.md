@@ -182,10 +182,20 @@ embedded lockup on all 13 slides.
   comparison table's left-hand column. All other colors were already on-token.
 - **Content:** unchanged — no copy, figure, citation, or contact detail edited.
 
+## Speaker notes
+
+The source deck shipped 13 notes slides that were empty scaffolding — a notes
+body placeholder holding a single empty run, plus the slide-number field — so
+the speaker notes only ever existed as prose outside the file. All 13 are now
+written into the Notes pane (Arial 12), verbatim from the markdown source of
+truth, which stays readable for an email, a run-of-show doc, or a teleprompter.
+
 ## Files
 
-- `VBX_Relian_Capabilities_External.pptx` — branded deck (13 slides)
+- `VBX_Relian_Capabilities_External.pptx` — branded deck (13 slides, with notes)
 - `VBX_Relian_Capabilities_External.pdf` — LibreOffice render preview
 - `source/Relian_Capabilities_External.pptx` — original, unbranded
+- `source/Relian_Capabilities_External_SpeakerNotes.md` — speaker notes source
 
-Reproduce with `scripts/brand_relian_deck.py --src <deck>.pptx --out <out>.pptx`.
+Reproduce with `scripts/brand_relian_deck.py --src <deck>.pptx --out <out>.pptx`
+then `scripts/add_relian_speaker_notes.py`.
