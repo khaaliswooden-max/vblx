@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import LeadershipSection from '@/components/sections/Leadership'
 
 // ─── Fade-in hook ─────────────────────────────────────────────────────────────
 
@@ -333,17 +332,14 @@ export default function AboutPage() {
         <div className="data-line mt-16" />
       </section>
 
-      {/* ── SECTION 5: LEADERSHIP ─────────────────────────────────────────── */}
-      <LeadershipSection />
-
-      {/* ── SECTION 6: DELIVERY FOOTPRINT ────────────────────────────────── */}
+      {/* ── SECTION 5: DELIVERY FOOTPRINT ────────────────────────────────── */}
       <section
         className="section-padding"
         style={{ background: 'rgba(255,255,255,0.02)' }}
       >
         <div className="container-wide" ref={footprintRef}>
           <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-            {'// 04 DELIVERY FOOTPRINT'}
+            {'// 03 DELIVERY FOOTPRINT'}
           </p>
           <h2 className="font-display text-vbx-white mb-6" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
             Where We Deliver
@@ -385,11 +381,11 @@ export default function AboutPage() {
         <div className="data-line mt-16" />
       </section>
 
-      {/* ── SECTION 7: PROCUREMENT RATIONALE ─────────────────────────────── */}
+      {/* ── SECTION 6: PROCUREMENT RATIONALE ─────────────────────────────── */}
       <section className="section-padding">
         <div className="container-wide">
           <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-            {'// 05 PROCUREMENT RATIONALE'}
+            {'// 04 PROCUREMENT RATIONALE'}
           </p>
           <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
             The Case for Visionblox
@@ -425,7 +421,7 @@ export default function AboutPage() {
         <div className="data-line mt-16" />
       </section>
 
-      {/* ── SECTION 8: CTA ────────────────────────────────────────────────── */}
+      {/* ── SECTION 7: CTA ────────────────────────────────────────────────── */}
       <section className="section-padding bg-vbx-navy">
         <div className="container-wide">
           <div className="max-w-[700px] mx-auto text-center">
