@@ -96,7 +96,7 @@ export default function MontanaMapsMasterContractPage() {
           </p>
           <div className="mb-8 flex flex-wrap gap-3">
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry"
+              href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry"
               className="btn-gold inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
@@ -247,7 +247,7 @@ export default function MontanaMapsMasterContractPage() {
               onboarding.
             </p>
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=MAPS%20Cooperative%20Purchasing%20Inquiry"
+              href="mailto:services@visionblox.com?subject=MAPS%20Cooperative%20Purchasing%20Inquiry"
               className="btn-gold"
             >
               DISCUSS COOPERATIVE PURCHASING
@@ -269,7 +269,7 @@ export default function MontanaMapsMasterContractPage() {
               eligibility, or the AI products available under the contract.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="mailto:khaalis.wooden@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry" className="btn-gold">
+              <a href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry" className="btn-gold">
                 CONTACT CONTRACT MANAGER
               </a>
               <Link href="/pastperformance" className="btn-teal-outline">

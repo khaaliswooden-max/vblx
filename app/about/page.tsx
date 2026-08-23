@@ -441,7 +441,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
                 className="btn-gold"
               >
                 REQUEST A CAPABILITY BRIEFING

@@ -389,13 +389,13 @@ export default function HealthcareITPage() {
 
             <div className="flex flex-wrap justify-center gap-4 mt-10">
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
                 className="btn-gold"
               >
                 REQUEST A CAPABILITY BRIEFING
               </a>
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Capabilities%20Statement%20Request"
+                href="mailto:services@visionblox.com?subject=Capabilities%20Statement%20Request"
                 className="btn-teal-outline"
               >
                 DOWNLOAD CAPABILITIES STATEMENT

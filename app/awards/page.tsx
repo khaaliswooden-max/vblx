@@ -236,7 +236,7 @@ export default function AwardsPage() {
               ↓ DOWNLOAD CAPABILITY STATEMENT
             </a>
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=Contract%20Awards%20Inquiry"
+              href="mailto:services@visionblox.com?subject=Contract%20Awards%20Inquiry"
               className="btn-gold inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
@@ -309,7 +309,7 @@ export default function AwardsPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Award%20Documentation%20Request"
+                href="mailto:services@visionblox.com?subject=Award%20Documentation%20Request"
                 className="btn-gold"
               >
                 REQUEST DOCUMENTATION

@@ -110,7 +110,7 @@ const HERO_BADGES = [
   'Section 889 Certified',
 ]
 
-const HREF_BRIEF = 'mailto:khaalis.wooden@visionblox.com?subject=Legacy%20IT%20Services%20Inquiry'
+const HREF_BRIEF = 'mailto:services@visionblox.com?subject=Legacy%20IT%20Services%20Inquiry'
 const HREF_CAPSTAT = '/VBX_CapStatement_IT.pdf'
 
 // ─── Scroll-reveal helper (mirrors components/pages/HealthcareIT.tsx) ─────────

@@ -373,7 +373,7 @@ export default function PastPerformanceDetailPage() {
                     Need past performance questionnaire responses or CPARS-format documentation for this engagement?
                   </p>
                   <a
-                    href="mailto:khaalis.wooden@visionblox.com?subject=Past%20Performance%20Documentation%20Request"
+                    href="mailto:services@visionblox.com?subject=Past%20Performance%20Documentation%20Request"
                     className="block"
                   >
                     <Button variant="primary" className="w-full">
@@ -479,7 +479,7 @@ export default function PastPerformanceDetailPage() {
               contacts for all citable engagements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:khaalis.wooden@visionblox.com?subject=Past%20Performance%20Documentation%20Request">
+              <a href="mailto:services@visionblox.com?subject=Past%20Performance%20Documentation%20Request">
                 <Button variant="primary" size="lg">
                   Request PPQ Documentation
                 </Button>

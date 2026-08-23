@@ -190,7 +190,7 @@ export default function Hero() {
                 VIEW HEALTHCARE PORTFOLIO
               </Link>
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
                 className="btn-teal-outline"
               >
                 REQUEST A BRIEFING
