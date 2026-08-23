@@ -291,7 +291,6 @@ export default function AboutPage() {
               </p>
               <CredField label="MINORITY-OWNED SMALL BUSINESS" value="Certified MBE" />
               <CredField label="SDVOSB ELIGIBLE"              value="Service-Connected Disabled Veteran Leadership" />
-              <CredField label="WOSB TEAMING AVAILABLE"       value="Via AG Grace (active teaming partner)" />
               <CredField label="HEADQUARTERS"                  value="San Jose, CA  ·  Est. 2020" />
             </div>
 
@@ -405,8 +404,8 @@ export default function AboutPage() {
             <RationaleBlock
               num="02"
               label="SET-ASIDE ACCESS"
-              headline="Minority-Owned + SDVOSB Leadership + WOSB Teaming"
-              body="Minority-Owned Small Business with Service-Connected Disabled Veteran leadership and an active WOSB teaming relationship via AG Grace. Three set-aside pathways for healthcare RFPs that include small business evaluation factors."
+              headline="Minority-Owned + SDVOSB Leadership"
+              body="Minority-Owned Small Business with Service-Connected Disabled Veteran leadership. Two set-aside pathways for healthcare RFPs that include small business evaluation factors."
             />
             <RationaleBlock
               num="03"
