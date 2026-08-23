@@ -36,7 +36,7 @@ const CONTRAST_ROWS = [
   { left: 'Generic "healthcare experience"', right: '$3.3M documented delivery' },
   { left: 'Cited HIPAA compliance',          right: 'HITRUST-audited staff on team' },
   { left: 'Commercial IT portfolio',         right: 'Federal-analog past performance' },
-  { left: 'Staffing augmentation model',     right: 'Direct delivery, named personnel' },
+  { left: 'Staffing augmentation model',     right: 'Direct delivery by credentialed staff' },
   { left: 'Broad NAICS targeting',           right: 'Healthcare-specific set-aside pursuit' },
 ]
 
@@ -406,8 +406,8 @@ export default function AboutPage() {
             <RationaleBlock
               num="03"
               label="TECHNICAL STAFF"
-              headline="Named Personnel with Verifiable Healthcare Credentials"
-              body="Every technical capability claim on this site is anchored to a named individual with documented delivery history. Epic integration: Akil Chellam — a leading national integrated healthcare system, 4 years. MITA compliance: Saravanan Swaminathan — CA DHCS, on-site. HITRUST security: Tony Paul — global healthcare audit, Wipro."
+              headline="Credentialed Staff with Verifiable Healthcare Delivery History"
+              body="Every technical capability claim on this site is anchored to staff who performed the work, with documented delivery history. Epic integration: our principal architect — a leading national integrated healthcare system, 4 years. MITA compliance: our senior solution architect — CA DHCS, on-site. HITRUST security: our CISO — global healthcare audit program. Named resumes furnished on request under NDA."
             />
             <RationaleBlock
               num="04"

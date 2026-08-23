@@ -40,43 +40,39 @@ const ENGAGEMENTS = [
 // ─── Capability Matrix Data ───────────────────────────────────────────────────
 
 const CAPABILITIES = [
-  { capability: 'Epic EMR Integration',             depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
-  { capability: 'HL7 Data Processing (ETL)',         depth: 'Direct delivery',                      personnel: 'Saravanan · Antony' },
-  { capability: 'Patient Portal Architecture',       depth: '2 projects delivered',                 personnel: 'Akil · Saravanan' },
-  { capability: 'MITA-Compliant System Design',      depth: 'Direct delivery',                      personnel: 'Saravanan · Akil' },
-  { capability: 'Medicaid Legacy Modernization',     depth: 'Direct delivery',                      personnel: 'Saravanan · Akil' },
-  { capability: 'Healthcare AI / OCR / NLP',         depth: 'Quantified outcome — 96% accuracy',   personnel: 'Antony Jayaraj' },
-  { capability: 'Claims Processing at Scale',        depth: 'Direct delivery — millions/day',       personnel: 'Akil Chellam' },
-  { capability: 'Healthcare Cloud Architecture',     depth: 'Direct delivery — AWS',                personnel: 'Akil · Saravanan' },
-  { capability: 'Cures Act / Information Blocking',  depth: 'Direct compliance delivery',           personnel: 'Akil Chellam' },
-  { capability: 'HIPAA Security & HITRUST Audits',   depth: '13 years documented',                  personnel: 'Tony Paul' },
-  { capability: 'Section 508 / ADA Accessibility',   depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
-  { capability: 'Telehealth / eVisit Platforms',     depth: 'Direct delivery',                      personnel: 'Akil Chellam' },
+  { capability: 'Epic EMR Integration',             depth: 'Direct delivery',                      deliveredBy: 'Principal architect' },
+  { capability: 'HL7 Data Processing (ETL)',         depth: 'Direct delivery',                      deliveredBy: 'Solution architect · data engineering' },
+  { capability: 'Patient Portal Architecture',       depth: '2 projects delivered',                 deliveredBy: 'Principal + solution architect' },
+  { capability: 'MITA-Compliant System Design',      depth: 'Direct delivery',                      deliveredBy: 'Solution architect' },
+  { capability: 'Medicaid Legacy Modernization',     depth: 'Direct delivery',                      deliveredBy: 'Solution architect' },
+  { capability: 'Healthcare AI / OCR / NLP',         depth: 'Quantified outcome — 96% accuracy',   deliveredBy: 'Data engineering / AI lead' },
+  { capability: 'Claims Processing at Scale',        depth: 'Direct delivery — millions/day',       deliveredBy: 'Principal architect' },
+  { capability: 'Healthcare Cloud Architecture',     depth: 'Direct delivery — AWS',                deliveredBy: 'Principal + solution architect' },
+  { capability: 'Cures Act / Information Blocking',  depth: 'Direct compliance delivery',           deliveredBy: 'Principal architect' },
+  { capability: 'HIPAA Security & HITRUST Audits',   depth: '13 years documented',                  deliveredBy: 'CISO / security practice' },
+  { capability: 'Section 508 / ADA Accessibility',   depth: 'Direct delivery',                      deliveredBy: 'Principal architect' },
+  { capability: 'Telehealth / eVisit Platforms',     depth: 'Direct delivery',                      deliveredBy: 'Principal architect' },
 ]
 
 // ─── Personnel Data ───────────────────────────────────────────────────────────
 
 const TEAM = [
   {
-    name: 'Akil R. Chellam',
     title: 'CEO / Principal Architect',
     bio: 'Technical Product Owner at a leading national integrated healthcare system across 7+ product modules for four years. Delivered 21st Century Cures Act compliance in production. Built Epic HealthConnect integrations. The primary proposal figure for any healthcare IT prime bid.',
     certs: 'AWS Solutions Architect (Associate) · AWS Cloud Practitioner · PMP · PGP AI/ML (UT McCombs)',
   },
   {
-    name: 'Saravanan Swaminathan',
     title: 'Senior Solution Architect',
     bio: 'On-site delivery at California DHCS, the state Medicaid authority, for the MITA-compliant CFRS modernization. Built HL7 ETL pipelines and a full patient/provider portal on microservices. VBX\'s strongest credential for state Medicaid and CMS-adjacent opportunities.',
     certs: 'Certified Scrum Master (CSM) · Deep .NET / SQL Server / Azure',
   },
   {
-    name: 'Tony Paul',
     title: 'Chief Information Security Officer',
-    bio: '13 years information security, healthcare sector dominant. Conducted third-party HITRUST framework security assessments at a global healthcare organization (Wipro). A genuine discriminator against firms that cite HIPAA without HITRUST audit personnel on staff.',
+    bio: '13 years information security, healthcare sector dominant. Conducted third-party HITRUST framework security assessments at a global healthcare organization. A genuine discriminator against firms that cite HIPAA without HITRUST audit credentials on staff.',
     certs: 'CISA · CRISC · CISM · LA-ISO27001 · CSA STAR · PIMS (GDPR)',
   },
   {
-    name: 'Antony Jayaraj',
     title: 'Director, Data Engineering & Products',
     bio: 'AI/ML lead. Delivered the document intelligence system at CA DHCS: 96% OCR accuracy, 60% labor reduction. Python, Spark, Kafka, Snowflake, Scikit-learn, Keras. Stack applicable to health data analytics, predictive modeling, and population health management RFPs.',
     certs: 'PGP AI/ML (UT Austin McCombs)',
@@ -89,7 +85,7 @@ const OPPORTUNITIES = [
   {
     tier: 'TIER 1 // HIGHEST CONFIDENCE',
     headline: 'State Medicaid Modernization',
-    body: 'MITA-compliant system architecture is a direct past performance match. Saravanan\'s CA DHCS delivery is a qualifying reference for any state pursuing MITA transition or MMIS modernization. Target states: CA (relationship exists), WA DOH (active pipeline), MD Medicaid.',
+    body: 'MITA-compliant system architecture is a direct past performance match. Our CA DHCS delivery is a qualifying reference for any state pursuing MITA transition or MMIS modernization. Target states: CA (relationship exists), WA DOH (active pipeline), MD Medicaid.',
     tierColor: '#F7B801',
   },
   {
@@ -277,7 +273,7 @@ export default function HealthcareITPage() {
                 <tr style={{ borderBottom: '2px solid #2EA891', background: 'rgba(46,168,145,0.06)' }}>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Capability</th>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Delivery Depth</th>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Personnel</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Delivered By</th>
                 </tr>
               </thead>
               <tbody>
@@ -291,7 +287,7 @@ export default function HealthcareITPage() {
                   >
                     <td className="py-3 px-4 font-sans text-sm text-vbx-teal">{row.capability}</td>
                     <td className="py-3 px-4 font-sans text-sm text-vbx-muted">{row.depth}</td>
-                    <td className="py-3 px-4 font-mono text-xs text-vbx-white/70">{row.personnel}</td>
+                    <td className="py-3 px-4 font-mono text-xs text-vbx-white/70">{row.deliveredBy}</td>
                   </tr>
                 ))}
               </tbody>
@@ -304,20 +300,23 @@ export default function HealthcareITPage() {
       <section className="section-padding bg-vbx-navy">
         <div className="container-wide">
           <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 03'}&nbsp;&nbsp;TECHNICAL STAFF</p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             The Team Behind the Deliveries
           </h2>
+          <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+            Staff are presented by role and credential rather than by name. Named resumes are furnished on request
+            under NDA or with a proposal submission.
+          </p>
           <div className="data-line mb-10"/>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {TEAM.map((member, i) => (
-              <RevealRow key={member.name} delay={i * 100}>
+              <RevealRow key={member.title} delay={i * 100}>
                 <div
                   className="pl-5 py-4"
                   style={{ borderLeft: '3px solid rgba(46,168,145,0.6)' }}
                 >
-                  <h3 className="font-display text-vbx-white text-xl mb-1">{member.name}</h3>
-                  <p className="font-mono text-vbx-muted text-xs tracking-[0.06em] mb-4 uppercase">{member.title}</p>
+                  <h3 className="font-display text-vbx-white text-xl mb-1">{member.title}</h3>
                   <p className="font-sans text-vbx-muted text-sm leading-relaxed mb-4">{member.bio}</p>
                   <p className="font-mono text-xs" style={{ color: 'rgba(46,168,145,0.7)' }}>
                     {member.certs}

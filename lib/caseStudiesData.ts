@@ -75,7 +75,6 @@ export interface CaseStudy {
   featured: boolean
   // New optional fields from portfolio data
   technologies?: string[]
-  teamLeads?: string[]
   year?: string
   value?: string
   relatedStudies?: string[]
@@ -150,7 +149,6 @@ export const kaiserVCareCase: CaseStudy = {
   publishedDate: '2023-12-15',
   featured: true,
   technologies: ['Angular', 'Node.js', 'Docker', 'Cloud Foundry', 'Apigee', 'Epic EMR', 'Kafka'],
-  teamLeads: ['Akil Chellam'],
   year: '2023',
   value: '$1.2M',
 }
@@ -217,7 +215,6 @@ export const caDhcsMedicaidCase: CaseStudy = {
   publishedDate: '2022-10-20',
   featured: true,
   technologies: ['Python', 'TensorFlow', 'OCR', 'NLP', 'Azure', 'SQL Server'],
-  teamLeads: ['Antony Jayaraj', 'Akil Chellam'],
   year: '2022',
   value: '$2.1M',
 }
@@ -284,7 +281,6 @@ export const metaSapCase: CaseStudy = {
   publishedDate: '2023-06-15',
   featured: true,
   technologies: ['SAP S/4HANA', 'React', 'Cloud Migration', 'Predictive Analytics'],
-  teamLeads: ['Akil Chellam', 'Peter Jayaraj'],
   year: '2022-2023',
   value: '$3.5M',
 }
@@ -348,7 +344,6 @@ export const basfSapCase: CaseStudy = {
   publishedDate: '2023-09-01',
   featured: true,
   technologies: ['SAP BTP', 'SAP PO 7.5', 'S/4HANA', 'oData', 'EDI AS2', 'Groovy Script'],
-  teamLeads: ['Peter Jayaraj'],
   year: '2022-2023',
   value: '$2.4M',
 }
@@ -412,7 +407,6 @@ export const strakeAviationCase: CaseStudy = {
   publishedDate: '2025-01-15',
   featured: true,
   technologies: ['Python', 'Real-time Analytics', 'FAA Data Standards', 'Cloud Architecture'],
-  teamLeads: ['Visionblox Team'],
   year: '2025',
   value: '$800K',
 }
@@ -477,7 +471,6 @@ export const sapLabsProcurementCase: CaseStudy = {
   publishedDate: '2022-03-15',
   featured: false,
   technologies: ['SAP CPI/HCI', 'S/4 HANA', 'oData', 'XSLT', 'sFTP', 'IDOC'],
-  teamLeads: ['Peter Jayaraj'],
   year: '2020-2022',
   value: '$1.8M',
 }
@@ -542,7 +535,6 @@ export const agfirstLoanCase: CaseStudy = {
   publishedDate: '2024-02-15',
   featured: false,
   technologies: ['.NET Core 2.0', 'Angular', 'RabbitMQ', 'Azure DevOps', 'SSIS', 'SQL Server'],
-  teamLeads: ['Saravanan Swaminathan'],
   year: '2023-2024',
   value: '$1.5M',
 }
@@ -603,7 +595,6 @@ export const voyaPortalCase: CaseStudy = {
   publishedDate: '2023-08-15',
   featured: false,
   technologies: ['WebSphere Portal 8.5', 'Aurelia', 'C3.js', 'RESTful Services'],
-  teamLeads: ['Akil Chellam'],
   year: '2015-2023',
   value: '$2.2M',
 }
@@ -668,7 +659,6 @@ export const dcDoesCase: CaseStudy = {
   publishedDate: '2019-08-15',
   featured: false,
   technologies: ['.NET MVC5', 'Entity Framework', 'SQL Server', 'Tableau', 'SharePoint'],
-  teamLeads: ['Saravanan Swaminathan'],
   year: '2015-2019',
   value: '$1.3M',
 }
@@ -732,7 +722,6 @@ export const dcOwcCase: CaseStudy = {
   publishedDate: '2018-06-15',
   featured: false,
   technologies: ['.NET Core 1.0', 'MVC6', 'Entity Framework', 'SQL Server 2014'],
-  teamLeads: ['Saravanan Swaminathan'],
   year: '2016-2018',
   value: '$950K',
 }
@@ -791,7 +780,6 @@ export const porchGroupCase: CaseStudy = {
   publishedDate: '2024-01-15',
   featured: false,
   technologies: ['Python', 'Snowflake', 'SQL Server', 'Scikit-learn', 'TensorFlow', 'SSIS'],
-  teamLeads: ['Antony Jayaraj'],
   year: '2016-2024',
   value: '$2.8M',
 }
@@ -854,7 +842,6 @@ export const homeDepotCase: CaseStudy = {
   publishedDate: '2016-05-15',
   featured: false,
   technologies: ['.NET MVC4', 'Oracle Apex', 'Datastage', 'SQL Server', 'UC4', 'SSRS'],
-  teamLeads: ['Antony Jayaraj'],
   year: '2012-2016',
   value: '$1.6M',
 }
@@ -916,7 +903,6 @@ export const globalHealthcareHitrustCase: CaseStudy = {
   publishedDate: '2024-06-15',
   featured: false,
   technologies: ['HITRUST', 'Process Unity', 'Risk Assessment', 'Security Training'],
-  teamLeads: ['Selvakumar Paulraj (Tony)'],
   year: '2023-2025',
   value: '$1.1M',
 }
@@ -976,7 +962,6 @@ export const iso27001Case: CaseStudy = {
   publishedDate: '2023-07-15',
   featured: false,
   technologies: ['ISO 27001', 'ISO 27017', 'ISO 27018', 'ISO 22301', 'ISO 9001'],
-  teamLeads: ['Selvakumar Paulraj (Tony)'],
   year: '2021-2023',
   value: '$1.8M',
 }
@@ -1035,7 +1020,6 @@ export const lowesEmployeeCase: CaseStudy = {
   publishedDate: '2015-06-15',
   featured: false,
   technologies: ['WebSphere Portal', 'Siebel', 'Sterling Commerce', 'Outlook', 'Bunchball'],
-  teamLeads: ['Akil Chellam'],
   year: '2009-2015',
   value: '$1.4M',
 }
@@ -1096,7 +1080,6 @@ export const tescoProductCase: CaseStudy = {
   publishedDate: '2009-05-15',
   featured: false,
   technologies: ['.NET Compact Framework', 'Web Services', 'SQL Server', 'Clear Case'],
-  teamLeads: ['Akil Chellam'],
   year: '2007-2009',
   value: '$950K',
 }
@@ -1158,7 +1141,6 @@ export const hcpssEducationCase: CaseStudy = {
   publishedDate: '2024-09-15',
   featured: false,
   technologies: ['.NET Core 8', 'AWS Lambda', 'Step Functions', 'S3', 'SSRS', 'PowerShell'],
-  teamLeads: ['Saravanan Swaminathan'],
   year: '2024-Present',
   value: '$1.2M',
 }
@@ -1220,7 +1202,6 @@ export const nylMobileCase: CaseStudy = {
   publishedDate: '2024-05-15',
   featured: false,
   technologies: ['Spring Boot', 'Google Firebase', 'Mobile APIs', 'Enterprise Services'],
-  teamLeads: ['Akil Chellam'],
   year: '2023-2024',
   value: '$1.3M',
 }
@@ -1282,7 +1263,6 @@ export const lineageConnectCase: CaseStudy = {
   publishedDate: '2024-07-15',
   featured: false,
   technologies: ['React', 'Redux Toolkit', 'Nest.js', 'MySQL', 'TypeScript'],
-  teamLeads: ['Sandhiya Ganesan', 'Khrishanth M', 'Vinoth Kanna'],
   year: '2024',
   value: '$600K',
 }
@@ -1343,7 +1323,6 @@ export const americanaRestaurantsCase: CaseStudy = {
   publishedDate: '2024-08-15',
   featured: false,
   technologies: ['React', 'Redux Toolkit', 'Recharts', 'Flexbox', 'UI Development'],
-  teamLeads: ['Vinoth Kanna'],
   year: '2024',
   value: '$750K',
 }

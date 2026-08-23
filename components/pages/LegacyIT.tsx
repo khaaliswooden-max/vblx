@@ -43,28 +43,28 @@ const SUB_CARDS = [
 
 const STAFF = [
   {
+    ref: 'PROFILE 01',
     role: 'Principal Architect // Cloud & Healthcare IT',
-    name: 'Akil R. Chellam',
     bio: 'AWS Solutions Architect · PMP · PGP AI/ML. Technical Product Owner at a leading national integrated healthcare system (7+ product modules). 21st Century Cures Act compliance delivery in production. Primary proposal figure for Healthcare IT primes.',
   },
   {
+    ref: 'PROFILE 02',
     role: 'Senior Solution Architect // .NET & Medicaid',
-    name: 'Saravanan Swaminathan',
     bio: 'CSM · 15+ years. On-site delivery at California DHCS MITA-compliant CFRS modernization. HL7 ETL, full patient portal, microservices architecture. Strongest credential for state Medicaid and CMS-adjacent scope.',
   },
   {
+    ref: 'PROFILE 03',
     role: 'CISO // Security & Compliance',
-    name: 'Tony Paul',
     bio: 'CISA · CRISC · CISM · LA-ISO27001 · CSA STAR · PIMS (GDPR). 13 years information security. HITRUST framework assessments at global healthcare organizations. Discriminator on any RFP requiring credentialed security staff.',
   },
   {
+    ref: 'PROFILE 04',
     role: 'SAP Lead // S/4HANA & ERP',
-    name: 'Peter Jayaraj',
-    bio: 'SAP S/4HANA delivery across Meta Platforms and BASF multi-national. FICO, MM, SD, Basis. Available for federal ERP initiatives, DoD logistics modernization, and SAP GRC engagements.',
+    bio: 'SAP S/4HANA delivery across Fortune 10 technology and multinational chemical manufacturing programs. FICO, MM, SD, Basis. Available for federal ERP initiatives, DoD logistics modernization, and SAP GRC engagements.',
   },
   {
+    ref: 'PROFILE 05',
     role: 'Director, Data Engineering // AI/ML',
-    name: 'Antony Jayaraj',
     bio: 'PGP AI/ML (UT Austin McCombs). Delivered 96% OCR accuracy and 60% labor reduction at California DHCS. Python · Spark · Kafka · Snowflake · Scikit-learn · Keras. Available for analytics and document intelligence scope.',
   },
 ]
@@ -310,25 +310,26 @@ export default function LegacyIT() {
             The Team Behind the Deliveries
           </h2>
           <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
-            Key personnel available for subcontract placement. All profiles carry documented past performance mappable
-            to your PWS.
+            Key personnel profiles available for subcontract placement, listed by role rather than by name. All
+            profiles carry documented past performance mappable to your PWS; named resumes are furnished on request
+            under NDA.
           </p>
           <div className="data-line mb-10" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {STAFF.map((member, i) => (
-              <RevealRow key={member.name} delay={i * 100}>
+              <RevealRow key={member.ref} delay={i * 100}>
                 <div className="pl-5 py-4 border-l-[3px] border-vbx-teal/60">
-                  <p className="font-mono text-vbx-gold text-xs tracking-[0.1em] uppercase mb-2">{member.role}</p>
-                  <h3 className="font-display text-vbx-white text-xl mb-3">{member.name}</h3>
+                  <p className="font-mono text-vbx-gold text-xs tracking-[0.1em] uppercase mb-2">{member.ref}</p>
+                  <h3 className="font-display text-vbx-white text-xl mb-3">{member.role}</h3>
                   <p className="font-sans text-vbx-muted text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </RevealRow>
             ))}
           </div>
           <p className="font-mono text-xs text-vbx-muted mt-8">
-            {'//'} Additional web/mobile profiles available: Vinoth, Krishanth, Sandhiya (React, React Native, Angular,
-            Node.js). Resumes furnished on request under NDA.
+            {'//'} Additional web/mobile profiles available (React, React Native, Angular, Node.js). Resumes
+            furnished on request under NDA.
           </p>
         </div>
       </section>
