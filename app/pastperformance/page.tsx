@@ -111,9 +111,14 @@ function EngagementRow({ eng }: { eng: Engagement }) {
           </span>
         </p>
 
-        <p className="font-mono text-vbx-muted mb-5" style={{ fontSize: '0.75rem', letterSpacing: '0.04em' }}>
-          PRIMARY PERSONNEL:&nbsp;&nbsp;{eng.personnel.join(' · ')}
-        </p>
+        <div className="mb-5">
+          <p className="font-mono text-vbx-muted mb-2 tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+            VISIONBLOX ROLE
+          </p>
+          <p className="font-sans text-vbx-muted" style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}>
+            {eng.delivery}
+          </p>
+        </div>
 
         {/* Tech stack */}
         <div className="mb-5">

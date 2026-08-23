@@ -35,17 +35,17 @@ export default function PastPerformanceDetailPage() {
     subtitle: engagement.client,
     publishedDate: '2026-01-01',
     duration: engagement.period,
-    teamSize: `${engagement.personnel.length} key personnel`,
+    teamSize: 'Visionblox delivery team',
     products: engagement.stack.slice(0, 6),
     summary: `${engagement.client} - ${engagement.project}`,
     challenge: engagement.federalApplicability,
     solution: engagement.stack.join(' | '),
-    implementation: engagement.personnel.join(' | '),
+    implementation: engagement.delivery,
     results: engagement.outcomes.join('\n\n'),
     quote: {
       text: engagement.outcomes[0] ?? 'Delivered measurable outcomes against demanding IT services requirements.',
-      author: engagement.personnel[0]?.split(' (')[0] ?? 'Visionblox Delivery Team',
-      title: 'Program Lead',
+      author: 'Visionblox Delivery Team',
+      title: 'Engagement Delivery',
     },
     metrics: [
       { value: `${engagement.federalRelevance}/10`, label: 'Federal Relevance' },
@@ -331,7 +331,7 @@ export default function PastPerformanceDetailPage() {
                       <div className="text-text-primary">{caseStudy.duration}</div>
                     </div>
                     <div>
-                      <div className="text-text-tertiary text-sm mb-1">Team Size</div>
+                      <div className="text-text-tertiary text-sm mb-1">Delivery</div>
                       <div className="text-text-primary">{caseStudy.teamSize}</div>
                     </div>
                   </div>

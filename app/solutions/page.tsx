@@ -110,7 +110,7 @@ const DOMAINS = [
         href: '/services/cybersecurity',
       },
     ],
-    ppRef: '// SECURITY LEAD: TONY PAUL · CISA · CRISC · CISM · LA-ISO27001 · 13 YRS HEALTHCARE',
+    ppRef: '// SECURITY LEAD: CISA · CRISC · CISM · LA-ISO27001 · 13 YRS HEALTHCARE',
   },
   {
     number: '05',

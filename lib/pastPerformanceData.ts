@@ -85,7 +85,8 @@ export interface Engagement {
   period: string
   location: string
   federalRelevance: number
-  personnel: string[]
+  /** Role-level description of Visionblox's delivery scope. No individuals are named publicly. */
+  delivery: string
   stack: string[]
   outcomes: string[]
   federalApplicability: string
@@ -104,7 +105,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2019 - 2023',
     location: 'West Coast (on-site + remote)',
     federalRelevance: 10,
-    personnel: ['Akil R. Chellam (TPO / Architect)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as technical program owner and lead solution architect for the patient portal platform.',
     stack: [
       'Epic HealthConnect', 'SOAP/REST', 'Kafka', 'AEM 6.5',
       'Pexip', 'Angular', 'Node.js', 'Cloud Foundry', 'Apigee', 'Federated SSO',
@@ -131,7 +133,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2022',
     location: 'Sacramento, CA (on-site)',
     federalRelevance: 10,
-    personnel: ['Akil R. Chellum (Senior Solution Architect)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as senior solution architect for the statewide Medicaid cost and finance reporting modernization.',
     stack: [
       'MITA', '.NET Core 2.0', 'Angular', 'Azure DevOps',
       'SQL Server', 'SSIS', 'SSRS', 'SOA', 'REST/Web API',
@@ -157,7 +160,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '13-year tenure',
     location: 'Global (Europe + US)',
     federalRelevance: 9,
-    personnel: ['Tony Paul (CISO - assessment lead)'],
+    delivery:
+      'Delivered by Visionblox security leadership serving as assessment lead, holding CISA, CRISC, CISM, and HITRUST credentials.',
     stack: [
       'HITRUST CSF', 'ISO 27001', 'CISA', 'CRISC',
       'CISM', 'GDPR/PIMS', 'Vendor Risk Management',
@@ -169,7 +173,7 @@ export const ENGAGEMENTS: Engagement[] = [
       '13 years of sustained healthcare security governance',
     ],
     federalApplicability:
-      "HITRUST framework experience is a genuine technical discriminator against firms that cite HIPAA without credentialed audit personnel on staff. Tony Paul's CISA, CRISC, CISM, and HITRUST credentials apply directly to VA, HHS, and CMS security volume evaluations. HIPAA compliance attestation is supported by demonstrated HITRUST audit execution - not self-certification.",
+      'HITRUST framework experience is a genuine technical discriminator against firms that cite HIPAA without credentialed audit staff. The CISA, CRISC, CISM, and HITRUST credentials held by our assessment leadership apply directly to VA, HHS, and CMS security volume evaluations. HIPAA compliance attestation is supported by demonstrated HITRUST audit execution - not self-certification.',
     slug: 'global-healthcare-hitrust',
   },
   {
@@ -181,7 +185,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2022 - 2023',
     location: 'Global (remote + on-site)',
     federalRelevance: 8,
-    personnel: ['Akil Chellam (Architect)', 'Peter Jayaraj (SAP Lead)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as enterprise architect and SAP delivery lead across the global transformation program.',
     stack: [
       'SAP S/4HANA', 'SAP BTP', 'React', 'Cloud Migration',
       'Predictive Analytics', 'Reusable Component Libraries',
@@ -206,7 +211,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2022 - 2023',
     location: 'Germany / China / India (global)',
     federalRelevance: 7,
-    personnel: ['Peter Jayaraj (SAP Integration Lead)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as SAP integration lead across the multi-country landscape.',
     stack: [
       'SAP BTP', 'SAP PO 7.5', 'S/4HANA', 'oData',
       'EDI AS2', 'Groovy Script', 'Employee Central',
@@ -231,7 +237,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2016 - 2024 (8 years)',
     location: 'Remote',
     federalRelevance: 8,
-    personnel: ['Antony Jayaraj (Data Architect / ML Lead)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as data architect and machine learning lead across the enterprise data platform.',
     stack: [
       'Python', 'Snowflake', 'SQL Server', 'Scikit-learn',
       'TensorFlow / Keras', 'SSIS', 'Star / Snowflake Schemas',
@@ -256,7 +263,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2021 - 2023',
     location: 'US + Europe',
     federalRelevance: 9,
-    personnel: ['Selvakumar Paulraj "Tony" (CISO - Lead Auditor)'],
+    delivery:
+      'Delivered by Visionblox security leadership serving as lead auditor across the multi-client certification portfolio.',
     stack: [
       'ISO 27001', 'ISO 27017', 'ISO 27018', 'ISO 22301',
       'ISO 9001', 'Process Unity', 'Risk Assessment',
@@ -282,7 +290,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2026 - Present',
     location: 'Maryland (Remote)',
     federalRelevance: 8,
-    personnel: ['Antony Jayaraj (Director, Data Engineering)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as director of data engineering across the SIS, LMS, warehouse, and data quality workstreams.',
     stack: [
       'Synergy SIS (Edupoint)', 'Canvas LMS (Instructure)', 'Snowflake',
       'Workday ERP', 'MS SQL Server', 'OneRoster / SIF Rostering',
@@ -310,7 +319,8 @@ export const ENGAGEMENTS: Engagement[] = [
     period: '2026 - Present',
     location: 'Remote',
     federalRelevance: 7,
-    personnel: ['Peter Jayaraj (SAP Director)'],
+    delivery:
+      'Delivered by Visionblox personnel serving as SAP integration director for the B2B / EDI solutioning program.',
     stack: [
       'SAP BTP', 'Cloud Foundry', 'SAP HANA Cloud', 'Cloud Integration',
       'API Management', 'Open Connectors', 'Integration Advisor',
@@ -339,7 +349,8 @@ export const ENGAGEMENTS: Engagement[] = [
     location: 'Statewide — Montana (cooperative purchasing nationwide)',
     federalRelevance: 9,
     pinnedFirst: true,
-    personnel: ['Visionblox LLC (Prime — Track 1 & Track 2)'],
+    delivery:
+      'Delivered by Visionblox LLC as prime contractor on both Track 1 and Track 2 of the statewide vehicle.',
     stack: [
       'Statewide AI Vehicle', 'Track 1 & Track 2', 'eMACS Tier Two SOW',
       'Relian™', 'VisionDoc AI', 'VisionAnalytics', 'Cooperative Purchasing',
