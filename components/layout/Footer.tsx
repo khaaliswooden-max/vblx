@@ -59,24 +59,20 @@ export default function Footer() {
           {/* Column 3 — Contact */}
           <div>
             <h4 className="font-mono text-xs text-vbx-muted uppercase tracking-[0.12em] mb-6">
-              Point of Contact
+              Contact
             </h4>
-            <p className="text-vbx-white font-sans font-medium mb-1">Khaalis Wooden, MBA</p>
-            <p className="text-vbx-muted font-sans text-sm mb-5 leading-snug">
-              Director of Capture
-            </p>
             <div className="space-y-2">
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
-                <a href="tel:+12569881130" className="hover:text-vbx-white transition-colors">
-                  (256) 988-1130
-                </a>
+                <Link href="/contact" className="hover:text-vbx-white transition-colors">
+                  Start an inquiry
+                </Link>
               </p>
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
                 <a
-                  href="mailto:khaalis.wooden@visionblox.com"
+                  href="mailto:info@visionblox.com"
                   className="hover:text-vbx-teal transition-colors"
                 >
-                  khaalis.wooden@visionblox.com
+                  info@visionblox.com
                 </a>
               </p>
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
