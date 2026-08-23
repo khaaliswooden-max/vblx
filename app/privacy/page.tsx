@@ -71,7 +71,7 @@ const sections = [
     num: '09',
     title: 'Contact Information',
     content: [
-      'If you have questions about this privacy policy or our data practices, please contact us at info@visionblox.com or visit our contact page.',
+      'If you have questions about this privacy policy or our data practices, please contact us at services@visionblox.com or visit our contact page.',
     ],
   },
 ]

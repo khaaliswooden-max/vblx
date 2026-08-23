@@ -153,8 +153,8 @@ export default function ContactPage() {
                   </div>
                   <span className="text-sm font-medium text-text-tertiary">Email</span>
                 </div>
-                <p className="font-medium mb-1">{COMPANY.contact.name}</p>
-                <p className="text-sm text-text-tertiary mb-3">{COMPANY.contact.title}</p>
+                <p className="font-medium mb-1">Business Development</p>
+                <p className="text-sm text-text-tertiary mb-3">Federal, SLED &amp; Commercial</p>
                 <a
                   href={`mailto:${COMPANY.contact.email}`}
                   className="text-accent-primary hover:underline text-sm"

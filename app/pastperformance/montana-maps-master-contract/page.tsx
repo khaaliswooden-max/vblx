@@ -96,7 +96,7 @@ export default function MontanaMapsMasterContractPage() {
           </p>
           <div className="mb-8 flex flex-wrap gap-3">
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry"
+              href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry"
               className="btn-gold inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
@@ -216,16 +216,11 @@ export default function MontanaMapsMasterContractPage() {
             style={{ border: '1px solid rgba(46,168,145,0.35)', background: 'rgba(46,168,145,0.05)', borderRadius: '4px' }}
           >
             <p className="font-mono text-vbx-teal mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
-              CONTRACT MANAGER
+              CONTRACT MANAGEMENT
             </p>
-            <p className="font-sans text-vbx-white mb-1" style={{ fontSize: '1.1rem' }}>Khaalis Wooden</p>
             <p className="font-mono text-vbx-muted" style={{ fontSize: '0.85rem' }}>
-              <a href="mailto:khaalis.wooden@visionblox.com" className="hover:text-vbx-teal transition-colors">
-                khaalis.wooden@visionblox.com
-              </a>
-              &nbsp;·&nbsp;
-              <a href="tel:+12569881130" className="hover:text-vbx-white transition-colors">
-                (256) 988-1130
+              <a href="mailto:services@visionblox.com" className="hover:text-vbx-teal transition-colors">
+                services@visionblox.com
               </a>
             </p>
           </div>
@@ -252,7 +247,7 @@ export default function MontanaMapsMasterContractPage() {
               onboarding.
             </p>
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=MAPS%20Cooperative%20Purchasing%20Inquiry"
+              href="mailto:services@visionblox.com?subject=MAPS%20Cooperative%20Purchasing%20Inquiry"
               className="btn-gold"
             >
               DISCUSS COOPERATIVE PURCHASING
@@ -270,11 +265,11 @@ export default function MontanaMapsMasterContractPage() {
               Evaluating the MAPS vehicle for your agency?
             </h2>
             <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
-              Contact Khaalis Wooden to discuss a Tier Two SOW, cooperative purchasing eligibility, or the AI
-              products available under the contract.
+              Contact our contract management team to discuss a Tier Two SOW, cooperative purchasing
+              eligibility, or the AI products available under the contract.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="mailto:khaalis.wooden@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry" className="btn-gold">
+              <a href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry" className="btn-gold">
                 CONTACT CONTRACT MANAGER
               </a>
               <Link href="/pastperformance" className="btn-teal-outline">

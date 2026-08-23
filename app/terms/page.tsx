@@ -78,7 +78,7 @@ const sections = [
     num: '10',
     title: 'Contact Information',
     content: [
-      'If you have questions about these Terms of Service, please contact us at info@visionblox.com or visit our contact page.',
+      'If you have questions about these Terms of Service, please contact us at services@visionblox.com or visit our contact page.',
     ],
   },
 ]

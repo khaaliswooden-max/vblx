@@ -299,7 +299,7 @@ export default function PastPerformancePage() {
               ↓ DOWNLOAD CAPABILITY STATEMENT
             </a>
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=IT%20Services%20Portfolio%20Request"
+              href="mailto:services@visionblox.com?subject=IT%20Services%20Portfolio%20Request"
               className="btn-gold inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
@@ -472,11 +472,11 @@ export default function PastPerformancePage() {
             procurement evaluations on request.
           </p>
           <a
-            href="mailto:khaalis.wooden@visionblox.com?subject=Full%20Portfolio%20Request"
+            href="mailto:services@visionblox.com?subject=Full%20Portfolio%20Request"
             className="font-mono text-vbx-teal hover:text-vbx-white transition-colors"
             style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}
           >
-            → REQUEST EXTENDED PORTFOLIO // khaalis.wooden@visionblox.com
+            → REQUEST EXTENDED PORTFOLIO // services@visionblox.com
           </a>
         </div>
       </section>
@@ -499,7 +499,7 @@ export default function PastPerformancePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Past%20Performance%20Documentation%20Request"
+                href="mailto:services@visionblox.com?subject=Past%20Performance%20Documentation%20Request"
                 className="btn-gold"
               >
                 REQUEST PPQ DOCUMENTATION

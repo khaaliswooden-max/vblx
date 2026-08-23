@@ -110,7 +110,7 @@ const HERO_BADGES = [
   'Section 889 Certified',
 ]
 
-const HREF_BRIEF = 'mailto:khaalis.wooden@visionblox.com?subject=Legacy%20IT%20Services%20Inquiry'
+const HREF_BRIEF = 'mailto:services@visionblox.com?subject=Legacy%20IT%20Services%20Inquiry'
 const HREF_CAPSTAT = '/VBX_CapStatement_IT.pdf'
 
 // ─── Scroll-reveal helper (mirrors components/pages/HealthcareIT.tsx) ─────────
@@ -464,7 +464,7 @@ export default function LegacyIT() {
             </h2>
             <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
               We support subcontract opportunities, staffing placements, and à la carte IT engagements for Fed/SLED
-              clients. Contact Khaalis Wooden to initiate.
+              clients. Contact our capture team to initiate.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">

@@ -109,7 +109,7 @@ export default function Navigation() {
           {/* CTA */}
           <div className="hidden md:flex items-center">
             <a
-              href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+              href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
               className="btn-gold text-xs"
             >
               REQUEST BRIEFING
@@ -188,7 +188,7 @@ export default function Navigation() {
 
               <div className="pt-4 border-t border-vbx-teal/20">
                 <a
-                  href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                  href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="btn-gold block text-center w-full"
                 >

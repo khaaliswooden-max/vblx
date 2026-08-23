@@ -290,7 +290,6 @@ export default function AboutPage() {
               </p>
               <CredField label="MINORITY-OWNED SMALL BUSINESS" value="Certified MBE" />
               <CredField label="SDVOSB ELIGIBLE"              value="Service-Connected Disabled Veteran Leadership" />
-              <CredField label="WOSB TEAMING AVAILABLE"       value="Via AG Grace (active teaming partner)" />
               <CredField label="HEADQUARTERS"                  value="San Jose, CA  ·  Est. 2020" />
             </div>
 
@@ -401,8 +400,8 @@ export default function AboutPage() {
             <RationaleBlock
               num="02"
               label="SET-ASIDE ACCESS"
-              headline="Minority-Owned + SDVOSB Leadership + WOSB Teaming"
-              body="Minority-Owned Small Business with Service-Connected Disabled Veteran leadership and an active WOSB teaming relationship via AG Grace. Three set-aside pathways for healthcare RFPs that include small business evaluation factors."
+              headline="Minority-Owned + SDVOSB Leadership"
+              body="Minority-Owned Small Business with Service-Connected Disabled Veteran leadership. Two set-aside pathways for healthcare RFPs that include small business evaluation factors."
             />
             <RationaleBlock
               num="03"
@@ -435,9 +434,9 @@ export default function AboutPage() {
               We provide capability briefings, CPARS-format past performance documentation, and
               technical staff résumés for active federal and SLED procurement evaluations.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:khaalis.wooden@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
+                href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
                 className="btn-gold"
               >
                 REQUEST A CAPABILITY BRIEFING
@@ -446,9 +445,6 @@ export default function AboutPage() {
                 VIEW PAST PERFORMANCE REGISTER
               </Link>
             </div>
-            <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}>
-              KHAALIS WOODEN, MBA&nbsp;&nbsp;//&nbsp;&nbsp;(256) 988-1130&nbsp;&nbsp;//&nbsp;&nbsp;KHAALIS.WOODEN@VISIONBLOX.COM
-            </p>
           </div>
           <div className="data-line mt-16" />
         </div>
