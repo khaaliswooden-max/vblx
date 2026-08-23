@@ -219,8 +219,8 @@ export default function MontanaMapsMasterContractPage() {
               CONTRACT MANAGEMENT
             </p>
             <p className="font-mono text-vbx-muted" style={{ fontSize: '0.85rem' }}>
-              <a href="mailto:info@visionblox.com" className="hover:text-vbx-teal transition-colors">
-                info@visionblox.com
+              <a href="mailto:services@visionblox.com" className="hover:text-vbx-teal transition-colors">
+                services@visionblox.com
               </a>
             </p>
           </div>

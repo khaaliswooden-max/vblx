@@ -33,7 +33,7 @@ export const COMPANY = {
     { city: 'Chennai', country: 'India', type: 'Office' },
   ],
   contact: {
-    email: 'info@visionblox.com',
+    email: 'services@visionblox.com',
     phone: '+1 (210) 429-4227',
   },
   social: {

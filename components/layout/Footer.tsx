@@ -69,10 +69,10 @@ export default function Footer() {
               </p>
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
                 <a
-                  href="mailto:info@visionblox.com"
+                  href="mailto:services@visionblox.com"
                   className="hover:text-vbx-teal transition-colors"
                 >
-                  info@visionblox.com
+                  services@visionblox.com
                 </a>
               </p>
               <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
