@@ -157,7 +157,7 @@ export default function MontanaMapsMasterContractPage() {
             {PRODUCTS.map((p) => (
               <div
                 key={p.name}
-                style={{ borderLeft: '3px solid var(--vbx-teal)', background: 'var(--vbx-rule)', borderRadius: '2px' }}
+                style={{ borderLeft: '3px solid var(--vbx-teal)', background: 'var(--vbx-teal-tint)', borderRadius: '2px' }}
                 className="p-6"
               >
                 <p className="font-mono text-vbx-navy mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
@@ -178,7 +178,7 @@ export default function MontanaMapsMasterContractPage() {
       {/* ── HOW TO ENGAGE ─────────────────────────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: 'var(--vbx-rule)', borderTop: '1px solid var(--vbx-rule)', borderBottom: '1px solid var(--vbx-rule)' }}
+        style={{ background: 'var(--vbx-teal-tint)', borderTop: '1px solid var(--vbx-rule)', borderBottom: '1px solid var(--vbx-rule)' }}
         id="how-to-engage"
       >
         <div className="container-wide">
@@ -213,7 +213,7 @@ export default function MontanaMapsMasterContractPage() {
 
           <div
             className="max-w-[760px] p-6"
-            style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-rule)', borderRadius: '4px' }}
+            style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
           >
             <p className="font-mono text-vbx-navy mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
               CONTRACT MANAGEMENT
@@ -235,7 +235,7 @@ export default function MontanaMapsMasterContractPage() {
           </p>
           <div
             className="p-8"
-            style={{ border: '1px solid var(--vbx-gold)', background: 'var(--vbx-gold)', borderRadius: '4px' }}
+            style={{ borderLeft: '4px solid var(--vbx-gold)', border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
           >
             <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
               Available nationwide at contract terms.

@@ -110,7 +110,7 @@ function AwardCard({ award }: { award: Award }) {
               height: '64px',
               borderRadius: '4px',
               border: '1px solid var(--vbx-teal-tint)',
-              background: 'var(--vbx-rule)',
+              background: 'var(--vbx-teal-tint)',
               padding: '8px',
             }}
           >

@@ -259,7 +259,7 @@ export default function HealthcareITPage() {
       </section>
 
       {/* ── CAPABILITY MATRIX ─────────────────────────────────────────────── */}
-      <section id="capabilities" className="section-padding" style={{ background: 'var(--vbx-rule)' }}>
+      <section id="capabilities" className="section-padding" style={{ background: 'var(--vbx-teal-tint)' }}>
         <div className="container-wide">
           <p className="eyebrow">Capability matrix</p>
           <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
@@ -270,7 +270,7 @@ export default function HealthcareITPage() {
           <div className="overflow-x-auto">
             <table className="w-full" style={{ borderCollapse: 'collapse', minWidth: '540px' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid var(--vbx-teal)', background: 'var(--vbx-rule)' }}>
+                <tr style={{ borderBottom: '2px solid var(--vbx-teal)', background: 'var(--vbx-teal-tint)' }}>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Capability</th>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Delivery Depth</th>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Delivered By</th>
@@ -331,7 +331,7 @@ export default function HealthcareITPage() {
       {/* ── COMPLIANCE POSTURE ────────────────────────────────────────────── */}
       <section
         className="py-14"
-        style={{ background: 'var(--vbx-rule)', borderTop: '1px solid var(--vbx-rule)', borderBottom: '1px solid var(--vbx-rule)' }}
+        style={{ background: 'var(--vbx-teal-tint)', borderTop: '1px solid var(--vbx-rule)', borderBottom: '1px solid var(--vbx-rule)' }}
       >
         <div className="container-wide">
           <p className="eyebrow">Compliance posture</p>
@@ -359,7 +359,7 @@ export default function HealthcareITPage() {
               <div
                 key={opp.headline}
                 className="p-6"
-                style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-rule)', borderRadius: '2px' }}
+                style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '2px' }}
               >
                 <p className="font-mono text-xs tracking-[0.1em] mb-4 text-vbx-navy" style={{ borderLeft: `3px solid ${opp.tierColor}`, paddingLeft: '0.5rem' }}>
                   {opp.tier}

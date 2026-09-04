@@ -60,7 +60,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
                 height: '64px',
                 borderRadius: '4px',
                 border: '1px solid var(--vbx-teal-tint)',
-                background: 'var(--vbx-rule)',
+                background: 'var(--vbx-teal-tint)',
                 padding: '8px',
               }}
             >
@@ -387,7 +387,7 @@ export default function PastPerformancePage() {
       {/* ── FEDERAL RELEVANCE SCORING LEGEND ─────────────────────────────── */}
       <section
         className="py-14"
-        style={{ background: 'var(--vbx-rule)', borderTop: '1px solid var(--vbx-rule)' }}
+        style={{ background: 'var(--vbx-teal-tint)', borderTop: '1px solid var(--vbx-rule)' }}
       >
         <div className="container-wide">
           <p className="font-mono text-vbx-navy mb-5 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
@@ -402,7 +402,7 @@ export default function PastPerformancePage() {
 
           <div
             className="max-w-[720px]"
-            style={{ background: 'var(--vbx-rule)', borderRadius: '2px', overflow: 'hidden' }}
+            style={{ background: 'var(--vbx-teal-tint)', borderRadius: '2px', overflow: 'hidden' }}
           >
             <div
               className="grid grid-cols-[80px_1fr_1.4fr] gap-4 px-5 py-3"

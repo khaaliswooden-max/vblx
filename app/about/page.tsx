@@ -44,7 +44,7 @@ function ContrastTable() {
   return (
     <div
       style={{
-        background: 'var(--vbx-rule)',
+        background: 'var(--vbx-teal-tint)',
         borderRadius: '2px',
         overflow: 'hidden',
       }}
@@ -114,7 +114,7 @@ function RationaleBlock({
       style={{
         borderLeft: '3px solid var(--vbx-teal)',
         padding: '28px 24px',
-        background: 'var(--vbx-rule)',
+        background: 'var(--vbx-teal-tint)',
         borderRadius: '2px',
       }}
     >
@@ -243,7 +243,7 @@ export default function AboutPage() {
       {/* ── SECTION 4: COMPANY CREDENTIALS ───────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: 'var(--vbx-rule)' }}
+        style={{ background: 'var(--vbx-teal-tint)' }}
       >
         <div className="container-wide" ref={credRef}>
           <p className="font-mono text-vbx-navy mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
@@ -332,7 +332,7 @@ export default function AboutPage() {
       {/* ── SECTION 5: DELIVERY FOOTPRINT ────────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: 'var(--vbx-rule)' }}
+        style={{ background: 'var(--vbx-teal-tint)' }}
       >
         <div className="container-wide" ref={footprintRef}>
           <p className="font-mono text-vbx-navy mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>

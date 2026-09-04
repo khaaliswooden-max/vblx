@@ -137,7 +137,7 @@ function ServiceCard({ card }: { card: typeof DOMAINS[0]['cards'][0] }) {
     <div
       className="flex flex-col h-full p-6"
       style={{
-        background: 'var(--vbx-rule)',
+        background: 'var(--vbx-teal-tint)',
         borderLeft: '2px solid var(--vbx-teal)',
         borderRadius: '2px',
       }}
@@ -263,7 +263,7 @@ export default function SolutionsPage() {
       {/* ── PROCUREMENT IDENTIFIERS STRIP ────────────────────────────────── */}
       <section
         className="py-12"
-        style={{ background: 'var(--vbx-rule)', borderTop: '1px solid var(--vbx-rule)' }}
+        style={{ background: 'var(--vbx-teal-tint)', borderTop: '1px solid var(--vbx-rule)' }}
       >
         <div className="data-line mb-0" style={{ marginBottom: 0 }} />
         <div className="container-wide pt-10">

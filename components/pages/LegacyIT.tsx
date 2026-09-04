@@ -209,7 +209,7 @@ export default function LegacyIT() {
         <div className="container-wide">
           <div
             className="p-7 md:p-9"
-            style={{ border: '1px solid var(--vbx-gold)', background: 'var(--vbx-gold)', borderRadius: '4px' }}
+            style={{ borderLeft: '4px solid var(--vbx-gold)', border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
           >
             <p className="font-mono text-vbx-navy text-sm tracking-[0.14em] mb-3">
               State of montana MAPS contract
@@ -273,7 +273,7 @@ export default function LegacyIT() {
           </p>
           <div className="data-line mb-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-vbx-teal-tint border border-vbx-rule">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-vbx-rule border border-vbx-rule">
             {SUB_CARDS.map((card, i) => (
               <RevealRow key={card.idx} delay={i * 80}>
                 <div className="bg-vbx-offwhite p-7 h-full hover:bg-vbx-offwhite/[0.03] transition-colors">
@@ -298,7 +298,7 @@ export default function LegacyIT() {
       </section>
 
       {/* ── 02 // AVAILABLE STAFF PROFILES ────────────────────────────────── */}
-      <section className="section-padding" style={{ background: 'var(--vbx-rule)' }}>
+      <section className="section-padding" style={{ background: 'var(--vbx-teal-tint)' }}>
         <div className="container-wide">
           <p className="eyebrow">Available staff profiles</p>
           <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
@@ -345,7 +345,7 @@ export default function LegacyIT() {
           <div className="overflow-x-auto">
             <table className="w-full" style={{ borderCollapse: 'collapse', minWidth: '720px' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid var(--vbx-teal)', background: 'var(--vbx-rule)' }}>
+                <tr style={{ borderBottom: '2px solid var(--vbx-teal)', background: 'var(--vbx-teal-tint)' }}>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Service</th>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Description</th>
                   <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Delivery Mode</th>
@@ -388,7 +388,7 @@ export default function LegacyIT() {
       </section>
 
       {/* ── 04 // HOW WE ENGAGE ───────────────────────────────────────────── */}
-      <section className="section-padding" style={{ background: 'var(--vbx-rule)' }}>
+      <section className="section-padding" style={{ background: 'var(--vbx-teal-tint)' }}>
         <div className="container-wide">
           <p className="eyebrow">How we engage</p>
           <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
@@ -399,7 +399,7 @@ export default function LegacyIT() {
           </p>
           <div className="data-line mb-10" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-vbx-teal-tint border border-vbx-rule">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-vbx-rule border border-vbx-rule">
             {STEPS.map((step, i) => (
               <RevealRow key={step.num} delay={i * 80}>
                 <div className="bg-vbx-offwhite p-6 h-full">
@@ -417,7 +417,7 @@ export default function LegacyIT() {
       <section
         className="py-14"
         style={{
-          background: 'var(--vbx-rule)',
+          background: 'var(--vbx-teal-tint)',
           borderTop: '1px solid var(--vbx-rule)',
           borderBottom: '1px solid var(--vbx-rule)',
         }}
