@@ -2,217 +2,249 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   VBX Design System — Palantir for Healthcare
-   ============================================ */
+/* ============================================================================
+   VBX BRAND SYSTEM — single source of truth
+   ============================================================================
+   Eight tokens. Nothing else. Never write a raw hex in a component.
+
+   The site is a LIGHT-GROUND system with navy bands, matching the Visionblox
+   capability statement: offwhite page, navy headings, navy-light body ink,
+   muted rules, and navy reserved for the one or two bold bands per page.
+
+   MEASURED CONTRAST CONTRACT (WCAG 2.1 AA)
+   ---------------------------------------------------------------------------
+   On LIGHT grounds (offwhite #F5F5F0 / teal-tint #E7F5F1) the ONLY legal
+   text colours are navy (12.04) and navy-light (10.81). Measured failures:
+       teal       2.69  |  muted 2.87  |  gold 1.63  |  teal-light 1.59
+   All four fail even the 3.0 large-text floor, so on light grounds they are
+   NON-TEXT ONLY — rules, borders, icon fills, figures' underlines.
+   This is why subheads are navy rather than teal: Step 6 (accessibility) is
+   non-negotiable and overrides the "teal subheads" design preference.
+
+   Inside NAVY bands the palette opens back up:
+       offwhite 12.04 | teal-tint 11.75 | teal-light 7.58 | gold 7.41
+       muted 4.20 and teal 4.47 are LARGE-TEXT ONLY there.
+   ========================================================================= */
 
 :root {
-  /* VBX Brand Palette */
-  --vbx-navy:    #232D5A;
-  --vbx-teal:    #2EA891;
-  --vbx-gold:    #F7B801;
-  --vbx-gray:    #F0F0F0;
-  --vbx-charcoal:#2E2E2E;
-  --vbx-white:   #F5F5F0;
-  --vbx-muted:   #8892A4;
+  /* ---- The eight brand tokens — the only colours on this site ---- */
+  --vbx-navy:        #232D5A;  /* headings, dark bands, primary brand colour */
+  --vbx-navy-light:  #2A3560;  /* secondary dark surfaces, body ink          */
+  --vbx-teal:        #2EA891;  /* accents, rules, emphasis                   */
+  --vbx-teal-light:  #7FD4C1;  /* teal accents on navy backgrounds ONLY      */
+  --vbx-teal-tint:   #E7F5F1;  /* soft panel fills                           */
+  --vbx-gold:        #F7B801;  /* accent rules, stat figures, highlight      */
+  --vbx-muted:       #8892A4;  /* secondary text (navy bands) and rules      */
+  --vbx-offwhite:    #F5F5F0;  /* light page ground, knockout text on navy   */
 
-  /* Legacy aliases (keep for any remaining components) */
-  --color-bg-primary: #232D5A;
-  --color-bg-secondary: #1B2347;
-  --color-bg-tertiary: #1A2140;
-  --color-bg-elevated: #2A3560;
-  --color-accent-primary: #2EA891;
-  --color-accent-secondary: #F7B801;
-  --color-accent-tertiary: #F7B801;
-  --color-accent-hover: #26957F;
-  --color-text-primary: #F5F5F0;
-  --color-text-secondary: #8892A4;
-  --color-text-tertiary: #6B7589;
-  --color-text-inverse: #232D5A;
+  /* ---- Derived inks: tints of a token, never a ninth colour ---- */
+  /* navy-light @ 70% over offwhite = #676F8B, 4.55:1 — legal body/secondary */
+  --vbx-ink:         rgba(42, 53, 96, 0.70);
+  /* muted @ 35% over offwhite = #CFD2D5 — structural rules, matches the
+     capability statement's #D6DAE3 table rules */
+  --vbx-rule:        rgba(136, 146, 164, 0.35);
+  --vbx-rule-strong: rgba(136, 146, 164, 0.55);
+  /* Rules inside navy bands */
+  --vbx-rule-dark:   rgba(245, 245, 240, 0.18);
 
-  /* Typography */
-  --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
-  --font-sans:    'DM Sans', 'Instrument Sans', sans-serif;
-  --font-mono:    'JetBrains Mono', 'IBM Plex Mono', 'Courier New', monospace;
+  /* ---- Semantic aliases: every one resolves to a token above ---- */
+  --color-bg-primary:       var(--vbx-offwhite);
+  --color-bg-secondary:     var(--vbx-teal-tint);
+  --color-bg-tertiary:      var(--vbx-offwhite);
+  --color-bg-elevated:      var(--vbx-teal-tint);
+  --color-bg-band:          var(--vbx-navy);
+  --color-accent-primary:   var(--vbx-teal);
+  --color-accent-secondary: var(--vbx-gold);
+  --color-accent-tertiary:  var(--vbx-gold);
+  --color-accent-hover:     var(--vbx-navy);
+  --color-text-primary:     var(--vbx-navy);
+  --color-text-secondary:   var(--vbx-ink);
+  --color-text-tertiary:    var(--vbx-ink);
+  --color-text-inverse:     var(--vbx-offwhite);
 
-  /* Spacing */
+  /* ---- Typography: two families, maximum (Step 2) ---- */
+  --font-sans:    'DM Sans', Arial, Helvetica, system-ui, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+
+  /* ---- Spacing ---- */
   --spacing-section: 6rem;
   --spacing-section-mobile: 4rem;
 
-  /* Transitions */
+  /* ---- Transitions ---- */
   --transition-base: 300ms ease;
   --transition-fast: 150ms ease;
   --transition-slow: 500ms ease;
 
-  /* Borders */
-  --border-color: rgba(46, 168, 145, 0.15);
-  --border-color-hover: rgba(46, 168, 145, 0.35);
+  /* ---- Borders: radius never exceeds 4px (Step 2) ---- */
+  --radius:    2px;
+  --radius-lg: 4px;
+  --border-color:       var(--vbx-rule);
+  --border-color-hover: var(--vbx-rule-strong);
 }
 
-/* ============================================
-   Base Styles
-   ============================================ */
+/* ============================================================================
+   Base
+   ========================================================================= */
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+* { box-sizing: border-box; padding: 0; margin: 0; }
 
-html,
-body {
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
+html { background: var(--vbx-offwhite); }
+
 body {
-  background: var(--vbx-navy);
-  color: var(--vbx-white);
+  background: var(--vbx-offwhite);
+  color: var(--vbx-navy-light);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prevent white flash on load */
-html {
-  background: #232D5A;
+h1, h2, h3, h4, h5, h6 { color: var(--vbx-navy); }
+
+/* ============================================================================
+   Typography utilities
+   ========================================================================= */
+
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* Section eyebrow — sentence case, navy, with a teal rule carrying the accent.
+   Replaces the tracked-out ALL-CAPS "// LABEL" chrome. */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--vbx-navy);
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--vbx-teal);
+  margin-bottom: 1rem;
 }
 
-/* ============================================
-   Typography Utilities
-   ============================================ */
-
-.font-display {
-  font-family: var(--font-display);
+/* Eyebrow inside a navy band */
+.band .eyebrow,
+.eyebrow-on-dark {
+  color: var(--vbx-teal-light);
+  border-bottom-color: var(--vbx-teal-light);
 }
 
-.font-mono {
-  font-family: var(--font-mono);
-}
+/* ============================================================================
+   Navy band — the one bold moment per page
+   ========================================================================= */
 
-/* ============================================
-   Data-Line Separator (teal terminal rule)
-   ============================================ */
+.band {
+  background: var(--vbx-navy);
+  color: var(--vbx-offwhite);
+}
+.band h1, .band h2, .band h3, .band h4, .band h5, .band h6 { color: var(--vbx-offwhite); }
+.band .text-accent { color: var(--vbx-teal-light); }
+.band .text-figure { color: var(--vbx-gold); }
+
+/* ============================================================================
+   Rules and separators
+   ========================================================================= */
 
 .data-line {
   border-top: 1px solid var(--vbx-teal);
   position: relative;
 }
-
 .data-line::before {
   content: '';
   position: absolute;
   left: 0;
-  top: -4px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--vbx-teal);
-  animation: dotPulse 2s infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
-}
-
-/* ============================================
-   Selection Styles
-   ============================================ */
-
-::selection {
-  background: var(--vbx-teal);
-  color: var(--vbx-navy);
-}
-
-::-moz-selection {
-  background: var(--vbx-teal);
-  color: var(--vbx-navy);
-}
-
-/* ============================================
-   Scrollbar Styles
-   ============================================ */
-
-::-webkit-scrollbar {
+  top: -3px;
   width: 6px;
   height: 6px;
+  background: var(--vbx-teal);
 }
+.band .data-line { border-top-color: var(--vbx-teal-light); }
+.band .data-line::before { background: var(--vbx-teal-light); }
 
-::-webkit-scrollbar-track {
-  background: #1B2347;
-}
+.rule      { border-top: 1px solid var(--vbx-rule); }
+.band .rule{ border-top: 1px solid var(--vbx-rule-dark); }
 
-::-webkit-scrollbar-thumb {
-  background: #2EA891;
-  border-radius: 3px;
-}
+/* ============================================================================
+   Selection / scrollbar
+   ========================================================================= */
 
-::-webkit-scrollbar-thumb:hover {
-  background: #26957F;
-}
+::selection      { background: var(--vbx-teal); color: var(--vbx-navy); }
+::-moz-selection { background: var(--vbx-teal); color: var(--vbx-navy); }
 
-/* ============================================
-   Focus Styles
-   ============================================ */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--vbx-teal-tint); }
+::-webkit-scrollbar-thumb { background: var(--vbx-teal); border-radius: var(--radius); }
+::-webkit-scrollbar-thumb:hover { background: var(--vbx-navy); }
+
+/* ============================================================================
+   Focus — visible on every ground (Step 4.4)
+   ---------------------------------------------------------------------------
+   Navy ring clears 3:1 on every light ground (12.04 on offwhite, 11.75 on
+   teal-tint). The offwhite outer ring guarantees the same inside navy bands
+   and on navy button fills, where a navy ring alone would vanish.
+   ========================================================================= */
 
 :focus-visible {
-  outline: 2px solid var(--vbx-teal);
+  outline: 2px solid var(--vbx-navy);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--vbx-offwhite);
 }
 
-/* ============================================
-   Link Styles
-   ============================================ */
-
-a {
-  color: inherit;
-  text-decoration: none;
+.band :focus-visible,
+.btn-primary:focus-visible {
+  outline-color: var(--vbx-offwhite);
+  box-shadow: 0 0 0 4px var(--vbx-navy);
 }
 
-/* ============================================
-   Background Patterns
-   ============================================ */
+/* ============================================================================
+   Links
+   ========================================================================= */
 
-.bg-grid-pattern {
-  background-image:
-    linear-gradient(rgba(46, 168, 145, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(46, 168, 145, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
+a { color: inherit; text-decoration: none; }
+
+.link {
+  color: var(--vbx-navy);
+  font-weight: 600;
+  border-bottom: 1px solid var(--vbx-teal);
+  padding-bottom: 1px;
+  transition: border-color var(--transition-fast);
 }
+.link:hover { border-bottom-color: var(--vbx-navy); }
 
-/* ============================================
-   Container Utilities
-   ============================================ */
+.band .link { color: var(--vbx-offwhite); border-bottom-color: var(--vbx-teal-light); }
+.band .link:hover { border-bottom-color: var(--vbx-offwhite); }
+
+/* Arrow rendered as a separate element, never appended to link text (Step 3) */
+.link-arrow {
+  display: inline-block;
+  margin-left: 0.4em;
+  transition: transform var(--transition-fast);
+}
+.link:hover .link-arrow,
+a:hover > .link-arrow { transform: translateX(2px); }
+
+/* ============================================================================
+   Layout
+   ========================================================================= */
 
 .container-wide {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-
-@media (min-width: 768px) {
-  .container-wide {
-    padding: 0 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-wide {
-    padding: 0 4rem;
-  }
-}
-
-/* ============================================
-   Section Spacing
-   ============================================ */
+@media (min-width: 768px)  { .container-wide { padding: 0 3rem; } }
+@media (min-width: 1024px) { .container-wide { padding: 0 4rem; } }
 
 .section-padding {
   padding-top: var(--spacing-section-mobile);
   padding-bottom: var(--spacing-section-mobile);
 }
-
 @media (min-width: 768px) {
   .section-padding {
     padding-top: var(--spacing-section);
@@ -220,147 +252,145 @@ a {
   }
 }
 
-/* ============================================
-   Animation Keyframes
-   ============================================ */
-
-@keyframes fadeIn {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+/* Soft panel */
+.panel {
+  background: var(--vbx-teal-tint);
+  border: 1px solid var(--vbx-rule);
+  border-radius: var(--radius);
 }
 
-@keyframes fadeUp {
-  0%   { opacity: 0; transform: translateY(24px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* ============================================================================
+   Buttons — radius 2px, no pills. Every pair measured above 4.5:1.
+   ========================================================================= */
+
+.btn-primary,
+.btn-gold,
+.btn-teal {
+  background: var(--vbx-navy);
+  color: var(--vbx-offwhite);          /* 12.04:1 */
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--vbx-navy);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  display: inline-block;
+}
+.btn-primary:hover,
+.btn-gold:hover,
+.btn-teal:hover {
+  background: var(--vbx-navy-light);
+  border-color: var(--vbx-navy-light);
 }
 
-@keyframes slideInLeft {
-  0%   { opacity: 0; transform: translateX(-24px); }
-  100% { opacity: 1; transform: translateX(0); }
+.btn-secondary,
+.btn-teal-outline {
+  background: transparent;
+  color: var(--vbx-navy);              /* 12.04:1 */
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--vbx-navy);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  display: inline-block;
+}
+.btn-secondary:hover,
+.btn-teal-outline:hover {
+  background: var(--vbx-navy);
+  color: var(--vbx-offwhite);
 }
 
-@keyframes rotateSlow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+/* Buttons inside a navy band invert */
+.band .btn-primary, .band .btn-gold, .band .btn-teal {
+  background: var(--vbx-offwhite);
+  color: var(--vbx-navy);              /* 12.04:1 */
+  border-color: var(--vbx-offwhite);
+}
+.band .btn-primary:hover, .band .btn-gold:hover, .band .btn-teal:hover {
+  background: var(--vbx-teal-light);   /* navy on teal-light = 7.58:1 */
+  border-color: var(--vbx-teal-light);
+}
+.band .btn-secondary, .band .btn-teal-outline {
+  color: var(--vbx-offwhite);
+  border-color: var(--vbx-offwhite);
+}
+.band .btn-secondary:hover, .band .btn-teal-outline:hover {
+  background: var(--vbx-offwhite);
+  color: var(--vbx-navy);
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+/* ============================================================================
+   Identifier / metadata tags
+   ========================================================================= */
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--vbx-navy);
+}
+.band .mono-tag { color: var(--vbx-teal-light); }
+
+/* Definition list for identity strings — replaces "CAGE: X // UEI: Y" (Step 3) */
+.id-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.id-list dt { color: var(--vbx-ink); }
+.id-list dd { color: var(--vbx-navy); }
+.band .id-list dt { color: var(--vbx-muted); }   /* 4.20:1 — label size only */
+.band .id-list dd { color: var(--vbx-offwhite); }
+
+/* ============================================================================
+   Background pattern — decorative, teal at low alpha
+   ========================================================================= */
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(46, 168, 145, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 168, 145, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-@keyframes accentBarIn {
-  0%   { width: 0; opacity: 0; }
-  100% { width: 3px; opacity: 1; }
-}
+/* ============================================================================
+   Animation
+   ========================================================================= */
 
-/* ============================================
-   Utility Animation Classes
-   ============================================ */
+@keyframes fadeIn      { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes fadeUp      { 0% { opacity: 0; transform: translateY(24px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-24px); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes rotateSlow  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes blink       { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes dotPulse    { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 .animate-fade-in    { animation: fadeIn 0.5s ease-out both; }
 .animate-fade-up    { animation: fadeUp 0.6s ease-out both; }
 .animate-slide-left { animation: slideInLeft 0.6s ease-out both; }
 
-/* ============================================
-   CTA Button Hover Interactions
-   ============================================ */
-
-.btn-gold {
-  background: var(--vbx-gold);
-  color: var(--vbx-navy);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  padding: 0.75rem 1.75rem;
-  border: none;
-  cursor: pointer;
-  transition: background 200ms ease, letter-spacing 200ms ease;
-  display: inline-block;
-}
-
-.btn-gold:hover {
-  background: #FFD44D;
-  letter-spacing: 0.18em;
-}
-
-.btn-teal-outline {
-  background: transparent;
-  color: var(--vbx-teal);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  padding: 0.75rem 1.75rem;
-  border: 1px solid var(--vbx-teal);
-  cursor: pointer;
-  transition: background 200ms ease, color 200ms ease;
-  display: inline-block;
-}
-
-.btn-teal-outline:hover {
-  background: rgba(46, 168, 145, 0.1);
-}
-
-.btn-teal {
-  background: var(--vbx-teal);
-  color: var(--vbx-navy);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  padding: 0.75rem 1.75rem;
-  border: none;
-  cursor: pointer;
-  transition: background 200ms ease;
-  display: inline-block;
-}
-
-.btn-teal:hover {
-  background: #26957F;
-}
-
-/* ============================================
-   Past Performance Accent Bar
-   ============================================ */
-
-.engagement-row {
-  position: relative;
-  padding-left: 1.5rem;
-}
-
+.engagement-row { position: relative; padding-left: 1.5rem; }
 .engagement-row::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 0; top: 0; bottom: 0;
   width: 3px;
   background: var(--vbx-teal);
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.4s ease;
 }
+.engagement-row.visible::before { transform: scaleY(1); }
 
-.engagement-row.visible::before {
-  transform: scaleY(1);
-}
-
-/* ============================================
-   Capability Table
-   ============================================ */
-
-.capability-table tr.visible td:first-child {
-  border-left-width: 3px;
-}
-
-/* ============================================
-   Typewriter Cursor
-   ============================================ */
+.capability-table tr.visible td:first-child { border-left-width: 3px; }
 
 .typewriter-cursor {
   display: inline-block;
@@ -370,27 +400,36 @@ a {
   animation: blink 0.8s step-end infinite;
   vertical-align: text-bottom;
 }
+.band .typewriter-cursor { background: var(--vbx-teal-light); }
 
-/* ============================================
-   Mono identifier tags
-   ============================================ */
+/* ============================================================================
+   Reduced motion — every animation and counter jumps to its end state (Step 4.3)
+   ========================================================================= */
 
-.mono-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--vbx-teal);
-  text-transform: uppercase;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Scroll-reveal elements must land in their END state, not their start. */
+  .engagement-row::before { transform: scaleY(1) !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .typewriter-cursor { display: none !important; }
 }
 
-/* ============================================
-   Legacy gradient / glow (keep for compatibility)
-   ============================================ */
-
-.gradient-radial {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(46, 168, 145, 0.1) 0%,
-    transparent 70%
-  );
+/* Scroll-reveal base: visible by default so the markup is correct without JS,
+   crawlers and no-JS clients included. JS opts in to the animated entrance. */
+.reveal { opacity: 1; transform: none; }
+.js-reveal-enabled .reveal {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+.js-reveal-enabled .reveal.visible { opacity: 1; transform: none; }
