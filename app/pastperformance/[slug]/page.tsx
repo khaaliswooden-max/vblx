@@ -267,7 +267,7 @@ export default function PastPerformanceDetailPage() {
               >
                 <Quote
                   className="w-10 h-10 mb-4"
-                  style={{ color: 'var(--vbx-teal-tint)' }}
+                  style={{ color: 'var(--vbx-teal)' }}
                 />
                 <blockquote className="text-xl font-display text-text-primary mb-6 leading-relaxed">
                   &ldquo;{caseStudy.quote.text}&rdquo;

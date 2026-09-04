@@ -318,7 +318,7 @@ export default function HealthcareITPage() {
                 >
                   <h3 className="font-display text-vbx-navy text-xl mb-1">{member.title}</h3>
                   <p className="font-sans text-vbx-navy-light text-sm leading-relaxed mb-4">{member.bio}</p>
-                  <p className="font-mono text-xs" style={{ color: 'var(--vbx-rule)' }}>
+                  <p className="font-mono text-xs text-vbx-navy-light">
                     {member.certs}
                   </p>
                 </div>

@@ -184,7 +184,7 @@ export default function FederalContactPage() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
                   s === step
-                    ? 'bg-accent-primary text-background-primary'
+                    ? 'bg-vbx-navy text-vbx-offwhite'
                     : s < step
                     ? 'bg-vbx-teal-tint text-vbx-navy'
                     : 'bg-background-tertiary text-text-tertiary'
