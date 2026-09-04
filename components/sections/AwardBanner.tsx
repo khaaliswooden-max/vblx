@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import VisionbloxLogo from '@/components/ui/VisionbloxLogo'
 
 /**
  * The State of Montana Master AI Products & Services Contract award.
@@ -9,6 +10,14 @@ import Link from 'next/link'
  * Gold appears here as a rule and a badge outline only, never as a fill:
  * gold-on-navy measures 7.41:1, while gold as a background would force navy or
  * offwhite text onto it and gold-on-offwhite is 1.63:1.
+ *
+ * This is the only navy surface on the site, so it is the only place the
+ * knockout lockup belongs. The full-colour lockup must never appear here — its
+ * wordmark is navy and would measure 1.61:1 against this ground.
+ *
+ * The lockup carries alt="" deliberately: the heading directly beneath it
+ * already opens with "Visionblox awarded...", so an accessible name here would
+ * announce the company twice in a row.
  */
 export default function AwardBanner() {
   return (
@@ -21,6 +30,13 @@ export default function AwardBanner() {
         <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 py-10">
 
           <div className="flex-1 min-w-0">
+            <VisionbloxLogo
+              variant="knockout"
+              width={148}
+              alt=""
+              className="h-auto w-[124px] md:w-[148px] mb-6"
+            />
+
             <p className="eyebrow eyebrow-on-dark">New award — August 2026</p>
 
             <h2
