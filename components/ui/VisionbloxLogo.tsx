@@ -3,35 +3,42 @@ import Image from 'next/image'
 /**
  * The Visionblox lockup.
  *
- * IMPORTANT — asset reality, do not "fix" this by improvising:
+ * ASSETS IN THIS REPOSITORY
  *
- *   public/visionblox-logo.png       the real full-colour lockup (mark +
- *                                    wordmark, navy ink, 1002x422). This is
- *                                    the same asset embedded in the Visionblox
- *                                    capability statement. LIGHT GROUNDS ONLY.
- *   public/visionblox-logo-mark.svg  the mark alone, no wordmark.
+ *   public/visionblox-logo.png           Full-colour lockup — mark + navy
+ *                                        wordmark, 1002x422, transparent.
+ *                                        LIGHT GROUNDS ONLY.
+ *   public/visionblox-logo-knockout.png  Knockout lockup — mark + WHITE
+ *                                        wordmark, 890x395, transparent.
+ *                                        NAVY GROUNDS ONLY.
+ *   public/visionblox-logo-mark.svg      The mark alone, no wordmark.
  *
- * There is NO knockout (light-wordmark) lockup in this repository. Until one
- * is produced, the lockup must not be placed on a navy band. Do not CSS-invert
- * or filter the full-colour mark to fake one, and do not typeset the word
- * "visionblox" as text in place of the wordmark — both were previously done
- * here and both misrepresent the brand.
+ * Both lockups keep the mark in full colour; only the wordmark changes. The
+ * mark's own fills (lavender, salmon, mint) are intentionally not among the
+ * eight brand tokens — the mark is the mark, and it is never recoloured.
  *
- * If you need the logo on navy, use `variant="mark"` (the mark reads on dark)
- * or place the full-colour lockup on an offwhite chip.
+ * RULES
+ *  - Never typeset the word "visionblox" as text in place of the wordmark.
+ *  - Never CSS-invert or filter one variant to fake the other. Pick the right
+ *    asset for the ground.
+ *  - The knockout is for NAVY. It is not for teal: the mark's mint block sits
+ *    close enough to --vbx-teal that the lockup loses definition there.
+ *  - The knockout's wordmark is pure #FFFFFF (13.17:1 on navy) rather than
+ *    --vbx-offwhite (12.04:1). Both clear AA comfortably; the asset is used as
+ *    supplied rather than re-rendered to the token.
  */
 
-const LOCKUP_SRC = '/visionblox-logo.png'
-const LOCKUP_W = 1002
-const LOCKUP_H = 422
-
-const MARK_SRC = '/visionblox-logo-mark.svg'
-const MARK_W = 272
-const MARK_H = 231
+const LOCKUP_LIGHT = { src: '/visionblox-logo.png', w: 1002, h: 422 }
+const LOCKUP_KNOCK = { src: '/visionblox-logo-knockout.png', w: 890, h: 395 }
+const MARK = { src: '/visionblox-logo-mark.svg', w: 272, h: 231 }
 
 interface Props {
-  /** `lockup` = mark + wordmark (light grounds only). `mark` = mark alone. */
-  variant?: 'lockup' | 'mark'
+  /**
+   * `lockup`   — mark + navy wordmark, for light grounds (default).
+   * `knockout` — mark + white wordmark, for navy grounds.
+   * `mark`     — the mark alone, reads on either ground.
+   */
+  variant?: 'lockup' | 'knockout' | 'mark'
   /** Rendered width in px. Height is derived from the asset's aspect ratio. */
   width?: number
   className?: string
@@ -50,27 +57,16 @@ export default function VisionbloxLogo({
   priority = false,
   alt = 'Visionblox',
 }: Props) {
-  if (variant === 'mark') {
-    const w = width ?? 40
-    return (
-      <Image
-        src={MARK_SRC}
-        alt={alt}
-        width={w}
-        height={Math.round((w * MARK_H) / MARK_W)}
-        className={className}
-        priority={priority}
-      />
-    )
-  }
+  const asset =
+    variant === 'knockout' ? LOCKUP_KNOCK : variant === 'mark' ? MARK : LOCKUP_LIGHT
+  const w = width ?? (variant === 'mark' ? 40 : 180)
 
-  const w = width ?? 180
   return (
     <Image
-      src={LOCKUP_SRC}
+      src={asset.src}
       alt={alt}
       width={w}
-      height={Math.round((w * LOCKUP_H) / LOCKUP_W)}
+      height={Math.round((w * asset.h) / asset.w)}
       className={className}
       priority={priority}
     />
