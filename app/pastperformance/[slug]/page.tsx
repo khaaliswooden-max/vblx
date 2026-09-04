@@ -15,7 +15,7 @@ export default function PastPerformanceDetailPage() {
 
   if (!engagement) {
     return (
-      <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Engagement Not Found</h1>
           <p className="text-text-secondary mb-8">The engagement you&apos;re looking for doesn&apos;t exist.</p>
@@ -23,7 +23,7 @@ export default function PastPerformanceDetailPage() {
             <Button variant="primary">Back to Past Performance</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
@@ -61,7 +61,7 @@ export default function PastPerformanceDetailPage() {
     .slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div
@@ -493,6 +493,6 @@ export default function PastPerformanceDetailPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

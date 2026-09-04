@@ -8,7 +8,7 @@ import { TOOLS } from '@/lib/utils'
 
 export default function ToolsPage() {
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent-primary/5 to-transparent pointer-events-none" />
 
@@ -68,6 +68,6 @@ export default function ToolsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

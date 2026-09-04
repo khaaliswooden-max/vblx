@@ -16,7 +16,7 @@ export default function CaseStudyDetailPage() {
 
   if (!caseStudy) {
     return (
-      <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Case Study Not Found</h1>
           <p className="text-text-secondary mb-8">The case study you&apos;re looking for doesn&apos;t exist.</p>
@@ -24,7 +24,7 @@ export default function CaseStudyDetailPage() {
             <Button variant="primary">Back to Case Studies</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
@@ -35,7 +35,7 @@ export default function CaseStudyDetailPage() {
     .slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div 
@@ -468,6 +468,6 @@ export default function CaseStudyDetailPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

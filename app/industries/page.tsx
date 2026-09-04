@@ -12,7 +12,7 @@ export default function IndustriesPage() {
   const secondaryIndustries = ALL_INDUSTRIES.filter(ind => ind.tier === 'SECONDARY')
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent-primary/5 to-transparent pointer-events-none" />
@@ -316,6 +316,6 @@ export default function IndustriesPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -15,7 +15,7 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Service Not Found</h1>
           <p className="text-text-secondary mb-8">The service you&apos;re looking for doesn&apos;t exist.</p>
@@ -23,14 +23,14 @@ export default function ServiceDetailPage() {
             <Button variant="primary">Back to Services</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
   const Icon = service.icon
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div 
@@ -533,6 +533,6 @@ export default function ServiceDetailPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

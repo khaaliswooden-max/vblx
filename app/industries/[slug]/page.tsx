@@ -17,7 +17,7 @@ export default function IndustryDetailPage() {
 
   if (!industry) {
     return (
-      <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Industry Not Found</h1>
           <p className="text-text-secondary mb-8">The industry you&apos;re looking for doesn&apos;t exist.</p>
@@ -25,7 +25,7 @@ export default function IndustryDetailPage() {
             <Button variant="primary">Back to Industries</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
@@ -33,7 +33,7 @@ export default function IndustryDetailPage() {
   const caseStudies = getCaseStudiesByIndustry(industry.id)
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div 
@@ -593,6 +593,6 @@ export default function IndustryDetailPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
