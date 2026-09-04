@@ -24,7 +24,7 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-vbx-teal-tint text-vbx-navy text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-vbx-teal-tint text-vbx-navy text-sm font-medium mb-6">
               <FileText className="w-4 h-4" />
               Industries · Backed by Case Studies
             </span>
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 rounded-full bg-vbx-teal-tint text-vbx-navy text-xs font-mono font-bold">
+              <span className="px-3 py-1 rounded-sm bg-vbx-teal-tint text-vbx-navy text-xs font-mono font-bold">
                 PRIMARY
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold">
@@ -129,7 +129,7 @@ export default function IndustriesPage() {
               className="mb-12"
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="px-3 py-1 rounded-full bg-text-tertiary/20 text-text-tertiary text-xs font-mono font-bold">
+                <span className="px-3 py-1 rounded-sm bg-text-tertiary/20 text-text-tertiary text-xs font-mono font-bold">
                   SECONDARY
                 </span>
                 <h2 className="text-3xl md:text-4xl font-display font-bold">

@@ -224,7 +224,7 @@ export default function HealthcareITPage() {
                   </div>
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mb-6">
                     <span className="font-mono text-vbx-navy text-sm tracking-[0.08em]">RELEVANCE</span>
-                    <span className="font-mono text-sm" style={{ color: eng.relevanceColor }}>
+                    <span className="font-mono text-sm text-vbx-navy font-semibold" style={{ borderBottom: `2px solid ${eng.relevanceColor}` }}>
                       {eng.relevance}&nbsp;&nbsp;·&nbsp;&nbsp;{eng.relevanceNote}
                     </span>
                   </div>
@@ -361,7 +361,7 @@ export default function HealthcareITPage() {
                 className="p-6"
                 style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-rule)', borderRadius: '2px' }}
               >
-                <p className="font-mono text-xs tracking-[0.1em] mb-4" style={{ color: opp.tierColor }}>
+                <p className="font-mono text-xs tracking-[0.1em] mb-4 text-vbx-navy" style={{ borderLeft: `3px solid ${opp.tierColor}`, paddingLeft: '0.5rem' }}>
                   {opp.tier}
                 </p>
                 <h3 className="font-display text-vbx-navy text-xl mb-4">{opp.headline}</h3>

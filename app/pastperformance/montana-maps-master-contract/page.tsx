@@ -124,11 +124,15 @@ export default function MontanaMapsMasterContractPage() {
             style={{ background: 'var(--vbx-rule)', border: '1px solid var(--vbx-rule)', borderRadius: '2px', overflow: 'hidden' }}
           >
             {CONTRACT_FACTS.map((f) => (
-              <div key={f.k} className="bg-vbx-offwhite px-5 py-5">
+              <div
+                key={f.k}
+                className="bg-vbx-offwhite px-5 py-5"
+                style={{ borderTop: `3px solid ${f.gold ? 'var(--vbx-gold)' : 'transparent'}` }}
+              >
                 <p className="font-mono text-vbx-navy-light tracking-[0.1em] mb-2" style={{ fontSize: '0.6rem' }}>
-                  {f.k.toUpperCase()}
+                  {f.k}
                 </p>
-                <p className="font-sans" style={{ fontSize: '0.9375rem', color: f.gold ? 'var(--vbx-gold)' : 'var(--vbx-offwhite)', lineHeight: '1.5' }}>
+                <p className="font-sans text-vbx-navy" style={{ fontSize: '0.9375rem', lineHeight: '1.5' }}>
                   {f.v}
                 </p>
               </div>
@@ -193,7 +197,7 @@ export default function MontanaMapsMasterContractPage() {
             {ENGAGE_STEPS.map((s) => (
               <div key={s.n} className="bg-vbx-offwhite p-6">
                 <div className="font-mono font-extrabold text-3xl text-vbx-navy/20 leading-none mb-3">{s.n}</div>
-                <h4 className="font-display text-vbx-navy text-base mb-2">{s.title}</h4>
+                <h3 className="font-display text-vbx-navy text-base mb-2">{s.title}</h3>
                 <p className="font-sans text-vbx-navy-light text-sm leading-relaxed">{s.body}</p>
               </div>
             ))}

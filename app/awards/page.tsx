@@ -35,7 +35,7 @@ const AWARDS: Award[] = [
     status: 'MASTER CONTRACT VEHICLE',
     awarded: 'Fully executed August 14, 2026',
     location: 'Statewide — Montana (cooperative purchasing nationwide)',
-    color: 'var(--vbx-gold)',
+    color: 'var(--vbx-navy)',
     badge: 'STATE / SLED',
     scope:
       'Fully executed statewide master contract vehicle (No. SPB26-0608GW-VSNBLX) for AI software solutions deployable across Montana state government operations, agencies, and workforce functions. Awarded to Visionblox LLC on both solicitation tracks. Through cooperative purchasing, public procurement units nationwide may purchase at contract terms.',

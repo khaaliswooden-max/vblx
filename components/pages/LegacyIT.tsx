@@ -214,9 +214,9 @@ export default function LegacyIT() {
             <p className="font-mono text-vbx-navy text-sm tracking-[0.14em] mb-3">
               State of montana MAPS contract
             </p>
-            <h3 className="font-display text-vbx-navy mb-3" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
+            <h2 className="font-display text-vbx-navy mb-3" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
               Relian™ legacy migration — now available on the Montana MAPS contract.
-            </h3>
+            </h2>
             <p className="font-sans text-vbx-navy-light max-w-[760px] mb-6" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               Visionblox&apos;s AI-assisted legacy migration platform, Relian™, is available to Montana state
               agencies as a task order under the State of Montana Master AI Products &amp; Services Contract
@@ -404,7 +404,7 @@ export default function LegacyIT() {
               <RevealRow key={step.num} delay={i * 80}>
                 <div className="bg-vbx-offwhite p-6 h-full">
                   <div className="font-mono font-extrabold text-3xl text-vbx-navy/20 leading-none mb-3">{step.num}</div>
-                  <h4 className="font-display text-vbx-navy text-base mb-2">{step.title}</h4>
+                  <h3 className="font-display text-vbx-navy text-base mb-2">{step.title}</h3>
                   <p className="font-sans text-vbx-navy-light text-sm leading-relaxed">{step.body}</p>
                 </div>
               </RevealRow>

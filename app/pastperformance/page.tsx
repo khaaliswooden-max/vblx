@@ -213,9 +213,13 @@ function CategoryFilter({
               letterSpacing: '0.1em',
               padding: '0.5rem 0.875rem',
               borderRadius: '2px',
+              // Navy text in both states: teal (2.69:1) and the rule tint both
+              // fail as text on the light ground. The active state is carried by
+              // the border and fill, and by font weight, not by colour alone.
               border: `1px solid ${isActive ? accent : 'var(--vbx-rule)'}`,
-              background: isActive ? `${accent}18` : 'transparent',
-              color: isActive ? accent : 'var(--vbx-rule)',
+              background: isActive ? 'var(--vbx-teal-tint)' : 'transparent',
+              color: 'var(--vbx-navy)',
+              fontWeight: isActive ? 600 : 400,
             }}
           >
             {tab.label}
@@ -415,28 +419,28 @@ export default function PastPerformancePage() {
                 score: '10/10',
                 designation: 'PRIMARY REFERENCE',
                 meaning: 'Direct match to federal evaluation criteria. Cite in all relevant proposals.',
-                color: 'var(--vbx-teal)',
+                accent: 'var(--vbx-teal)',
                 highlight: true,
               },
               {
                 score: '9/10',
                 designation: 'STRONG REFERENCE',
                 meaning: 'Near-direct match. Cite with brief framing for federal applicability.',
-                color: 'var(--vbx-gold)',
+                accent: 'var(--vbx-gold)',
                 highlight: false,
               },
               {
                 score: '8/10',
                 designation: 'SUPPORTING REFERENCE',
                 meaning: 'Demonstrated domain overlap. Use to reinforce primary references.',
-                color: 'var(--vbx-teal)',
+                accent: 'var(--vbx-teal)',
                 highlight: false,
               },
               {
                 score: '7/10',
                 designation: 'CONTEXTUAL REFERENCE',
                 meaning: 'Adjacent technical depth. Cite to demonstrate breadth of IT services delivery.',
-                color: 'var(--vbx-teal)',
+                accent: 'var(--vbx-teal)',
                 highlight: false,
               },
             ].map((row) => (
@@ -444,7 +448,7 @@ export default function PastPerformancePage() {
                 key={row.score}
                 className="grid grid-cols-[80px_1fr_1.4fr] gap-4 px-5 py-4"
                 style={{
-                  borderLeft: row.highlight ? `3px solid var(--vbx-teal)` : '3px solid transparent',
+                  borderLeft: `3px solid ${row.highlight ? row.accent : 'transparent'}`,
                   borderBottom: '1px solid var(--vbx-rule)',
                 }}
               >

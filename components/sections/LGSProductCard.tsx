@@ -68,7 +68,7 @@ const LGSProductCard = () => {
           </div>
           
           {/* Status badge */}
-          <span className="px-3 py-1 text-xs font-medium bg-vbx-teal-tint text-vbx-navy rounded-full border border-vbx-rule">
+          <span className="px-3 py-1 text-xs font-medium bg-vbx-teal-tint text-vbx-navy rounded-sm border border-vbx-rule">
             PROPRIETARY
           </span>
         </div>
