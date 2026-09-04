@@ -223,7 +223,7 @@ function CategoryFilter({
             }}
           >
             {tab.label}
-            <span className="ml-2 opacity-60">({counts[tab.id]})</span>
+            <span className="ml-2 font-normal">({counts[tab.id]})</span>
           </button>
         )
       })}
