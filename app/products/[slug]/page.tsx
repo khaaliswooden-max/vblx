@@ -28,11 +28,11 @@ export default function ProductPage() {
         {/* Background */}
         <div 
           className="absolute inset-0 opacity-10"
-          style={{ background: `linear-gradient(135deg, ${product.color}40 0%, transparent 60%)` }}
+          style={{ background: `linear-gradient(135deg, var(--vbx-teal-tint) 0%, transparent 60%)` }}
         />
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px]"
-          style={{ backgroundColor: `${product.color}15` }}
+          style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
         />
 
         <div className="container-wide relative z-10">
@@ -60,14 +60,14 @@ export default function ProductPage() {
               {/* Icon */}
               <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: `${product.color}20` }}
+                style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
               >
-                <Icon className="w-10 h-10" style={{ color: product.color }} />
+                <Icon className="w-10 h-10" style={{ color: 'var(--vbx-navy)' }} />
               </div>
 
               {/* Title */}
               <h1 className="font-display text-display-sm md:text-display-md font-bold mb-4">
-                <span style={{ color: product.color }}>{product.name}</span>
+                <span style={{ color: 'var(--vbx-navy)' }}>{product.name}</span>
               </h1>
 
               {/* Tagline */}
@@ -111,7 +111,7 @@ export default function ProductPage() {
                       key={i}
                       className="absolute rounded-full border-2"
                       style={{ 
-                        borderColor: `${product.color}${30 - i * 5}`,
+                        borderColor: `var(--vbx-teal)${30 - i * 5}`,
                         width: `${60 + i * 20}%`,
                         height: `${60 + i * 20}%`,
                       }}
@@ -132,16 +132,16 @@ export default function ProductPage() {
                   {/* Center icon */}
                   <div
                     className="w-24 h-24 rounded-2xl flex items-center justify-center z-10"
-                    style={{ backgroundColor: `${product.color}30` }}
+                    style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                   >
-                    <Icon className="w-12 h-12" style={{ color: product.color }} />
+                    <Icon className="w-12 h-12" style={{ color: 'var(--vbx-navy)' }} />
                   </div>
                 </div>
               </div>
               {/* Glow effect */}
               <div
                 className="absolute inset-0 rounded-3xl blur-3xl -z-10"
-                style={{ backgroundColor: `${product.color}10` }}
+                style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
               />
             </motion.div>
           </div>
@@ -179,9 +179,9 @@ export default function ProductPage() {
                   <CardContent className="p-6">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: `${product.color}20` }}
+                      style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                     >
-                      <CheckCircle className="w-6 h-6" style={{ color: product.color }} />
+                      <CheckCircle className="w-6 h-6" style={{ color: 'var(--vbx-navy)' }} />
                     </div>
                     <h3 className="font-display text-heading-md font-semibold mb-2">
                       {feature.title}
@@ -225,9 +225,9 @@ export default function ProductPage() {
                   >
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: `${product.color}20` }}
+                      style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                     >
-                      <CheckCircle className="w-5 h-5" style={{ color: product.color }} />
+                      <CheckCircle className="w-5 h-5" style={{ color: 'var(--vbx-navy)' }} />
                     </div>
                     <span className="text-text-primary font-medium">{benefit}</span>
                   </motion.div>
@@ -243,8 +243,8 @@ export default function ProductPage() {
               <div 
                 className="rounded-2xl p-8 border"
                 style={{ 
-                  backgroundColor: `${product.color}10`,
-                  borderColor: `${product.color}30`
+                  backgroundColor: 'var(--vbx-teal-tint)',
+                  borderColor: 'var(--vbx-teal-tint)'
                 }}
               >
                 <h3 className="font-display text-heading-lg font-semibold mb-6">
@@ -258,7 +258,7 @@ export default function ProductPage() {
                     >
                       <div
                         className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: product.color }}
+                        style={{ backgroundColor: 'var(--vbx-teal)' }}
                       />
                       <span className="text-text-secondary">{useCase}</span>
                     </div>
@@ -282,9 +282,9 @@ export default function ProductPage() {
           >
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-              style={{ backgroundColor: `${product.color}20` }}
+              style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
             >
-              <Icon className="w-8 h-8" style={{ color: product.color }} />
+              <Icon className="w-8 h-8" style={{ color: 'var(--vbx-navy)' }} />
             </div>
             <h2 className="font-display text-heading-xl font-bold mb-4">
               Ready to Get Started with {product.name}?

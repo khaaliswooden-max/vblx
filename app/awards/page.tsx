@@ -57,7 +57,7 @@ const AWARDS: Award[] = [
     status: 'ACTIVE DELIVERY',
     awarded: '2026 — Present',
     location: 'Maryland',
-    color: '#22D3EE',
+    color: 'var(--vbx-teal)',
     badge: 'DATA / AI',
     scope:
       "Unified governance of four interdependent enterprise platforms — Synergy SIS, Canvas LMS, a Snowflake enterprise data warehouse, and a cross-cutting data quality layer — operated as a single source of truth for one of Maryland's largest school systems.",
@@ -78,7 +78,7 @@ const AWARDS: Award[] = [
     status: 'ACTIVE DELIVERY',
     awarded: '2026 — Present',
     location: 'Remote (US)',
-    color: '#3B82F6',
+    color: 'var(--vbx-teal)',
     badge: 'SAP / ENTERPRISE',
     scope:
       'Enterprise SAP Business Technology Platform integration program transforming B2B / EDI transaction flows — order receipt and validation, acknowledgement, shipping and logistics, invoicing, and payment — across a complex multi-system landscape.',
@@ -98,7 +98,7 @@ function AwardCard({ award }: { award: Award }) {
     <div>
       <div className="data-line" />
       <div
-        style={{ borderLeft: `3px solid ${award.color}` }}
+        style={{ borderLeft: `3px solid var(--vbx-teal)` }}
         className="px-5 md:px-8 pt-8 pb-7"
       >
         {/* Header row */}
@@ -109,7 +109,7 @@ function AwardCard({ award }: { award: Award }) {
               width: '64px',
               height: '64px',
               borderRadius: '4px',
-              border: `1px solid ${award.color}33`,
+              border: '1px solid var(--vbx-teal-tint)',
               background: 'var(--vbx-rule)',
               padding: '8px',
             }}
@@ -132,9 +132,9 @@ function AwardCard({ award }: { award: Award }) {
             className="font-mono tracking-[0.1em] px-2 py-1"
             style={{
               fontSize: '0.625rem',
-              color: award.color,
-              border: `1px solid ${award.color}55`,
-              background: `${award.color}10`,
+              color: 'var(--vbx-navy)',
+              border: '1px solid var(--vbx-teal-tint)',
+              background: 'var(--vbx-teal-tint)',
               borderRadius: '2px',
             }}
           >
@@ -151,7 +151,7 @@ function AwardCard({ award }: { award: Award }) {
           className="flex flex-wrap gap-x-6 gap-y-1 mb-5 font-mono text-vbx-navy-light"
           style={{ fontSize: '0.6875rem', letterSpacing: '0.05em' }}
         >
-          <span>STATUS:&nbsp;<span style={{ color: award.color }}>{award.status}</span></span>
+          <span>STATUS:&nbsp;<span style={{ color: 'var(--vbx-navy)' }}>{award.status}</span></span>
           {award.vehicle && (
             <span>SOLICITATION:&nbsp;<span className="text-vbx-navy">{award.vehicle}</span></span>
           )}
@@ -179,7 +179,7 @@ function AwardCard({ award }: { award: Award }) {
                 className="font-sans text-vbx-navy-light flex gap-2"
                 style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}
               >
-                <span className="flex-shrink-0 mt-0.5" style={{ color: award.color }}>—</span>
+                <span className="flex-shrink-0 mt-0.5" style={{ color: 'var(--vbx-navy)' }}>—</span>
                 {h}
               </li>
             ))}

@@ -28,7 +28,7 @@ export default function PastPerformanceDetailPage() {
   }
 
   const meta = CATEGORY_META[engagement.category]
-  const serviceCategory = { name: `${meta.label} Engagement`, color: meta.color }
+  const serviceCategory = { name: `${meta.label} Engagement`, color: 'var(--vbx-navy)' }
   const caseStudy = {
     id: engagement.slug,
     title: engagement.project,
@@ -67,7 +67,7 @@ export default function PastPerformanceDetailPage() {
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
-            background: `radial-gradient(ellipse at top right, ${serviceCategory.color}40 0%, transparent 60%)`
+            background: `radial-gradient(ellipse at top right, var(--vbx-teal-tint) 0%, transparent 60%)`
           }}
         />
 
@@ -97,7 +97,7 @@ export default function PastPerformanceDetailPage() {
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span
                   className="px-3 py-1 text-sm font-mono rounded"
-                  style={{ backgroundColor: `${serviceCategory.color}20`, color: serviceCategory.color }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                 >
                   {serviceCategory.name}
                 </span>
@@ -111,7 +111,7 @@ export default function PastPerformanceDetailPage() {
               </h1>
               <p
                 className="text-xl md:text-2xl font-medium mb-6"
-                style={{ color: serviceCategory.color }}
+                style={{ color: 'var(--vbx-navy)' }}
               >
                 {caseStudy.subtitle}
               </p>
@@ -163,7 +163,7 @@ export default function PastPerformanceDetailPage() {
               >
                 <div
                   className="text-3xl md:text-4xl font-display font-bold mb-1"
-                  style={{ color: serviceCategory.color }}
+                  style={{ color: 'var(--vbx-navy)' }}
                 >
                   {metric.value}
                 </div>
@@ -263,11 +263,11 @@ export default function PastPerformanceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="relative bg-background-secondary rounded-2xl p-8 border-l-4"
-                style={{ borderLeftColor: serviceCategory.color }}
+                style={{ borderLeftColor: 'var(--vbx-teal)' }}
               >
                 <Quote
                   className="w-10 h-10 mb-4"
-                  style={{ color: `${serviceCategory.color}40` }}
+                  style={{ color: 'var(--vbx-teal-tint)' }}
                 />
                 <blockquote className="text-xl font-display text-text-primary mb-6 leading-relaxed">
                   &ldquo;{caseStudy.quote.text}&rdquo;
@@ -275,11 +275,11 @@ export default function PastPerformanceDetailPage() {
                 <div className="flex items-center gap-4">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: `${serviceCategory.color}20` }}
+                    style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                   >
                     <span
                       className="font-display font-bold"
-                      style={{ color: serviceCategory.color }}
+                      style={{ color: 'var(--vbx-navy)' }}
                     >
                       {caseStudy.quote.author.split(' ').map((n: string) => n[0]).join('')}
                     </span>
@@ -321,7 +321,7 @@ export default function PastPerformanceDetailPage() {
                       <div className="text-text-tertiary text-sm mb-1">Service Category</div>
                       <span
                         className="inline-block px-2 py-1 text-sm rounded"
-                        style={{ backgroundColor: `${serviceCategory.color}20`, color: serviceCategory.color }}
+                        style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                       >
                         {serviceCategory.name}
                       </span>
@@ -429,7 +429,7 @@ export default function PastPerformanceDetailPage() {
                         <div className="flex items-center gap-2 mb-3">
                           <span
                             className="px-2 py-1 text-xs font-mono rounded"
-                            style={{ backgroundColor: `${studyMeta.color}20`, color: studyMeta.color }}
+                            style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                           >
                             {studyMeta.label}
                           </span>

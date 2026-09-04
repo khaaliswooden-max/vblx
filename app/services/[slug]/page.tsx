@@ -36,7 +36,7 @@ export default function ServiceDetailPage() {
         <div 
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{ 
-            background: `radial-gradient(ellipse at top right, ${service.color}40 0%, transparent 60%)` 
+            background: `radial-gradient(ellipse at top right, var(--vbx-teal-tint) 0%, transparent 60%)` 
           }}
         />
         
@@ -66,16 +66,16 @@ export default function ServiceDetailPage() {
               <div className="flex items-center gap-4 mb-6">
                 <div
                   className="w-16 h-16 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: `${service.color}20` }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                 >
                   <Icon 
                     className="w-8 h-8" 
-                    style={{ color: service.color }}
+                    style={{ color: 'var(--vbx-navy)' }}
                   />
                 </div>
                 <span 
                   className="px-3 py-1 text-sm font-mono rounded capitalize"
-                  style={{ backgroundColor: `${service.color}20`, color: service.color }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                 >
                   {service.category}
                 </span>
@@ -85,7 +85,7 @@ export default function ServiceDetailPage() {
               </h1>
               <p 
                 className="text-xl font-medium mb-6"
-                style={{ color: service.color }}
+                style={{ color: 'var(--vbx-navy)' }}
               >
                 {service.tagline}
               </p>
@@ -149,7 +149,7 @@ export default function ServiceDetailPage() {
                           <span 
                             key={i}
                             className="px-2 py-1 text-xs rounded"
-                            style={{ backgroundColor: `${service.color}20`, color: service.color }}
+                            style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                           >
                             {tech}
                           </span>
@@ -202,11 +202,11 @@ export default function ServiceDetailPage() {
                 <div className="flex items-start gap-4">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${service.color}20` }}
+                    style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                   >
                     <CheckCircle 
                       className="w-5 h-5"
-                      style={{ color: service.color }}
+                      style={{ color: 'var(--vbx-navy)' }}
                     />
                   </div>
                   <div>
@@ -260,7 +260,7 @@ export default function ServiceDetailPage() {
                   {/* Phase Number */}
                   <div 
                     className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full items-center justify-center font-display font-bold z-10"
-                    style={{ backgroundColor: service.color }}
+                    style={{ backgroundColor: 'var(--vbx-teal)' }}
                   >
                     {index + 1}
                   </div>
@@ -273,7 +273,7 @@ export default function ServiceDetailPage() {
                       <div className="flex items-center gap-3 mb-3">
                         <div 
                           className="md:hidden w-8 h-8 rounded-full flex items-center justify-center font-display font-bold text-sm"
-                          style={{ backgroundColor: service.color }}
+                          style={{ backgroundColor: 'var(--vbx-teal)' }}
                         >
                           {index + 1}
                         </div>
@@ -336,11 +336,11 @@ export default function ServiceDetailPage() {
               >
                 <div 
                   className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
-                  style={{ backgroundColor: `${service.color}20` }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                 >
                   <div 
                     className="text-2xl font-display font-bold"
-                    style={{ color: service.color }}
+                    style={{ color: 'var(--vbx-navy)' }}
                   >
                     {index + 1}
                   </div>
@@ -386,7 +386,7 @@ export default function ServiceDetailPage() {
                   >
                     <Users 
                       className="w-5 h-5 flex-shrink-0"
-                      style={{ color: service.color }}
+                      style={{ color: 'var(--vbx-navy)' }}
                     />
                     <span className="text-text-primary">{role}</span>
                   </motion.div>
@@ -411,11 +411,11 @@ export default function ServiceDetailPage() {
                   >
                     <div 
                       className="w-8 h-8 rounded-lg flex items-center justify-center"
-                      style={{ backgroundColor: `${service.color}20` }}
+                      style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                     >
                       <CheckCircle 
                         className="w-4 h-4"
-                        style={{ color: service.color }}
+                        style={{ color: 'var(--vbx-navy)' }}
                       />
                     </div>
                     <span className="text-text-primary">{model}</span>
@@ -469,11 +469,11 @@ export default function ServiceDetailPage() {
                       <div className="group bg-background-tertiary rounded-xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all h-full">
                         <div
                           className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                          style={{ backgroundColor: `${relatedService.color}20` }}
+                          style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                         >
                           <RelatedIcon 
                             className="w-6 h-6" 
-                            style={{ color: relatedService.color }}
+                            style={{ color: 'var(--vbx-navy)' }}
                           />
                         </div>
                         <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">

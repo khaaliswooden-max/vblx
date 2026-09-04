@@ -21,56 +21,56 @@ export const CATEGORY_META: Record<EngagementCategory, CategoryMeta> = {
     id: 'healthcare-it',
     label: 'Healthcare IT',
     shortLabel: 'HEALTHCARE',
-    color: '#2EA891',
+    color: 'var(--vbx-teal)',
     description: 'EMR integration, patient portals, Medicaid modernization, HITRUST audit.',
   },
   'enterprise-sap': {
     id: 'enterprise-sap',
     label: 'Enterprise & SAP',
     shortLabel: 'SAP / ENTERPRISE',
-    color: '#3B82F6',
+    color: 'var(--vbx-teal)',
     description: 'S/4HANA migrations, BTP cloud integration, global B2B / EDI.',
   },
   'government-sled': {
     id: 'government-sled',
     label: 'Government & SLED',
     shortLabel: 'GOV / SLED',
-    color: '#F7B801',
+    color: 'var(--vbx-teal)',
     description: 'Multi-portal workforce systems, claims management, regulated workflows.',
   },
   'financial-services': {
     id: 'financial-services',
     label: 'Financial Services',
     shortLabel: 'FIN SERVICES',
-    color: '#A855F7',
+    color: 'var(--vbx-teal)',
     description: 'Loan origination, B2B portal modernization, mobile payment APIs.',
   },
   'data-ai': {
     id: 'data-ai',
     label: 'Data & AI/ML',
     shortLabel: 'DATA / AI',
-    color: '#22D3EE',
+    color: 'var(--vbx-teal)',
     description: 'Enterprise data platforms, predictive ML, NLP, document intelligence.',
   },
   'cloud-modernization': {
     id: 'cloud-modernization',
     label: 'Cloud Modernization',
     shortLabel: 'CLOUD',
-    color: '#34D399',
+    color: 'var(--vbx-teal)',
     description: 'AWS / Azure / GCP migration, serverless conversion, legacy lift-and-shift.',
   },
   'security-compliance': {
     id: 'security-compliance',
     label: 'Security & Compliance',
     shortLabel: 'SEC / COMPLIANCE',
-    color: '#F97316',
+    color: 'var(--vbx-teal)',
     description: 'HITRUST, ISO 27001/27017/27018, vendor risk, audit execution.',
   },
   'aviation-logistics': {
     id: 'aviation-logistics',
     label: 'Aviation & Logistics',
     shortLabel: 'AVIATION',
-    color: '#F472B6',
+    color: 'var(--vbx-teal)',
     description: 'FAA-certified data pipelines, route optimization, real-time analytics.',
   },
 }
@@ -386,11 +386,19 @@ export function getPeriodSortValue(period: string): number {
   return Number.NEGATIVE_INFINITY
 }
 
-export function getFederalRelevanceColor(score: number) {
-  if (score >= 10) return '#2EA891'
-  if (score >= 9) return '#F7B801'
-  if (score >= 8) return '#F97316'
-  return '#94A3B8'
+/**
+ * Accent for the federal-relevance tier.
+ *
+ * Returns a NON-TEXT accent only. The score itself is rendered in navy: on the
+ * light ground teal (2.69:1), gold (1.63:1) and the previous orange/slate hues
+ * all fail WCAG AA as text at any size. The tier is signalled by a rule beneath
+ * the figure instead of by the figure's own colour, so it does not rely on
+ * colour alone either.
+ */
+export function getFederalRelevanceAccent(score: number) {
+  if (score >= 10) return 'var(--vbx-gold)'
+  if (score >= 9) return 'var(--vbx-teal)'
+  return 'var(--vbx-muted)'
 }
 
 export const ENGAGEMENT_CATEGORIES: EngagementCategory[] = [

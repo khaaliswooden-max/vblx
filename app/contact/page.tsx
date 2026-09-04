@@ -27,7 +27,7 @@ const contactPaths = [
     description: 'Our Federal & SLED team specializes in mission-critical deployments with government-grade security and compliance.',
     icon: Flag,
     href: '/contact/federal',
-    color: '#38B2AC',
+    color: 'var(--vbx-teal)',
     features: [
       'GSA MAS Springboard',
       'FedRAMP-ready solutions',
@@ -77,16 +77,16 @@ export default function ContactPage() {
                   <div className="bg-background-secondary rounded-2xl border border-[var(--vbx-navy-light)]/10 p-8 h-full hover:border-[var(--vbx-navy-light)]/20 transition-all duration-300 hover:translate-y-[-4px]">
                     <div
                       className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-                      style={{ backgroundColor: `${path.color}20` }}
+                      style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                     >
-                      <path.icon className="w-7 h-7" style={{ color: path.color }} />
+                      <path.icon className="w-7 h-7" style={{ color: 'var(--vbx-navy)' }} />
                     </div>
 
                     <div className="mb-4">
                       <h2 className="font-display text-heading-lg font-semibold mb-1 group-hover:text-vbx-navy transition-colors">
                         {path.title}
                       </h2>
-                      <p className="text-sm font-mono uppercase tracking-wider" style={{ color: path.color }}>
+                      <p className="text-sm font-mono uppercase tracking-wider" style={{ color: 'var(--vbx-navy)' }}>
                         {path.subtitle}
                       </p>
                     </div>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                         <li key={feature} className="flex items-center gap-2 text-sm text-text-tertiary">
                           <div
                             className="w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: path.color }}
+                            style={{ backgroundColor: 'var(--vbx-teal)' }}
                           />
                           {feature}
                         </li>

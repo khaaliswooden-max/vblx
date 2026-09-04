@@ -36,17 +36,17 @@ export interface ServiceCategoryInfo {
 export const SERVICE_CATEGORIES: Record<ServiceCategory, ServiceCategoryInfo> = {
   operations: {
     name: 'Operations & Analytics',
-    color: '#3182CE',
+    color: 'var(--vbx-teal)',
     description: 'Workforce intelligence, portal development, data analytics, and operational optimization',
   },
   procurement: {
     name: 'Procurement & Sales',
-    color: '#6B46C1',
+    color: 'var(--vbx-teal)',
     description: 'CRM, business intelligence, proposal automation, and procurement solutions',
   },
   compliance: {
     name: 'Compliance & Security',
-    color: '#38B2AC',
+    color: 'var(--vbx-teal)',
     description: 'Security assessments, compliance frameworks, visitor management, and risk management',
   },
 }

@@ -7,7 +7,7 @@ import {
   ENGAGEMENTS,
   CATEGORY_META,
   ENGAGEMENT_CATEGORIES,
-  getFederalRelevanceColor,
+  getFederalRelevanceAccent,
   getPeriodSortValue,
   type Engagement,
   type EngagementCategory,
@@ -41,13 +41,13 @@ function EngagementRow({ eng }: { eng: Engagement }) {
     return () => obs.disconnect()
   }, [])
 
-  const relevanceColor = getFederalRelevanceColor(eng.federalRelevance)
+  const relevanceAccent = getFederalRelevanceAccent(eng.federalRelevance)
 
   return (
     <div ref={ref}>
       <div className="data-line" />
       <div
-        style={{ borderLeft: `3px solid ${meta.color}`, background: 'transparent' }}
+        style={{ borderLeft: `3px solid var(--vbx-teal)`, background: 'transparent' }}
         className="px-5 md:px-8 pt-8 pb-7"
       >
         {/* Header row */}
@@ -59,7 +59,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
                 width: '64px',
                 height: '64px',
                 borderRadius: '4px',
-                border: `1px solid ${meta.color}33`,
+                border: '1px solid var(--vbx-teal-tint)',
                 background: 'var(--vbx-rule)',
                 padding: '8px',
               }}
@@ -83,9 +83,9 @@ function EngagementRow({ eng }: { eng: Engagement }) {
             className="font-mono tracking-[0.1em] px-2 py-1"
             style={{
               fontSize: '0.625rem',
-              color: meta.color,
-              border: `1px solid ${meta.color}55`,
-              background: `${meta.color}10`,
+              color: 'var(--vbx-navy)',
+              border: '1px solid var(--vbx-teal-tint)',
+              background: 'var(--vbx-teal-tint)',
               borderRadius: '2px',
             }}
           >
@@ -106,7 +106,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
 
         <p className="font-mono mb-4" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
           FEDERAL RELEVANCE SCORE:&nbsp;
-          <span style={{ color: relevanceColor, fontSize: '0.9rem' }}>
+          <span className="text-vbx-navy font-semibold" style={{ fontSize: '0.9rem', borderBottom: `2px solid ${relevanceAccent}` }}>
             {eng.federalRelevance}/10
           </span>
         </p>
@@ -125,7 +125,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
           <p className="font-mono text-vbx-navy-light mb-2 tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
             TECHNOLOGY STACK
           </p>
-          <p className="font-mono" style={{ fontSize: '0.6875rem', letterSpacing: '0.04em', color: meta.color }}>
+          <p className="font-mono" style={{ fontSize: '0.6875rem', letterSpacing: '0.04em', color: 'var(--vbx-navy)' }}>
             {eng.stack.join(' · ')}
           </p>
         </div>
@@ -138,7 +138,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
           <ul className="space-y-1.5">
             {eng.outcomes.map((o) => (
               <li key={o} className="font-sans text-vbx-navy-light flex gap-2" style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}>
-                <span className="flex-shrink-0 mt-0.5" style={{ color: meta.color }}>—</span>
+                <span className="flex-shrink-0 mt-0.5" style={{ color: 'var(--vbx-navy)' }}>—</span>
                 {o}
               </li>
             ))}
@@ -155,7 +155,7 @@ function EngagementRow({ eng }: { eng: Engagement }) {
             style={{
               fontSize: '0.9375rem',
               lineHeight: '1.7',
-              borderLeft: `2px solid ${meta.color}`,
+              borderLeft: `2px solid var(--vbx-teal)`,
             }}
           >
             {eng.federalApplicability}
@@ -194,7 +194,7 @@ function CategoryFilter({
       .map((id) => ({
         id,
         label: CATEGORY_META[id].shortLabel,
-        color: CATEGORY_META[id].color,
+        color: 'var(--vbx-teal)',
       })),
   ]
 
@@ -353,10 +353,10 @@ export default function PastPerformancePage() {
               style={{
                 fontSize: '0.9375rem',
                 lineHeight: '1.7',
-                borderLeft: `2px solid ${activeMeta.color}`,
+                borderLeft: `2px solid var(--vbx-teal)`,
               }}
             >
-              <span className="font-mono tracking-[0.08em]" style={{ color: activeMeta.color, fontSize: '0.75rem' }}>
+              <span className="font-mono tracking-[0.08em]" style={{ color: 'var(--vbx-navy)', fontSize: '0.75rem' }}>
                 {activeMeta.label.toUpperCase()}
               </span>
               <br />
@@ -429,14 +429,14 @@ export default function PastPerformancePage() {
                 score: '8/10',
                 designation: 'SUPPORTING REFERENCE',
                 meaning: 'Demonstrated domain overlap. Use to reinforce primary references.',
-                color: '#F97316',
+                color: 'var(--vbx-teal)',
                 highlight: false,
               },
               {
                 score: '7/10',
                 designation: 'CONTEXTUAL REFERENCE',
                 meaning: 'Adjacent technical depth. Cite to demonstrate breadth of IT services delivery.',
-                color: '#94A3B8',
+                color: 'var(--vbx-teal)',
                 highlight: false,
               },
             ].map((row) => (
@@ -444,11 +444,11 @@ export default function PastPerformancePage() {
                 key={row.score}
                 className="grid grid-cols-[80px_1fr_1.4fr] gap-4 px-5 py-4"
                 style={{
-                  borderLeft: row.highlight ? `3px solid ${row.color}` : '3px solid transparent',
+                  borderLeft: row.highlight ? `3px solid var(--vbx-teal)` : '3px solid transparent',
                   borderBottom: '1px solid var(--vbx-rule)',
                 }}
               >
-                <p className="font-mono font-medium" style={{ fontSize: '0.875rem', color: row.color }}>
+                <p className="font-mono font-medium" style={{ fontSize: '0.875rem', color: 'var(--vbx-navy)' }}>
                   {row.score}
                 </p>
                 <p className="font-mono text-vbx-navy" style={{ fontSize: '0.75rem', letterSpacing: '0.04em' }}>

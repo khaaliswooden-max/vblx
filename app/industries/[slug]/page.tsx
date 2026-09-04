@@ -39,7 +39,7 @@ export default function IndustryDetailPage() {
         <div 
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{ 
-            background: `radial-gradient(ellipse at top right, ${industry.color}40 0%, transparent 60%)` 
+            background: `radial-gradient(ellipse at top right, var(--vbx-teal-tint) 0%, transparent 60%)` 
           }}
         />
         
@@ -67,11 +67,11 @@ export default function IndustryDetailPage() {
             >
               <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: `${industry.color}20` }}
+                style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
               >
                 <Icon 
                   className="w-10 h-10" 
-                  style={{ color: industry.color }}
+                  style={{ color: 'var(--vbx-navy)' }}
                 />
               </div>
               <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
@@ -79,7 +79,7 @@ export default function IndustryDetailPage() {
               </h1>
               <p 
                 className="text-xl font-medium mb-6"
-                style={{ color: industry.color }}
+                style={{ color: 'var(--vbx-navy)' }}
               >
                 {industry.heroSubheadline || industry.tagline}
               </p>
@@ -120,7 +120,7 @@ export default function IndustryDetailPage() {
                 >
                   <div 
                     className="text-3xl font-display font-bold mb-2"
-                    style={{ color: industry.color }}
+                    style={{ color: 'var(--vbx-navy)' }}
                   >
                     {metric.value}
                   </div>
@@ -163,7 +163,7 @@ export default function IndustryDetailPage() {
               >
                 <div 
                   className="w-8 h-8 rounded-lg flex items-center justify-center mb-4 font-display font-bold"
-                  style={{ backgroundColor: `${industry.color}20`, color: industry.color }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                 >
                   {index + 1}
                 </div>
@@ -212,11 +212,11 @@ export default function IndustryDetailPage() {
                   <div className="flex items-start gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620' }}
+                      style={{ backgroundColor: product ? 'var(--vbx-teal-tint)' : 'var(--vbx-teal-tint)' }}
                     >
                       <span 
                         className="font-display font-bold"
-                        style={{ color: product?.color || '#3B82F6' }}
+                        style={{ color: 'var(--vbx-navy)' }}
                       >
                         {product?.name?.[0] || (solution.service?.[0] || 'S')}
                       </span>
@@ -227,7 +227,7 @@ export default function IndustryDetailPage() {
                           <>
                             <span 
                               className="text-xs font-mono px-2 py-0.5 rounded"
-                              style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620', color: product?.color || '#3B82F6' }}
+                              style={{ backgroundColor: product ? 'var(--vbx-teal-tint)' : 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                             >
                               {solution.product}
                             </span>
@@ -274,12 +274,12 @@ export default function IndustryDetailPage() {
                         variant="ghost" 
                         size="sm"
                         style={{ 
-                          borderColor: `${product.color}40`,
-                          ['--tw-ring-color' as string]: product.color 
+                          borderColor: 'var(--vbx-teal-tint)',
+                          ['--tw-ring-color' as string]: 'var(--vbx-teal)' 
                         }}
                         className="border"
                       >
-                        <span style={{ color: product.color }}>{product.name}</span>
+                        <span style={{ color: 'var(--vbx-navy)' }}>{product.name}</span>
                         <ArrowRight className="w-4 h-4 ml-2 text-text-tertiary" />
                       </Button>
                     </Link>
@@ -420,7 +420,7 @@ export default function IndustryDetailPage() {
               >
                 <CheckCircle 
                   className="w-5 h-5 flex-shrink-0 mt-0.5"
-                  style={{ color: industry.color }}
+                  style={{ color: 'var(--vbx-navy)' }}
                 />
                 <span className="text-text-primary">{useCase}</span>
               </motion.div>
@@ -440,11 +440,11 @@ export default function IndustryDetailPage() {
           >
             <div 
               className="relative bg-background-tertiary rounded-2xl p-8 md:p-12 border border-vbx-rule"
-              style={{ borderLeftColor: industry.color, borderLeftWidth: '4px' }}
+              style={{ borderLeftColor: 'var(--vbx-teal)', borderLeftWidth: '4px' }}
             >
               <Quote 
                 className="w-12 h-12 mb-6"
-                style={{ color: `${industry.color}40` }}
+                style={{ color: 'var(--vbx-teal-tint)' }}
               />
               <blockquote className="text-xl md:text-2xl font-display text-text-primary mb-6 leading-relaxed">
                 &ldquo;{industry.testimonial.quote}&rdquo;
@@ -452,11 +452,11 @@ export default function IndustryDetailPage() {
               <div className="flex items-center gap-4">
                 <div 
                   className="w-12 h-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${industry.color}20` }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                 >
                   <span 
                     className="font-display font-bold"
-                    style={{ color: industry.color }}
+                    style={{ color: 'var(--vbx-navy)' }}
                   >
                     {industry.testimonial.author.split(' ').map(n => n[0]).join('')}
                   </span>
@@ -520,8 +520,8 @@ export default function IndustryDetailPage() {
                           <span 
                             className="px-2 py-1 text-xs font-mono rounded"
                             style={{ 
-                              backgroundColor: `${studyCategory.color}20`, 
-                              color: studyCategory.color 
+                              backgroundColor: 'var(--vbx-teal-tint)', 
+                              color: 'var(--vbx-navy)' 
                             }}
                           >
                             {studyCategory.name}

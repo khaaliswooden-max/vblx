@@ -81,11 +81,11 @@ export default function IndustriesPage() {
                     <Link href={`/industries/${industry.id}`} className="block">
                       <div
                         className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                        style={{ backgroundColor: `${industry.color}20` }}
+                        style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                       >
                         <Icon
                           className="w-7 h-7"
-                          style={{ color: industry.color }}
+                          style={{ color: 'var(--vbx-navy)' }}
                         />
                       </div>
                       <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
@@ -158,11 +158,11 @@ export default function IndustriesPage() {
                       <Link href={`/industries/${industry.id}`} className="block">
                         <div
                           className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                          style={{ backgroundColor: `${industry.color}20` }}
+                          style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                         >
                           <Icon
                             className="w-7 h-7"
-                            style={{ color: industry.color }}
+                            style={{ color: 'var(--vbx-navy)' }}
                           />
                         </div>
                         <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
