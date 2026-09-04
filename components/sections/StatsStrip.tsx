@@ -2,81 +2,125 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+/**
+ * Portfolio statistics.
+ *
+ * The final value is the INITIAL DOM state (Step 4.2). Previously each counter
+ * rendered from 0 and only reached its real value once the animation ran, so
+ * any client that does not execute it — search crawlers, social scrapers,
+ * screen readers reading before the observer fires, anyone with JS disabled —
+ * saw "$0.0M / 0K+ / 0% / 0%". The animation now counts *toward* a number that
+ * is already correct in the markup, and under prefers-reduced-motion it never
+ * starts at all.
+ *
+ * Figures are stated exactly as documented and are not rounded or restated.
+ */
+
 const STATS = [
-  { value: 3.3,  prefix: '$', suffix: 'M', label: 'Documented Healthcare Portfolio' },
-  { value: 100,  prefix: '',  suffix: 'K+', label: 'Daily Users at Peak Capacity' },
-  { value: 96,   prefix: '',  suffix: '%',  label: 'AI Document Processing Accuracy' },
-  { value: 60,   prefix: '',  suffix: '%',  label: 'Labor Cost Reduction via Automation' },
+  { value: 3.3, prefix: '$', suffix: 'M',  display: '$3.3M', label: 'Documented healthcare portfolio' },
+  { value: 100, prefix: '',  suffix: 'K+', display: '100K+', label: 'Daily users at peak capacity' },
+  { value: 96,  prefix: '',  suffix: '%',  display: '96%',   label: 'AI document processing accuracy' },
+  { value: 60,  prefix: '',  suffix: '%',  display: '60%',   label: 'Labor cost reduction via automation' },
 ]
 
-function AnimatedCounter({ end, prefix, suffix, duration = 1500 }: {
-  end: number; prefix: string; suffix: string; duration?: number
+function format(value: number, end: number, prefix: string, suffix: string) {
+  const n = end < 10 ? value.toFixed(1) : Math.round(value).toString()
+  return `${prefix}${n}${suffix}`
+}
+
+function AnimatedCounter({
+  end,
+  prefix,
+  suffix,
+  display,
+  duration = 1500,
+}: {
+  end: number
+  prefix: string
+  suffix: string
+  display: string
+  duration?: number
 }) {
-  const [current, setCurrent] = useState(0)
-  const [started, setStarted] = useState(false)
+  // Seeded with the FINAL value, so server-rendered markup is already correct.
+  const [text, setText] = useState(display)
   const ref = useRef<HTMLSpanElement>(null)
+  const hasRun = useRef(false)
 
   useEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || hasRun.current) return
+
+    // Respect reduced motion: leave the final value in place, animate nothing.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true)
-          observer.disconnect()
+        if (!entry.isIntersecting || hasRun.current) return
+        hasRun.current = true
+        observer.disconnect()
+
+        const startTime = performance.now()
+        const step = (now: number) => {
+          const progress = Math.min((now - startTime) / duration, 1)
+          const eased = 1 - Math.pow(1 - progress, 3)
+          if (progress < 1) {
+            setText(format(end * eased, end, prefix, suffix))
+            requestAnimationFrame(step)
+          } else {
+            setText(display) // always land exactly on the documented figure
+          }
         }
+        requestAnimationFrame(step)
       },
       { threshold: 0.5 }
     )
+
     observer.observe(el)
     return () => observer.disconnect()
-  }, [started])
-
-  useEffect(() => {
-    if (!started) return
-    const startTime = performance.now()
-    const step = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1)
-      const ease = 1 - Math.pow(1 - progress, 3) // ease-out cubic
-      setCurrent(end * ease)
-      if (progress < 1) requestAnimationFrame(step)
-      else setCurrent(end)
-    }
-    requestAnimationFrame(step)
-  }, [started, end, duration])
-
-  const display = end < 10 ? current.toFixed(1) : Math.round(current).toString()
+  }, [end, prefix, suffix, display, duration])
 
   return (
-    <span ref={ref} className="font-mono text-vbx-teal" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', lineHeight: 1 }}>
-      {prefix}{display}{suffix}
+    <span
+      ref={ref}
+      className="font-display font-bold text-vbx-navy tabular-nums"
+      style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', lineHeight: 1.05 }}
+    >
+      {text}
     </span>
   )
 }
 
 export default function StatsStrip() {
   return (
-    <section
-      className="section-padding"
-      style={{ background: 'rgba(255,255,255,0.04)', borderTop: '1px solid rgba(46,168,145,0.12)', borderBottom: '1px solid rgba(46,168,145,0.12)' }}
-    >
+    <section className="bg-vbx-teal-tint border-y border-vbx-rule section-padding">
       <div className="container-wide">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+        <dl className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center text-center gap-3 px-6"
+              className="flex flex-col items-center text-center gap-3 px-4"
               style={{
-                borderRight: i < STATS.length - 1 ? '1px solid rgba(46,168,145,0.2)' : 'none',
+                borderRight:
+                  i < STATS.length - 1 ? '1px solid var(--vbx-rule)' : undefined,
               }}
             >
-              <AnimatedCounter end={stat.value} prefix={stat.prefix} suffix={stat.suffix}/>
-              <span className="font-sans text-vbx-muted text-sm leading-snug max-w-[140px]">
+              {/* Gold rule carries the accent; the figure itself stays navy,
+                  because gold-on-tint measures 1.59:1. */}
+              <dd className="order-1 flex flex-col items-center gap-2">
+                <AnimatedCounter
+                  end={stat.value}
+                  prefix={stat.prefix}
+                  suffix={stat.suffix}
+                  display={stat.display}
+                />
+                <span aria-hidden="true" className="block w-8 h-[3px] bg-vbx-gold" />
+              </dd>
+              <dt className="order-2 text-vbx-navy-light text-sm leading-snug max-w-[170px]">
                 {stat.label}
-              </span>
+              </dt>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   )

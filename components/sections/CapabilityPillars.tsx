@@ -1,59 +1,51 @@
 import Link from 'next/link'
 
+/**
+ * The three capability pillars.
+ *
+ * The "[ 01 ] [ 02 ] [ 03 ]" markers were removed: this content is not a
+ * sequence, so the numbering was decoration rather than meaning.
+ */
 const PILLARS = [
   {
-    index: '01',
-    headline: 'Healthcare Data Systems',
+    headline: 'Healthcare data systems',
     body: 'Epic EMR integration, HL7 data pipelines, MITA-compliant Medicaid architecture, and patient portal infrastructure — delivered at a leading national integrated healthcare system and California DHCS.',
   },
   {
-    index: '02',
-    headline: 'Compliance & Security Architecture',
+    headline: 'Compliance and security architecture',
     body: 'HIPAA, HITRUST audits, 21st Century Cures Act, Section 508 ADA, FedRAMP-aware deployment on AWS GovCloud and Azure Government. 13 years of healthcare security leadership on staff.',
   },
   {
-    index: '03',
-    headline: 'Healthcare AI & Document Intelligence',
+    headline: 'Healthcare AI and document intelligence',
     body: 'NLP, OCR, and ML pipelines purpose-built for healthcare data. Delivered 96% document processing accuracy and 60% labor reduction at a state Medicaid agency. Python, Spark, Kafka, Snowflake.',
   },
 ]
 
 export default function CapabilityPillars() {
   return (
-    <section className="bg-vbx-navy section-padding">
+    <section className="bg-vbx-offwhite section-padding" aria-labelledby="capabilities-heading">
       <div className="container-wide">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-px">
-          {PILLARS.map((pillar, i) => (
-            <div
-              key={pillar.index}
-              className="flex flex-col gap-5 px-0 md:px-8 py-8 md:py-0"
-              style={{
-                borderLeft: i > 0 ? '1px solid rgba(46,168,145,0.15)' : 'none',
-                borderTop: i > 0 ? undefined : 'none',
-              }}
-            >
-              <p className="font-mono text-vbx-teal text-sm tracking-[0.1em]">
-                [ {pillar.index} ]
-              </p>
-              <h3 className="font-display text-vbx-white text-xl leading-snug">
+        <h2 id="capabilities-heading" className="sr-only">Capabilities</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          {PILLARS.map((pillar) => (
+            <div key={pillar.headline} className="flex flex-col gap-4">
+              <span aria-hidden="true" className="block w-10 h-[3px] bg-vbx-teal" />
+              <h3 className="font-display text-vbx-navy text-xl font-semibold leading-snug">
                 {pillar.headline}
               </h3>
-              <div className="data-line pt-4">
-                <p className="font-sans text-vbx-muted text-sm leading-relaxed pt-4">
-                  {pillar.body}
-                </p>
-              </div>
+              <p className="text-vbx-navy-light text-sm leading-relaxed">
+                {pillar.body}
+              </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/healthcare-it#capabilities"
-            className="font-sans text-vbx-teal text-sm hover:text-vbx-white transition-colors tracking-wide"
-          >
-            → Full Capability Matrix
+        <div className="mt-12">
+          <Link href="/healthcare-it#capabilities" className="link">
+            Full capability matrix
+            <span className="link-arrow" aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>

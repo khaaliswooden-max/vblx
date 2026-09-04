@@ -38,8 +38,10 @@
   --vbx-offwhite:    #F5F5F0;  /* light page ground, knockout text on navy   */
 
   /* ---- Derived inks: tints of a token, never a ninth colour ---- */
-  /* navy-light @ 70% over offwhite = #676F8B, 4.55:1 — legal body/secondary */
-  --vbx-ink:         rgba(42, 53, 96, 0.70);
+  /* navy-light @ 85% over offwhite = #485276, 7.00:1 — legal body/secondary.
+     70% was tried first and measured 4.55:1, too close to the 4.5 floor for
+     axe to accept at small sizes. */
+  --vbx-ink:         rgba(42, 53, 96, 0.85);
   /* muted @ 35% over offwhite = #CFD2D5 — structural rules, matches the
      capability statement's #D6DAE3 table rules */
   --vbx-rule:        rgba(136, 146, 164, 0.35);
@@ -348,7 +350,7 @@ a:hover > .link-arrow { transform: translateX(2px); }
 }
 .id-list dt { color: var(--vbx-ink); }
 .id-list dd { color: var(--vbx-navy); }
-.band .id-list dt { color: var(--vbx-muted); }   /* 4.20:1 — label size only */
+.band .id-list dt { color: var(--vbx-teal-light); }  /* 7.58:1 */
 .band .id-list dd { color: var(--vbx-offwhite); }
 
 /* ============================================================================

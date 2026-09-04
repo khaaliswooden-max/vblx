@@ -1,63 +1,68 @@
 import Link from 'next/link'
 
-// Homepage award announcement — sits directly below the hero. Announces the
-// competitively awarded State of Montana Master AI Products & Services Contract
-// and links to the full contract profile.
+/**
+ * The State of Montana Master AI Products & Services Contract award.
+ *
+ * This is the single bold visual moment on the homepage — the one navy band on
+ * an otherwise light page. Everything around it stays quiet by design.
+ *
+ * Gold appears here as a rule and a badge outline only, never as a fill:
+ * gold-on-navy measures 7.41:1, while gold as a background would force navy or
+ * offwhite text onto it and gold-on-offwhite is 1.63:1.
+ */
 export default function AwardBanner() {
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ background: '#1B2347', borderTop: '1px solid rgba(247,184,1,0.4)', borderBottom: '1px solid rgba(46,168,145,0.2)' }}
-      aria-label="Contract award announcement"
+      className="band relative"
+      style={{ borderTop: '3px solid var(--vbx-gold)' }}
+      aria-labelledby="montana-award-heading"
     >
-      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-20 pointer-events-none" />
       <div className="container-wide relative">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 py-7">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12 py-10">
 
-          {/* Badge */}
-          <span
-            className="font-mono self-start whitespace-nowrap"
-            style={{
-              fontSize: '0.625rem',
-              letterSpacing: '0.12em',
-              color: '#F7B801',
-              border: '1px solid rgba(247,184,1,0.5)',
-              background: 'rgba(247,184,1,0.08)',
-              borderRadius: '2px',
-              padding: '0.4rem 0.6rem',
-            }}
-          >
-            ◆ NEW AWARD · AUG 2026
-          </span>
-
-          {/* Copy */}
           <div className="flex-1 min-w-0">
-            <p className="font-mono text-vbx-teal mb-2 tracking-[0.14em]" style={{ fontSize: '0.7rem' }}>
-              {'// STATE OF MONTANA · MASTER AI CONTRACT'}
-            </p>
+            <p className="eyebrow eyebrow-on-dark">New award — August 2026</p>
+
             <h2
-              className="font-display text-vbx-white"
-              style={{ fontSize: 'clamp(1.25rem, 2.6vw, 1.9rem)', lineHeight: '1.25', maxWidth: '820px' }}
+              id="montana-award-heading"
+              className="font-display font-bold"
+              style={{
+                fontSize: 'clamp(1.375rem, 2.6vw, 2rem)',
+                lineHeight: '1.25',
+                maxWidth: '820px',
+              }}
             >
-              Visionblox awarded the State of Montana Master AI Products &amp; Services Contract —{' '}
-              <span className="text-vbx-teal">selected on both tracks.</span>
+              Visionblox awarded the State of Montana Master AI Products &amp;
+              Services Contract — selected on both tracks.
             </h2>
-            <p className="font-sans text-vbx-muted mt-3 max-w-[760px]" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
-              A fully executed statewide AI contract vehicle (No.&nbsp;SPB26-0608GW-VSNBLX). Available to Montana
-              agencies and, through cooperative purchasing, to public entities nationwide.
+
+            <p
+              className="mt-4 max-w-[760px]"
+              style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--vbx-offwhite)' }}
+            >
+              A fully executed statewide AI contract vehicle. Available to Montana
+              agencies and, through cooperative purchasing, to public entities
+              nationwide.
             </p>
+
+            <dl className="id-list mt-5 max-w-[460px]">
+              <dt>Contract</dt>
+              <dd>SPB26-0608GW-VSNBLX</dd>
+              <dt>Status</dt>
+              <dd>Fully executed, August 2026</dd>
+            </dl>
           </div>
 
-          {/* CTA */}
           <div className="flex-shrink-0">
             <Link
               href="/pastperformance/montana-maps-master-contract"
-              className="btn-gold inline-flex items-center gap-2 whitespace-nowrap"
-              style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
+              className="btn-primary inline-flex items-center whitespace-nowrap"
             >
-              READ THE CONTRACT PROFILE →
+              Read the contract profile
+              <span className="link-arrow" aria-hidden="true">&rarr;</span>
             </Link>
           </div>
+
         </div>
       </div>
     </section>
