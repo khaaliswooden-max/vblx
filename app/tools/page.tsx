@@ -21,9 +21,9 @@ export default function ToolsPage() {
           >
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-              style={{ backgroundColor: 'rgba(81, 199, 168, 0.15)' }}
+              style={{ backgroundColor: 'var(--vbx-teal)' }}
             >
-              <Calculator className="w-8 h-8 text-accent-primary" />
+              <Calculator className="w-8 h-8 text-vbx-navy" />
             </div>
             <h1 className="font-display text-display-sm md:text-display-md font-bold mb-4">
               Assessment Tools
@@ -56,7 +56,7 @@ export default function ToolsPage() {
                     <TrackingLink
                       href={tool.url}
                       trackingType="external"
-                      className="inline-flex items-center gap-2 text-accent-primary font-medium text-sm hover:text-accent-hover transition-colors"
+                      className="inline-flex items-center gap-2 text-vbx-navy font-medium text-sm hover:text-accent-hover transition-colors"
                     >
                       Open assessment
                       <ArrowRight className="w-4 h-4" />

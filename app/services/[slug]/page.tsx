@@ -113,7 +113,7 @@ export default function ServiceDetailPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="lg:col-span-2"
             >
-              <div className="bg-background-secondary rounded-2xl p-6 border border-white/5 sticky top-24">
+              <div className="bg-background-secondary rounded-2xl p-6 border border-vbx-rule sticky top-24">
                 <h3 className="font-display font-semibold mb-4">
                   Quick Info
                 </h3>
@@ -159,7 +159,7 @@ export default function ServiceDetailPage() {
                   )}
                 </div>
 
-                <div className="border-t border-white/5 pt-4">
+                <div className="border-t border-vbx-rule pt-4">
                   <Link href="/contact" className="block">
                     <Button variant="primary" className="w-full">
                       Get Started
@@ -197,7 +197,7 @@ export default function ServiceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-background-tertiary rounded-xl p-6 border border-white/5"
+                className="bg-background-tertiary rounded-xl p-6 border border-vbx-rule"
               >
                 <div className="flex items-start gap-4">
                   <div 
@@ -243,7 +243,7 @@ export default function ServiceDetailPage() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-vbx-offwhite/10" />
             
             <div className="space-y-8">
               {service.methodology.map((phase, index) => (
@@ -267,7 +267,7 @@ export default function ServiceDetailPage() {
 
                   {/* Content - Left or Right based on index */}
                   <div className={`${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:col-start-2 md:pl-16'}`}>
-                    <div className={`bg-background-secondary rounded-xl p-6 border border-white/5 ${
+                    <div className={`bg-background-secondary rounded-xl p-6 border border-vbx-rule ${
                       index % 2 === 0 ? 'md:ml-auto' : ''
                     } max-w-lg`}>
                       <div className="flex items-center gap-3 mb-3">
@@ -288,7 +288,7 @@ export default function ServiceDetailPage() {
                       <ul className={`space-y-2 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
                         {phase.activities.map((activity, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                            <CheckCircle className={`w-4 h-4 text-accent-primary flex-shrink-0 mt-0.5 ${
+                            <CheckCircle className={`w-4 h-4 text-vbx-navy flex-shrink-0 mt-0.5 ${
                               index % 2 === 0 ? 'md:order-last' : ''
                             }`} />
                             <span>{activity}</span>
@@ -332,7 +332,7 @@ export default function ServiceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-background-tertiary rounded-xl p-6 border border-white/5 text-center"
+                className="bg-background-tertiary rounded-xl p-6 border border-vbx-rule text-center"
               >
                 <div 
                   className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
@@ -398,7 +398,7 @@ export default function ServiceDetailPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-background-secondary rounded-2xl p-8 border border-white/5"
+              className="bg-background-secondary rounded-2xl p-8 border border-vbx-rule"
             >
               <h3 className="text-xl font-display font-semibold mb-6">
                 Engagement Options
@@ -466,7 +466,7 @@ export default function ServiceDetailPage() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link href={`/services/${relatedService.id}`}>
-                      <div className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
+                      <div className="group bg-background-tertiary rounded-xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all h-full">
                         <div
                           className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
                           style={{ backgroundColor: `${relatedService.color}20` }}
@@ -476,13 +476,13 @@ export default function ServiceDetailPage() {
                             style={{ color: relatedService.color }}
                           />
                         </div>
-                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                           {relatedService.shortName}
                         </h3>
                         <p className="text-text-tertiary text-sm mb-4">
                           {relatedService.tagline}
                         </p>
-                        <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                           Learn more <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
@@ -509,7 +509,7 @@ export default function ServiceDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 rounded-2xl p-8 md:p-12 text-center border border-white/10"
+            className="bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 rounded-2xl p-8 md:p-12 text-center border border-vbx-rule"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Ready to Get Started?

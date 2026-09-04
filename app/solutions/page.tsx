@@ -27,7 +27,7 @@ const DOMAINS = [
         href: '/services/ai-ml-solutions',
       },
     ],
-    ppRef: '// DELIVERED: CA DHCS CFRS · $2.1M · 2022 · FEDERAL RELEVANCE: 10/10',
+    ppRef: 'Delivered: ca DHCS CFRS — $2.1M — 2022 — federal relevance: 10/10',
   },
   {
     number: '02',
@@ -57,7 +57,7 @@ const DOMAINS = [
         href: '/services/web-development',
       },
     ],
-    ppRef: '// DELIVERED: LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM · $1.2M · 2023 · FEDERAL RELEVANCE: 10/10',
+    ppRef: 'Delivered: leading national integrated healthcare system — $1.2M — 2023 — federal relevance: 10/10',
   },
   {
     number: '03',
@@ -80,7 +80,7 @@ const DOMAINS = [
         href: '/services/ai-ml-solutions',
       },
     ],
-    ppRef: '// DELIVERED: CA DHCS AI/OCR PIPELINE · 96% ACCURACY · 60% LABOR REDUCTION',
+    ppRef: 'Delivered: ca DHCS ai/ocr pipeline — 96% accuracy — 60% labor reduction',
   },
   {
     number: '04',
@@ -110,7 +110,7 @@ const DOMAINS = [
         href: '/services/cybersecurity',
       },
     ],
-    ppRef: '// SECURITY LEAD: CISA · CRISC · CISM · LA-ISO27001 · 13 YRS HEALTHCARE',
+    ppRef: 'Security lead: CISA — CRISC — CISM — LA-ISO27001 — 13 yrs healthcare',
   },
   {
     number: '05',
@@ -137,29 +137,28 @@ function ServiceCard({ card }: { card: typeof DOMAINS[0]['cards'][0] }) {
     <div
       className="flex flex-col h-full p-6"
       style={{
-        background: 'rgba(255,255,255,0.04)',
-        borderLeft: '2px solid #2EA891',
+        background: 'var(--vbx-rule)',
+        borderLeft: '2px solid var(--vbx-teal)',
         borderRadius: '2px',
       }}
     >
-      <p className="font-mono text-vbx-teal mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+      <p className="font-mono text-vbx-navy mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
         {card.tag}
       </p>
-      <h3 className="font-sans text-vbx-white font-medium mb-3" style={{ fontSize: '1.125rem' }}>
+      <h3 className="font-sans text-vbx-navy font-medium mb-3" style={{ fontSize: '1.125rem' }}>
         {card.name}
       </h3>
-      <p className="font-sans text-vbx-muted mb-4 flex-1" style={{ fontSize: '0.875rem', lineHeight: '1.65' }}>
+      <p className="font-sans text-vbx-navy-light mb-4 flex-1" style={{ fontSize: '0.875rem', lineHeight: '1.65' }}>
         {card.descriptor}
       </p>
-      <p className="font-mono text-vbx-muted mb-4" style={{ fontSize: '0.6875rem', letterSpacing: '0.04em' }}>
+      <p className="font-mono text-vbx-navy-light mb-4" style={{ fontSize: '0.6875rem', letterSpacing: '0.04em' }}>
         {card.tech.join(' · ')}
       </p>
       <Link
         href={card.href}
-        className="font-sans text-vbx-teal hover:text-vbx-white transition-colors"
+        className="font-sans text-vbx-navy hover:text-vbx-navy transition-colors"
         style={{ fontSize: '0.875rem' }}
-      >
-        → Learn more
+      >Learn more
       </Link>
     </div>
   )
@@ -197,13 +196,13 @@ function DomainSection({ domain }: { domain: typeof DOMAINS[0] }) {
   return (
     <div ref={ref} id={`domain-${domain.number}`}>
       <div className="data-line mb-10" />
-      <p className="font-mono text-vbx-teal mb-3 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-        {'// '}{domain.number}&nbsp;&nbsp;{domain.category}
+      <p className="font-mono text-vbx-navy mb-3 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+        {domain.category}
       </p>
-      <h2 className="font-display text-vbx-white mb-5" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+      <h2 className="font-display text-vbx-navy mb-5" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
         {domain.headline}
       </h2>
-      <p className="font-sans text-vbx-muted mb-8 max-w-[720px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+      <p className="font-sans text-vbx-navy-light mb-8 max-w-[720px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
         {domain.body}
       </p>
 
@@ -213,7 +212,7 @@ function DomainSection({ domain }: { domain: typeof DOMAINS[0] }) {
         ))}
       </div>
 
-      <p className="font-mono text-vbx-gold" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
+      <p className="font-mono text-vbx-navy" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
         {domain.ppRef}
       </p>
     </div>
@@ -224,29 +223,29 @@ function DomainSection({ domain }: { domain: typeof DOMAINS[0] }) {
 
 export default function SolutionsPage() {
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide relative">
-          <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
-            {'// SOLUTIONS // FEDERAL & SLED HEALTHCARE IT'}
+          <p className="font-mono text-vbx-navy mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
+            Federal & SLED healthcare IT
           </p>
           <h1
-            className="font-display text-vbx-white mb-7"
+            className="font-display text-vbx-navy mb-7"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1.1', maxWidth: '820px' }}
           >
             Healthcare IT Solutions Built for
             the Agencies That Govern It.
           </h1>
-          <p className="font-sans text-vbx-muted mb-8 max-w-[620px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
+          <p className="font-sans text-vbx-navy-light mb-8 max-w-[620px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
             Five solution domains. Each one anchored to delivered past performance.
             No claimed capabilities without proof. Designed for CMS, HHS, VA, and
             state health agency procurement requirements.
           </p>
-          <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.15em' }}>
-            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;MITA-COMPLIANT
+          <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.15em' }}>
+            CAGE: 9Z4X2&nbsp;&nbsp;·&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;·&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;·&nbsp;&nbsp;MITA-COMPLIANT
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 data-line" />
@@ -264,42 +263,42 @@ export default function SolutionsPage() {
       {/* ── PROCUREMENT IDENTIFIERS STRIP ────────────────────────────────── */}
       <section
         className="py-12"
-        style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(46,168,145,0.15)' }}
+        style={{ background: 'var(--vbx-rule)', borderTop: '1px solid var(--vbx-rule)' }}
       >
         <div className="data-line mb-0" style={{ marginBottom: 0 }} />
         <div className="container-wide pt-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
 
             <div>
-              <p className="font-mono text-vbx-muted mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+              <p className="font-mono text-vbx-navy-light mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
                 NAICS CODES
               </p>
-              <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+              <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
                 541511&nbsp;&nbsp;·&nbsp;&nbsp;541512&nbsp;&nbsp;·&nbsp;&nbsp;541519&nbsp;&nbsp;·&nbsp;&nbsp;518210
               </p>
             </div>
 
             <div>
-              <p className="font-mono text-vbx-muted mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+              <p className="font-mono text-vbx-navy-light mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
                 CONTRACT VEHICLES
               </p>
-              <p className="font-mono text-vbx-gold" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+              <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
                 STATE OF MONTANA MAPS&nbsp;&nbsp;·&nbsp;&nbsp;SPB26-0608GW-VSNBLX
               </p>
-              <p className="font-mono text-vbx-white mt-1" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+              <p className="font-mono text-vbx-navy mt-1" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
                 GSA MAS&nbsp;&nbsp;·&nbsp;&nbsp;SET-ASIDE ELIGIBLE
               </p>
-              <p className="font-mono text-vbx-teal mt-1" style={{ fontSize: '0.75rem' }}>
+              <p className="font-mono text-vbx-navy mt-1" style={{ fontSize: '0.75rem' }}>
                 MINORITY-OWNED SMALL BUSINESS
               </p>
             </div>
 
             <div>
-              <p className="font-mono text-vbx-muted mb-1.5 tracking-[0.06em]" style={{ fontSize: '0.6875rem' }}>
-                CAGE: <span className="text-vbx-teal">9Z4X2</span>
+              <p className="font-mono text-vbx-navy-light mb-1.5 tracking-[0.06em]" style={{ fontSize: '0.6875rem' }}>
+                CAGE: <span className="text-vbx-navy">9Z4X2</span>
               </p>
-              <p className="font-mono text-vbx-muted tracking-[0.06em]" style={{ fontSize: '0.6875rem' }}>
-                UEI: <span className="text-vbx-teal">H4X2Z7R9E3E3</span>
+              <p className="font-mono text-vbx-navy-light tracking-[0.06em]" style={{ fontSize: '0.6875rem' }}>
+                UEI: <span className="text-vbx-navy">H4X2Z7R9E3E3</span>
               </p>
             </div>
 
@@ -308,17 +307,17 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── PAGE CTA ──────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="data-line mb-12" />
           <div className="max-w-[660px] mx-auto text-center">
             <h2
-              className="font-display text-vbx-white mb-6"
+              className="font-display text-vbx-navy mb-6"
               style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}
             >
               Evaluating healthcare IT capacity for a federal or SLED requirement?
             </h2>
-            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="font-sans text-vbx-navy-light mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               Visionblox provides technical capability briefings for contracting officers,
               program managers, and teaming partners. We can address specific technical
               requirements, past performance questions, and teaming structure directly.
@@ -326,11 +325,11 @@ export default function SolutionsPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
-                className="btn-gold"
+                className="btn-primary"
               >
                 REQUEST A FEDERAL BRIEFING
               </a>
-              <Link href="/pastperformance" className="btn-teal-outline">
+              <Link href="/pastperformance" className="btn-secondary">
                 VIEW PAST PERFORMANCE
               </Link>
             </div>

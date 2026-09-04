@@ -28,17 +28,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             'active:scale-[0.98]',
           ],
           variant === 'secondary' && [
-            'bg-background-tertiary text-text-primary border border-[#344669]/12',
-            'hover:bg-background-elevated hover:border-[#344669]/24',
+            'bg-background-tertiary text-text-primary border border-[var(--vbx-navy-light)]/12',
+            'hover:bg-background-elevated hover:border-[var(--vbx-navy-light)]/24',
             'active:scale-[0.98]',
           ],
           variant === 'ghost' && [
             'text-text-secondary',
-            'hover:text-text-primary hover:bg-[#344669]/5',
+            'hover:text-text-primary hover:bg-[var(--vbx-navy-light)]/5',
           ],
           variant === 'outline' && [
-            'border border-accent-primary text-accent-primary bg-transparent',
-            'hover:bg-accent-primary/10 hover:shadow-glow-sm',
+            'border border-accent-primary text-vbx-navy bg-transparent',
+            'hover:bg-vbx-teal-tint hover:shadow-glow-sm',
             'active:scale-[0.98]',
           ],
           

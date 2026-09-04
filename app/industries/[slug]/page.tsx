@@ -116,7 +116,7 @@ export default function IndustryDetailPage() {
               {industry.metrics.map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-background-secondary rounded-xl p-6 text-center border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 text-center border border-vbx-rule"
                 >
                   <div 
                     className="text-3xl font-display font-bold mb-2"
@@ -159,7 +159,7 @@ export default function IndustryDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-background-tertiary rounded-xl p-6 border border-white/5"
+                className="bg-background-tertiary rounded-xl p-6 border border-vbx-rule"
               >
                 <div 
                   className="w-8 h-8 rounded-lg flex items-center justify-center mb-4 font-display font-bold"
@@ -207,7 +207,7 @@ export default function IndustryDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 border border-vbx-rule"
                 >
                   <div className="flex items-start gap-4">
                     <div
@@ -259,7 +259,7 @@ export default function IndustryDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 p-6 bg-background-secondary rounded-xl border border-white/5"
+              className="mt-12 p-6 bg-background-secondary rounded-xl border border-vbx-rule"
             >
               <h3 className="text-lg font-display font-semibold mb-4">
                 Explore Our Products
@@ -301,7 +301,7 @@ export default function IndustryDetailPage() {
             className="max-w-3xl mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-8 h-8 text-accent-primary" />
+              <Shield className="w-8 h-8 text-vbx-navy" />
               <h2 className="text-3xl md:text-4xl font-display font-bold">
                 Compliance & Certifications
               </h2>
@@ -319,9 +319,9 @@ export default function IndustryDetailPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-background-tertiary rounded-xl p-4 text-center border border-white/5 group hover:border-accent-primary/30 transition-colors"
+                className="bg-background-tertiary rounded-xl p-4 text-center border border-vbx-rule group hover:border-vbx-rule transition-colors"
               >
-                <div className="font-mono font-bold text-lg text-accent-primary mb-1">
+                <div className="font-mono font-bold text-lg text-vbx-navy mb-1">
                   {cert.name}
                 </div>
                 <div className="text-text-tertiary text-xs">
@@ -337,7 +337,7 @@ export default function IndustryDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 p-6 bg-background-tertiary rounded-xl border border-white/5"
+              className="mt-12 p-6 bg-background-tertiary rounded-xl border border-vbx-rule"
             >
               <h3 className="text-lg font-display font-semibold mb-4">
                 Contract Vehicles & Credentials
@@ -346,13 +346,13 @@ export default function IndustryDetailPage() {
                 {industry.contractVehicles.cageCode && (
                   <div>
                     <div className="text-text-tertiary text-sm mb-1">CAGE Code</div>
-                    <div className="font-mono font-bold text-accent-primary">{industry.contractVehicles.cageCode}</div>
+                    <div className="font-mono font-bold text-vbx-navy">{industry.contractVehicles.cageCode}</div>
                   </div>
                 )}
                 {industry.contractVehicles.uei && (
                   <div>
                     <div className="text-text-tertiary text-sm mb-1">UEI</div>
-                    <div className="font-mono font-bold text-accent-primary">{industry.contractVehicles.uei}</div>
+                    <div className="font-mono font-bold text-vbx-navy">{industry.contractVehicles.uei}</div>
                   </div>
                 )}
                 {industry.contractVehicles.gsaStatus && (
@@ -364,7 +364,7 @@ export default function IndustryDetailPage() {
                 {industry.contractVehicles.masterContract && (
                   <div className="md:col-span-2">
                     <div className="text-text-tertiary text-sm mb-1">Master Contract Vehicle</div>
-                    <div className="font-semibold text-accent-secondary">{industry.contractVehicles.masterContract}</div>
+                    <div className="font-semibold text-vbx-navy">{industry.contractVehicles.masterContract}</div>
                   </div>
                 )}
                 {industry.contractVehicles.businessType && (
@@ -416,7 +416,7 @@ export default function IndustryDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="flex items-start gap-3 p-4 bg-background-secondary rounded-xl border border-white/5"
+                className="flex items-start gap-3 p-4 bg-background-secondary rounded-xl border border-vbx-rule"
               >
                 <CheckCircle 
                   className="w-5 h-5 flex-shrink-0 mt-0.5"
@@ -439,7 +439,7 @@ export default function IndustryDetailPage() {
             className="max-w-4xl mx-auto"
           >
             <div 
-              className="relative bg-background-tertiary rounded-2xl p-8 md:p-12 border border-white/5"
+              className="relative bg-background-tertiary rounded-2xl p-8 md:p-12 border border-vbx-rule"
               style={{ borderLeftColor: industry.color, borderLeftWidth: '4px' }}
             >
               <Quote 
@@ -515,7 +515,7 @@ export default function IndustryDetailPage() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link href={`/pastperformance/${study.id}`}>
-                      <div className="group bg-background-secondary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
+                      <div className="group bg-background-secondary rounded-xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all h-full">
                         <div className="flex items-center gap-2 mb-4">
                           <span 
                             className="px-2 py-1 text-xs font-mono rounded"
@@ -528,7 +528,7 @@ export default function IndustryDetailPage() {
                           </span>
                           <span className="text-text-tertiary text-xs">{study.industry}</span>
                         </div>
-                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                           {study.title}
                         </h3>
                         <p className="text-text-secondary text-sm mb-4 line-clamp-2">
@@ -541,7 +541,7 @@ export default function IndustryDetailPage() {
                             </span>
                           ))}
                         </div>
-                        <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                           Read case study <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>

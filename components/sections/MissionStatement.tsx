@@ -10,8 +10,8 @@ export default function MissionStatement() {
       <div className="absolute inset-0 bg-gradient-to-b from-background-primary via-background-secondary to-background-primary" />
       
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#344669]/10 to-transparent" />
-      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#344669]/10 to-transparent" />
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[var(--vbx-navy-light)]/10 to-transparent" />
+      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[var(--vbx-navy-light)]/10 to-transparent" />
 
       <div className="container-wide relative z-10">
         <motion.div
@@ -22,7 +22,7 @@ export default function MissionStatement() {
           className="max-w-4xl mx-auto text-center"
         >
           {/* Quote Mark */}
-          <div className="text-8xl font-display text-accent-primary/20 mb-4">&ldquo;</div>
+          <div className="text-8xl font-display text-vbx-navy/20 mb-4">&ldquo;</div>
 
           {/* Mission */}
           <blockquote className="font-display text-heading-xl md:text-display-sm font-medium text-text-primary leading-tight mb-8">
@@ -63,7 +63,7 @@ export default function MissionStatement() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              className="text-center p-4 rounded-lg bg-background-secondary/50 border border-[#344669]/10"
+              className="text-center p-4 rounded-lg bg-background-secondary/50 border border-[var(--vbx-navy-light)]/10"
             >
               <div className="text-2xl mb-2">
                 {location.country === 'USA' && '🇺🇸'}

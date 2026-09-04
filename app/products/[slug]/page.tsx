@@ -103,7 +103,7 @@ export default function ProductPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="aspect-square rounded-3xl bg-background-secondary border border-white/5 p-8 flex items-center justify-center">
+              <div className="aspect-square rounded-3xl bg-background-secondary border border-vbx-rule p-8 flex items-center justify-center">
                 <div className="relative w-full h-full flex items-center justify-center">
                   {/* Animated rings */}
                   {[...Array(4)].map((_, i) => (
@@ -221,7 +221,7 @@ export default function ProductPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-background-secondary border border-white/5"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-background-secondary border border-vbx-rule"
                   >
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"

@@ -13,8 +13,8 @@ export default function CommercialThankYouPage() {
         animate={{ opacity: 1, scale: 1 }}
         className="text-center max-w-lg mx-auto px-6"
       >
-        <div className="w-20 h-20 rounded-full bg-accent-primary/20 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-10 h-10 text-accent-primary" />
+        <div className="w-20 h-20 rounded-full bg-vbx-teal-tint flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="w-10 h-10 text-vbx-navy" />
         </div>
         <h1 className="font-display text-display-sm font-bold mb-4">
           Thank You!

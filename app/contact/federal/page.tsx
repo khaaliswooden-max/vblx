@@ -147,10 +147,10 @@ export default function FederalContactPage() {
 
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-accent-primary/20 flex items-center justify-center">
-                <Flag className="w-6 h-6 text-accent-primary" />
+              <div className="w-12 h-12 rounded-xl bg-vbx-teal-tint flex items-center justify-center">
+                <Flag className="w-6 h-6 text-vbx-navy" />
               </div>
-              <span className="text-sm font-mono uppercase tracking-wider text-accent-primary">
+              <span className="text-sm font-mono uppercase tracking-wider text-vbx-navy">
                 Federal & SLED Inquiry
               </span>
             </div>
@@ -165,7 +165,7 @@ export default function FederalContactPage() {
             
             <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2 bg-background-secondary rounded-lg px-3 py-2">
-                <Shield className="w-4 h-4 text-accent-primary" />
+                <Shield className="w-4 h-4 text-vbx-navy" />
                 <span className="text-text-secondary">CAGE: <span className="text-text-primary font-mono">9Z4X2</span></span>
               </div>
               <div className="flex items-center gap-2 bg-background-secondary rounded-lg px-3 py-2">
@@ -186,7 +186,7 @@ export default function FederalContactPage() {
                   s === step
                     ? 'bg-accent-primary text-background-primary'
                     : s < step
-                    ? 'bg-accent-primary/20 text-accent-primary'
+                    ? 'bg-vbx-teal-tint text-vbx-navy'
                     : 'bg-background-tertiary text-text-tertiary'
                 }`}
               >
@@ -215,7 +215,7 @@ export default function FederalContactPage() {
             transition={{ duration: 0.3 }}
             className="max-w-3xl mx-auto"
           >
-            <div className="bg-background-secondary rounded-2xl border border-white/5 p-8">
+            <div className="bg-background-secondary rounded-2xl border border-vbx-rule p-8">
               {step === 1 && (
                 <div className="space-y-6">
                   <h2 className="font-display text-heading-lg font-semibold mb-2">
@@ -464,7 +464,7 @@ export default function FederalContactPage() {
               )}
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between mt-8 pt-6 border-t border-white/10">
+              <div className="flex justify-between mt-8 pt-6 border-t border-vbx-rule">
                 {step > 1 ? (
                   <Button variant="ghost" onClick={handleBack}>
                     <ArrowLeft className="w-4 h-4" />

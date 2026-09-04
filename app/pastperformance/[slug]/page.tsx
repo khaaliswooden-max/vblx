@@ -149,7 +149,7 @@ export default function PastPerformanceDetailPage() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-8 border-y border-white/5">
+      <section className="py-8 border-y border-vbx-rule">
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {caseStudy.metrics.map((metric, index) => (
@@ -304,7 +304,7 @@ export default function PastPerformanceDetailPage() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 border border-vbx-rule"
                 >
                   <h3 className="font-display font-semibold mb-4">Quick Facts</h3>
 
@@ -343,7 +343,7 @@ export default function PastPerformanceDetailPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 border border-vbx-rule"
                 >
                   <h3 className="font-display font-semibold mb-4">Tags</h3>
                   <div className="flex flex-wrap gap-2">
@@ -364,7 +364,7 @@ export default function PastPerformanceDetailPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-xl p-6 border border-white/10"
+                  className="bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-xl p-6 border border-vbx-rule"
                 >
                   <h3 className="font-display font-semibold mb-2">
                     Request PPQ Documentation
@@ -425,7 +425,7 @@ export default function PastPerformanceDetailPage() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link href={`/pastperformance/${study.slug}`}>
-                      <div className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
+                      <div className="group bg-background-tertiary rounded-xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all h-full">
                         <div className="flex items-center gap-2 mb-3">
                           <span
                             className="px-2 py-1 text-xs font-mono rounded"
@@ -435,13 +435,13 @@ export default function PastPerformanceDetailPage() {
                           </span>
                           <span className="text-text-tertiary text-xs">{study.federalRelevance}/10</span>
                         </div>
-                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                           {study.project}
                         </h3>
                         <p className="text-text-secondary text-sm mb-4 line-clamp-2">
                           {study.client}
                         </p>
-                        <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                           Read more <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>

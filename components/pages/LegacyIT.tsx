@@ -143,33 +143,33 @@ function RevealRow({ children, delay = 0 }: { children: React.ReactNode; delay?:
 
 export default function LegacyIT() {
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
 
       {/* ── PAGE HERO ─────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-20 bg-vbx-navy overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-vbx-offwhite overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.15em] mb-6">
-            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;Legacy IT Services
+          <p className="font-mono text-vbx-navy text-sm tracking-[0.15em] mb-6">
+            CAGE: 9Z4X2&nbsp;&nbsp;·&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;·&nbsp;&nbsp;Legacy IT Services
           </p>
           <h1
-            className="font-display text-vbx-white mb-8"
+            className="font-display text-vbx-navy mb-8"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: '1.1' }}
           >
             Traditional IT.
             <br />
-            <em className="not-italic text-vbx-teal">Federal-Grade</em> Delivery.
+            <em className="not-italic text-vbx-navy">Federal-Grade</em> Delivery.
           </h1>
 
           <p
-            className="font-mono text-vbx-teal mb-8 leading-relaxed"
+            className="font-mono text-vbx-navy mb-8 leading-relaxed"
             style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}
           >
-            FED/SLED SUBCONTRACTING&nbsp;&nbsp;//&nbsp;&nbsp;IT STAFFING&nbsp;&nbsp;//&nbsp;&nbsp;ON-PREMISE&nbsp;&nbsp;//&nbsp;&nbsp;REMOTE À LA CARTE
+            FED/SLED SUBCONTRACTING&nbsp;&nbsp;·&nbsp;&nbsp;IT STAFFING&nbsp;&nbsp;·&nbsp;&nbsp;ON-PREMISE&nbsp;&nbsp;·&nbsp;&nbsp;REMOTE À LA CARTE
           </p>
 
           <p
-            className="font-sans text-vbx-muted max-w-[680px] mb-10"
+            className="font-sans text-vbx-navy-light max-w-[680px] mb-10"
             style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}
           >
             Visionblox provides experienced IT subcontracting and flexible staffing support for prime contractors and
@@ -182,7 +182,7 @@ export default function LegacyIT() {
             {HERO_BADGES.map((b) => (
               <span
                 key={b}
-                className="font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase px-3 py-1 rounded-sm border border-vbx-teal/25"
+                className="font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase px-3 py-1 rounded-sm border border-vbx-rule"
               >
                 {b}
               </span>
@@ -193,10 +193,10 @@ export default function LegacyIT() {
       </section>
 
       {/* ── BLOCKQUOTE ────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <blockquote
-            className="border-l-[3px] border-vbx-teal pl-6 py-4 font-mono text-sm text-vbx-muted leading-relaxed bg-vbx-teal/5"
+            className="border-l-[3px] border-vbx-teal pl-6 py-4 font-mono text-sm text-vbx-navy-light leading-relaxed bg-vbx-teal-tint"
           >
             &ldquo;Federal programs don&apos;t always need transformation. They need a subcontractor who shows up,
             integrates cleanly, and delivers on the SOW. That is what Legacy IT at Visionblox is built to do.&rdquo;
@@ -205,19 +205,19 @@ export default function LegacyIT() {
       </section>
 
       {/* ── MAPS CONTRACT CALLOUT ─────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div
             className="p-7 md:p-9"
-            style={{ border: '1px solid rgba(247,184,1,0.35)', background: 'rgba(247,184,1,0.05)', borderRadius: '4px' }}
+            style={{ border: '1px solid var(--vbx-gold)', background: 'var(--vbx-gold)', borderRadius: '4px' }}
           >
-            <p className="font-mono text-vbx-gold text-sm tracking-[0.14em] mb-3">
-              {'// STATE OF MONTANA MAPS CONTRACT'}
+            <p className="font-mono text-vbx-navy text-sm tracking-[0.14em] mb-3">
+              State of montana MAPS contract
             </p>
-            <h3 className="font-display text-vbx-white mb-3" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
+            <h3 className="font-display text-vbx-navy mb-3" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
               Relian™ legacy migration — now available on the Montana MAPS contract.
             </h3>
-            <p className="font-sans text-vbx-muted max-w-[760px] mb-6" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="font-sans text-vbx-navy-light max-w-[760px] mb-6" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               Visionblox&apos;s AI-assisted legacy migration platform, Relian™, is available to Montana state
               agencies as a task order under the State of Montana Master AI Products &amp; Services Contract
               (No. SPB26-0608GW-VSNBLX) — and, through cooperative purchasing, to public procurement units
@@ -226,34 +226,33 @@ export default function LegacyIT() {
             </p>
             <a
               href="/pastperformance/montana-maps-master-contract"
-              className="font-mono text-vbx-gold hover:text-vbx-white transition-colors"
+              className="font-mono text-vbx-navy hover:text-vbx-navy transition-colors"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
-            >
-              → VIEW THE MAPS CONTRACT PROFILE
+            >VIEW THE MAPS CONTRACT PROFILE
             </a>
           </div>
         </div>
       </section>
 
       {/* ── CAPABILITY STATEMENT DOWNLOAD ─────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="data-line mb-12" />
           <RevealRow>
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
               <div>
-                <p className="font-mono text-vbx-teal text-sm tracking-[0.14em] mb-3">
-                  {'// CAPABILITY STATEMENT · PDF'}
+                <p className="font-mono text-vbx-navy text-sm tracking-[0.14em] mb-3">
+                  Capability statement — PDF
                 </p>
-                <h3 className="font-display text-vbx-white text-xl mb-3">
+                <h3 className="font-display text-vbx-navy text-xl mb-3">
                   Visionblox IT Capability Statement
                 </h3>
-                <p className="font-sans text-vbx-muted text-sm leading-relaxed max-w-[620px]">
+                <p className="font-sans text-vbx-navy-light text-sm leading-relaxed max-w-[620px]">
                   Single-page brief covering NAICS codes, certifications, core competencies, key personnel, and past
                   performance. Suitable for prime teaming packages, agency capability libraries, and RFI responses.
                 </p>
               </div>
-              <a href={HREF_CAPSTAT} download className="btn-gold whitespace-nowrap">
+              <a href={HREF_CAPSTAT} download className="btn-primary whitespace-nowrap">
                 DOWNLOAD PDF ↓
               </a>
             </div>
@@ -262,32 +261,30 @@ export default function LegacyIT() {
       </section>
 
       {/* ── 01 // FED/SLED SUBCONTRACTING ─────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">
-            {'// 01'}&nbsp;&nbsp;FED/SLED SUBCONTRACTING
-          </p>
-          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">FED/SLED subcontracting</p>
+          <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Subcontractor Support for Prime Contractors
           </h2>
-          <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+          <p className="font-sans text-vbx-navy-light max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
             We integrate into your teaming structure as a reliable technical sub. Bring scope, bring a vehicle, bring a
             deadline — we staff and execute. Certifications transfer. Past performance is documented and portable.
           </p>
           <div className="data-line mb-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-vbx-teal/15 border border-vbx-teal/15">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-vbx-teal-tint border border-vbx-rule">
             {SUB_CARDS.map((card, i) => (
               <RevealRow key={card.idx} delay={i * 80}>
-                <div className="bg-vbx-navy p-7 h-full hover:bg-white/[0.03] transition-colors">
-                  <div className="font-mono text-xs text-vbx-teal tracking-[0.1em] mb-3">{card.idx}</div>
-                  <h3 className="font-display text-vbx-white text-lg mb-2">{card.title}</h3>
-                  <p className="font-sans text-vbx-muted text-sm leading-relaxed mb-4">{card.body}</p>
+                <div className="bg-vbx-offwhite p-7 h-full hover:bg-vbx-offwhite/[0.03] transition-colors">
+                  <div className="font-mono text-xs text-vbx-navy tracking-[0.1em] mb-3">{card.idx}</div>
+                  <h3 className="font-display text-vbx-navy text-lg mb-2">{card.title}</h3>
+                  <p className="font-sans text-vbx-navy-light text-sm leading-relaxed mb-4">{card.body}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {card.tags.map((t) => (
                       <span
                         key={t}
-                        className="font-mono text-[0.65rem] tracking-[0.08em] uppercase text-vbx-teal px-2 py-0.5 rounded-sm border border-vbx-teal/20 bg-vbx-teal/5"
+                        className="font-mono text-[0.65rem] tracking-[0.08em] uppercase text-vbx-navy px-2 py-0.5 rounded-sm border border-vbx-rule bg-vbx-teal-tint"
                       >
                         {t}
                       </span>
@@ -301,15 +298,13 @@ export default function LegacyIT() {
       </section>
 
       {/* ── 02 // AVAILABLE STAFF PROFILES ────────────────────────────────── */}
-      <section className="section-padding" style={{ background: 'rgba(255,255,255,0.02)' }}>
+      <section className="section-padding" style={{ background: 'var(--vbx-rule)' }}>
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">
-            {'// 02'}&nbsp;&nbsp;AVAILABLE STAFF PROFILES
-          </p>
-          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">Available staff profiles</p>
+          <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             The Team Behind the Deliveries
           </h2>
-          <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+          <p className="font-sans text-vbx-navy-light max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
             Key personnel profiles available for subcontract placement, listed by role rather than by name. All
             profiles carry documented past performance mappable to your PWS; named resumes are furnished on request
             under NDA.
@@ -319,31 +314,29 @@ export default function LegacyIT() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {STAFF.map((member, i) => (
               <RevealRow key={member.ref} delay={i * 100}>
-                <div className="pl-5 py-4 border-l-[3px] border-vbx-teal/60">
-                  <p className="font-mono text-vbx-gold text-xs tracking-[0.1em] uppercase mb-2">{member.ref}</p>
-                  <h3 className="font-display text-vbx-white text-xl mb-3">{member.role}</h3>
-                  <p className="font-sans text-vbx-muted text-sm leading-relaxed">{member.bio}</p>
+                <div className="pl-5 py-4 border-l-[3px] border-vbx-rule">
+                  <p className="font-mono text-vbx-navy text-xs tracking-[0.1em] uppercase mb-2">{member.ref}</p>
+                  <h3 className="font-display text-vbx-navy text-xl mb-3">{member.role}</h3>
+                  <p className="font-sans text-vbx-navy-light text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </RevealRow>
             ))}
           </div>
-          <p className="font-mono text-xs text-vbx-muted mt-8">
-            {'//'} Additional web/mobile profiles available (React, React Native, Angular, Node.js). Resumes
+          <p className="font-mono text-xs text-vbx-navy-light mt-8">
+             Additional web/mobile profiles available (React, React Native, Angular, Node.js). Resumes
             furnished on request under NDA.
           </p>
         </div>
       </section>
 
       {/* ── 03 // ON-PREMISE & REMOTE SERVICES ────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">
-            {'// 03'}&nbsp;&nbsp;ON-PREMISE &amp; REMOTE SERVICES
-          </p>
-          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">On-premise &amp; remote services</p>
+          <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Traditional IT — No Cloud Mandate
           </h2>
-          <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+          <p className="font-sans text-vbx-navy-light max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
             For clients who need the work done without a modernization agenda attached. Fixed-scope, fixed-deliverable
             à la carte engagements.
           </p>
@@ -352,11 +345,11 @@ export default function LegacyIT() {
           <div className="overflow-x-auto">
             <table className="w-full" style={{ borderCollapse: 'collapse', minWidth: '720px' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid #2EA891', background: 'rgba(46,168,145,0.06)' }}>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Service</th>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Description</th>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Delivery Mode</th>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Availability</th>
+                <tr style={{ borderBottom: '2px solid var(--vbx-teal)', background: 'var(--vbx-rule)' }}>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Service</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Description</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Delivery Mode</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Availability</th>
                 </tr>
               </thead>
               <tbody>
@@ -364,19 +357,19 @@ export default function LegacyIT() {
                   <tr
                     key={svc.name}
                     style={{
-                      background: i % 2 === 1 ? 'rgba(255,255,255,0.03)' : 'transparent',
-                      borderBottom: '1px solid rgba(46,168,145,0.08)',
+                      background: i % 2 === 1 ? 'var(--vbx-rule)' : 'transparent',
+                      borderBottom: '1px solid var(--vbx-rule)',
                     }}
                   >
-                    <td className="py-3 px-4 font-sans text-sm text-vbx-white whitespace-nowrap">{svc.name}</td>
-                    <td className="py-3 px-4 font-sans text-sm text-vbx-muted">{svc.desc}</td>
-                    <td className="py-3 px-4 font-mono text-xs text-vbx-white/70">{svc.mode}</td>
+                    <td className="py-3 px-4 font-sans text-sm text-vbx-navy whitespace-nowrap">{svc.name}</td>
+                    <td className="py-3 px-4 font-sans text-sm text-vbx-navy-light">{svc.desc}</td>
+                    <td className="py-3 px-4 font-mono text-xs text-vbx-navy-light">{svc.mode}</td>
                     <td className="py-3 px-4">
                       <span
                         className={
                           svc.avail === 'yes'
-                            ? 'font-mono text-[0.65rem] tracking-[0.08em] uppercase whitespace-nowrap px-2 py-1 rounded-sm bg-vbx-teal/10 text-vbx-teal border border-vbx-teal/30'
-                            : 'font-mono text-[0.65rem] tracking-[0.08em] uppercase whitespace-nowrap px-2 py-1 rounded-sm bg-vbx-gold/10 text-vbx-gold border border-vbx-gold/30'
+                            ? 'font-mono text-[0.65rem] tracking-[0.08em] uppercase whitespace-nowrap px-2 py-1 rounded-sm bg-vbx-teal-tint text-vbx-navy border border-vbx-rule'
+                            : 'font-mono text-[0.65rem] tracking-[0.08em] uppercase whitespace-nowrap px-2 py-1 rounded-sm bg-transparent text-vbx-navy border border-vbx-gold'
                         }
                       >
                         {svc.avail === 'yes' ? 'Available Now' : 'Partner-Augmented'}
@@ -387,34 +380,32 @@ export default function LegacyIT() {
               </tbody>
             </table>
           </div>
-          <p className="font-mono text-xs text-vbx-muted mt-4">
-            {'//'} Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on
+          <p className="font-mono text-xs text-vbx-navy-light mt-4">
+             Partner-Augmented: Delivered via vetted teaming partner with Visionblox as prime or sub depending on
             vehicle. Contact for details.
           </p>
         </div>
       </section>
 
       {/* ── 04 // HOW WE ENGAGE ───────────────────────────────────────────── */}
-      <section className="section-padding" style={{ background: 'rgba(255,255,255,0.02)' }}>
+      <section className="section-padding" style={{ background: 'var(--vbx-rule)' }}>
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">
-            {'// 04'}&nbsp;&nbsp;HOW WE ENGAGE
-          </p>
-          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">How we engage</p>
+          <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Engagement Process
           </h2>
-          <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+          <p className="font-sans text-vbx-navy-light max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
             We move fast. From first contact to SOW in five business days for standard scopes.
           </p>
           <div className="data-line mb-10" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-vbx-teal/15 border border-vbx-teal/15">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-vbx-teal-tint border border-vbx-rule">
             {STEPS.map((step, i) => (
               <RevealRow key={step.num} delay={i * 80}>
-                <div className="bg-vbx-navy p-6 h-full">
-                  <div className="font-mono font-extrabold text-3xl text-vbx-teal/20 leading-none mb-3">{step.num}</div>
-                  <h4 className="font-display text-vbx-white text-base mb-2">{step.title}</h4>
-                  <p className="font-sans text-vbx-muted text-sm leading-relaxed">{step.body}</p>
+                <div className="bg-vbx-offwhite p-6 h-full">
+                  <div className="font-mono font-extrabold text-3xl text-vbx-navy/20 leading-none mb-3">{step.num}</div>
+                  <h4 className="font-display text-vbx-navy text-base mb-2">{step.title}</h4>
+                  <p className="font-sans text-vbx-navy-light text-sm leading-relaxed">{step.body}</p>
                 </div>
               </RevealRow>
             ))}
@@ -426,24 +417,22 @@ export default function LegacyIT() {
       <section
         className="py-14"
         style={{
-          background: 'rgba(255,255,255,0.03)',
-          borderTop: '1px solid rgba(46,168,145,0.1)',
-          borderBottom: '1px solid rgba(46,168,145,0.1)',
+          background: 'var(--vbx-rule)',
+          borderTop: '1px solid var(--vbx-rule)',
+          borderBottom: '1px solid var(--vbx-rule)',
         }}
       >
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-6">
-            {'// 05'}&nbsp;&nbsp;COMPLIANCE POSTURE
-          </p>
+          <p className="eyebrow">Compliance posture</p>
           <p
-            className="font-mono text-vbx-muted leading-[2.2]"
+            className="font-mono text-vbx-navy-light leading-[2.2]"
             style={{ fontSize: '0.8rem', letterSpacing: '0.08em' }}
           >
             {COMPLIANCE_ITEMS.map((item, i) => (
               <span key={item}>
                 {item}
                 {i < COMPLIANCE_ITEMS.length - 1 && (
-                  <span className="text-vbx-teal mx-2">{'//'}</span>
+                  <span className="text-vbx-navy mx-2">·</span>
                 )}
               </span>
             ))}
@@ -452,27 +441,27 @@ export default function LegacyIT() {
       </section>
 
       {/* ── PAGE CTA ──────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="data-line mb-12" />
 
           <div className="max-w-[680px] mx-auto text-center">
             <h2
-              className="font-display text-vbx-white mb-6"
+              className="font-display text-vbx-navy mb-6"
               style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}
             >
               Ready to brief a requirement?
             </h2>
-            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+            <p className="font-sans text-vbx-navy-light mb-10" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
               We support subcontract opportunities, staffing placements, and à la carte IT engagements for Fed/SLED
               clients. Contact our capture team to initiate.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={HREF_BRIEF} className="btn-gold">
+              <a href={HREF_BRIEF} className="btn-primary">
                 REQUEST A BRIEFING
               </a>
-              <a href={HREF_CAPSTAT} download className="btn-teal-outline">
+              <a href={HREF_CAPSTAT} download className="btn-secondary">
                 DOWNLOAD CAPABILITIES STATEMENT
               </a>
             </div>

@@ -18,9 +18,9 @@ export default function ProductsPage() {
           >
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-              style={{ backgroundColor: 'rgba(0, 212, 170, 0.15)' }}
+              style={{ backgroundColor: 'var(--vbx-teal)' }}
             >
-              <Package className="w-8 h-8 text-accent-primary" />
+              <Package className="w-8 h-8 text-vbx-navy" />
             </div>
             <h1 className="font-display text-display-sm md:text-display-md font-bold mb-4">
               Product Suite
