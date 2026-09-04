@@ -1,6 +1,15 @@
 # VBX Palette & Brand Tokens
 
-Source of truth: `tailwind.config.ts` (`vbx-*` tokens) in the repo root.
+Source of truth: `app/globals.css` — the eight `--vbx-*` custom properties.
+`tailwind.config.ts` mirrors them as `var()` references, so the stylesheet is
+the only place a brand colour is expressed.
+
+For **web** specifically, note the measured contrast contract: on the light
+ground only navy (12.04:1) and navy-light (10.81:1) clear WCAG AA. Teal (2.69),
+muted (2.87), gold (1.63) and light-teal (1.59) fail even the 3.0 large-text
+floor there, so on light they are rules, borders and fills — never text. Inside
+navy bands the palette reopens (offwhite 12.04, teal-tint 11.75, light-teal
+7.58, gold 7.41). This is why the site sets subheads in navy rather than teal.
 
 ## Core palette
 

@@ -8,8 +8,8 @@ import Image from 'next/image'
  *   public/visionblox-logo.png           Full-colour lockup — mark + navy
  *                                        wordmark, 1002x422, transparent.
  *                                        LIGHT GROUNDS ONLY.
- *   public/visionblox-logo-knockout.png  Knockout lockup — mark + WHITE
- *                                        wordmark, 890x395, transparent.
+ *   public/visionblox-logo-knockout.png  Knockout lockup — mark + offwhite
+ *                                        wordmark, 1002x422, transparent.
  *                                        NAVY GROUNDS ONLY.
  *   public/visionblox-logo-mark.svg      The mark alone, no wordmark.
  *
@@ -23,13 +23,16 @@ import Image from 'next/image'
  *    asset for the ground.
  *  - The knockout is for NAVY. It is not for teal: the mark's mint block sits
  *    close enough to --vbx-teal that the lockup loses definition there.
- *  - The knockout's wordmark is pure #FFFFFF (13.17:1 on navy) rather than
- *    --vbx-offwhite (12.04:1). Both clear AA comfortably; the asset is used as
- *    supplied rather than re-rendered to the token.
+ *  - The knockout's wordmark is #F5F5F0, i.e. --vbx-offwhite exactly, giving
+ *    12.04:1 on navy.
+ *
+ * Both lockups are the canonical copies kept in
+ * .claude/skills/vbx-branding/assets/. Keep them in sync with that directory
+ * rather than editing either copy in isolation.
  */
 
 const LOCKUP_LIGHT = { src: '/visionblox-logo.png', w: 1002, h: 422 }
-const LOCKUP_KNOCK = { src: '/visionblox-logo-knockout.png', w: 890, h: 395 }
+const LOCKUP_KNOCK = { src: '/visionblox-logo-knockout.png', w: 1002, h: 422 }
 const MARK = { src: '/visionblox-logo-mark.svg', w: 272, h: 231 }
 
 interface Props {
