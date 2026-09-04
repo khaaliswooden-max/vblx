@@ -44,7 +44,7 @@ function ContrastTable() {
   return (
     <div
       style={{
-        background: 'rgba(255,255,255,0.03)',
+        background: 'var(--vbx-teal-tint)',
         borderRadius: '2px',
         overflow: 'hidden',
       }}
@@ -52,15 +52,14 @@ function ContrastTable() {
       {/* Header */}
       <div
         className="grid grid-cols-[1fr_auto_1fr] gap-2 px-5 py-3"
-        style={{ borderBottom: '1px solid rgba(46,168,145,0.2)' }}
+        style={{ borderBottom: '1px solid var(--vbx-rule)' }}
       >
-        <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+        <p className="font-mono text-vbx-navy-light tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
           GENERALIST IT FIRM
         </p>
-        <p className="font-mono text-vbx-teal tracking-[0.08em] text-center" style={{ fontSize: '0.625rem' }}>
-          {'//'}
+        <p className="font-mono text-vbx-navy tracking-[0.08em] text-center" style={{ fontSize: '0.625rem' }}>
         </p>
-        <p className="font-mono text-vbx-white tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+        <p className="font-mono text-vbx-navy tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
           VISIONBLOX
         </p>
       </div>
@@ -70,17 +69,16 @@ function ContrastTable() {
           key={i}
           className="grid grid-cols-[1fr_auto_1fr] gap-2 px-5 py-3"
           style={{
-            background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)',
-            borderBottom: i < CONTRAST_ROWS.length - 1 ? '1px solid rgba(46,168,145,0.06)' : 'none',
+            background: i % 2 === 0 ? 'transparent' : 'var(--vbx-rule)',
+            borderBottom: i < CONTRAST_ROWS.length - 1 ? '1px solid var(--vbx-rule)' : 'none',
           }}
         >
-          <p className="font-mono text-vbx-muted" style={{ fontSize: '0.75rem', lineHeight: '1.5' }}>
+          <p className="font-mono text-vbx-navy-light" style={{ fontSize: '0.75rem', lineHeight: '1.5' }}>
             {row.left}
           </p>
-          <p className="font-mono text-vbx-teal text-center" style={{ fontSize: '0.75rem' }}>
-            {'//'}
+          <p className="font-mono text-vbx-navy text-center" style={{ fontSize: '0.75rem' }}>
           </p>
-          <p className="font-mono text-vbx-white" style={{ fontSize: '0.75rem', lineHeight: '1.5' }}>
+          <p className="font-mono text-vbx-navy" style={{ fontSize: '0.75rem', lineHeight: '1.5' }}>
             {row.right}
           </p>
         </div>
@@ -94,10 +92,10 @@ function ContrastTable() {
 function CredField({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="mb-4">
-      <p className="font-mono text-vbx-muted mb-0.5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+      <p className="font-mono text-vbx-navy-light mb-0.5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
         {label}
       </p>
-      <p className="font-mono text-vbx-white" style={{ fontSize: '0.875rem' }}>
+      <p className="font-mono text-vbx-navy" style={{ fontSize: '0.875rem' }}>
         {value}
       </p>
     </div>
@@ -114,19 +112,19 @@ function RationaleBlock({
     <div
       ref={ref}
       style={{
-        borderLeft: '3px solid #2EA891',
+        borderLeft: '3px solid var(--vbx-teal)',
         padding: '28px 24px',
-        background: 'rgba(255,255,255,0.03)',
+        background: 'var(--vbx-teal-tint)',
         borderRadius: '2px',
       }}
     >
-      <p className="font-mono text-vbx-teal mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+      <p className="font-mono text-vbx-navy mb-3 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
         {num} {label}
       </p>
-      <h3 className="font-display text-vbx-white mb-3" style={{ fontSize: '1.25rem', lineHeight: '1.3' }}>
+      <h3 className="font-display text-vbx-navy mb-3" style={{ fontSize: '1.25rem', lineHeight: '1.3' }}>
         {headline}
       </h3>
-      <p className="font-sans text-vbx-muted" style={{ fontSize: '0.9375rem', lineHeight: '1.75' }}>
+      <p className="font-sans text-vbx-navy-light" style={{ fontSize: '0.9375rem', lineHeight: '1.75' }}>
         {body}
       </p>
     </div>
@@ -155,30 +153,30 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
 
       {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide relative" ref={heroRef}>
-          <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
-            {'// ABOUT VISIONBLOX // HEALTHCARE IT // FEDERAL & SLED'}
+          <p className="font-mono text-vbx-navy mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
+            Federal & SLED
           </p>
           <h1
-            className="font-display text-vbx-white mb-6"
+            className="font-display text-vbx-navy mb-6"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1.1', maxWidth: '820px' }}
           >
             The Healthcare IT Infrastructure Firm for Federal &amp; SLED.
           </h1>
-          <p className="font-sans text-vbx-muted mb-8 max-w-[640px]" style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>
+          <p className="font-sans text-vbx-navy-light mb-8 max-w-[640px]" style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>
             Visionblox LLC is a minority-owned federal contractor specializing exclusively in
             healthcare IT infrastructure — patient portal systems, Medicaid modernization, EMR
             integration, healthcare AI, and compliance architecture for federal agencies and state
             health authorities. Our team has delivered $3.3M in documented healthcare IT
             engagements at a leading national integrated healthcare system and California DHCS.
           </p>
-          <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
-            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;GSA MAS
+          <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
+            CAGE: 9Z4X2&nbsp;&nbsp;·&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;·&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;·&nbsp;&nbsp;GSA MAS
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 data-line" />
@@ -189,7 +187,7 @@ export default function AboutPage() {
         <div className="container-wide">
           <div className="max-w-[720px] mx-auto text-center" ref={missionRef}>
             <blockquote
-              className="font-display text-vbx-white mb-10"
+              className="font-display text-vbx-navy mb-10"
               style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.125rem)', lineHeight: '1.4' }}
             >
               &ldquo;Healthcare data infrastructure is not a technology problem. It is a
@@ -201,7 +199,7 @@ export default function AboutPage() {
                 'We have done this for a state Medicaid authority operating under CMS federal standards. We have done this for one of the largest integrated healthcare networks in the country. We have done this for a Fortune 500 health insurer processing millions of claims per day.',
                 'We are prepared to do it for the federal agencies and state authorities evaluating us for their next contract.',
               ].map((p, i) => (
-                <p key={i} className="font-sans text-vbx-muted text-center" style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>
+                <p key={i} className="font-sans text-vbx-navy-light text-center" style={{ fontSize: '1.0625rem', lineHeight: '1.8' }}>
                   {p}
                 </p>
               ))}
@@ -214,10 +212,10 @@ export default function AboutPage() {
       {/* ── SECTION 3: WHAT WE ARE ────────────────────────────────────────── */}
       <section className="section-padding">
         <div className="container-wide" ref={whatRef}>
-          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-            {'// 01 WHAT WE ARE'}
+          <p className="font-mono text-vbx-navy mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            01 what we are
           </p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+          <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
             A Healthcare IT Firm. Not a Generalist Shop.
           </h2>
 
@@ -229,7 +227,7 @@ export default function AboutPage() {
                 'A firm that claims expertise across 20 service categories cannot credibly claim healthcare IT specialization to a source selection board. We can. Our past performance, our technical staff, our compliance posture, and our capture strategy are all organized around a single vertical.',
                 'That is the firm that wins healthcare IT contracts.',
               ].map((p, i) => (
-                <p key={i} className="font-sans text-vbx-muted" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+                <p key={i} className="font-sans text-vbx-navy-light" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
                   {p}
                 </p>
               ))}
@@ -245,13 +243,13 @@ export default function AboutPage() {
       {/* ── SECTION 4: COMPANY CREDENTIALS ───────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: 'rgba(255,255,255,0.02)' }}
+        style={{ background: 'var(--vbx-teal-tint)' }}
       >
         <div className="container-wide" ref={credRef}>
-          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-            {'// 02 COMPANY CREDENTIALS'}
+          <p className="font-mono text-vbx-navy mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            02 company credentials
           </p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+          <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
             Federal Identity &amp; Compliance Posture
           </h2>
 
@@ -260,11 +258,11 @@ export default function AboutPage() {
             {/* Column 1 — Federal Identity */}
             <div
               style={{
-                borderLeft: '2px solid rgba(46,168,145,0.3)',
+                borderLeft: '2px solid var(--vbx-rule)',
                 paddingLeft: '1.5rem',
               }}
             >
-              <p className="font-mono text-vbx-teal mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+              <p className="font-mono text-vbx-navy mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
                 FEDERAL IDENTITY
               </p>
               <CredField label="ENTITY NAME"       value="Visionblox LLC" />
@@ -281,11 +279,11 @@ export default function AboutPage() {
             {/* Column 2 — Business Designations */}
             <div
               style={{
-                borderLeft: '2px solid rgba(46,168,145,0.3)',
+                borderLeft: '2px solid var(--vbx-rule)',
                 paddingLeft: '1.5rem',
               }}
             >
-              <p className="font-mono text-vbx-teal mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+              <p className="font-mono text-vbx-navy mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
                 BUSINESS DESIGNATIONS
               </p>
               <CredField label="MINORITY-OWNED SMALL BUSINESS" value="Certified MBE" />
@@ -296,11 +294,11 @@ export default function AboutPage() {
             {/* Column 3 — Compliance & Security */}
             <div
               style={{
-                borderLeft: '2px solid rgba(46,168,145,0.3)',
+                borderLeft: '2px solid var(--vbx-rule)',
                 paddingLeft: '1.5rem',
               }}
             >
-              <p className="font-mono text-vbx-teal mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
+              <p className="font-mono text-vbx-navy mb-5 tracking-[0.1em]" style={{ fontSize: '0.6875rem' }}>
                 COMPLIANCE &amp; SECURITY POSTURE
               </p>
               {[
@@ -314,11 +312,11 @@ export default function AboutPage() {
                 { label: 'ISO 27001',       value: '' },
               ].map((item) => (
                 <div key={item.label} className="mb-3">
-                  <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+                  <p className="font-mono text-vbx-navy-light tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
                     {item.label}
                   </p>
                   {item.value && (
-                    <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem' }}>
+                    <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem' }}>
                       {item.value}
                     </p>
                   )}
@@ -334,16 +332,16 @@ export default function AboutPage() {
       {/* ── SECTION 5: DELIVERY FOOTPRINT ────────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: 'rgba(255,255,255,0.02)' }}
+        style={{ background: 'var(--vbx-teal-tint)' }}
       >
         <div className="container-wide" ref={footprintRef}>
-          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-            {'// 03 DELIVERY FOOTPRINT'}
+          <p className="font-mono text-vbx-navy mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            03 delivery footprint
           </p>
-          <h2 className="font-display text-vbx-white mb-6" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+          <h2 className="font-display text-vbx-navy mb-6" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
             Where We Deliver
           </h2>
-          <p className="font-sans text-vbx-muted mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+          <p className="font-sans text-vbx-navy-light mb-10 max-w-[680px]" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
             Visionblox operates across four locations with on-site and remote delivery capacity
             for federal and SLED healthcare IT engagements. On-site delivery has been executed
             at California DHCS (Sacramento) and a leading national integrated healthcare system (Northern California). Remote
@@ -360,21 +358,21 @@ export default function AboutPage() {
               <div
                 key={loc.city}
                 className="grid grid-cols-[160px_1fr] gap-4 py-3"
-                style={{ borderBottom: i < 3 ? '1px solid rgba(46,168,145,0.08)' : 'none' }}
+                style={{ borderBottom: i < 3 ? '1px solid var(--vbx-rule)' : 'none' }}
               >
-                <p className="font-mono text-vbx-white" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+                <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
                   {loc.city}
                 </p>
-                <p className="font-mono text-vbx-muted" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
-                  {'// '}{loc.role}
-                  {loc.note && <span className="text-vbx-teal">&nbsp;&nbsp;{'// '}&nbsp;&nbsp;{loc.note}</span>}
+                <p className="font-mono text-vbx-navy-light" style={{ fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
+                  {loc.role}
+                  {loc.note && <span className="text-vbx-navy-light">&nbsp;&nbsp;&middot;&nbsp;&nbsp;{loc.note}</span>}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="font-mono text-vbx-muted mt-8" style={{ fontSize: '0.75rem', letterSpacing: '0.08em' }}>
-            {'// ON-SITE DELIVERY AVAILABLE FOR FEDERAL & SLED HEALTHCARE ENGAGEMENTS'}
+          <p className="font-mono text-vbx-navy-light mt-8" style={{ fontSize: '0.75rem', letterSpacing: '0.08em' }}>
+            On-site delivery available for federal & SLED healthcare engagements
           </p>
         </div>
         <div className="data-line mt-16" />
@@ -383,10 +381,10 @@ export default function AboutPage() {
       {/* ── SECTION 6: PROCUREMENT RATIONALE ─────────────────────────────── */}
       <section className="section-padding">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
-            {'// 04 PROCUREMENT RATIONALE'}
+          <p className="font-mono text-vbx-navy mb-4 tracking-[0.12em]" style={{ fontSize: '0.8125rem' }}>
+            04 procurement rationale
           </p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+          <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
             The Case for Visionblox
           </h2>
 
@@ -421,27 +419,27 @@ export default function AboutPage() {
       </section>
 
       {/* ── SECTION 7: CTA ────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="max-w-[700px] mx-auto text-center">
             <h2
-              className="font-display text-vbx-white mb-6"
+              className="font-display text-vbx-navy mb-6"
               style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}
             >
               If you are evaluating Visionblox for a healthcare IT requirement, we are prepared to respond.
             </h2>
-            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="font-sans text-vbx-navy-light mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               We provide capability briefings, CPARS-format past performance documentation, and
               technical staff résumés for active federal and SLED procurement evaluations.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
-                className="btn-gold"
+                className="btn-primary"
               >
                 REQUEST A CAPABILITY BRIEFING
               </a>
-              <Link href="/pastperformance" className="btn-teal-outline">
+              <Link href="/pastperformance" className="btn-secondary">
                 VIEW PAST PERFORMANCE REGISTER
               </Link>
             </div>

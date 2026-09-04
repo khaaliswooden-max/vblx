@@ -49,12 +49,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        {/* Two families only (Step 2). DM Sans carries display and body with an
+            Arial/system fallback; one mono is retained for identifier data such
+            as CAGE, UEI and contract numbers. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-vbx-navy text-vbx-white font-sans antialiased">
+      <body className="min-h-screen bg-vbx-offwhite text-vbx-navy-light font-sans antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

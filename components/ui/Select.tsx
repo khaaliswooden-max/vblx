@@ -40,13 +40,13 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             className={cn(
               // Base styles
               'w-full px-4 py-3 rounded-lg appearance-none cursor-pointer',
-              'bg-background-secondary border border-[#344669]/12',
+              'bg-background-secondary border border-[var(--vbx-navy-light)]/12',
               'text-text-primary',
               'transition-all duration-300',
               // Focus styles
               'focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary',
               // Hover styles
-              'hover:border-[#344669]/24',
+              'hover:border-[var(--vbx-navy-light)]/24',
               // Error styles
               error && 'border-red-500 focus:ring-red-500/50 focus:border-red-500',
               // Disabled styles

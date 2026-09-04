@@ -17,16 +17,16 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           
           // Variant styles
           variant === 'default' && [
-            'bg-background-secondary border border-[#344669]/10',
-            hover && 'hover:border-[#344669]/20',
+            'bg-background-secondary border border-[var(--vbx-navy-light)]/10',
+            hover && 'hover:border-[var(--vbx-navy-light)]/20',
           ],
           variant === 'elevated' && [
             'bg-background-tertiary shadow-card',
             hover && 'hover:shadow-card-hover hover:-translate-y-1',
           ],
           variant === 'outlined' && [
-            'bg-transparent border border-[#344669]/12',
-            hover && 'hover:border-[#344669]/24 hover:bg-[#344669]/5',
+            'bg-transparent border border-[var(--vbx-navy-light)]/12',
+            hover && 'hover:border-[var(--vbx-navy-light)]/24 hover:bg-[var(--vbx-navy-light)]/5',
           ],
           
           className

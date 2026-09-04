@@ -16,7 +16,7 @@ export default function CaseStudyDetailPage() {
 
   if (!caseStudy) {
     return (
-      <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Case Study Not Found</h1>
           <p className="text-text-secondary mb-8">The case study you&apos;re looking for doesn&apos;t exist.</p>
@@ -24,7 +24,7 @@ export default function CaseStudyDetailPage() {
             <Button variant="primary">Back to Case Studies</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
@@ -35,13 +35,13 @@ export default function CaseStudyDetailPage() {
     .slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div 
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{ 
-            background: `radial-gradient(ellipse at top right, ${serviceCategory.color}40 0%, transparent 60%)` 
+            background: `radial-gradient(ellipse at top right, var(--vbx-teal-tint) 0%, transparent 60%)` 
           }}
         />
         
@@ -71,7 +71,7 @@ export default function CaseStudyDetailPage() {
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span 
                   className="px-3 py-1 text-sm font-mono rounded"
-                  style={{ backgroundColor: `${serviceCategory.color}20`, color: serviceCategory.color }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                 >
                   {serviceCategory.name}
                 </span>
@@ -89,7 +89,7 @@ export default function CaseStudyDetailPage() {
               </h1>
               <p 
                 className="text-xl md:text-2xl font-medium mb-6"
-                style={{ color: serviceCategory.color }}
+                style={{ color: 'var(--vbx-navy)' }}
               >
                 {caseStudy.subtitle}
               </p>
@@ -127,7 +127,7 @@ export default function CaseStudyDetailPage() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-8 border-y border-white/5">
+      <section className="py-8 border-y border-vbx-rule">
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {caseStudy.metrics.map((metric, index) => (
@@ -141,7 +141,7 @@ export default function CaseStudyDetailPage() {
               >
                 <div 
                   className="text-3xl md:text-4xl font-display font-bold mb-1"
-                  style={{ color: serviceCategory.color }}
+                  style={{ color: 'var(--vbx-navy)' }}
                 >
                   {metric.value}
                 </div>
@@ -241,11 +241,11 @@ export default function CaseStudyDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="relative bg-background-secondary rounded-2xl p-8 border-l-4"
-                style={{ borderLeftColor: serviceCategory.color }}
+                style={{ borderLeftColor: 'var(--vbx-teal)' }}
               >
                 <Quote 
                   className="w-10 h-10 mb-4"
-                  style={{ color: `${serviceCategory.color}40` }}
+                  style={{ color: 'var(--vbx-teal-tint)' }}
                 />
                 <blockquote className="text-xl font-display text-text-primary mb-6 leading-relaxed">
                   &ldquo;{caseStudy.quote.text}&rdquo;
@@ -253,11 +253,11 @@ export default function CaseStudyDetailPage() {
                 <div className="flex items-center gap-4">
                   <div 
                     className="w-12 h-12 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: `${serviceCategory.color}20` }}
+                    style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                   >
                     <span 
                       className="font-display font-bold"
-                      style={{ color: serviceCategory.color }}
+                      style={{ color: 'var(--vbx-navy)' }}
                     >
                       {caseStudy.quote.author.split(' ').map(n => n[0]).join('')}
                     </span>
@@ -282,7 +282,7 @@ export default function CaseStudyDetailPage() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 border border-vbx-rule"
                 >
                   <h3 className="font-display font-semibold mb-4">Quick Facts</h3>
                   
@@ -299,7 +299,7 @@ export default function CaseStudyDetailPage() {
                       <div className="text-text-tertiary text-sm mb-1">Service Category</div>
                       <span 
                         className="inline-block px-2 py-1 text-sm rounded"
-                        style={{ backgroundColor: `${serviceCategory.color}20`, color: serviceCategory.color }}
+                        style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                       >
                         {serviceCategory.name}
                       </span>
@@ -321,7 +321,7 @@ export default function CaseStudyDetailPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 border border-vbx-rule"
                 >
                   <h3 className="font-display font-semibold mb-4">Tags</h3>
                   <div className="flex flex-wrap gap-2">
@@ -342,7 +342,7 @@ export default function CaseStudyDetailPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-xl p-6 border border-white/10"
+                  className="bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-xl p-6 border border-vbx-rule"
                 >
                   <h3 className="font-display font-semibold mb-2">
                     Achieve Similar Results
@@ -400,23 +400,23 @@ export default function CaseStudyDetailPage() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link href={`/case-studies/${study.id}`}>
-                      <div className="group bg-background-tertiary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
+                      <div className="group bg-background-tertiary rounded-xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all h-full">
                         <div className="flex items-center gap-2 mb-3">
                           <span 
                             className="px-2 py-1 text-xs font-mono rounded"
-                            style={{ backgroundColor: `${studyCategory.color}20`, color: studyCategory.color }}
+                            style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                           >
                             {studyCategory.name}
                           </span>
                           <span className="text-text-tertiary text-xs">{study.industry}</span>
                         </div>
-                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                           {study.title}
                         </h3>
                         <p className="text-text-secondary text-sm mb-4 line-clamp-2">
                           {study.summary}
                         </p>
-                        <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                           Read more <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
@@ -468,6 +468,6 @@ export default function CaseStudyDetailPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

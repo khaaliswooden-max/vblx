@@ -76,7 +76,7 @@ export const webDevelopmentService: Service = {
   tagline: 'Build Modern, Scalable Web Applications',
   description: 'Our PHP, Python, and .NET services offer comprehensive solutions for web and mobile development. Our PHP experts ensure seamless API integration and robust infrastructures. Python services cover web development, API design, consultation, testing, and DevOps. Our .NET team excels in custom applications, legacy system modernization, and enterprise integration.',
   icon: Code,
-  color: '#3B82F6',
+  color: 'var(--vbx-teal)',
   category: 'development',
   deliverables: [
     {
@@ -148,7 +148,7 @@ export const cloudTechnologyService: Service = {
   tagline: 'Power Your Business in the Cloud',
   description: 'AWS, GCP, and Azure are leading cloud platforms. AWS offers scalable, reliable, and secure cloud services with a global infrastructure. GCP excels in data analytics, AI, and machine learning, providing robust, low-latency performance. Azure provides comprehensive cloud services, including AI and hybrid cloud capabilities, ensuring high availability and security for diverse business needs.',
   icon: Cloud,
-  color: '#06B6D4',
+  color: 'var(--vbx-teal)',
   category: 'development',
   deliverables: [
     {
@@ -220,7 +220,7 @@ export const ecommerceService: Service = {
   tagline: 'Launch and Scale Your Online Store',
   description: 'Magento, Shopify, and WooCommerce are leading e-commerce platforms. Magento offers robust, scalable, and customizable online stores. Shopify provides a user-friendly interface and comprehensive tools for easy store management and scaling. WooCommerce integrates with WordPress, democratizing e-commerce with its user-friendly interface and extensive customization options.',
   icon: ShoppingCart,
-  color: '#10B981',
+  color: 'var(--vbx-teal)',
   category: 'development',
   deliverables: [
     {
@@ -292,7 +292,7 @@ export const cybersecurityService: Service = {
   tagline: 'Protect Your Digital Assets',
   description: 'Comprehensive cybersecurity services to protect your organization from evolving threats. We provide vulnerability assessments, penetration testing, security architecture design, and incident response planning to ensure your systems and data remain secure.',
   icon: Shield,
-  color: '#DC2626',
+  color: 'var(--vbx-teal)',
   category: 'development',
   deliverables: [
     {
@@ -364,7 +364,7 @@ export const scriptingLanguageService: Service = {
   tagline: 'Build Dynamic, Interactive Applications',
   description: 'React.js empowers developers to build high-quality, interactive UIs with its component-based architecture, virtual DOM, and rich ecosystem. Node.js excels in scalable, high-performance applications with its asynchronous, event-driven architecture and vast NPM ecosystem. We leverage modern JavaScript frameworks to deliver exceptional user experiences.',
   icon: Terminal,
-  color: '#F59E0B',
+  color: 'var(--vbx-teal)',
   category: 'development',
   deliverables: [
     {
@@ -436,7 +436,7 @@ export const cmsService: Service = {
   tagline: 'Manage Content with Ease',
   description: 'Joomla, WordPress, and Drupal are leading CMS platforms transforming business website development. Joomla offers dynamic, scalable solutions for robust online presence. WordPress democratizes website creation with its intuitive interface and extensive plugins, powering over 40% of websites. Drupal excels in scalability and customization for complex, large-scale sites.',
   icon: FileCode,
-  color: '#8B5CF6',
+  color: 'var(--vbx-teal)',
   category: 'development',
   deliverables: [
     {
@@ -512,7 +512,7 @@ export const sapBtpService: Service = {
   tagline: 'Extend and Innovate on SAP',
   description: 'SAP Business Technology Platform (BTP) is a unified platform that enables businesses to integrate, extend, and build applications. It combines database, analytics, integration, and intelligent technologies to help you innovate and transform your business processes.',
   icon: Database,
-  color: '#0066CC',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -584,7 +584,7 @@ export const s4HanaService: Service = {
   tagline: 'Transform with Next-Gen ERP',
   description: 'Built upon an ERP system, your organization\'s base is crucial. SAP S/4HANA outperforms traditional ERP by providing advantages like faster innovation cycles, in-memory computing, and real-time analytics. Our services, led by experts, guarantee a seamless transition for S/4HANA implementation and migration.',
   icon: Rocket,
-  color: '#E91E63',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -656,7 +656,7 @@ export const sapRiseService: Service = {
   tagline: 'Business Transformation as a Service',
   description: 'SAP has introduced RISE with SAP, offering Business Transformation as a Service. This subscription-based service encompasses a diverse range of products and services. The RISE with SAP package supports every phase of this business transformation, empowering organizations to integrate, enhance, and expand real-time data from SAP S/4HANA Cloud.',
   icon: Layers,
-  color: '#FF5722',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -728,7 +728,7 @@ export const sapFioriService: Service = {
   tagline: 'Modern User Experience for SAP',
   description: 'Implementing SAP Fiori brings a multitude of benefits. It revolutionizes the user experience by providing a modern, intuitive interface across devices, driving increased adoption and productivity. Fiori streamlines processes, offering role-based access to streamline workflows and enhance efficiency. Real-time insights empower informed decision-making.',
   icon: Users,
-  color: '#00BCD4',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -800,7 +800,7 @@ export const sapSuccessFactorsService: Service = {
   tagline: 'Transform Your HR Experience',
   description: 'SAP SuccessFactors is a cloud-based Human Capital Management (HCM) software suite widely utilized globally. It enables companies to attract top talent, streamline hiring processes, set and track performance goals, deliver training programs, manage employee data centrally, design compensation plans, identify and develop future leaders, and gain insights through workforce analytics.',
   icon: Users,
-  color: '#4CAF50',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -872,7 +872,7 @@ export const aiMlSolutionsService: Service = {
   tagline: 'Where Innovation Meets Intelligence',
   description: 'Revolutionize your business processes with our AI and ML solutions! Whether you need to automate repetitive tasks, analyze complex data, or enhance customer experiences, we\'re here to turn your challenges into opportunities. Our solutions include product recommendation, sentiment analysis, image recognition, market analysis, and behavior mining.',
   icon: Brain,
-  color: '#9C27B0',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -944,7 +944,7 @@ export const cybersecurityComplianceService: Service = {
   tagline: 'Security and Compliance Excellence',
   description: 'Comprehensive cybersecurity and compliance framework services that help organizations establish, maintain, and improve their security posture while meeting regulatory requirements. We provide frameworks aligned with NIST, ISO 27001, SOC 2, and industry-specific regulations.',
   icon: Lock,
-  color: '#607D8B',
+  color: 'var(--vbx-teal)',
   category: 'sap-ai',
   deliverables: [
     {
@@ -1020,7 +1020,7 @@ export const infoSecurityTrainingService: Service = {
   tagline: 'Empower Your Human Firewall',
   description: 'Comprehensive security awareness programs that transform your employees into your first line of defense. Our training covers phishing prevention, data protection, secure computing practices, and incident reporting to create a security-conscious culture.',
   icon: GraduationCap,
-  color: '#3F51B5',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {
@@ -1092,7 +1092,7 @@ export const cloudSecurityGovernanceService: Service = {
   tagline: 'Secure Your Cloud Journey',
   description: 'Comprehensive cloud security governance services that help organizations establish robust security controls, manage cloud risks, and maintain compliance across multi-cloud environments. We provide visibility, control, and protection for your cloud workloads.',
   icon: Cloud,
-  color: '#00ACC1',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {
@@ -1164,7 +1164,7 @@ export const riskManagementService: Service = {
   tagline: 'Identify, Assess, Mitigate',
   description: 'Comprehensive risk management services that help organizations identify, assess, and mitigate risks across their operations. We provide frameworks, processes, and tools to manage operational, strategic, and technology risks effectively.',
   icon: AlertTriangle,
-  color: '#FF9800',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {
@@ -1236,7 +1236,7 @@ export const ermService: Service = {
   tagline: 'Holistic Risk Governance',
   description: 'Enterprise Risk Management services that provide a holistic approach to identifying, assessing, and managing risks across your entire organization. We help align risk management with strategic objectives and create a risk-aware culture.',
   icon: Building2,
-  color: '#795548',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {
@@ -1308,7 +1308,7 @@ export const businessContinuityService: Service = {
   tagline: 'Prepare, Respond, Recover',
   description: 'Business continuity and cyber resilience services that ensure your organization can withstand and recover from disruptions. We develop comprehensive plans, conduct exercises, and build capabilities to maintain operations during crises.',
   icon: RefreshCw,
-  color: '#8BC34A',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {
@@ -1380,7 +1380,7 @@ export const aiGovernanceService: Service = {
   tagline: 'Responsible AI Implementation',
   description: 'AI Governance services that help organizations implement AI responsibly and ethically. We develop governance frameworks, policies, and controls to ensure AI systems are transparent, fair, and compliant with emerging regulations.',
   icon: Bot,
-  color: '#673AB7',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {
@@ -1452,7 +1452,7 @@ export const regulatoryComplianceService: Service = {
   tagline: 'Navigate Complex Regulations',
   description: 'Regulatory compliance services that help organizations understand and meet their regulatory obligations. We provide expertise across various regulatory frameworks including GDPR, HIPAA, SOX, PCI DSS, and industry-specific regulations.',
   icon: FileCheck,
-  color: '#009688',
+  color: 'var(--vbx-teal)',
   category: 'risk-compliance',
   deliverables: [
     {

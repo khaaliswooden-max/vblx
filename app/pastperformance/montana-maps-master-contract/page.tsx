@@ -24,23 +24,20 @@ const CONTRACT_FACTS: { k: string; v: string; gold?: boolean }[] = [
   { k: 'Cooperative Purchasing', v: 'Public procurement units nationwide' },
 ]
 
-const PRODUCTS: { idx: string; kicker: string; name: string; body: string }[] = [
+const PRODUCTS: { kicker: string; name: string; body: string }[] = [
   {
-    idx: '[ 01 ]',
     kicker: 'LEGACY MIGRATION',
     name: 'Relian™',
     body:
       "Relian™ is Visionblox's AI-assisted legacy migration platform. It accelerates the modernization of aging state systems — mapping legacy data models, transforming records, and standing up modern equivalents while preserving institutional continuity. On the MAPS contract, Montana agencies can engage Relian™ to retire brittle legacy applications without the rip-and-replace risk.",
   },
   {
-    idx: '[ 02 ]',
     kicker: 'DOCUMENT INTELLIGENCE',
     name: 'VisionDoc AI',
     body:
       'VisionDoc AI turns unstructured government documents into structured, actionable data. Purpose-built OCR, NLP, and classification pipelines extract, validate, and route information from forms, correspondence, and case files — reducing manual handling while keeping a human in the loop for adjudication.',
   },
   {
-    idx: '[ 03 ]',
     kicker: 'ANALYTICS · PILOT',
     name: 'VisionAnalytics',
     body:
@@ -68,28 +65,28 @@ const ENGAGE_STEPS: { n: string; title: string; body: string }[] = [
 
 export default function MontanaMapsMasterContractPage() {
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide relative">
-          <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
-            {'// PAST PERFORMANCE // STATE OF MONTANA // MASTER AI CONTRACT'}
+          <p className="font-mono text-vbx-navy mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
+            Master AI contract
           </p>
           <h1
-            className="font-display text-vbx-white mb-6"
+            className="font-display text-vbx-navy mb-6"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1.1', maxWidth: '900px' }}
           >
             State of Montana Master AI Products &amp; Services Contract.
           </h1>
           <p
-            className="font-mono text-vbx-teal mb-6"
+            className="font-mono text-vbx-navy mb-6"
             style={{ fontSize: '1.05rem', letterSpacing: '0.02em', maxWidth: '760px' }}
           >
             Awarded to Visionblox LLC — selected on both solicitation tracks.
           </p>
-          <p className="font-sans text-vbx-muted mb-8 max-w-[720px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
+          <p className="font-sans text-vbx-navy-light mb-8 max-w-[720px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
             A competitively awarded, fully executed statewide contract vehicle for AI software solutions
             deployable across Montana state government operations, agencies, and workforce functions — and,
             through cooperative purchasing, available to public procurement units nationwide.
@@ -97,42 +94,45 @@ export default function MontanaMapsMasterContractPage() {
           <div className="mb-8 flex flex-wrap gap-3">
             <a
               href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry"
-              className="btn-gold inline-flex items-center gap-2"
+              className="btn-primary inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
               CONTACT THE CONTRACT MANAGER
             </a>
             <a
               href="#cooperative-purchasing"
-              className="btn-teal-outline inline-flex items-center gap-2"
+              className="btn-secondary inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
-              COOPERATIVE PURCHASING →
-            </a>
+              COOPERATIVE PURCHASING</a>
           </div>
-          <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
-            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MONTANA MAPS CONTRACT HOLDER&nbsp;&nbsp;//&nbsp;&nbsp;SPB26-0608GW-VSNBLX
+          <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
+            CAGE: 9Z4X2&nbsp;&nbsp;·&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;·&nbsp;&nbsp;MONTANA MAPS CONTRACT HOLDER&nbsp;&nbsp;·&nbsp;&nbsp;SPB26-0608GW-VSNBLX
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 data-line" />
       </section>
 
       {/* ── CONTRACT FACTS ────────────────────────────────────────────────── */}
-      <section className="py-12" style={{ borderBottom: '1px solid rgba(46,168,145,0.15)' }}>
+      <section className="py-12" style={{ borderBottom: '1px solid var(--vbx-rule)' }}>
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal mb-6 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
-            {'// CONTRACT FACTS'}
+          <p className="font-mono text-vbx-navy mb-6 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
+            Contract facts
           </p>
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px"
-            style={{ background: 'rgba(46,168,145,0.18)', border: '1px solid rgba(46,168,145,0.18)', borderRadius: '2px', overflow: 'hidden' }}
+            style={{ background: 'var(--vbx-rule)', border: '1px solid var(--vbx-rule)', borderRadius: '2px', overflow: 'hidden' }}
           >
             {CONTRACT_FACTS.map((f) => (
-              <div key={f.k} className="bg-vbx-navy px-5 py-5">
-                <p className="font-mono text-vbx-muted tracking-[0.1em] mb-2" style={{ fontSize: '0.6rem' }}>
-                  {f.k.toUpperCase()}
+              <div
+                key={f.k}
+                className="bg-vbx-offwhite px-5 py-5"
+                style={{ borderTop: `3px solid ${f.gold ? 'var(--vbx-gold)' : 'transparent'}` }}
+              >
+                <p className="font-mono text-vbx-navy-light tracking-[0.1em] mb-2" style={{ fontSize: '0.6rem' }}>
+                  {f.k}
                 </p>
-                <p className="font-sans" style={{ fontSize: '0.9375rem', color: f.gold ? '#F7B801' : '#F5F5F0', lineHeight: '1.5' }}>
+                <p className="font-sans text-vbx-navy" style={{ fontSize: '0.9375rem', lineHeight: '1.5' }}>
                   {f.v}
                 </p>
               </div>
@@ -144,29 +144,29 @@ export default function MontanaMapsMasterContractPage() {
       {/* ── WHAT MONTANA AGENCIES CAN BUY ─────────────────────────────────── */}
       <section className="section-padding pt-14">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal mb-3 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
-            {'// WHAT MONTANA AGENCIES CAN BUY · TRACK 2'}
+          <p className="font-mono text-vbx-navy mb-3 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
+            What montana agencies can buy — TRACK 2
           </p>
-          <h2 className="font-display text-vbx-white mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+          <h2 className="font-display text-vbx-navy mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
             Products on Contract
           </h2>
-          <p className="font-sans text-vbx-muted mb-10 max-w-[720px]" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+          <p className="font-sans text-vbx-navy-light mb-10 max-w-[720px]" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
             Available to Montana agencies as task orders under the MAPS vehicle.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {PRODUCTS.map((p) => (
               <div
                 key={p.name}
-                style={{ borderLeft: '3px solid #2EA891', background: 'rgba(255,255,255,0.02)', borderRadius: '2px' }}
+                style={{ borderLeft: '3px solid var(--vbx-teal)', background: 'var(--vbx-teal-tint)', borderRadius: '2px' }}
                 className="p-6"
               >
-                <p className="font-mono text-vbx-teal mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
-                  {p.idx}&nbsp;&nbsp;{p.kicker}
+                <p className="font-mono text-vbx-navy mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
+                  {p.kicker}
                 </p>
-                <h3 className="font-display text-vbx-white mb-3" style={{ fontSize: '1.35rem' }}>
+                <h3 className="font-display text-vbx-navy mb-3" style={{ fontSize: '1.35rem' }}>
                   {p.name}
                 </h3>
-                <p className="font-sans text-vbx-muted" style={{ fontSize: '0.9375rem', lineHeight: '1.7' }}>
+                <p className="font-sans text-vbx-navy-light" style={{ fontSize: '0.9375rem', lineHeight: '1.7' }}>
                   {p.body}
                 </p>
               </div>
@@ -178,34 +178,34 @@ export default function MontanaMapsMasterContractPage() {
       {/* ── HOW TO ENGAGE ─────────────────────────────────────────────────── */}
       <section
         className="section-padding"
-        style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(46,168,145,0.12)', borderBottom: '1px solid rgba(46,168,145,0.12)' }}
+        style={{ background: 'var(--vbx-teal-tint)', borderTop: '1px solid var(--vbx-rule)', borderBottom: '1px solid var(--vbx-rule)' }}
         id="how-to-engage"
       >
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal mb-3 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
-            {'// HOW TO ENGAGE'}
+          <p className="font-mono text-vbx-navy mb-3 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
+            How to engage
           </p>
-          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+          <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
             Ordering Under the MAPS Contract
           </h2>
-          <p className="font-sans text-vbx-muted mb-8 max-w-[760px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+          <p className="font-sans text-vbx-navy-light mb-8 max-w-[760px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
             Montana state agencies order under the MAPS contract through the state&apos;s eMACS procurement
-            system using the <span className="text-vbx-white">Tier Two Statement of Work (SOW)</span> process.
+            system using the <span className="text-vbx-navy">Tier Two Statement of Work (SOW)</span> process.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px mb-8" style={{ background: 'rgba(46,168,145,0.15)', border: '1px solid rgba(46,168,145,0.15)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px mb-8" style={{ background: 'var(--vbx-rule)', border: '1px solid var(--vbx-rule)' }}>
             {ENGAGE_STEPS.map((s) => (
-              <div key={s.n} className="bg-vbx-navy p-6">
-                <div className="font-mono font-extrabold text-3xl text-vbx-teal/20 leading-none mb-3">{s.n}</div>
-                <h4 className="font-display text-vbx-white text-base mb-2">{s.title}</h4>
-                <p className="font-sans text-vbx-muted text-sm leading-relaxed">{s.body}</p>
+              <div key={s.n} className="bg-vbx-offwhite p-6">
+                <div className="font-mono font-extrabold text-3xl text-vbx-navy/20 leading-none mb-3">{s.n}</div>
+                <h3 className="font-display text-vbx-navy text-base mb-2">{s.title}</h3>
+                <p className="font-sans text-vbx-navy-light text-sm leading-relaxed">{s.body}</p>
               </div>
             ))}
           </div>
 
           <p
-            className="font-sans text-vbx-muted italic pl-3 mb-8 max-w-[760px]"
-            style={{ fontSize: '0.875rem', lineHeight: '1.7', borderLeft: '2px solid rgba(46,168,145,0.4)' }}
+            className="font-sans text-vbx-navy-light italic pl-3 mb-8 max-w-[760px]"
+            style={{ fontSize: '0.875rem', lineHeight: '1.7', borderLeft: '2px solid var(--vbx-rule)' }}
           >
             MAPS is a pre-qualification vehicle: it establishes Visionblox as an approved source and sets
             contract terms. It does not itself guarantee task orders or revenue.
@@ -213,13 +213,13 @@ export default function MontanaMapsMasterContractPage() {
 
           <div
             className="max-w-[760px] p-6"
-            style={{ border: '1px solid rgba(46,168,145,0.35)', background: 'rgba(46,168,145,0.05)', borderRadius: '4px' }}
+            style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
           >
-            <p className="font-mono text-vbx-teal mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
+            <p className="font-mono text-vbx-navy mb-2 tracking-[0.1em]" style={{ fontSize: '0.625rem' }}>
               CONTRACT MANAGEMENT
             </p>
-            <p className="font-mono text-vbx-muted" style={{ fontSize: '0.85rem' }}>
-              <a href="mailto:services@visionblox.com" className="hover:text-vbx-teal transition-colors">
+            <p className="font-mono text-vbx-navy-light" style={{ fontSize: '0.85rem' }}>
+              <a href="mailto:services@visionblox.com" className="hover:text-vbx-navy transition-colors">
                 services@visionblox.com
               </a>
             </p>
@@ -230,17 +230,17 @@ export default function MontanaMapsMasterContractPage() {
       {/* ── COOPERATIVE PURCHASING ────────────────────────────────────────── */}
       <section className="section-padding" id="cooperative-purchasing">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal mb-3 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
-            {'// COOPERATIVE PURCHASING · NON-MONTANA PUBLIC ENTITIES'}
+          <p className="font-mono text-vbx-navy mb-3 tracking-[0.12em]" style={{ fontSize: '0.75rem' }}>
+            Cooperative purchasing — non-montana public entities
           </p>
           <div
             className="p-8"
-            style={{ border: '1px solid rgba(247,184,1,0.35)', background: 'rgba(247,184,1,0.05)', borderRadius: '4px' }}
+            style={{ borderLeft: '4px solid var(--vbx-gold)', border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
           >
-            <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
+            <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
               Available nationwide at contract terms.
             </h2>
-            <p className="font-sans text-vbx-muted mb-6 max-w-[820px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="font-sans text-vbx-navy-light mb-6 max-w-[820px]" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               Public procurement units nationwide — state, local, and federal agencies, and tribal units — may
               purchase from this contract at its established terms through cooperative purchasing. If your entity
               is outside Montana and wants to leverage the MAPS vehicle, contact us to discuss eligibility and
@@ -248,7 +248,7 @@ export default function MontanaMapsMasterContractPage() {
             </p>
             <a
               href="mailto:services@visionblox.com?subject=MAPS%20Cooperative%20Purchasing%20Inquiry"
-              className="btn-gold"
+              className="btn-primary"
             >
               DISCUSS COOPERATIVE PURCHASING
             </a>
@@ -257,22 +257,22 @@ export default function MontanaMapsMasterContractPage() {
       </section>
 
       {/* ── PAGE CTA ──────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="data-line mb-12" />
           <div className="max-w-[720px] mx-auto text-center">
-            <h2 className="font-display text-vbx-white mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}>
+            <h2 className="font-display text-vbx-navy mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}>
               Evaluating the MAPS vehicle for your agency?
             </h2>
-            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="font-sans text-vbx-navy-light mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               Contact our contract management team to discuss a Tier Two SOW, cooperative purchasing
               eligibility, or the AI products available under the contract.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry" className="btn-gold">
+              <a href="mailto:services@visionblox.com?subject=Montana%20MAPS%20Contract%20Inquiry" className="btn-primary">
                 CONTACT CONTRACT MANAGER
               </a>
-              <Link href="/pastperformance" className="btn-teal-outline">
+              <Link href="/pastperformance" className="btn-secondary">
                 VIEW PAST PERFORMANCE
               </Link>
             </div>

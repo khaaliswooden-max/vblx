@@ -13,8 +13,8 @@ export default function FederalThankYouPage() {
         animate={{ opacity: 1, scale: 1 }}
         className="text-center max-w-lg mx-auto px-6"
       >
-        <div className="w-20 h-20 rounded-full bg-accent-primary/20 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-10 h-10 text-accent-primary" />
+        <div className="w-20 h-20 rounded-full bg-vbx-teal-tint flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="w-10 h-10 text-vbx-navy" />
         </div>
         <h1 className="font-display text-display-sm font-bold mb-4">
           Inquiry Received
@@ -29,7 +29,7 @@ export default function FederalThankYouPage() {
         </p>
         <div className="bg-background-secondary rounded-xl p-4 mb-8 inline-block">
           <p className="text-sm text-text-secondary mb-1">CAGE Code</p>
-          <p className="font-mono text-accent-primary font-semibold">9Z4X2</p>
+          <p className="font-mono text-vbx-navy font-semibold">9Z4X2</p>
         </div>
         <div>
           <Link href="/">

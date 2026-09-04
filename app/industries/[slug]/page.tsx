@@ -17,7 +17,7 @@ export default function IndustryDetailPage() {
 
   if (!industry) {
     return (
-      <main className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-background-primary pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold mb-4">Industry Not Found</h1>
           <p className="text-text-secondary mb-8">The industry you&apos;re looking for doesn&apos;t exist.</p>
@@ -25,7 +25,7 @@ export default function IndustryDetailPage() {
             <Button variant="primary">Back to Industries</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
@@ -33,13 +33,13 @@ export default function IndustryDetailPage() {
   const caseStudies = getCaseStudiesByIndustry(industry.id)
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div 
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{ 
-            background: `radial-gradient(ellipse at top right, ${industry.color}40 0%, transparent 60%)` 
+            background: `radial-gradient(ellipse at top right, var(--vbx-teal-tint) 0%, transparent 60%)` 
           }}
         />
         
@@ -67,11 +67,11 @@ export default function IndustryDetailPage() {
             >
               <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6"
-                style={{ backgroundColor: `${industry.color}20` }}
+                style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
               >
                 <Icon 
                   className="w-10 h-10" 
-                  style={{ color: industry.color }}
+                  style={{ color: 'var(--vbx-navy)' }}
                 />
               </div>
               <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
@@ -79,7 +79,7 @@ export default function IndustryDetailPage() {
               </h1>
               <p 
                 className="text-xl font-medium mb-6"
-                style={{ color: industry.color }}
+                style={{ color: 'var(--vbx-navy)' }}
               >
                 {industry.heroSubheadline || industry.tagline}
               </p>
@@ -116,11 +116,11 @@ export default function IndustryDetailPage() {
               {industry.metrics.map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-background-secondary rounded-xl p-6 text-center border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 text-center border border-vbx-rule"
                 >
                   <div 
                     className="text-3xl font-display font-bold mb-2"
-                    style={{ color: industry.color }}
+                    style={{ color: 'var(--vbx-navy)' }}
                   >
                     {metric.value}
                   </div>
@@ -159,11 +159,11 @@ export default function IndustryDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-background-tertiary rounded-xl p-6 border border-white/5"
+                className="bg-background-tertiary rounded-xl p-6 border border-vbx-rule"
               >
                 <div 
                   className="w-8 h-8 rounded-lg flex items-center justify-center mb-4 font-display font-bold"
-                  style={{ backgroundColor: `${industry.color}20`, color: industry.color }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                 >
                   {index + 1}
                 </div>
@@ -207,16 +207,16 @@ export default function IndustryDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-background-secondary rounded-xl p-6 border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 border border-vbx-rule"
                 >
                   <div className="flex items-start gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620' }}
+                      style={{ backgroundColor: product ? 'var(--vbx-teal-tint)' : 'var(--vbx-teal-tint)' }}
                     >
                       <span 
                         className="font-display font-bold"
-                        style={{ color: product?.color || '#3B82F6' }}
+                        style={{ color: 'var(--vbx-navy)' }}
                       >
                         {product?.name?.[0] || (solution.service?.[0] || 'S')}
                       </span>
@@ -227,7 +227,7 @@ export default function IndustryDetailPage() {
                           <>
                             <span 
                               className="text-xs font-mono px-2 py-0.5 rounded"
-                              style={{ backgroundColor: product ? `${product.color}20` : '#3B82F620', color: product?.color || '#3B82F6' }}
+                              style={{ backgroundColor: product ? 'var(--vbx-teal-tint)' : 'var(--vbx-teal-tint)', color: 'var(--vbx-navy)' }}
                             >
                               {solution.product}
                             </span>
@@ -259,7 +259,7 @@ export default function IndustryDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 p-6 bg-background-secondary rounded-xl border border-white/5"
+              className="mt-12 p-6 bg-background-secondary rounded-xl border border-vbx-rule"
             >
               <h3 className="text-lg font-display font-semibold mb-4">
                 Explore Our Products
@@ -274,12 +274,12 @@ export default function IndustryDetailPage() {
                         variant="ghost" 
                         size="sm"
                         style={{ 
-                          borderColor: `${product.color}40`,
-                          ['--tw-ring-color' as string]: product.color 
+                          borderColor: 'var(--vbx-teal-tint)',
+                          ['--tw-ring-color' as string]: 'var(--vbx-teal)' 
                         }}
                         className="border"
                       >
-                        <span style={{ color: product.color }}>{product.name}</span>
+                        <span style={{ color: 'var(--vbx-navy)' }}>{product.name}</span>
                         <ArrowRight className="w-4 h-4 ml-2 text-text-tertiary" />
                       </Button>
                     </Link>
@@ -301,7 +301,7 @@ export default function IndustryDetailPage() {
             className="max-w-3xl mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-8 h-8 text-accent-primary" />
+              <Shield className="w-8 h-8 text-vbx-navy" />
               <h2 className="text-3xl md:text-4xl font-display font-bold">
                 Compliance & Certifications
               </h2>
@@ -319,9 +319,9 @@ export default function IndustryDetailPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-background-tertiary rounded-xl p-4 text-center border border-white/5 group hover:border-accent-primary/30 transition-colors"
+                className="bg-background-tertiary rounded-xl p-4 text-center border border-vbx-rule group hover:border-vbx-rule transition-colors"
               >
-                <div className="font-mono font-bold text-lg text-accent-primary mb-1">
+                <div className="font-mono font-bold text-lg text-vbx-navy mb-1">
                   {cert.name}
                 </div>
                 <div className="text-text-tertiary text-xs">
@@ -337,7 +337,7 @@ export default function IndustryDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 p-6 bg-background-tertiary rounded-xl border border-white/5"
+              className="mt-12 p-6 bg-background-tertiary rounded-xl border border-vbx-rule"
             >
               <h3 className="text-lg font-display font-semibold mb-4">
                 Contract Vehicles & Credentials
@@ -346,13 +346,13 @@ export default function IndustryDetailPage() {
                 {industry.contractVehicles.cageCode && (
                   <div>
                     <div className="text-text-tertiary text-sm mb-1">CAGE Code</div>
-                    <div className="font-mono font-bold text-accent-primary">{industry.contractVehicles.cageCode}</div>
+                    <div className="font-mono font-bold text-vbx-navy">{industry.contractVehicles.cageCode}</div>
                   </div>
                 )}
                 {industry.contractVehicles.uei && (
                   <div>
                     <div className="text-text-tertiary text-sm mb-1">UEI</div>
-                    <div className="font-mono font-bold text-accent-primary">{industry.contractVehicles.uei}</div>
+                    <div className="font-mono font-bold text-vbx-navy">{industry.contractVehicles.uei}</div>
                   </div>
                 )}
                 {industry.contractVehicles.gsaStatus && (
@@ -364,7 +364,7 @@ export default function IndustryDetailPage() {
                 {industry.contractVehicles.masterContract && (
                   <div className="md:col-span-2">
                     <div className="text-text-tertiary text-sm mb-1">Master Contract Vehicle</div>
-                    <div className="font-semibold text-accent-secondary">{industry.contractVehicles.masterContract}</div>
+                    <div className="font-semibold text-vbx-navy">{industry.contractVehicles.masterContract}</div>
                   </div>
                 )}
                 {industry.contractVehicles.businessType && (
@@ -416,11 +416,11 @@ export default function IndustryDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="flex items-start gap-3 p-4 bg-background-secondary rounded-xl border border-white/5"
+                className="flex items-start gap-3 p-4 bg-background-secondary rounded-xl border border-vbx-rule"
               >
                 <CheckCircle 
                   className="w-5 h-5 flex-shrink-0 mt-0.5"
-                  style={{ color: industry.color }}
+                  style={{ color: 'var(--vbx-navy)' }}
                 />
                 <span className="text-text-primary">{useCase}</span>
               </motion.div>
@@ -439,12 +439,12 @@ export default function IndustryDetailPage() {
             className="max-w-4xl mx-auto"
           >
             <div 
-              className="relative bg-background-tertiary rounded-2xl p-8 md:p-12 border border-white/5"
-              style={{ borderLeftColor: industry.color, borderLeftWidth: '4px' }}
+              className="relative bg-background-tertiary rounded-2xl p-8 md:p-12 border border-vbx-rule"
+              style={{ borderLeftColor: 'var(--vbx-teal)', borderLeftWidth: '4px' }}
             >
               <Quote 
                 className="w-12 h-12 mb-6"
-                style={{ color: `${industry.color}40` }}
+                style={{ color: 'var(--vbx-teal-tint)' }}
               />
               <blockquote className="text-xl md:text-2xl font-display text-text-primary mb-6 leading-relaxed">
                 &ldquo;{industry.testimonial.quote}&rdquo;
@@ -452,11 +452,11 @@ export default function IndustryDetailPage() {
               <div className="flex items-center gap-4">
                 <div 
                   className="w-12 h-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${industry.color}20` }}
+                  style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                 >
                   <span 
                     className="font-display font-bold"
-                    style={{ color: industry.color }}
+                    style={{ color: 'var(--vbx-navy)' }}
                   >
                     {industry.testimonial.author.split(' ').map(n => n[0]).join('')}
                   </span>
@@ -515,20 +515,20 @@ export default function IndustryDetailPage() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link href={`/pastperformance/${study.id}`}>
-                      <div className="group bg-background-secondary rounded-xl p-6 border border-white/5 hover:border-white/10 transition-all h-full">
+                      <div className="group bg-background-secondary rounded-xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all h-full">
                         <div className="flex items-center gap-2 mb-4">
                           <span 
                             className="px-2 py-1 text-xs font-mono rounded"
                             style={{ 
-                              backgroundColor: `${studyCategory.color}20`, 
-                              color: studyCategory.color 
+                              backgroundColor: 'var(--vbx-teal-tint)', 
+                              color: 'var(--vbx-navy)' 
                             }}
                           >
                             {studyCategory.name}
                           </span>
                           <span className="text-text-tertiary text-xs">{study.industry}</span>
                         </div>
-                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                           {study.title}
                         </h3>
                         <p className="text-text-secondary text-sm mb-4 line-clamp-2">
@@ -541,7 +541,7 @@ export default function IndustryDetailPage() {
                             </span>
                           ))}
                         </div>
-                        <span className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                           Read case study <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
@@ -593,6 +593,6 @@ export default function IndustryDetailPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -78,24 +78,24 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="container-wide">
           <p
-            className="font-mono text-vbx-teal tracking-[0.12em] uppercase mb-6"
+            className="font-mono text-vbx-navy tracking-[0.12em] uppercase mb-6"
             style={{ fontSize: '0.8125rem' }}
           >
-            {'// Privacy Policy'}
+            Privacy policy
           </p>
           <h1
-            className="font-display text-vbx-white leading-[1.1]"
+            className="font-display text-vbx-navy leading-[1.1]"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
           >
             Privacy Policy
           </h1>
           <p
-            className="font-mono text-vbx-muted tracking-[0.08em] mt-4"
+            className="font-mono text-vbx-navy-light tracking-[0.08em] mt-4"
             style={{ fontSize: '0.75rem' }}
           >
             EFFECTIVE DATE: APRIL 1, 2026
@@ -108,7 +108,7 @@ export default function PrivacyPage() {
         <div className="container-wide">
           <div className="max-w-3xl">
             <p
-              className="font-sans text-vbx-muted mb-16"
+              className="font-sans text-vbx-navy-light mb-16"
               style={{ fontSize: '1rem', lineHeight: 1.8 }}
             >
               Visionblox LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
@@ -120,13 +120,13 @@ export default function PrivacyPage() {
             {sections.map((section, i) => (
               <div key={section.num}>
                 <p
-                  className="font-mono text-vbx-teal tracking-[0.12em] uppercase mb-3"
+                  className="font-mono text-vbx-navy tracking-[0.12em] uppercase mb-3"
                   style={{ fontSize: '0.8125rem' }}
                 >
-                  {section.num}&nbsp;&nbsp;//&nbsp;&nbsp;{section.title}
+                  {section.num}&nbsp;&nbsp;·&nbsp;&nbsp;{section.title}
                 </p>
                 <h2
-                  className="font-display text-vbx-white mb-4"
+                  className="font-display text-vbx-navy mb-4"
                   style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}
                 >
                   {section.title}
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
                 {section.content.map((p, j) => (
                   <p
                     key={j}
-                    className="font-sans text-vbx-muted mb-4"
+                    className="font-sans text-vbx-navy-light mb-4"
                     style={{ fontSize: '1rem', lineHeight: 1.8 }}
                   >
                     {p}
@@ -146,13 +146,13 @@ export default function PrivacyPage() {
 
             <div className="data-line my-12" />
             <p
-              className="font-sans text-vbx-muted"
+              className="font-sans text-vbx-navy-light"
               style={{ fontSize: '1rem', lineHeight: 1.8 }}
             >
               For further inquiries, please{' '}
               <Link
                 href="/contact"
-                className="text-vbx-teal hover:text-vbx-white transition-colors underline"
+                className="text-vbx-navy hover:text-vbx-navy transition-colors underline"
               >
                 contact us
               </Link>

@@ -43,24 +43,23 @@ export default function Navigation() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-[rgba(14,18,38,0.95)] backdrop-blur-[12px] border-b border-vbx-teal/10'
-          : 'bg-vbx-navy'
+        'fixed top-0 left-0 right-0 z-50 transition-shadow duration-300',
+        'bg-vbx-offwhite border-b border-vbx-rule',
+        isScrolled && 'shadow-card'
       )}
     >
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <VisionbloxLogo variant="horizontal" width={160} textColor="#F5F5F0" />
+          <Link href="/" className="flex items-center py-2" aria-label="Visionblox — home">
+            <VisionbloxLogo variant="lockup" width={132} alt="" priority className="h-auto w-[112px] md:w-[132px]" />
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-0">
             {TOP_LINKS.map((link) => {
-              const baseClasses = 'px-3 py-2 text-xs font-sans uppercase tracking-[0.06em] transition-colors'
+              const baseClasses = 'px-3 py-2 text-sm font-sans font-medium transition-colors'
 
               if (link.external) {
                 return (
@@ -69,7 +68,7 @@ export default function Navigation() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn(baseClasses, 'text-vbx-white hover:text-vbx-teal')}
+                    className={cn(baseClasses, 'text-vbx-navy-light hover:text-vbx-navy')}
                   >
                     {link.label}
                   </a>
@@ -81,7 +80,7 @@ export default function Navigation() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className={cn(baseClasses, 'text-vbx-white hover:text-vbx-teal')}
+                    className={cn(baseClasses, 'text-vbx-navy-light hover:text-vbx-navy')}
                   >
                     {link.label}
                   </a>
@@ -96,8 +95,8 @@ export default function Navigation() {
                   className={cn(
                     baseClasses,
                     isActive
-                      ? 'text-vbx-teal border-b-2 border-vbx-teal pb-1.5'
-                      : 'text-vbx-white hover:text-vbx-teal'
+                      ? 'text-vbx-navy border-b-2 border-vbx-teal pb-1.5'
+                      : 'text-vbx-navy-light hover:text-vbx-navy'
                   )}
                 >
                   {link.label}
@@ -110,16 +109,16 @@ export default function Navigation() {
           <div className="hidden md:flex items-center">
             <a
               href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
-              className="btn-gold text-xs"
+              className="btn-primary"
             >
-              REQUEST BRIEFING
+              Request a briefing
             </a>
           </div>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-vbx-white/70 hover:text-vbx-white transition-colors"
+            className="md:hidden p-2 text-vbx-navy-light hover:text-vbx-navy transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -135,12 +134,11 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden border-t border-vbx-teal/20 overflow-hidden"
-            style={{ background: 'rgba(14,18,38,0.98)' }}
+            className="md:hidden border-t border-vbx-rule overflow-hidden bg-vbx-offwhite"
           >
             <div className="container-wide py-6 space-y-1">
               {TOP_LINKS.map((link) => {
-                const baseClasses = 'block py-3 text-sm uppercase tracking-[0.08em] font-sans'
+                const baseClasses = 'block py-3 text-base font-sans font-medium'
 
                 if (link.external) {
                   return (
@@ -150,7 +148,7 @@ export default function Navigation() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(baseClasses, 'text-vbx-white')}
+                      className={cn(baseClasses, 'text-vbx-navy-light')}
                     >
                       {link.label}
                     </a>
@@ -163,7 +161,7 @@ export default function Navigation() {
                       key={link.label}
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(baseClasses, 'text-vbx-white')}
+                      className={cn(baseClasses, 'text-vbx-navy-light')}
                     >
                       {link.label}
                     </a>
@@ -178,7 +176,7 @@ export default function Navigation() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       baseClasses,
-                      isActive ? 'text-vbx-teal' : 'text-vbx-white'
+                      isActive ? 'text-vbx-navy font-semibold' : 'text-vbx-navy-light'
                     )}
                   >
                     {link.label}
@@ -186,13 +184,13 @@ export default function Navigation() {
                 )
               })}
 
-              <div className="pt-4 border-t border-vbx-teal/20">
+              <div className="pt-4 border-t border-vbx-rule">
                 <a
                   href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="btn-gold block text-center w-full"
+                  className="btn-primary block text-center w-full"
                 >
-                  REQUEST BRIEFING
+                  Request a briefing
                 </a>
               </div>
             </div>

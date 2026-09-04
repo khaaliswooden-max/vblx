@@ -12,7 +12,7 @@ export default function IndustriesPage() {
   const secondaryIndustries = ALL_INDUSTRIES.filter(ind => ind.tier === 'SECONDARY')
 
   return (
-    <main className="min-h-screen bg-background-primary pt-20">
+    <div className="min-h-screen bg-background-primary pt-20">
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-accent-primary/5 to-transparent pointer-events-none" />
@@ -24,13 +24,13 @@ export default function IndustriesPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-primary/10 text-accent-primary text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-vbx-teal-tint text-vbx-navy text-sm font-medium mb-6">
               <FileText className="w-4 h-4" />
               Industries · Backed by Case Studies
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
               Proven Results
-              <span className="text-accent-primary"> by Industry</span>
+              <span className="text-vbx-navy"> by Industry</span>
             </h1>
             <p className="text-lg md:text-xl text-text-secondary leading-relaxed mb-8">
               Every industry we serve is backed by real client work. Explore our case studies
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 rounded-full bg-accent-primary/20 text-accent-primary text-xs font-mono font-bold">
+              <span className="px-3 py-1 rounded-sm bg-vbx-teal-tint text-vbx-navy text-xs font-mono font-bold">
                 PRIMARY
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold">
@@ -77,18 +77,18 @@ export default function IndustriesPage() {
                   viewport={{ once: true }}
                   transition={{ delay: Math.min(index * 0.05, 0.3) }}
                 >
-                  <div className="group bg-background-tertiary rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
+                  <div className="group bg-background-tertiary rounded-2xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all duration-300 h-full flex flex-col">
                     <Link href={`/industries/${industry.id}`} className="block">
                       <div
                         className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                        style={{ backgroundColor: `${industry.color}20` }}
+                        style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                       >
                         <Icon
                           className="w-7 h-7"
-                          style={{ color: industry.color }}
+                          style={{ color: 'var(--vbx-navy)' }}
                         />
                       </div>
-                      <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                      <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                         {industry.name}
                       </h3>
                       <p className="text-text-secondary text-sm mb-4 line-clamp-2">
@@ -98,14 +98,14 @@ export default function IndustriesPage() {
                     <div className="mt-auto flex items-center justify-between gap-4">
                       <Link
                         href="/pastperformance"
-                        className="text-sm text-text-tertiary hover:text-accent-primary transition-colors"
+                        className="text-sm text-text-tertiary hover:text-vbx-navy transition-colors"
                       >
                         {caseStudies.length} case{' '}
                         {caseStudies.length === 1 ? 'study' : 'studies'}
                       </Link>
                       <Link
                         href={`/industries/${industry.id}`}
-                        className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
+                        className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
                       >
                         Learn more <ArrowRight className="w-4 h-4" />
                       </Link>
@@ -129,7 +129,7 @@ export default function IndustriesPage() {
               className="mb-12"
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="px-3 py-1 rounded-full bg-text-tertiary/20 text-text-tertiary text-xs font-mono font-bold">
+                <span className="px-3 py-1 rounded-sm bg-text-tertiary/20 text-text-tertiary text-xs font-mono font-bold">
                   SECONDARY
                 </span>
                 <h2 className="text-3xl md:text-4xl font-display font-bold">
@@ -154,18 +154,18 @@ export default function IndustriesPage() {
                     viewport={{ once: true }}
                     transition={{ delay: Math.min(index * 0.05, 0.3) }}
                   >
-                    <div className="group bg-background-secondary rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
+                    <div className="group bg-background-secondary rounded-2xl p-6 border border-vbx-rule hover:border-vbx-rule transition-all duration-300 h-full flex flex-col">
                       <Link href={`/industries/${industry.id}`} className="block">
                         <div
                           className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                          style={{ backgroundColor: `${industry.color}20` }}
+                          style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                         >
                           <Icon
                             className="w-7 h-7"
-                            style={{ color: industry.color }}
+                            style={{ color: 'var(--vbx-navy)' }}
                           />
                         </div>
-                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+                        <h3 className="text-lg font-display font-semibold mb-2 group-hover:text-vbx-navy transition-colors">
                           {industry.name}
                         </h3>
                         <p className="text-text-secondary text-sm mb-4 line-clamp-2">
@@ -175,14 +175,14 @@ export default function IndustriesPage() {
                       <div className="mt-auto flex items-center justify-between gap-4">
                         <Link
                           href="/pastperformance"
-                          className="text-sm text-text-tertiary hover:text-accent-primary transition-colors"
+                          className="text-sm text-text-tertiary hover:text-vbx-navy transition-colors"
                         >
                           {caseStudies.length} case{' '}
                           {caseStudies.length === 1 ? 'study' : 'studies'}
                         </Link>
                         <Link
                           href={`/industries/${industry.id}`}
-                          className="text-accent-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
+                          className="text-vbx-navy text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
                         >
                           Learn more <ArrowRight className="w-4 h-4" />
                         </Link>
@@ -248,7 +248,7 @@ export default function IndustriesPage() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-accent-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-vbx-navy flex-shrink-0 mt-0.5" />
                     <span className="text-text-primary">{item}</span>
                   </motion.div>
                 ))}
@@ -269,9 +269,9 @@ export default function IndustriesPage() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-background-secondary rounded-xl p-6 text-center border border-white/5"
+                  className="bg-background-secondary rounded-xl p-6 text-center border border-vbx-rule"
                 >
-                  <div className="text-3xl md:text-4xl font-display font-bold text-accent-primary mb-2">
+                  <div className="text-3xl md:text-4xl font-display font-bold text-vbx-navy mb-2">
                     {stat.value}
                   </div>
                   <div className="text-text-secondary text-sm">
@@ -291,7 +291,7 @@ export default function IndustriesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 rounded-2xl p-8 md:p-12 text-center border border-white/10"
+            className="bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 rounded-2xl p-8 md:p-12 text-center border border-vbx-rule"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Ready to Transform Your Operations?
@@ -316,6 +316,6 @@ export default function IndustriesPage() {
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

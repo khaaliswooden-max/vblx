@@ -11,7 +11,7 @@ const ENGAGEMENTS = [
     project: 'Patient Portal',
     relevance: '10 / 10',
     relevanceNote: 'PRIMARY FEDERAL REFERENCE',
-    relevanceColor: '#F7B801',
+    relevanceColor: 'var(--vbx-gold)',
     technologies: ['Epic HealthConnect (SOAP/REST/Kafka)', 'AEM 6.5', 'Pexip Telehealth', '21st Century Cures Act Compliance', 'Federated SSO'],
     outcomes: [
       '99.8% uptime SLA maintained across 100,000+ daily users.',
@@ -22,11 +22,11 @@ const ENGAGEMENTS = [
   },
   {
     client: 'California DHCS',
-    clientSuffix: '// State Medicaid Authority',
+    clientSuffix: 'State medicaid authority',
     project: 'Cost & Finance Reporting System (CFRS)',
     relevance: '10 / 10',
     relevanceNote: 'MITA-COMPLIANT // CMS-ADJACENT',
-    relevanceColor: '#F7B801',
+    relevanceColor: 'var(--vbx-gold)',
     technologies: ['MITA', '.NET Core 2.0', 'Angular', 'Azure DevOps', 'SQL Server', 'SSIS/SSRS', 'SOA'],
     outcomes: [
       'Eliminated manual cost sheet errors across all state and county users.',
@@ -86,25 +86,25 @@ const OPPORTUNITIES = [
     tier: 'TIER 1 // HIGHEST CONFIDENCE',
     headline: 'State Medicaid Modernization',
     body: 'MITA-compliant system architecture is a direct past performance match. Our CA DHCS delivery is a qualifying reference for any state pursuing MITA transition or MMIS modernization. Target states: CA (relationship exists), WA DOH (active pipeline), MD Medicaid.',
-    tierColor: '#F7B801',
+    tierColor: 'var(--vbx-gold)',
   },
   {
     tier: 'TIER 1 // HIGH CONFIDENCE',
     headline: 'Patient Portal / Digital Front Door',
     body: 'Leading national integrated healthcare system patient portal work maps directly to VA Veteran-Facing Digital Modernization, HHS agency web portal RFPs, and Indian Health Service patient access projects.',
-    tierColor: '#F7B801',
+    tierColor: 'var(--vbx-gold)',
   },
   {
     tier: 'TIER 2 // TECHNICAL DISCRIMINATOR',
     headline: 'Healthcare AI / Document Intelligence',
     body: '96% OCR accuracy at a state Medicaid agency is a quantified differentiator most small firms cannot match. Target: HHS document processing, CMS audit intelligence, state health department document management RFPs.',
-    tierColor: '#2EA891',
+    tierColor: 'var(--vbx-teal)',
   },
   {
     tier: 'TIER 3 // BUILD YEAR',
     headline: 'Federal Agency Healthcare IT (Build Track)',
     body: 'VA OIT, HHS, HRSA, AHRQ, CMS IT. Current strategy: win SLED health contract FY26 → use as federal-analog reference → prime federal health IT FY27–28. Not a FY26 prime pursuit — a FY26 capability-build year.',
-    tierColor: '#8892A4',
+    tierColor: 'var(--vbx-muted)',
   },
 ]
 
@@ -159,17 +159,17 @@ function RevealRow({ children, delay = 0 }: { children: React.ReactNode; delay?:
 
 export default function HealthcareITPage() {
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
 
       {/* ── PAGE HERO ─────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-20 bg-vbx-navy overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-vbx-offwhite overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none"/>
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.15em] mb-6">
-            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3
+          <p className="font-mono text-vbx-navy text-sm tracking-[0.15em] mb-6">
+            CAGE: 9Z4X2&nbsp;&nbsp;·&nbsp;&nbsp;UEI: H4X2Z7R9E3E3
           </p>
           <h1
-            className="font-display text-vbx-white mb-8"
+            className="font-display text-vbx-navy mb-8"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: '1.1' }}
           >
             Healthcare Intelligence
@@ -177,11 +177,11 @@ export default function HealthcareITPage() {
           </h1>
 
           {/* Keyword bar */}
-          <p className="font-mono text-vbx-teal mb-8 leading-relaxed" style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}>
-            MITA&nbsp;&nbsp;//&nbsp;&nbsp;EPIC EMR&nbsp;&nbsp;//&nbsp;&nbsp;HL7/FHIR&nbsp;&nbsp;//&nbsp;&nbsp;HIPAA&nbsp;&nbsp;//&nbsp;&nbsp;SECTION 508&nbsp;&nbsp;//&nbsp;&nbsp;CURES ACT
+          <p className="font-mono text-vbx-navy mb-8 leading-relaxed" style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}>
+            MITA&nbsp;&nbsp;·&nbsp;&nbsp;EPIC EMR&nbsp;&nbsp;·&nbsp;&nbsp;HL7/FHIR&nbsp;&nbsp;·&nbsp;&nbsp;HIPAA&nbsp;&nbsp;·&nbsp;&nbsp;SECTION 508&nbsp;&nbsp;·&nbsp;&nbsp;CURES ACT
           </p>
 
-          <p className="font-sans text-vbx-muted max-w-[680px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
+          <p className="font-sans text-vbx-navy-light max-w-[680px]" style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}>
             Visionblox has delivered healthcare IT infrastructure for commercial
             healthcare organizations at federal-analog scale. Our technical staff
             hold direct delivery experience in every major federal healthcare IT
@@ -194,10 +194,10 @@ export default function HealthcareITPage() {
       </section>
 
       {/* ── PAST PERFORMANCE ──────────────────────────────────────────────── */}
-      <section id="past-performance" className="section-padding bg-vbx-navy">
+      <section id="past-performance" className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 01'}&nbsp;&nbsp;PAST PERFORMANCE</p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">Past performance</p>
+          <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Documented Engagements
           </h2>
           <div className="data-line mb-10"/>
@@ -207,25 +207,25 @@ export default function HealthcareITPage() {
               <RevealRow key={eng.client} delay={i * 120}>
                 <div
                   className="pl-5 py-2"
-                  style={{ borderLeft: '3px solid #2EA891' }}
+                  style={{ borderLeft: '3px solid var(--vbx-teal)' }}
                 >
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mb-4">
-                    <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">CLIENT</span>
-                    <span className="font-sans text-vbx-white text-sm">
+                    <span className="font-mono text-vbx-navy text-sm tracking-[0.08em]">CLIENT</span>
+                    <span className="font-sans text-vbx-navy text-sm">
                       {eng.client}
                       {eng.clientSuffix && (
-                        <span className="text-vbx-muted ml-2 font-mono text-xs">{eng.clientSuffix}</span>
+                        <span className="text-vbx-navy-light ml-2 font-mono text-xs">{eng.clientSuffix}</span>
                       )}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mb-4">
-                    <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">PROJECT</span>
-                    <span className="font-sans text-vbx-white text-sm">{eng.project}</span>
+                    <span className="font-mono text-vbx-navy text-sm tracking-[0.08em]">PROJECT</span>
+                    <span className="font-sans text-vbx-navy text-sm">{eng.project}</span>
                   </div>
                   <div className="flex flex-wrap gap-x-6 gap-y-1 mb-6">
-                    <span className="font-mono text-vbx-teal text-sm tracking-[0.08em]">RELEVANCE</span>
-                    <span className="font-mono text-sm" style={{ color: eng.relevanceColor }}>
-                      {eng.relevance}&nbsp;&nbsp;//&nbsp;&nbsp;{eng.relevanceNote}
+                    <span className="font-mono text-vbx-navy text-sm tracking-[0.08em]">RELEVANCE</span>
+                    <span className="font-mono text-sm text-vbx-navy font-semibold" style={{ borderBottom: `2px solid ${eng.relevanceColor}` }}>
+                      {eng.relevance}&nbsp;&nbsp;·&nbsp;&nbsp;{eng.relevanceNote}
                     </span>
                   </div>
 
@@ -234,8 +234,8 @@ export default function HealthcareITPage() {
                     {eng.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="font-mono text-xs text-vbx-muted px-2 py-0.5"
-                        style={{ border: '1px solid rgba(46,168,145,0.25)', borderRadius: '2px' }}
+                        className="font-mono text-xs text-vbx-navy-light px-2 py-0.5"
+                        style={{ border: '1px solid var(--vbx-rule)', borderRadius: '2px' }}
                       >
                         {tech}
                       </span>
@@ -245,8 +245,8 @@ export default function HealthcareITPage() {
                   {/* Outcomes */}
                   <ul className="space-y-2">
                     {eng.outcomes.map((outcome, j) => (
-                      <li key={j} className="font-sans text-vbx-muted text-sm leading-relaxed flex gap-2">
-                        <span className="text-vbx-teal flex-shrink-0 font-mono">→</span>
+                      <li key={j} className="font-sans text-vbx-navy-light text-sm leading-relaxed flex gap-2">
+                        <span className="text-vbx-navy flex-shrink-0 font-mono"></span>
                         <span>{outcome}</span>
                       </li>
                     ))}
@@ -259,10 +259,10 @@ export default function HealthcareITPage() {
       </section>
 
       {/* ── CAPABILITY MATRIX ─────────────────────────────────────────────── */}
-      <section id="capabilities" className="section-padding" style={{ background: 'rgba(255,255,255,0.02)' }}>
+      <section id="capabilities" className="section-padding" style={{ background: 'var(--vbx-teal-tint)' }}>
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 02'}&nbsp;&nbsp;CAPABILITY MATRIX</p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">Capability matrix</p>
+          <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Demonstrated Stack
           </h2>
           <div className="data-line mb-8"/>
@@ -270,10 +270,10 @@ export default function HealthcareITPage() {
           <div className="overflow-x-auto">
             <table className="w-full" style={{ borderCollapse: 'collapse', minWidth: '540px' }}>
               <thead>
-                <tr style={{ borderBottom: '2px solid #2EA891', background: 'rgba(46,168,145,0.06)' }}>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Capability</th>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Delivery Depth</th>
-                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-teal tracking-[0.1em] uppercase">Delivered By</th>
+                <tr style={{ borderBottom: '2px solid var(--vbx-teal)', background: 'var(--vbx-teal-tint)' }}>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Capability</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Delivery Depth</th>
+                  <th className="text-left py-3 px-4 font-mono text-xs text-vbx-navy tracking-[0.1em] uppercase">Delivered By</th>
                 </tr>
               </thead>
               <tbody>
@@ -281,13 +281,13 @@ export default function HealthcareITPage() {
                   <tr
                     key={row.capability}
                     style={{
-                      background: i % 2 === 1 ? 'rgba(255,255,255,0.03)' : 'transparent',
-                      borderBottom: '1px solid rgba(46,168,145,0.08)',
+                      background: i % 2 === 1 ? 'var(--vbx-rule)' : 'transparent',
+                      borderBottom: '1px solid var(--vbx-rule)',
                     }}
                   >
-                    <td className="py-3 px-4 font-sans text-sm text-vbx-teal">{row.capability}</td>
-                    <td className="py-3 px-4 font-sans text-sm text-vbx-muted">{row.depth}</td>
-                    <td className="py-3 px-4 font-mono text-xs text-vbx-white/70">{row.deliveredBy}</td>
+                    <td className="py-3 px-4 font-sans text-sm text-vbx-navy">{row.capability}</td>
+                    <td className="py-3 px-4 font-sans text-sm text-vbx-navy-light">{row.depth}</td>
+                    <td className="py-3 px-4 font-mono text-xs text-vbx-navy-light">{row.deliveredBy}</td>
                   </tr>
                 ))}
               </tbody>
@@ -297,13 +297,13 @@ export default function HealthcareITPage() {
       </section>
 
       {/* ── PERSONNEL ─────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 03'}&nbsp;&nbsp;TECHNICAL STAFF</p>
-          <h2 className="font-display text-vbx-white mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">Technical staff</p>
+          <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             The Team Behind the Deliveries
           </h2>
-          <p className="font-sans text-vbx-muted max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+          <p className="font-sans text-vbx-navy-light max-w-[680px] mb-8" style={{ fontSize: '1rem', lineHeight: '1.7' }}>
             Staff are presented by role and credential rather than by name. Named resumes are furnished on request
             under NDA or with a proposal submission.
           </p>
@@ -314,11 +314,11 @@ export default function HealthcareITPage() {
               <RevealRow key={member.title} delay={i * 100}>
                 <div
                   className="pl-5 py-4"
-                  style={{ borderLeft: '3px solid rgba(46,168,145,0.6)' }}
+                  style={{ borderLeft: '3px solid var(--vbx-rule)' }}
                 >
-                  <h3 className="font-display text-vbx-white text-xl mb-1">{member.title}</h3>
-                  <p className="font-sans text-vbx-muted text-sm leading-relaxed mb-4">{member.bio}</p>
-                  <p className="font-mono text-xs" style={{ color: 'rgba(46,168,145,0.7)' }}>
+                  <h3 className="font-display text-vbx-navy text-xl mb-1">{member.title}</h3>
+                  <p className="font-sans text-vbx-navy-light text-sm leading-relaxed mb-4">{member.bio}</p>
+                  <p className="font-mono text-xs" style={{ color: 'var(--vbx-rule)' }}>
                     {member.certs}
                   </p>
                 </div>
@@ -331,25 +331,25 @@ export default function HealthcareITPage() {
       {/* ── COMPLIANCE POSTURE ────────────────────────────────────────────── */}
       <section
         className="py-14"
-        style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(46,168,145,0.1)', borderBottom: '1px solid rgba(46,168,145,0.1)' }}
+        style={{ background: 'var(--vbx-teal-tint)', borderTop: '1px solid var(--vbx-rule)', borderBottom: '1px solid var(--vbx-rule)' }}
       >
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-8">{'// 04'}&nbsp;&nbsp;COMPLIANCE POSTURE</p>
+          <p className="eyebrow">Compliance posture</p>
           <p
-            className="font-mono text-vbx-teal leading-[2.2]"
+            className="font-mono text-vbx-navy leading-[2.2]"
             style={{ fontSize: '0.8rem', letterSpacing: '0.08em' }}
           >
-            HIPAA&nbsp;&nbsp;//&nbsp;&nbsp;HITRUST-AUDITED&nbsp;&nbsp;//&nbsp;&nbsp;MITA&nbsp;&nbsp;//&nbsp;&nbsp;SECTION 508&nbsp;&nbsp;//&nbsp;&nbsp;21ST CENTURY CURES ACT
-            &nbsp;&nbsp;//&nbsp;&nbsp;FEDRAMP-ARCHITECTURE-AWARE&nbsp;&nbsp;//&nbsp;&nbsp;FISMA-ALIGNED&nbsp;&nbsp;//&nbsp;&nbsp;AWS GOVCLOUD-DEPLOYABLE
+            HIPAA&nbsp;&nbsp;·&nbsp;&nbsp;HITRUST-AUDITED&nbsp;&nbsp;·&nbsp;&nbsp;MITA&nbsp;&nbsp;·&nbsp;&nbsp;SECTION 508&nbsp;&nbsp;·&nbsp;&nbsp;21ST CENTURY CURES ACT
+            &nbsp;&nbsp;·&nbsp;&nbsp;FEDRAMP-ARCHITECTURE-AWARE&nbsp;&nbsp;·&nbsp;&nbsp;FISMA-ALIGNED&nbsp;&nbsp;·&nbsp;&nbsp;AWS GOVCLOUD-DEPLOYABLE
           </p>
         </div>
       </section>
 
       {/* ── OPPORTUNITY TARGETS ───────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
-          <p className="font-mono text-vbx-teal text-sm tracking-[0.12em] mb-3">{'// 05'}&nbsp;&nbsp;OPPORTUNITY TARGETS</p>
-          <h2 className="font-display text-vbx-white mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+          <p className="eyebrow">Opportunity targets</p>
+          <h2 className="font-display text-vbx-navy mb-10" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
             Where We Win
           </h2>
           <div className="data-line mb-10"/>
@@ -359,13 +359,13 @@ export default function HealthcareITPage() {
               <div
                 key={opp.headline}
                 className="p-6"
-                style={{ border: '1px solid rgba(46,168,145,0.2)', background: 'rgba(255,255,255,0.02)', borderRadius: '2px' }}
+                style={{ border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '2px' }}
               >
-                <p className="font-mono text-xs tracking-[0.1em] mb-4" style={{ color: opp.tierColor }}>
+                <p className="font-mono text-xs tracking-[0.1em] mb-4 text-vbx-navy" style={{ borderLeft: `3px solid ${opp.tierColor}`, paddingLeft: '0.5rem' }}>
                   {opp.tier}
                 </p>
-                <h3 className="font-display text-vbx-white text-xl mb-4">{opp.headline}</h3>
-                <p className="font-sans text-vbx-muted text-sm leading-relaxed">{opp.body}</p>
+                <h3 className="font-display text-vbx-navy text-xl mb-4">{opp.headline}</h3>
+                <p className="font-sans text-vbx-navy-light text-sm leading-relaxed">{opp.body}</p>
               </div>
             ))}
           </div>
@@ -373,13 +373,13 @@ export default function HealthcareITPage() {
       </section>
 
       {/* ── PAGE CTA ──────────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="data-line mb-12"/>
 
           <div className="max-w-[680px] mx-auto text-center">
             <h2
-              className="font-display text-vbx-white mb-6"
+              className="font-display text-vbx-navy mb-6"
               style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}
             >
               We build the systems federal healthcare programs depend on.
@@ -389,13 +389,13 @@ export default function HealthcareITPage() {
             <div className="flex flex-wrap justify-center gap-4 mt-10">
               <a
                 href="mailto:services@visionblox.com?subject=Healthcare%20IT%20Capability%20Briefing"
-                className="btn-gold"
+                className="btn-primary"
               >
                 REQUEST A CAPABILITY BRIEFING
               </a>
               <a
                 href="mailto:services@visionblox.com?subject=Capabilities%20Statement%20Request"
-                className="btn-teal-outline"
+                className="btn-secondary"
               >
                 DOWNLOAD CAPABILITIES STATEMENT
               </a>

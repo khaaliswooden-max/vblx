@@ -35,7 +35,7 @@ const AWARDS: Award[] = [
     status: 'MASTER CONTRACT VEHICLE',
     awarded: 'Fully executed August 14, 2026',
     location: 'Statewide — Montana (cooperative purchasing nationwide)',
-    color: '#F7B801',
+    color: 'var(--vbx-navy)',
     badge: 'STATE / SLED',
     scope:
       'Fully executed statewide master contract vehicle (No. SPB26-0608GW-VSNBLX) for AI software solutions deployable across Montana state government operations, agencies, and workforce functions. Awarded to Visionblox LLC on both solicitation tracks. Through cooperative purchasing, public procurement units nationwide may purchase at contract terms.',
@@ -57,7 +57,7 @@ const AWARDS: Award[] = [
     status: 'ACTIVE DELIVERY',
     awarded: '2026 — Present',
     location: 'Maryland',
-    color: '#22D3EE',
+    color: 'var(--vbx-teal)',
     badge: 'DATA / AI',
     scope:
       "Unified governance of four interdependent enterprise platforms — Synergy SIS, Canvas LMS, a Snowflake enterprise data warehouse, and a cross-cutting data quality layer — operated as a single source of truth for one of Maryland's largest school systems.",
@@ -78,7 +78,7 @@ const AWARDS: Award[] = [
     status: 'ACTIVE DELIVERY',
     awarded: '2026 — Present',
     location: 'Remote (US)',
-    color: '#3B82F6',
+    color: 'var(--vbx-teal)',
     badge: 'SAP / ENTERPRISE',
     scope:
       'Enterprise SAP Business Technology Platform integration program transforming B2B / EDI transaction flows — order receipt and validation, acknowledgement, shipping and logistics, invoicing, and payment — across a complex multi-system landscape.',
@@ -98,7 +98,7 @@ function AwardCard({ award }: { award: Award }) {
     <div>
       <div className="data-line" />
       <div
-        style={{ borderLeft: `3px solid ${award.color}` }}
+        style={{ borderLeft: `3px solid var(--vbx-teal)` }}
         className="px-5 md:px-8 pt-8 pb-7"
       >
         {/* Header row */}
@@ -109,8 +109,8 @@ function AwardCard({ award }: { award: Award }) {
               width: '64px',
               height: '64px',
               borderRadius: '4px',
-              border: `1px solid ${award.color}33`,
-              background: 'rgba(245,245,240,0.06)',
+              border: '1px solid var(--vbx-teal-tint)',
+              background: 'var(--vbx-teal-tint)',
               padding: '8px',
             }}
           >
@@ -122,19 +122,19 @@ function AwardCard({ award }: { award: Award }) {
               style={{ width: '100%', height: '100%', objectFit: 'contain' }}
             />
           </div>
-          <p className="font-mono text-vbx-muted tracking-[0.08em]" style={{ fontSize: '0.75rem' }}>
-            {'// '}{award.number}
+          <p className="font-mono text-vbx-navy-light tracking-[0.08em]" style={{ fontSize: '0.75rem' }}>
+            {award.number}
           </p>
-          <h2 className="font-display text-vbx-white" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)' }}>
+          <h2 className="font-display text-vbx-navy" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)' }}>
             {award.awardingBody}
           </h2>
           <span
             className="font-mono tracking-[0.1em] px-2 py-1"
             style={{
               fontSize: '0.625rem',
-              color: award.color,
-              border: `1px solid ${award.color}55`,
-              background: `${award.color}10`,
+              color: 'var(--vbx-navy)',
+              border: '1px solid var(--vbx-teal-tint)',
+              background: 'var(--vbx-teal-tint)',
               borderRadius: '2px',
             }}
           >
@@ -142,26 +142,26 @@ function AwardCard({ award }: { award: Award }) {
           </span>
         </div>
 
-        <p className="font-sans text-vbx-muted mb-5" style={{ fontSize: '1rem' }}>
+        <p className="font-sans text-vbx-navy-light mb-5" style={{ fontSize: '1rem' }}>
           {award.title}
         </p>
 
         {/* Meta row */}
         <div
-          className="flex flex-wrap gap-x-6 gap-y-1 mb-5 font-mono text-vbx-muted"
+          className="flex flex-wrap gap-x-6 gap-y-1 mb-5 font-mono text-vbx-navy-light"
           style={{ fontSize: '0.6875rem', letterSpacing: '0.05em' }}
         >
-          <span>STATUS:&nbsp;<span style={{ color: award.color }}>{award.status}</span></span>
+          <span>STATUS:&nbsp;<span style={{ color: 'var(--vbx-navy)' }}>{award.status}</span></span>
           {award.vehicle && (
-            <span>SOLICITATION:&nbsp;<span className="text-vbx-white">{award.vehicle}</span></span>
+            <span>SOLICITATION:&nbsp;<span className="text-vbx-navy">{award.vehicle}</span></span>
           )}
-          <span>AWARDED:&nbsp;<span className="text-vbx-white">{award.awarded}</span></span>
-          <span>LOCATION:&nbsp;<span className="text-vbx-white">{award.location}</span></span>
+          <span>AWARDED:&nbsp;<span className="text-vbx-navy">{award.awarded}</span></span>
+          <span>LOCATION:&nbsp;<span className="text-vbx-navy">{award.location}</span></span>
         </div>
 
         {/* Scope */}
         <p
-          className="font-sans text-vbx-muted mb-5 max-w-[760px]"
+          className="font-sans text-vbx-navy-light mb-5 max-w-[760px]"
           style={{ fontSize: '0.9375rem', lineHeight: '1.7' }}
         >
           {award.scope}
@@ -169,17 +169,17 @@ function AwardCard({ award }: { award: Award }) {
 
         {/* Highlights */}
         <div className="mb-5">
-          <p className="font-mono text-vbx-muted mb-3 tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
+          <p className="font-mono text-vbx-navy-light mb-3 tracking-[0.08em]" style={{ fontSize: '0.625rem' }}>
             AWARD HIGHLIGHTS
           </p>
           <ul className="space-y-1.5">
             {award.highlights.map((h) => (
               <li
                 key={h}
-                className="font-sans text-vbx-muted flex gap-2"
+                className="font-sans text-vbx-navy-light flex gap-2"
                 style={{ fontSize: '0.9375rem', lineHeight: '1.6' }}
               >
-                <span className="flex-shrink-0 mt-0.5" style={{ color: award.color }}>—</span>
+                <span className="flex-shrink-0 mt-0.5" style={{ color: 'var(--vbx-navy)' }}>—</span>
                 {h}
               </li>
             ))}
@@ -189,10 +189,9 @@ function AwardCard({ award }: { award: Award }) {
         {award.detailHref && (
           <Link
             href={award.detailHref}
-            className="font-mono text-vbx-teal hover:text-vbx-white transition-colors"
+            className="font-mono text-vbx-navy hover:text-vbx-navy transition-colors"
             style={{ fontSize: '0.8125rem', letterSpacing: '0.06em' }}
-          >
-            → {award.detailLabel}
+          >{award.detailLabel}
           </Link>
         )}
       </div>
@@ -202,23 +201,23 @@ function AwardCard({ award }: { award: Award }) {
 
 export default function AwardsPage() {
   return (
-    <div className="bg-vbx-navy min-h-screen">
+    <div className="bg-vbx-offwhite min-h-screen">
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30 pointer-events-none" />
         <div className="container-wide relative">
-          <p className="font-mono text-vbx-teal mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
-            {'// CONTRACT AWARDS // COMPETITIVELY AWARDED // STATE & COMMERCIAL'}
+          <p className="font-mono text-vbx-navy mb-6 tracking-[0.15em]" style={{ fontSize: '0.75rem' }}>
+            State & commercial
           </p>
           <h1
-            className="font-display text-vbx-white mb-6"
+            className="font-display text-vbx-navy mb-6"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: '1.1', maxWidth: '820px' }}
           >
             Contract Awards.
           </h1>
           <p
-            className="font-sans text-vbx-muted mb-8 max-w-[680px]"
+            className="font-sans text-vbx-navy-light mb-8 max-w-[680px]"
             style={{ fontSize: '1.0625rem', lineHeight: '1.75' }}
           >
             Competitively awarded contracts and master contract vehicles held by Visionblox LLC —
@@ -230,28 +229,28 @@ export default function AwardsPage() {
             <a
               href="/CapStatement_Visionblox_HC_v2.pdf"
               download
-              className="btn-teal-outline inline-flex items-center gap-2"
+              className="btn-secondary inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
               ↓ DOWNLOAD CAPABILITY STATEMENT
             </a>
             <a
               href="mailto:services@visionblox.com?subject=Contract%20Awards%20Inquiry"
-              className="btn-gold inline-flex items-center gap-2"
+              className="btn-primary inline-flex items-center gap-2"
               style={{ fontSize: '0.8125rem', letterSpacing: '0.08em' }}
             >
               REQUEST AWARD DOCUMENTATION
             </a>
           </div>
-          <p className="font-mono text-vbx-teal" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
-            CAGE: 9Z4X2&nbsp;&nbsp;//&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;//&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;//&nbsp;&nbsp;HIPAA / HITRUST / ISO 27001
+          <p className="font-mono text-vbx-navy" style={{ fontSize: '0.8125rem', letterSpacing: '0.12em' }}>
+            CAGE: 9Z4X2&nbsp;&nbsp;·&nbsp;&nbsp;UEI: H4X2Z7R9E3E3&nbsp;&nbsp;·&nbsp;&nbsp;MINORITY-OWNED&nbsp;&nbsp;·&nbsp;&nbsp;HIPAA / HITRUST / ISO 27001
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 data-line" />
       </section>
 
       {/* ── AGGREGATE STATS ───────────────────────────────────────────────── */}
-      <section className="py-10" style={{ borderBottom: '1px solid rgba(46,168,145,0.15)' }}>
+      <section className="py-10" style={{ borderBottom: '1px solid var(--vbx-rule)' }}>
         <div className="container-wide">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-vbx-teal/20">
             {[
@@ -269,10 +268,10 @@ export default function AwardsPage() {
               },
             ].map((stat) => (
               <div key={stat.label} className="text-center px-6 py-4 sm:first:pl-0 sm:last:pr-0">
-                <p className="font-mono text-vbx-teal mb-1" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+                <p className="font-mono text-vbx-navy mb-1" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
                   {stat.value}
                 </p>
-                <p className="font-sans text-vbx-muted" style={{ fontSize: '0.8125rem' }}>
+                <p className="font-sans text-vbx-navy-light" style={{ fontSize: '0.8125rem' }}>
                   {stat.label}
                 </p>
               </div>
@@ -292,17 +291,17 @@ export default function AwardsPage() {
       </section>
 
       {/* ── PAGE CTA BLOCK ────────────────────────────────────────────────── */}
-      <section className="section-padding bg-vbx-navy">
+      <section className="section-padding bg-vbx-offwhite">
         <div className="container-wide">
           <div className="data-line mb-12" />
           <div className="max-w-[720px] mx-auto text-center">
             <h2
-              className="font-display text-vbx-white mb-6"
+              className="font-display text-vbx-navy mb-6"
               style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: '1.3' }}
             >
               Need award documentation for a procurement evaluation?
             </h2>
-            <p className="font-sans text-vbx-muted mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="font-sans text-vbx-navy-light mb-10" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
               Visionblox can provide award notices, contract vehicle details, past performance
               questionnaire (PPQ) responses, and direct reference contacts for every award listed
               above. Contact our capture team to discuss your specific evaluation criteria.
@@ -310,11 +309,11 @@ export default function AwardsPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:services@visionblox.com?subject=Award%20Documentation%20Request"
-                className="btn-gold"
+                className="btn-primary"
               >
                 REQUEST DOCUMENTATION
               </a>
-              <Link href="/pastperformance" className="btn-teal-outline">
+              <Link href="/pastperformance" className="btn-secondary">
                 VIEW PAST PERFORMANCE
               </Link>
             </div>

@@ -16,30 +16,30 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || isLoading}
         className={cn(
-          // Base styles
-          'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-primary',
+          // Base styles. Radius is capped at 4px by the theme.
+          'inline-flex items-center justify-center font-medium transition-colors duration-200 rounded-sm',
           'disabled:opacity-50 disabled:cursor-not-allowed',
-          
-          // Variant styles
+
+          // Variant styles. Measured against the light ground:
+          //   offwhite on navy   12.04:1   navy on offwhite  12.04:1
+          //   navy on teal-tint  11.75:1
+          // The previous primary was offwhite on teal, which measures 2.69:1
+          // and fails AA outright.
           variant === 'primary' && [
-            'bg-accent-primary text-background-primary',
-            'hover:bg-accent-hover hover:shadow-glow-md',
-            'active:scale-[0.98]',
+            'bg-vbx-navy text-vbx-offwhite border border-vbx-navy',
+            'hover:bg-vbx-navy-light hover:border-vbx-navy-light',
           ],
           variant === 'secondary' && [
-            'bg-background-tertiary text-text-primary border border-[#344669]/12',
-            'hover:bg-background-elevated hover:border-[#344669]/24',
-            'active:scale-[0.98]',
+            'bg-vbx-teal-tint text-vbx-navy border border-vbx-rule',
+            'hover:border-vbx-navy',
           ],
           variant === 'ghost' && [
-            'text-text-secondary',
-            'hover:text-text-primary hover:bg-[#344669]/5',
+            'text-vbx-navy-light',
+            'hover:text-vbx-navy hover:bg-vbx-teal-tint',
           ],
           variant === 'outline' && [
-            'border border-accent-primary text-accent-primary bg-transparent',
-            'hover:bg-accent-primary/10 hover:shadow-glow-sm',
-            'active:scale-[0.98]',
+            'border border-vbx-navy text-vbx-navy bg-transparent',
+            'hover:bg-vbx-navy hover:text-vbx-offwhite',
           ],
           
           // Size styles

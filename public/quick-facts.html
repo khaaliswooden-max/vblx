@@ -23,14 +23,19 @@
   /* The on-page "share" QR encodes this canonical URL. */
   /* ================================================ */
   :root{
-    /* VBX brand surface system — aligned to visionblox.org */
-    --bg:#232D5A; --bg2:#1B2347; --panel:#2A3560; --navy:#232D5A;
-    --teal:#2EA891; --teal-dim:#26957F; --gold:#F7B801;
-    --ink:#F5F5F0; --muted:#8892A4; --faint:#6B7589;
-    --line:rgba(46,168,145,.15); --line2:rgba(46,168,145,.06);
-    --display:"DM Serif Display","Playfair Display",Georgia,serif;
-    --mono:"JetBrains Mono","IBM Plex Mono","Courier New",monospace;
-    --sans:"DM Sans","Instrument Sans",system-ui,sans-serif;
+    /* VBX brand system — the eight tokens, light ground (see app/globals.css).
+       Measured on this ground: navy 12.04:1, navy-light 10.81:1. Teal (2.69),
+       gold (1.63) and muted (2.87) fail as text and are non-text only. */
+    --navy:#232D5A; --navy-light:#2A3560; --teal:#2EA891; --teal-light:#7FD4C1;
+    --teal-tint:#E7F5F1; --gold:#F7B801; --muted:#8892A4; --offwhite:#F5F5F0;
+
+    --bg:var(--offwhite); --bg2:var(--teal-tint); --panel:var(--teal-tint);
+    --ink:var(--navy); --ink2:var(--navy-light);
+    --faint:var(--navy-light);
+    --line:rgba(136,146,164,.35); --line2:rgba(136,146,164,.20);
+    --sans:"DM Sans",Arial,Helvetica,system-ui,sans-serif;
+    --display:var(--sans);
+    --mono:"JetBrains Mono","Courier New",monospace;
     --maxw:560px;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -46,10 +51,10 @@
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px 64px;}
   .mono{font-family:var(--mono);}
-  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;}
-  .muted{color:var(--muted);}
-  .gold{color:var(--gold);}
-  .teal{color:var(--teal);}
+  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--navy);text-transform:uppercase;}
+  .muted{color:var(--navy-light);}
+  .gold{color:var(--navy);}
+  .teal{color:var(--navy);}
 
   /* status bar */
   .statusbar{
@@ -59,7 +64,7 @@
     padding:11px 20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
   }
   .statusbar .l{color:var(--ink);text-transform:uppercase;}
-  .statusbar .r{color:var(--teal);display:flex;align-items:center;gap:7px;}
+  .statusbar .r{color:var(--navy);display:flex;align-items:center;gap:7px;}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(46,168,145,.6);animation:pulse 2.4s infinite;}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,168,145,.55);}70%{box-shadow:0 0 0 9px rgba(46,168,145,0);}100%{box-shadow:0 0 0 0 rgba(46,168,145,0);}}
 
@@ -71,57 +76,57 @@
   .hero{padding:34px 0 4px;}
   .logo{display:flex;align-items:center;gap:11px;}
   .logo .mark{width:42px;height:auto;flex:none;}
-  .wordmark{font-family:var(--sans);font-weight:600;font-size:27px;letter-spacing:-.02em;color:var(--ink);line-height:1;}
+  .lockup{width:150px;height:auto;display:block;}
   .idline{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px;}
   .idchip{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;border:1px solid var(--line);
-    border-radius:4px;padding:6px 9px;color:var(--ink);background:rgba(255,255,255,.02);}
-  .idchip b{color:var(--gold);font-weight:700;}
+    border-radius:4px;padding:6px 9px;color:var(--ink);background:transparent;}
+  .idchip b{color:var(--navy);font-weight:700;}
 
   /* tabs */
   .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0 4px;}
   .tab{
     font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;font-weight:700;text-transform:uppercase;
     padding:13px 10px;text-align:center;border-radius:2px;cursor:pointer;
-    border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.02);
+    border:1px solid var(--line);color:var(--navy-light);background:transparent;
     transition:color .2s,border-color .2s,background .2s;
   }
-  .tab:hover{color:var(--ink);border-color:var(--teal);}
-  .tab[aria-selected="true"]{background:var(--teal);color:var(--navy);border-color:var(--teal);}
+  .tab:hover{color:var(--ink);border-color:var(--navy);}
+  .tab[aria-selected="true"]{background:var(--navy);color:var(--offwhite);border-color:var(--navy);}
   .pane{display:none;}
   .pane.active{display:block;}
 
   /* pane headline */
   .ph{padding:24px 0 0;}
   .ph h1{font-family:var(--display);font-size:27px;line-height:1.16;font-weight:400;letter-spacing:0;}
-  .ph h1 span{color:var(--teal);}
-  .ph p.sub{margin-top:13px;color:var(--muted);font-size:14.5px;max-width:48ch;}
+  .ph h1 span{color:var(--navy);}
+  .ph p.sub{margin-top:13px;color:var(--navy-light);font-size:14.5px;max-width:48ch;}
 
   /* thesis */
   .thesis{border-left:2px solid var(--gold);padding:6px 0 6px 18px;margin:26px 0 6px;}
   .thesis q{quotes:none;font-family:var(--display);font-size:18px;line-height:1.4;font-weight:400;font-style:italic;display:block;}
-  .thesis .by{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--muted);margin-top:10px;text-transform:uppercase;}
+  .thesis .by{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--navy-light);margin-top:10px;text-transform:uppercase;}
 
   /* section header */
-  .sh{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--teal);text-transform:uppercase;
+  .sh{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--navy);text-transform:uppercase;
     margin:38px 0 16px;display:flex;align-items:center;gap:10px;}
-  .sh::before{content:"//";color:var(--gold);}
+  .sh::before{content:"//";color:var(--navy);}
   .sh .rule{flex:1;height:1px;background:var(--line);}
 
   /* stats */
   .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;}
   .stat{background:var(--bg2);padding:18px 16px;}
   .stat .n{font-family:var(--mono);font-size:25px;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
-  .stat .n .u{color:var(--teal);}
-  .stat .lbl{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.35;letter-spacing:.02em;}
+  .stat .n .u{color:var(--navy);}
+  .stat .lbl{font-size:11px;color:var(--navy-light);margin-top:6px;line-height:1.35;letter-spacing:.02em;}
 
   /* capabilities */
   .cap{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:18px 18px 17px;margin-bottom:12px;position:relative;overflow:hidden;}
   .cap::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);opacity:.0;transition:opacity .3s;}
   .cap:hover::after,.cap:active::after{opacity:1;}
-  .cap .num{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em;}
+  .cap .num{font-family:var(--mono);font-size:11px;color:var(--navy);letter-spacing:.1em;}
   .cap h3{font-size:16.5px;margin:8px 0 7px;font-weight:700;letter-spacing:-.01em;}
-  .cap p{font-size:13.5px;color:var(--muted);line-height:1.5;}
-  .cap .stk{font-family:var(--mono);font-size:10.5px;color:var(--teal);margin-top:11px;letter-spacing:.04em;}
+  .cap p{font-size:13.5px;color:var(--navy-light);line-height:1.5;}
+  .cap .stk{font-family:var(--mono);font-size:10.5px;color:var(--navy);margin-top:11px;letter-spacing:.04em;}
 
   /* engagements */
   .eng{display:flex;align-items:flex-start;gap:14px;background:var(--bg2);border:1px solid var(--line);
@@ -129,49 +134,49 @@
   .eng .body{flex:1;min-width:0;}
   .eng .client{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink);font-weight:700;}
   .eng .proj{font-size:14.5px;font-weight:700;margin:3px 0 6px;letter-spacing:-.01em;}
-  .eng .meta{font-family:var(--mono);font-size:10.5px;color:var(--muted);line-height:1.5;letter-spacing:.02em;}
-  .badge{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gold);border:1px solid rgba(247,184,1,.35);
+  .eng .meta{font-family:var(--mono);font-size:10.5px;color:var(--navy-light);line-height:1.5;letter-spacing:.02em;}
+  .badge{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--navy);border:1px solid rgba(247,184,1,.35);
     background:rgba(247,184,1,.06);border-radius:2px;padding:4px 7px;white-space:nowrap;}
 
   /* designations */
   .chips{display:flex;flex-wrap:wrap;gap:8px;}
   .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink);
     border:1px solid var(--line);background:rgba(46,168,145,.06);border-radius:2px;padding:8px 10px;}
-  .chip::before{content:"▸ ";color:var(--teal);}
+  .chip::before{content:"▸ ";color:var(--navy);}
 
   /* contact / actions / downloads */
   .contact{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:4px;padding:22px 20px;}
   .contact .name{font-size:19px;font-weight:700;letter-spacing:-.01em;}
-  .contact .role{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
-  .contact .org{font-size:13px;color:var(--muted);margin-top:8px;}
+  .contact .role{font-family:var(--mono);font-size:11px;color:var(--navy);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
+  .contact .org{font-size:13px;color:var(--navy-light);margin-top:8px;}
   .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
   .btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
     font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;font-weight:700;text-transform:uppercase;
-    padding:14px 12px;border-radius:2px;border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.03);
+    padding:14px 12px;border-radius:2px;border:1px solid var(--line);color:var(--ink);background:transparent;
     transition:transform .12s ease,background .2s ease,border-color .2s ease;cursor:pointer;}
   .btn:active{transform:scale(.97);}
   .btn svg{width:16px;height:16px;flex:none;}
-  .btn.primary{background:var(--teal);color:var(--navy);border-color:var(--teal);}
-  .btn.primary:hover{background:#36c2a8;}
-  .btn.gold{background:var(--gold);color:var(--navy);border-color:var(--gold);}
-  .btn.gold:hover{background:#FFD44D;}
+  .btn.primary{background:var(--navy);color:var(--offwhite);border-color:var(--navy);}
+  .btn.primary:hover{background:var(--navy-light);border-color:var(--navy-light);}
+  .btn.gold{background:transparent;color:var(--navy);border-left:3px solid var(--gold);}
+  .btn.gold:hover{background:var(--gold);}
   .btn.wide{grid-column:1 / -1;}
-  .btn.ghost:hover{border-color:var(--teal);background:rgba(46,168,145,.08);}
+  .btn.ghost:hover{border-color:var(--navy);background:rgba(46,168,145,.08);}
   .dl{display:grid;grid-template-columns:1fr;gap:10px;}
 
   /* share QR */
   .share{margin-top:28px;display:flex;gap:16px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:16px;}
   .qrbox{background:#fff;border-radius:4px;padding:8px;flex:none;line-height:0;}
   .qrbox canvas{display:block;width:96px;height:96px;}
-  .share .t{font-size:13px;color:var(--muted);line-height:1.45;}
-  .share .t b{color:var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.08em;display:block;margin-bottom:5px;text-transform:uppercase;color:var(--teal);}
+  .share .t{font-size:13px;color:var(--navy-light);line-height:1.45;}
+  .share .t b{color:var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.08em;display:block;margin-bottom:5px;text-transform:uppercase;color:var(--navy);}
 
   /* footer */
   footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);}
-  footer .fmono{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em;line-height:1.9;}
+  footer .fmono{font-family:var(--mono);font-size:10.5px;color:var(--navy-light);letter-spacing:.05em;line-height:1.9;}
   footer .fmono span{color:var(--ink);}
-  footer .copy{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em;margin-top:16px;}
-  footer a{color:var(--teal);text-decoration:none;}
+  footer .copy{font-family:var(--mono);font-size:11px;color:var(--navy-light);letter-spacing:.06em;margin-top:16px;}
+  footer a{color:var(--navy);text-decoration:none;}
 
   @media(min-width:600px){
     .ph h1{font-size:31px;}
@@ -181,28 +186,23 @@
 </head>
 <body>
 
-<div class="statusbar">
-  <div class="l">VISIONBLOX&nbsp;//&nbsp;CAPABILITY CARD</div>
+<header class="statusbar">
+  <div class="l">Visionblox capability card</div>
   <div class="r"><span class="dot"></span>SYS // 99.8% UPTIME</div>
-</div>
+</header>
 
 <div class="wrap">
 
+  <main id="content">
   <!-- HERO -->
   <section class="hero rv" style="animation-delay:.02s">
     <div class="logo">
-      <svg class="mark" viewBox="0 0 272 231" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Visionblox">
-        <path fill="#CEC9E1" d="M120.531342,1.000000 C120.985779,1.200164 120.971558,1.400328 120.441223,1.839226 C95.320389,2.101433 70.715660,2.124906 46.110931,2.148379 C46.092243,1.957002 46.073551,1.765625 46.027431,1.287124 C70.687561,1.000000 95.375122,1.000000 120.531342,1.000000 z"/>
-        <path fill="#FCE3DA" d="M152.939529,1.859521 C152.939529,1.859521 152.964935,1.429421 152.982468,1.214710 C177.687561,1.000000 202.375122,1.000000 227.531342,1.000000 C227.989166,1.190234 227.978333,1.380469 227.734543,1.852998 C227.501572,2.135293 227.088455,2.201818 226.616577,2.132330 C201.742966,1.995069 177.341248,1.927295 152.939529,1.859521 z"/>
-        <path fill="#F58E64" d="M227.088455,2.201816 C227.088455,2.201818 227.501572,2.135293 227.710663,2.137809 C239.055908,21.436020 250.052109,40.814857 261.430786,59.966454 C264.131348,64.511833 264.338837,67.838173 261.513062,72.550774 C250.064331,91.644028 239.138779,111.050980 227.552277,131.154068 C215.158936,109.664185 203.101791,88.757271 191.027100,67.145393 C197.338364,55.144104 203.658401,43.842854 209.998581,32.552902 C215.683701,22.429411 221.390961,12.318354 227.088455,2.201816 z"/>
-        <path fill="#64C4A8" d="M137.974426,159.840820 C150.172348,138.546188 162.370255,117.251572 175.019333,95.169342 C176.484909,97.501884 177.541351,99.073044 178.488464,100.707558 C188.902695,118.680489 199.375824,136.620453 209.582108,154.710892 C210.582458,156.484009 210.830826,159.717072 209.880646,161.397324 C198.266617,181.934967 186.363129,202.308914 173.866196,222.859848 C172.260361,221.903900 171.106720,220.934235 170.418991,219.704102 C163.539062,207.397827 156.671387,195.083725 149.934830,182.698624 C145.826477,175.145477 141.953247,167.464432 137.974426,159.840820 z"/>
-        <path fill="#F8A98C" d="M226.616577,2.132329 C221.390961,12.318354 215.683701,22.429411 209.998581,32.552902 C203.658401,43.842854 197.338364,55.144104 190.934723,66.812042 C188.932114,66.852997 187.005234,66.241211 185.076370,66.234871 C164.099838,66.165840 143.122986,66.191696 122.146217,66.191689 C120.332550,66.191689 118.518883,66.191689 115.387909,66.191689 C128.047012,44.343670 140.228073,23.320675 152.674332,2.078601 C177.341248,1.927295 201.742966,1.995069 226.616577,2.132329 z"/>
-        <path fill="#6557A2" d="M45.971233,2.461516 C70.715660,2.124906 95.320389,2.101433 120.378922,2.133708 C108.688316,23.274916 96.543915,44.360378 83.720703,65.721184 C60.402206,65.998917 37.762451,66.023315 15.122941,65.959702 C13.407935,65.954887 11.694687,65.324738 9.980621,64.985268 C21.930925,44.248394 33.881229,23.511524 45.971233,2.461516 z"/>
-        <path fill="#1DB588" d="M137.507935,159.859100 C141.953247,167.464432 145.826477,175.145477 149.934830,182.698624 C156.671387,195.083725 163.539062,207.397827 170.418991,219.704102 C171.106720,220.934235 172.260361,221.903900 173.548325,222.993835 C172.524368,223.565292 171.152222,224.629364 169.775040,224.635895 C147.784912,224.740128 125.793739,224.761780 103.804276,224.601334 C102.187225,224.589539 99.856102,223.467026 99.079056,222.143417 C87.285858,202.055237 75.695702,181.847824 64.074638,161.658752 C63.929291,161.406235 64.000053,161.029343 63.891266,159.877365 C88.328522,159.877365 112.684982,159.877365 137.507935,159.859100 z"/>
-        <path fill="#9182BC" d="M83.957581,67.010948 C96.242828,88.112297 108.528069,109.213646 121.148911,130.891418 C118.825317,131.002487 117.385574,131.130600 115.945778,131.131241 C94.280258,131.140884 72.614151,131.054169 50.949791,131.211700 C47.482635,131.236908 45.646790,130.106003 43.946884,127.098656 C32.722889,107.242043 21.282562,87.507713 10.323404,67.372223 C35.141918,67.010918 59.549751,67.010933 83.957581,67.010948 z"/>
-        <path fill="#A399C7" d="M83.972092,66.754028 C59.549751,67.010933 35.141918,67.010918 10.243355,67.019669 C9.686771,66.445976 9.620922,65.863533 9.767847,65.133179 C11.694687,65.324738 13.407935,65.954887 15.122941,65.959702 C37.762451,66.023315 60.402206,65.998917 83.508728,65.989555 C83.979233,66.154091 83.982910,66.325600 83.972092,66.754028 z"/>
-      </svg>
-      <span class="wordmark">visionblox</span>
+      <!-- The real full-colour lockup. The wordmark must never be typeset as
+           text; this file previously rendered <span class="wordmark">visionblox</span>
+           beside the mark. There is no knockout lockup, so this sits on the
+           light ground only. -->
+      <img class="lockup" src="/visionblox-logo.png" width="1002" height="422"
+           alt="Visionblox">
     </div>
     <div class="idline">
       <span class="idchip">CAGE <b>9Z4X2</b></span>
@@ -243,25 +243,25 @@
     <section>
       <div class="cap rv" style="animation-delay:.18s">
         <div class="num">[ 01 ]</div>
-        <h3>EMR Integration &amp; Interoperability</h3>
+        <h2>EMR Integration &amp; Interoperability</h2>
         <p>Epic HealthConnect integration, HL7/FHIR data pipelines, federated SSO, and 21st Century Cures Act information-blocking compliance — running in production, not in a pilot.</p>
         <div class="stk">▸ LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM — 100K+ DAILY USERS, ZERO-DOWNTIME RELEASES</div>
       </div>
       <div class="cap rv" style="animation-delay:.22s">
         <div class="num">[ 02 ]</div>
-        <h3>Medicaid &amp; MITA Modernization</h3>
+        <h2>Medicaid &amp; MITA Modernization</h2>
         <p>MITA-compliant Medicaid cost and finance systems built to the CMS federal architectural standard. Full SDLC: requirements through UAT, training, and statewide rollout.</p>
         <div class="stk">▸ CALIFORNIA DHCS — STATEWIDE REAL-TIME COST REPORTING</div>
       </div>
       <div class="cap rv" style="animation-delay:.26s">
         <div class="num">[ 03 ]</div>
-        <h3>Healthcare AI &amp; Document Intelligence</h3>
+        <h2>Healthcare AI &amp; Document Intelligence</h2>
         <p>NLP, OCR, and ML pipelines purpose-built for healthcare data — 96% document-processing accuracy and 60% labor reduction delivered at a state Medicaid agency. CAH and rural health AI infrastructure.</p>
         <div class="stk">▸ MONTANA MAPS — STATEWIDE AI MASTER CONTRACT (BOTH TRACKS)</div>
       </div>
       <div class="cap rv" style="animation-delay:.30s">
         <div class="num">[ 04 ]</div>
-        <h3>Compliance &amp; Security Architecture</h3>
+        <h2>Compliance &amp; Security Architecture</h2>
         <p>HIPAA, HITRUST audit execution, Section 508, FISMA alignment, FedRAMP-aware deployment on AWS GovCloud and Azure Government. CISA / CISM / CRISC credentialed staff resident.</p>
         <div class="stk">▸ 13 YEARS HEALTHCARE SECURITY LEADERSHIP ON STAFF</div>
       </div>
@@ -353,25 +353,25 @@
     <section>
       <div class="cap rv" style="animation-delay:.18s">
         <div class="num">[ 01 ]</div>
-        <h3>Enterprise SAP &amp; ERP Modernization</h3>
+        <h2>Enterprise SAP &amp; ERP Modernization</h2>
         <p>S/4HANA delivery at hyperscaler and multi-national scale — FICO, MM, SD, Basis, BTP, GRC. Legacy SAP PO migration and multi-country payroll replication, live across three continents.</p>
         <div class="stk">▸ META $3.5M · BASF $2.4M — $2M+ ANNUAL SAVINGS SUSTAINED</div>
       </div>
       <div class="cap rv" style="animation-delay:.22s">
         <div class="num">[ 02 ]</div>
-        <h3>Legacy Migration &amp; Data Warehousing</h3>
+        <h2>Legacy Migration &amp; Data Warehousing</h2>
         <p>Mainframe-to-modern migration at retail scale: legacy + web data sources unified into JDA/Oracle with star-schema warehousing. Federal-analog for Treasury, VA Supply, and IRS modernization.</p>
         <div class="stk">▸ WALMART GLOBAL REPLENISHMENT SYSTEM — MULTI-YEAR</div>
       </div>
       <div class="cap rv" style="animation-delay:.26s">
         <div class="num">[ 03 ]</div>
-        <h3>AI Products &amp; Services</h3>
+        <h2>AI Products &amp; Services</h2>
         <p>Competitively awarded on both tracks of Montana's Master AI Products &amp; Services (MAPS) statewide vehicle — evaluated against Fortune 500 SIs and national AI firms under public scoring.</p>
         <div class="stk">▸ STATE OF MONTANA — No. SPB26-0608GW-VSNBLX · EXECUTED 2026</div>
       </div>
       <div class="cap rv" style="animation-delay:.30s">
         <div class="num">[ 04 ]</div>
-        <h3>Enterprise Data Engineering &amp; Integration</h3>
+        <h2>Enterprise Data Engineering &amp; Integration</h2>
         <p>Snowflake data platforms, SIS/LMS/ERP governance, and SAP BTP B2B/EDI integration synchronizing 100K+ daily transactions in real time — with 50% runtime cost reduction.</p>
         <div class="stk">▸ HCPSS $550K · SOLGENIE / HORIZON GLOBAL $650K — 2026–PRESENT</div>
       </div>
@@ -470,6 +470,7 @@
   </section>
 
   <!-- FOOTER -->
+  </main>
   <footer class="rv" style="animation-delay:.32s">
     <div class="fmono">
       <span>CAGE</span> 9Z4X2 &nbsp;·&nbsp; <span>UEI</span> H4X2Z7R9E3E3<br>
@@ -477,7 +478,7 @@
       <span>MT MAPS</span> Master AI Contract No. SPB26-0608GW-VSNBLX<br>
       <span>EMAIL</span> services@visionblox.com
     </div>
-    <div class="copy">© 2026 VISIONBLOX LLC // CAPABILITIES DATA — BD USE &nbsp;·&nbsp; <a href="https://visionblox.org">visionblox.org</a></div>
+    <div class="copy">© 2026 Visionblox LLC &nbsp;·&nbsp; <a href="https://visionblox.org">visionblox.org</a></div>
   </footer>
 
 </div>
@@ -486,14 +487,15 @@
   // ===== Canonical hosted URL the share-QR points to. Update after you host this page. =====
   var CANONICAL_URL = "https://visionblox.org/card";
 
-  // Share QR (navy modules on white)
+  // Share QR: navy modules on the offwhite page ground. Both are brand tokens
+  // and the pair measures 12.04:1, far above what any scanner needs.
   try {
     new QRious({
       element: document.getElementById('shareqr'),
       value: CANONICAL_URL,
       size: 320,
       foreground: '#232D5A',
-      background: '#ffffff',
+      background: '#F5F5F0',
       level: 'H'
     });
   } catch(e){}
