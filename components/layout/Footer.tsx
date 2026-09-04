@@ -1,104 +1,104 @@
 import Link from 'next/link'
 import VisionbloxLogo from '@/components/ui/VisionbloxLogo'
 
+const DESIGNATIONS = [
+  'Minority-owned small business',
+  'State of Montana MAPS — both tracks',
+  'HIPAA compliant',
+  'HITRUST-audited security staff',
+  'Section 508 delivered',
+  'FedRAMP-architecture-aware',
+]
+
 export default function Footer() {
   return (
-    <footer style={{ background: '#1B2347' }} className="border-t border-vbx-teal/20">
+    <footer className="bg-vbx-teal-tint border-t border-vbx-rule">
       <div className="container-wide section-padding">
 
-        {/* Three-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
 
-          {/* Column 1 — Identity */}
+          {/* Identity */}
           <div>
-            <div className="mb-4">
-              <VisionbloxLogo variant="full" width={120} textColor="#F5F5F0" />
+            <div className="mb-5">
+              <VisionbloxLogo variant="lockup" width={132} alt="Visionblox" />
             </div>
-            <p className="text-vbx-muted text-sm font-sans mb-6 leading-relaxed">
-              AI-Powered Healthcare IT · Federal &amp; SLED
+            <p className="text-vbx-navy-light text-sm mb-6 leading-relaxed">
+              AI-powered healthcare IT for federal and state government.
             </p>
-            <div className="space-y-1.5">
-              <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
-                CAGE: <span className="text-vbx-teal">9Z4X2</span>
-              </p>
-              <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
-                UEI: <span className="text-vbx-teal">H4X2Z7R9E3E3</span>
-              </p>
-              <p className="font-mono text-xs text-vbx-muted tracking-[0.06em]">
-                NAICS: <span className="text-vbx-white/70">541511 · 541512 · 541519 · 518210</span>
-              </p>
-              <p className="font-mono text-xs tracking-[0.06em] mt-2">
-                <span className="inline-block bg-vbx-gold/15 text-vbx-gold border border-vbx-gold/30 rounded px-2 py-0.5 leading-relaxed">
-                  State of Montana Master AI Contract Holder — SPB26-0608GW-VSNBLX
-                </span>
-              </p>
-            </div>
+
+            {/* Identity codes as a definition list, not a slash-joined string */}
+            <dl className="id-list">
+              <dt>CAGE</dt>
+              <dd>9Z4X2</dd>
+              <dt>UEI</dt>
+              <dd>H4X2Z7R9E3E3</dd>
+              <dt>NAICS</dt>
+              <dd>541511, 541512, 541519, 518210</dd>
+            </dl>
+
+            <p className="mt-5 text-sm text-vbx-navy border-l-2 border-vbx-gold pl-3 leading-relaxed">
+              State of Montana Master AI Contract holder
+              <span className="block font-mono text-xs text-vbx-navy-light mt-0.5">
+                SPB26-0608GW-VSNBLX
+              </span>
+            </p>
           </div>
 
-          {/* Column 2 — Designations */}
+          {/* Designations */}
           <div>
-            <h4 className="font-mono text-xs text-vbx-muted uppercase tracking-[0.12em] mb-6">
-              Designations &amp; Compliance
-            </h4>
-            <div className="space-y-2">
-              {[
-                'MINORITY-OWNED SMALL BUSINESS',
-                'STATE OF MONTANA MAPS — BOTH TRACKS',
-                'HIPAA COMPLIANT',
-                'HITRUST-AUDITED SECURITY STAFF',
-                'SECTION 508 DELIVERED',
-                'FEDRAMP-ARCHITECTURE-AWARE',
-              ].map((item) => (
-                <p key={item} className="font-mono text-xs text-vbx-teal tracking-[0.06em]">
+            <h2 className="text-sm font-semibold text-vbx-navy mb-5">
+              Designations and compliance
+            </h2>
+            <ul className="space-y-2">
+              {DESIGNATIONS.map((item) => (
+                <li key={item} className="text-sm text-vbx-navy-light">
                   {item}
-                </p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          {/* Column 3 — Contact */}
+          {/* Contact */}
           <div>
-            <h4 className="font-mono text-xs text-vbx-muted uppercase tracking-[0.12em] mb-6">
-              Contact
-            </h4>
-            <div className="space-y-2">
-              <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
-                <Link href="/contact" className="hover:text-vbx-white transition-colors">
+            <h2 className="text-sm font-semibold text-vbx-navy mb-5">Contact</h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/contact" className="text-vbx-navy-light hover:text-vbx-navy transition-colors">
                   Start an inquiry
                 </Link>
-              </p>
-              <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
+              </li>
+              <li>
                 <a
                   href="mailto:services@visionblox.com"
-                  className="hover:text-vbx-teal transition-colors"
+                  className="text-vbx-navy-light hover:text-vbx-navy transition-colors"
                 >
                   services@visionblox.com
                 </a>
-              </p>
-              <p className="font-mono text-xs text-vbx-muted tracking-[0.04em]">
+              </li>
+              <li>
                 <a
                   href="https://visionblox.org"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-vbx-white transition-colors"
+                  className="text-vbx-navy-light hover:text-vbx-navy transition-colors"
                 >
                   visionblox.org
                 </a>
-              </p>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 data-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="font-mono text-xs text-vbx-muted tracking-[0.08em] uppercase">
+        <div className="mt-16 pt-6 rule flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="text-sm text-vbx-navy-light">
             © 2026 Visionblox LLC
           </p>
-          <div className="flex items-center gap-6 font-mono text-xs text-vbx-muted tracking-[0.06em]">
-            <Link href="/privacy" className="hover:text-vbx-white transition-colors uppercase">
+          <div className="flex items-center gap-6 text-sm">
+            <Link href="/privacy" className="text-vbx-navy-light hover:text-vbx-navy transition-colors">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-vbx-white transition-colors uppercase">
+            <Link href="/terms" className="text-vbx-navy-light hover:text-vbx-navy transition-colors">
               Terms
             </Link>
           </div>

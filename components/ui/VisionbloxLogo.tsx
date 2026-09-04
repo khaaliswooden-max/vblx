@@ -1,97 +1,78 @@
-interface Props {
-  variant?: 'full' | 'horizontal' | 'icon'
-  width?: number
-  className?: string
-  /** Text fill colour — use '#F5F5F0' on dark backgrounds */
-  textColor?: string
-}
+import Image from 'next/image'
+
+/**
+ * The Visionblox lockup.
+ *
+ * IMPORTANT — asset reality, do not "fix" this by improvising:
+ *
+ *   public/visionblox-logo.png       the real full-colour lockup (mark +
+ *                                    wordmark, navy ink, 1002x422). This is
+ *                                    the same asset embedded in the Visionblox
+ *                                    capability statement. LIGHT GROUNDS ONLY.
+ *   public/visionblox-logo-mark.svg  the mark alone, no wordmark.
+ *
+ * There is NO knockout (light-wordmark) lockup in this repository. Until one
+ * is produced, the lockup must not be placed on a navy band. Do not CSS-invert
+ * or filter the full-colour mark to fake one, and do not typeset the word
+ * "visionblox" as text in place of the wordmark — both were previously done
+ * here and both misrepresent the brand.
+ *
+ * If you need the logo on navy, use `variant="mark"` (the mark reads on dark)
+ * or place the full-colour lockup on an offwhite chip.
+ */
+
+const LOCKUP_SRC = '/visionblox-logo.png'
+const LOCKUP_W = 1002
+const LOCKUP_H = 422
 
 const MARK_SRC = '/visionblox-logo-mark.svg'
 const MARK_W = 272
 const MARK_H = 231
 
+interface Props {
+  /** `lockup` = mark + wordmark (light grounds only). `mark` = mark alone. */
+  variant?: 'lockup' | 'mark'
+  /** Rendered width in px. Height is derived from the asset's aspect ratio. */
+  width?: number
+  className?: string
+  priority?: boolean
+  /**
+   * Accessible name. Pass `''` when the logo sits inside a link that already
+   * carries its own label, so the name is not announced twice.
+   */
+  alt?: string
+}
+
 export default function VisionbloxLogo({
-  variant = 'horizontal',
+  variant = 'lockup',
   width,
   className,
-  textColor = '#3A4677',
+  priority = false,
+  alt = 'Visionblox',
 }: Props) {
-  if (variant === 'icon') {
+  if (variant === 'mark') {
     const w = width ?? 40
     return (
-      <img
+      <Image
         src={MARK_SRC}
+        alt={alt}
         width={w}
         height={Math.round((w * MARK_H) / MARK_W)}
         className={className}
-        alt="Visionblox"
+        priority={priority}
       />
     )
   }
 
-  if (variant === 'horizontal') {
-    const w = width ?? 180
-    const markH = 50
-    const markW = Math.round((markH * MARK_W) / MARK_H)
-    return (
-      <svg
-        viewBox="0 0 340 60"
-        width={w}
-        height={Math.round((w * 60) / 340)}
-        className={className}
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Visionblox"
-      >
-        <image href={MARK_SRC} x={0} y={5} width={markW} height={markH} preserveAspectRatio="xMidYMid meet" />
-        <text
-          x={markW + 12}
-          y={42}
-          fontFamily="DM Sans, Instrument Sans, system-ui, sans-serif"
-          fontSize={32}
-          fontWeight="600"
-          fill={textColor}
-          letterSpacing="-0.5"
-        >
-          visionblox
-        </text>
-      </svg>
-    )
-  }
-
-  const w = width ?? 160
-  const markW = 220
-  const markH = Math.round((markW * MARK_H) / MARK_W)
+  const w = width ?? 180
   return (
-    <svg
-      viewBox="0 0 256 300"
+    <Image
+      src={LOCKUP_SRC}
+      alt={alt}
       width={w}
-      height={Math.round((w * 300) / 256)}
+      height={Math.round((w * LOCKUP_H) / LOCKUP_W)}
       className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      aria-label="Visionblox"
-    >
-      <image
-        href={MARK_SRC}
-        x={(256 - markW) / 2}
-        y={20}
-        width={markW}
-        height={markH}
-        preserveAspectRatio="xMidYMid meet"
-      />
-      <text
-        x="128"
-        y="272"
-        textAnchor="middle"
-        fontFamily="DM Sans, Instrument Sans, system-ui, sans-serif"
-        fontSize="34"
-        fontWeight="600"
-        fill={textColor}
-        letterSpacing="-0.5"
-      >
-        visionblox
-      </text>
-    </svg>
+      priority={priority}
+    />
   )
 }
