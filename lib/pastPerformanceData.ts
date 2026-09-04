@@ -121,7 +121,7 @@ export const ENGAGEMENTS: Engagement[] = [
     ],
     federalApplicability:
       'Epic HealthConnect integration, Cures Act compliance, and 99.8% uptime at 100K+ daily users map directly to VA OIT, HHS, and state Medicaid RFP evaluation criteria. Primary citable reference for any federal RFP requiring EMR integration experience.',
-    slug: 'kaiser-vcare-portal',
+    slug: 'national-health-system-patient-portal',
   },
   {
     number: '03',

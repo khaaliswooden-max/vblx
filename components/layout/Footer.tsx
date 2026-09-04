@@ -92,7 +92,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 data-line pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="font-mono text-xs text-vbx-muted tracking-[0.08em] uppercase">
-            © 2026 VISIONBLOX LLC&nbsp;&nbsp;//&nbsp;&nbsp;INTERNAL CAPABILITIES DATA — BD USE
+            © 2026 Visionblox LLC
           </p>
           <div className="flex items-center gap-6 font-mono text-xs text-vbx-muted tracking-[0.06em]">
             <Link href="/privacy" className="hover:text-vbx-white transition-colors uppercase">

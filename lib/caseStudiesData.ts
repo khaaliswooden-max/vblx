@@ -85,8 +85,8 @@ export interface CaseStudy {
 // PORTFOLIO CASE STUDIES - Enterprise Implementations
 // ============================================================================
 
-export const kaiserVCareCase: CaseStudy = {
-  id: 'kaiser-vcare-portal',
+export const nationalHealthSystemPortalCase: CaseStudy = {
+  id: 'national-health-system-patient-portal',
   title: 'West Coast Healthcare System Patient Portal Transformation',
   subtitle: '100K+ Daily Users Served with 99.8% Uptime',
   client: 'West Coast Integrated Healthcare System (7M+ members)',
@@ -94,7 +94,7 @@ export const kaiserVCareCase: CaseStudy = {
   industryId: 'healthcare',
   serviceCategory: 'operations',
   products: ['Pro-Portal', 'Pro-Integration'],
-  heroImage: '/images/case-studies/kaiser-portal.jpg',
+  heroImage: '/images/case-studies/national-health-system-portal.jpg',
   summary: 'Deployed a secure patient portal serving 100,000+ daily users with Epic EMR integration, achieving 99.8% uptime SLA and transforming how patients access healthcare services.',
   challenge: 'West Coast Integrated Healthcare System needed a modern, secure patient portal capable of handling massive daily traffic while maintaining seamless integration with their Epic EMR system. The existing solution struggled with performance during peak hours and lacked mobile optimization.',
   solution: `Visionblox architected and developed the Patient Portal using Angular-based UI with Node.js APIs deployed as Docker containers on Cloud Foundry. The solution integrated:
@@ -1333,7 +1333,7 @@ export const americanaRestaurantsCase: CaseStudy = {
 
 export const CASE_STUDIES: CaseStudy[] = [
   // Portfolio case studies - Featured
-  kaiserVCareCase,
+  nationalHealthSystemPortalCase,
   caDhcsMedicaidCase,
   metaSapCase,
   basfSapCase,

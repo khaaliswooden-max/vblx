@@ -36,6 +36,16 @@ const nextConfig = {
         destination: '/pastperformance/:slug',
         permanent: true,
       },
+      // ── Client name removed from the URL ────────────────────────────────
+      // This client is unnamed in all external materials. The slug carried
+      // the name even though the prose did not; these rules keep any existing
+      // inbound link working. Must precede nothing else — the wildcard above
+      // already forwards /case-studies/* here.
+      {
+        source: '/pastperformance/kaiser-vcare-portal',
+        destination: '/pastperformance/national-health-system-patient-portal',
+        permanent: true,
+      },
     ]
   },
 }
