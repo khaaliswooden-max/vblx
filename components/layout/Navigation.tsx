@@ -12,10 +12,10 @@ import { cn } from '@/lib/utils'
 
 const TOP_LINKS: Array<{ label: string; href: string; external?: boolean; hard?: boolean }> = [
   { label: 'About', href: '/about' },
-  { label: 'Healthcare IT', href: '/healthcare-it' },
-  { label: 'Rural Health IT', href: 'https://ruralhealth.xyz/', external: true },
+  { label: 'Healthcare', href: '/healthcare-it' },
+  { label: 'Rural Health', href: 'https://ruralhealth.xyz/', external: true },
   { label: 'Legacy Estates', href: '/legacy-estates' },
-  { label: 'IT Services', href: '/it-services' },
+  { label: 'Services', href: '/it-services' },
   { label: 'Past Performance', href: '/pastperformance' },
   // Static capability card served via rewrite (public/quick-facts.html) —
   // use a hard navigation rather than the client router.
