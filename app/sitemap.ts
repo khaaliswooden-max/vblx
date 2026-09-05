@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Top-level public routes and their relative priority.
   const staticRoutes: { path: string; priority: number }[] = [
     { path: '', priority: 1.0 },
-    { path: '/awards', priority: 0.9 },
+    { path: '/legacy-estates', priority: 0.9 },
     { path: '/pastperformance', priority: 0.9 },
     { path: '/healthcare-it', priority: 0.8 },
     { path: '/it-services', priority: 0.8 },

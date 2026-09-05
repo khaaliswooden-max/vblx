@@ -23,6 +23,15 @@ const nextConfig = {
         destination: '/solutions',
         permanent: true,
       },
+      // ── /awards → /pastperformance ──────────────────────────────────────
+      // The Awards page was replaced by /legacy-estates. Its three awards
+      // (Montana MAPS, HCPSS, SolGenie) are all carried in the past-performance
+      // registry, so inbound links land on the content rather than a 404.
+      {
+        source: '/awards',
+        destination: '/pastperformance',
+        permanent: true,
+      },
       // ── /case-studies index → /pastperformance ──────────────────────────
       {
         source: '/case-studies',
