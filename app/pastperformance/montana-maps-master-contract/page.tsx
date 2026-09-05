@@ -235,7 +235,7 @@ export default function MontanaMapsMasterContractPage() {
           </p>
           <div
             className="p-8"
-            style={{ borderLeft: '4px solid var(--vbx-gold)', border: '1px solid var(--vbx-rule)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
+            style={{ border: '1px solid var(--vbx-rule)', borderLeft: '4px solid var(--vbx-gold)', background: 'var(--vbx-teal-tint)', borderRadius: '4px' }}
           >
             <h2 className="font-display text-vbx-navy mb-4" style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}>
               Available nationwide at contract terms.

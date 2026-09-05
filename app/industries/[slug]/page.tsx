@@ -212,7 +212,7 @@ export default function IndustryDetailPage() {
                   <div className="flex items-start gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: product ? 'var(--vbx-teal-tint)' : 'var(--vbx-teal-tint)' }}
+                      style={{ backgroundColor: 'var(--vbx-teal-tint)' }}
                     >
                       <span 
                         className="font-display font-bold"
@@ -444,7 +444,7 @@ export default function IndustryDetailPage() {
             >
               <Quote 
                 className="w-12 h-12 mb-6"
-                style={{ color: 'var(--vbx-teal-tint)' }}
+                style={{ color: 'var(--vbx-teal)' }}
               />
               <blockquote className="text-xl md:text-2xl font-display text-text-primary mb-6 leading-relaxed">
                 &ldquo;{industry.testimonial.quote}&rdquo;
