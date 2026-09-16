@@ -140,15 +140,44 @@ These have no equivalent on the cut sheets, so they were not covered above.
   and the CISO bio claims *"HITRUST auditor, global health organization"*. I anonymized
   the first to "Epic HealthConnect product owner at a national health system", but the
   underlying claim still needs to be true of a current employee.
-- **"VCare".** The source was self-contradictory: the Healthcare sheet lists
-  *"VCare Patient Portal"* under the anonymized health system **and** a separate
-  *"VCARE URGENT CARE"* client. I kept the project name and renamed the separate client
-  to "Urgent Care Provider". Confirm which is right — if VCare is the health system's own
-  product name, keeping it re-identifies the client we just anonymized.
+- **"VCare" — RESOLVED.** You confirmed VCare is the health system's own product name,
+  so it has been removed from every published surface. That also resolved the source
+  contradiction: `VCare Urgent Care` was the same health system's urgent care line, not a
+  separate client. The HC capability statement now shows two engagements against one
+  anonymized client, which is what actually happened. Nothing further needed unless the
+  urgent care work was in fact a separate contract with a separate party — if so, say so
+  and I will split it back out.
 - **NAICS 511210** carries an asterisk with no footnote anywhere in the document. Either
   explain it or drop the asterisk.
 
-## 9. Also noticed
+## 9. Internal documents still name clients — one has a real leak path
+
+Three internal `.docx` files still contain `VCare`, `Kaiser`, `Cigna` and `SolGenie`:
+
+| File | What it is |
+|---|---|
+| `VBX_AwardCaptureBrief_Montana_MasterAI_20260629.docx` | capture strategy brief |
+| `VBX_TaskOrderPricingPlaybook_v2_20260629.docx` | pricing playbook |
+| `VBX_ResumeTemplate_FedSLED_v2_20260629.docx` | resume template / interview guide |
+
+**I left these alone on purpose.** They are internal working documents, not web-served
+and not client-facing, and internal capture and pricing material needs real client names
+to be useful. Anonymizing them would break them.
+
+**One is worth a look, though.** `VBX_ResumeTemplate_FedSLED_v2` contains, under
+"Directly relevant projects to probe":
+
+> Kaiser Permanente VCare Portal ($1.2M, Epic/HL7/Cures Act, 100K+ daily users, 99.8%
+> SLA); Cigna Claims Processing (...); VCare Urgent Care.
+
+That is interviewer guidance, so it is internal by intent. But resumes built from this
+template ship with proposals. If a resume writer lifts "Kaiser Permanente VCare Portal"
+into submitted key-personnel text, the client name goes out in a proposal — past every
+control we just put in place on the marketing collateral. Worth adding a one-line
+instruction to the template telling writers to use the neutral descriptor in anything
+submitted.
+
+## 10. Also noticed
 
 - **`visionblox.org` still resolves** (HTTP 200), so the retired domain is live. All the
   rebuilt material now points only at `visionblox.com`, but anyone holding an older

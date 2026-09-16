@@ -337,3 +337,56 @@ files too. Installing it resolved this.
 
 Every PDF in `public/` and the repo root was re-checked after the swap. All clean,
 including the five documents the capability card links to.
+
+
+---
+
+# VCare contradiction resolved
+
+Confirmed by the client: **VCare is the health system's own product name.** That makes it
+an identifying token — leaving it in re-identified the client the rest of this work had
+just anonymized. It also resolves the source contradiction: `VCare Urgent Care` was not a
+separate client but the **same** health system's urgent care line.
+
+Independently corroborated by an internal document,
+`branded_docs/VBX_ResumeTemplate_FedSLED_v2_20260629.docx`, which lists
+*"Kaiser Permanente VCare Portal (\$1.2M, Epic/HL7/Cures Act, 100K+ daily users,
+99.8% SLA); … VCare Urgent Care"* in one breath.
+
+| File | Old | New |
+|---|---|---|
+| `capstatements/src/body_hc.html` → HC capability statement | project `VCare Patient Portal` | `Patient Portal & Cures Act Integration` |
+| same | client `URGENT CARE PROVIDER` / project `Patient & Provider Portal` | client `LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM` / project `Urgent Care Patient & Provider Portal` |
+| `public/quick-facts.html` (live capability card) | project `VCare Patient Portal` | `Patient Portal & Cures Act Integration` |
+
+The past-performance table now carries **two engagements against the same anonymized
+client**, which is what actually happened. The earlier v2 pass had renamed the row to
+"Urgent Care Provider", which invented a client that does not exist and inflated the
+apparent client count — a worse error than the one it replaced.
+
+The cut sheets needed no change: their v2 pass had already genericized the scope line to
+`Patient portal · Epic · HL7 · Cures Act · SSO`.
+
+Republished to `public/CapStatement_Visionblox_HC_v2.pdf` and the repo-root copy. Layout
+absorbed the longer client string with no overflow; both statements remain 1 page with
+only the two brand fonts embedded.
+
+## Internal documents deliberately left alone
+
+Three `.docx` files still contain `VCare` and real client names:
+
+- `branded_docs/VBX_AwardCaptureBrief_Montana_MasterAI_20260629.docx`
+- `branded_docs/VBX_ResumeTemplate_FedSLED_v2_20260629.docx`
+- `branded_docs/VBX_TaskOrderPricingPlaybook_v2_20260629.docx`
+
+These are internal capture, pricing and staffing working documents. They are not
+web-served and not client-facing, and internal capture material **needs** real client
+names to function — anonymizing a capture brief or a pricing playbook would destroy its
+purpose. Flagged in HUMAN_CHECK rather than changed; one of them carries a real leak
+path worth attention.
+
+## Sweep
+
+Every published surface — all seven live PDFs plus the three v2 HTML files and the
+capability card — verified clean of `VCare`, and re-verified against the full
+prohibited-string list.
