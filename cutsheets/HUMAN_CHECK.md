@@ -82,35 +82,51 @@ SPB26-0608GW-VSNBLX and confirm whether non-Montana public entities may actually
 it. Then reconcile — either the site line comes down, or the sheets can carry it.
 Until that is settled, treat the sheets as correct and the website as the outlier.
 
-## 6. The capability card links to the OLD PDFs — DECISION NEEDED
+## 6. v2 PDFs are now live — sections 1-4 are now LIVE CLAIMS
 
-`public/quick-facts.html` (live at visionblox.com/quick-facts and /card) has now had the
-same content pass, so its **text** is clean. But its two download buttons still point at
-the **uncorrected** PDFs:
+**Status: done, on your instruction.** The v2 sheets were copied over the originals,
+keeping the same filenames so existing URLs, QR codes, emailed links and printed
+references keep working and now resolve to corrected content:
 
-- `/VBX_CutSheet_HC_IT.pdf`
-- `/VBX_CutSheet_GEN_IT.pdf`
+| Path | Now contains |
+|---|---|
+| `public/VBX_CutSheet_HC_IT.pdf` | v2 Healthcare sheet |
+| `public/VBX_CutSheet_GEN_IT.pdf` | v2 IT Services sheet |
+| `branded_docs/VBX_CutSheet_HC_IT.pdf` | v2 Healthcare sheet |
+| `branded_docs/VBX_CutSheet_GEN_IT.pdf` | v2 IT Services sheet |
 
-Those files still contain `Kaiser Permanente`, `Cigna`, `Meta`, `BASF`, `Walmart`,
-`SolGenie / Horizon Global`, the GSA MAS holder and SIN 54151HEAL claims, and
-`CMMC READY`. So everything Part A removes is still one click away from the corrected page.
+Verified: the files served from the capability card's own download links are 1 page,
+carry none of the prohibited strings and all of the required ones. The previous versions
+remain in git history and can be restored with
+`git checkout 6d666a6 -- public/VBX_CutSheet_HC_IT.pdf` (and the other three paths).
 
-I did **not** swap them, because your instruction was explicit: *"Do not overwrite the
-original PDFs."* This needs your call, and it is a genuine trade-off:
+**This raises the urgency of sections 1-4.** Those claims are no longer drafts awaiting
+review — they are published and downloadable. The engagement-ownership question in
+section 2 in particular should be closed out now rather than at leisure.
 
-- **Leave as-is** — the old PDFs stay downloadable, including the GSA MAS holder claim.
-- **Swap in the v2 PDFs** — removes that exposure immediately, but publishes the items in
-  sections 1–4 above before they have been confirmed.
+## 7. The capability statements are still uncorrected — SAME EXPOSURE, NOT YET FIXED
 
-My read: the GSA MAS holder claim on a federal-facing document is the more urgent
-exposure, so I would clear sections 1–4 quickly and then swap. Tell me which way and I
-will do it — it is a two-file copy plus the link text.
+Swapping the cut sheets closed one door. The button directly beside it on the same
+capability card, **"Full Capability Statement (PDF)"**, is still open:
 
-## 7. Also noticed
+| File | Prohibited strings it still contains |
+|---|---|
+| `public/CapStatement_Visionblox_HC_v2.pdf` | `visionblox.org`, `GSA MAS`, `54151HEAL`, `Kaiser`, `Cigna`, `nationwide` |
+| `public/VBX_CapStatement_IT.pdf` | `visionblox.org`, `GSA MAS`, `SPRINGBOARD`, `CMMC READY`, `Kaiser`, `Meta`, `BASF`, `Walmart`, `SolGenie`, `Horizon Global`, `nationwide` |
+
+The IT capability statement is the worst single document in the repository on this
+measure. Both also carry the `nationwide` MAPS cooperative-use language that section 5
+flags as unverified, and both still point at the retired domain.
+
+I have not touched these — they are a separate deliverable from the cut sheets, they are
+authored from `.docx` sources in `branded_docs/`, and rebuilding them was not in scope.
+But the cut sheet corrections are substantially undercut while these remain live. Worth
+queueing as the next pass.
+
+## 8. Also noticed
 
 - **`visionblox.org` still resolves** (HTTP 200), so the retired domain is live. All the
   rebuilt material now points only at `visionblox.com`, but anyone holding an older sheet
   or a previously-scanned QR still lands on the old domain.
 - `branded_docs/source/*.html` are the v1 cut sheet sources. They are superseded by
-  `cutsheets/src/` and should be retired once v2 is approved.
-- The originals in `public/` and `branded_docs/` are otherwise untouched.
+  `cutsheets/src/` and should be retired.
