@@ -104,29 +104,55 @@ remain in git history and can be restored with
 review — they are published and downloadable. The engagement-ownership question in
 section 2 in particular should be closed out now rather than at leisure.
 
-## 7. The capability statements are still uncorrected — SAME EXPOSURE, NOT YET FIXED
+## 7. Capability statements — DONE, and now live claims too
 
-Swapping the cut sheets closed one door. The button directly beside it on the same
-capability card, **"Full Capability Statement (PDF)"**, is still open:
+**Status: done, on your instruction.** Both were rebuilt with the same content and design
+pass and published over the originals, keeping filenames:
 
-| File | Prohibited strings it still contains |
+| Path | Now contains |
 |---|---|
-| `public/CapStatement_Visionblox_HC_v2.pdf` | `visionblox.org`, `GSA MAS`, `54151HEAL`, `Kaiser`, `Cigna`, `nationwide` |
-| `public/VBX_CapStatement_IT.pdf` | `visionblox.org`, `GSA MAS`, `SPRINGBOARD`, `CMMC READY`, `Kaiser`, `Meta`, `BASF`, `Walmart`, `SolGenie`, `Horizon Global`, `nationwide` |
+| `public/CapStatement_Visionblox_HC_v2.pdf` + repo-root copy | v2 Healthcare capability statement |
+| `public/VBX_CapStatement_IT.pdf` | v2 IT Services capability statement |
 
-The IT capability statement is the worst single document in the repository on this
-measure. Both also carry the `nationwide` MAPS cooperative-use language that section 5
-flags as unverified, and both still point at the retired domain.
+Two further `.docx`-authored documents were corrected for the same two issues
+(`visionblox.org`, `nationwide`): `CapabilityStatement_Visionblox_v3.1_2026-08` and
+`Visionblox_SEWPVI_PartnerProfile_v1.0_2026-08`. Neither is web-served; the SEWP VI
+profile is partner-facing.
 
-I have not touched these — they are a separate deliverable from the cut sheets, they are
-authored from `.docx` sources in `branded_docs/`, and rebuilding them was not in scope.
-But the cut sheet corrections are substantially undercut while these remain live. Worth
-queueing as the next pass.
+Every PDF in `public/` and the repo root now passes the prohibited-string check.
 
-## 8. Also noticed
+**Sections 1-4 apply to these documents too**, and the capability statements make
+*stronger* claims than the cut sheets, because they state dollar values to the dollar
+($1,200,000, $2,100,000, $3,500,000, $2,400,000, $650,000, $550,000), relevance scores,
+and named key-personnel attributions. Section 2 is now the binding question across seven
+engagements in two document families.
+
+## 8. Claims specific to the capability statements — CONFIRM
+
+These have no equivalent on the cut sheets, so they were not covered above.
+
+- **Relevance scores (9/10, 10/10, 8/10, 7/10).** Self-assigned, presented in a table a
+  contracting officer will read as an assessment. Confirm they are defensible, or
+  consider removing the column.
+- **"TCV Pending"** appears on three engagements. Confirm that is accurate and not simply
+  a value nobody has filled in.
+- **Key personnel bios.** The CEO bio claimed *"Kaiser KP HealthConnect product owner"*
+  and the CISO bio claims *"HITRUST auditor, global health organization"*. I anonymized
+  the first to "Epic HealthConnect product owner at a national health system", but the
+  underlying claim still needs to be true of a current employee.
+- **"VCare".** The source was self-contradictory: the Healthcare sheet lists
+  *"VCare Patient Portal"* under the anonymized health system **and** a separate
+  *"VCARE URGENT CARE"* client. I kept the project name and renamed the separate client
+  to "Urgent Care Provider". Confirm which is right — if VCare is the health system's own
+  product name, keeping it re-identifies the client we just anonymized.
+- **NAICS 511210** carries an asterisk with no footnote anywhere in the document. Either
+  explain it or drop the asterisk.
+
+## 9. Also noticed
 
 - **`visionblox.org` still resolves** (HTTP 200), so the retired domain is live. All the
-  rebuilt material now points only at `visionblox.com`, but anyone holding an older sheet
-  or a previously-scanned QR still lands on the old domain.
-- `branded_docs/source/*.html` are the v1 cut sheet sources. They are superseded by
-  `cutsheets/src/` and should be retired.
+  rebuilt material now points only at `visionblox.com`, but anyone holding an older
+  document or a previously-scanned QR still lands on the old domain.
+- `branded_docs/source/*.html` are the v1 sources for both the cut sheets and the
+  capability statements. They are superseded by `cutsheets/src/` and `capstatements/src/`
+  and should be retired so nobody rebuilds from them by mistake.

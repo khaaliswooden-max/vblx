@@ -204,3 +204,136 @@ HCPSS stays named (`HOWARD COUNTY PUBLIC SCHOOLS`), as on the GEN cut sheet.
   `ERR_CERT_AUTHORITY_INVALID`, so the QR is blank here; that is a sandbox artifact,
   identical before and after this change, and was confirmed by serving the library
   locally.)
+
+
+---
+
+# Capability statements — same pass
+
+Rebuilt from `branded_docs/source/VBX_CapStatement_HC_IT.html` and
+`VBX_CapStatement_GEN_IT.html`, which were verified to match the published PDFs
+before use. Outputs in `capstatements/`, published over
+`public/CapStatement_Visionblox_HC_v2.pdf` (plus its repo-root copy) and
+`public/VBX_CapStatement_IT.pdf`.
+
+The IT capability statement was the worst document in the repository on this measure:
+it carried `GSA MAS`, `SPRINGBOARD`, `CMMC READY`, `Kaiser`, `Meta`, `BASF`, `Walmart`,
+`SolGenie / Horizon Global`, `nationwide` and `visionblox.org`.
+
+## Content — both statements
+
+| Sheet | Old | New |
+|---|---|---|
+| both | header `GSA MAS HOLDER` | `STATE OF MONTANA MAPS CONTRACT HOLDER` |
+| both | MAPS period `Cooperative · nationwide` | `Fully executed Aug 2026` |
+| both | MAPS outcome `executed Aug 2026` | `fully executed August 2026. One of 12 firms selected on both tracks from 68 offerors.` |
+| both | chip `HITRUST-AUDITED` | `HITRUST-AUDITED SECURITY STAFF` |
+| both | chip `GSA MAS` | removed |
+| both | `TECHNICAL DIRECTOR` | `Antony Jayaraj` / `Director, Data Engineering` |
+| both | footer `VISIONBLOX.ORG` | `visionblox.com` |
+| both | (new) footer vehicle line | `STATE OF MONTANA MAPS — SPB26-0608GW-VSNBLX` |
+
+## Content — Healthcare IT
+
+| Old | New |
+|---|---|
+| stat `CONTRACT PORTFOLIO VALUE` | `DOCUMENTED HEALTHCARE PORTFOLIO` |
+| `delivered at Kaiser Permanente and California DHCS` | `at a leading national integrated healthcare system and California DHCS` |
+| `FedRAMP-aware deployment` | `FedRAMP-architecture-aware deployment` |
+| `KP Appointment Center — 100K+ daily users` | `Enterprise appointment center — 100K+ daily users` |
+| `VCare eVisit full telehealth lifecycle` | `Full eVisit telehealth lifecycle` |
+| engagement `KAISER PERMANENTE` | `LEADING NATIONAL INTEGRATED HEALTHCARE SYSTEM` |
+| engagement period `2019–2023` | `2022–2023` |
+| engagement `CALIFORNIA DHCS` period `2022` | `2021–2022` |
+| engagement `VCARE URGENT CARE` | `URGENT CARE PROVIDER` |
+| engagement `CIGNA` | `NATIONAL HEALTH INSURER` |
+| CEO bio `Kaiser KP · Epic HealthConnect · Cures Act delivery` | `Epic HealthConnect · Cures Act delivery at a national health system` |
+| vertical proof `Kaiser VCare — 99.8% SLA ref` | `Patient portal — 99.8% SLA ref` |
+| vertical proof `KP Appt Center — prod delivery` | `Appointment center — prod delivery` |
+| why `CISA · CISM · CRISC on staff. HITRUST audit experience. 13 years healthcare security — not just claimed compliance.` | `HITRUST auditor on staff, with CISA, CISM, and CRISC credentials. 13 years of healthcare security leadership resident.` |
+| why `Kaiser, CA DHCS, Cigna, State of Montana` | `A leading national health system, California DHCS, a national health insurer, and the State of Montana` |
+| footnote `SIN 54151HEAL — Health IT Services (GSA MAS)` | removed |
+| chip `FEDRAMP-AWARE` | `FEDRAMP-ARCHITECTURE-AWARE` |
+| contact `KHAALIS WOODEN` / `Director, Enterprise Capture` | `Khaalis Wooden, MBA` / `Director of Enterprise Capture` |
+
+## Content — IT Services
+
+| Old | New |
+|---|---|
+| stat label `META · BASF · WALMART` | `FORTUNE-SCALE CLIENTS` |
+| `S/4HANA delivery across Meta Platforms and BASF multi-national` | `across a hyperscale technology company and a multinational chemical manufacturer` |
+| `Walmart Global Replenishment System:` | `Global replenishment system for a Fortune 1 retailer:` |
+| tag `NIST 800-53 · FISMA · HITRUST · STIG · CMMC Ready` | `… · STIG · Section 508` |
+| SAP Director bio `Fortune 10 technology` / `SolGenie / Horizon Global` | `hyperscale technology` / `a commercial B2B/EDI client` |
+| Data Director bio `Walmart GRS legacy migration lead` | `Global replenishment legacy migration lead` |
+| CEO bio `Kaiser KP HealthConnect product owner` | `Epic HealthConnect product owner at a national health system` |
+| engagement `META PLATFORMS` | `HYPERSCALE TECHNOLOGY COMPANY` |
+| engagement `BASF` | `MULTINATIONAL CHEMICAL MANUFACTURER` |
+| engagement `WALMART` | `FORTUNE 1 GLOBAL RETAILER` |
+| engagement `SOLGENIE / HORIZON GLOBAL` | `COMMERCIAL B2B/EDI CLIENT` |
+| engagement `HOWARD COUNTY PUBLIC SCHOOLS` | unchanged (approved) |
+| vertical proof `Meta + BASF S/4HANA ref` | `Dual S/4HANA references` |
+| vertical proof `Walmart GRS — mainframe migration` | `Retail-scale mainframe migration` |
+| vertical proof `HCPSS data platform + Walmart GRS` | `HCPSS data platform + retail warehouse` |
+| vertical `NIST 800-53 · STIG · CMMC` | `NIST 800-53 · STIG · Section 508` |
+| why `Meta · BASF · Walmart · State of Montana` | `Hyperscale technology, chemical manufacturing, global retail, State of Montana` |
+| why `Bring scope — we staff and execute.` | `Bring the scope. We integrate with your team and deliver to the SOW.` |
+| attribution `visionblox.org/legacy-it` | `visionblox.com` |
+| footnote `GSA MAS SPRINGBOARD — IT Services Pursuit` | removed |
+| chips `GSA MAS`, `CMMC READY` | removed; `FEDRAMP-ARCHITECTURE-AWARE` and `STIG` added |
+
+## Design
+
+Same translation as the cut sheets: site tokens, DM Sans + JetBrains Mono embedded as
+base64 static instances (shared with `cutsheets/src/fonts/`), off-white ground, navy
+headings, teal mono labels, gold as accent only, no shadows or gradients. The dense
+two-column information architecture was deliberately preserved — redesigning it would
+have risked dropping content. The quote moved from a navy band to large navy type on the
+light ground, and the NAICS/compliance strip merged into the navy footer, matching the
+cut sheets.
+
+### Two defects caught in QA
+
+- **The IT statement's quote attribution was being clipped** by the footer band — the
+  right column overflowed its grid by 24px, so `— VISIONBLOX LEGACY IT MANDATE ·
+  VISIONBLOX.COM` rendered behind the navy footer. The page still reported `Pages: 1`,
+  so page count alone would not have caught it. Found by measuring element rectangles
+  against the footer boundary; fixed by tightening table and section spacing.
+- **The IT statement pulled a LiberationSans fallback into the PDF.** Cause was a single
+  `&rarr;` in "ER → star schema warehouse" — U+2192 is outside the Google latin subset.
+  Reworded to "ER model to star schema warehouse". Both PDFs now embed only the two
+  brand fonts.
+
+### Verification
+
+Both: 1 page at 612x792pt, none of the prohibited strings, all required strings, only
+DM Sans and JetBrains Mono embedded as CID TrueType, and rendering confirmed with all
+network requests blocked.
+
+---
+
+# Two further documents corrected
+
+Found while verifying the swap. Both are `.docx`-authored, so they were patched at the
+`word/document.xml` level (preserving the original zip entry order and metadata) and
+re-rendered with LibreOffice. In both cases a word-level diff of the old and new PDF text
+confirmed **only** the intended changes.
+
+| File | Old | New |
+|---|---|---|
+| `branded_docs/CapabilityStatement_Visionblox_v3.1_2026-08.{docx,pdf}` | `Cooperative · nationwide` | `Fully executed · Aug 2026` |
+| same | `visionblox.org` | `visionblox.com` |
+| `branded_docs/Visionblox_SEWPVI_PartnerProfile_v1.0_2026-08.{docx,pdf}` | `term through 2028; cooperative purchasing available nationwide` | `term through 2028` |
+| same | `visionblox.org` (x2) | `visionblox.com` |
+
+Neither is web-served; the SEWP VI profile is partner-facing. Page counts are unchanged
+(1 and 2 respectively).
+
+Note: `libreoffice-writer` was not installed in the build container — only
+`libreoffice-core` — which is why `.docx` conversion initially failed on the *original*
+files too. Installing it resolved this.
+
+## Repository sweep
+
+Every PDF in `public/` and the repo root was re-checked after the swap. All clean,
+including the five documents the capability card links to.
