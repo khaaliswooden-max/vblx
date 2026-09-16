@@ -150,3 +150,57 @@ render identically with no network access.
 `cutsheets/src/` holds the reproducible pipeline: `style.css` (shared), `body_hc.html`
 and `body_gen.html` (content), `assemble.py` (inlines fonts + logo) and `print.js`
 (Playwright/Chromium print with `printBackground: true`).
+
+
+---
+
+# `public/quick-facts.html` — same content pass
+
+The capability card served at `visionblox.com/quick-facts` and `/card` (Next.js rewrites
+in `next.config.js`) was built from the v1 cut sheet copy and carried the same problems.
+It already used the correct VBX tokens, so this was a content-only pass — no design
+changes.
+
+Its Healthcare pane had already been partly anonymized; the IT pane had not.
+
+| Pane | Old | New |
+|---|---|---|
+| HC | stat label `Contract portfolio value` | `Documented healthcare portfolio` |
+| HC | `FedRAMP-aware deployment` | `FedRAMP-architecture-aware deployment` |
+| HC | Kaiser engagement `$1.2M · 2019–2023` | `$1.2M · 2022–2023` |
+| HC | DHCS engagement `$2.1M · 2022` | `$2.1M · 2021–2022` |
+| IT | `production-proven at Meta, BASF, and Walmart` | `at a hyperscale technology company, a multinational chemical manufacturer, and a Fortune 1 global retailer` |
+| IT | `against Fortune 500 systems integrators` | `as one of 12 firms selected on both tracks from 68 offerors` |
+| IT | stat label `Meta · BASF · Walmart — production delivery` | `Fortune-scale clients — production delivery` |
+| IT | `▸ META $3.5M · BASF $2.4M` | `▸ HYPERSCALE TECH CLIENT $3.5M · CHEMICAL MANUFACTURER $2.4M` |
+| IT | `▸ WALMART GLOBAL REPLENISHMENT SYSTEM — MULTI-YEAR` | `▸ FORTUNE 1 GLOBAL RETAILER — GLOBAL REPLENISHMENT SYSTEM, MULTI-YEAR` |
+| IT | `evaluated against Fortune 500 SIs and national AI firms under public scoring` | `under public scoring — one of 12 firms selected on both tracks from 68 offerors` |
+| IT | `▸ HCPSS $550K · SOLGENIE / HORIZON GLOBAL $650K` | `▸ HCPSS $550K · COMMERCIAL B2B/EDI CLIENT $650K` |
+| IT | engagement `META PLATFORMS` | `HYPERSCALE TECHNOLOGY COMPANY` |
+| IT | engagement `BASF` | `MULTINATIONAL CHEMICAL MANUFACTURER` |
+| IT | engagement `WALMART` | `FORTUNE 1 GLOBAL RETAILER` |
+| IT | chip `GSA MAS SPRINGBOARD — IT SERVICES` | `STATE OF MONTANA MAPS — BOTH TRACKS` |
+| IT | chip `CMMC READY · STIG` | `NIST 800-53 · STIG` |
+| IT | chip `NIST 800-53 ALIGNED · FISMA` | `FISMA-ALIGNED` |
+| IT | (no FedRAMP chip) | added `FEDRAMP-ARCHITECTURE-AWARE`, matching the HC pane |
+| both | MAPS engagement `Executed 2026` | `Fully executed, August 2026` |
+| both | portfolio button `https://visionblox.org` / `Full Portfolio — visionblox.org` | `https://visionblox.com` / `Full Portfolio — visionblox.com` |
+| both | footer `<a href="https://visionblox.org">visionblox.org</a>` | `visionblox.com` |
+| both | `CANONICAL_URL = "https://visionblox.org/card"` (the share-QR target) | `"https://visionblox.com/card"` |
+| both | comment `same stack as visionblox.org` | `visionblox.com` |
+| both | comment `There is no knockout lockup` | corrected — one exists at `/visionblox-logo-knockout.png`; this page is light-ground so it keeps the light lockup |
+
+HCPSS stays named (`HOWARD COUNTY PUBLIC SCHOOLS`), as on the GEN cut sheet.
+
+### Verification
+
+- Prohibited strings: none in rendered text or raw source. The `Meta ` check was run as a
+  word-boundary match so it would not be satisfied by `<meta>` tags or `class="meta"`.
+- Required strings all present.
+- Both tabs render with no JS errors; the `#it` deep link still selects the IT pane.
+- Served over HTTP, every asset resolves (no 4xx) and the lockup loads at 1002x422.
+- Share QR verified at 320x320 encoding `https://visionblox.com/card`, which returns
+  HTTP 200. (Under the sandbox proxy the cdnjs QRious script is blocked by
+  `ERR_CERT_AUTHORITY_INVALID`, so the QR is blank here; that is a sandbox artifact,
+  identical before and after this change, and was confirmed by serving the library
+  locally.)

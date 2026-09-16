@@ -82,15 +82,35 @@ SPB26-0608GW-VSNBLX and confirm whether non-Montana public entities may actually
 it. Then reconcile — either the site line comes down, or the sheets can carry it.
 Until that is settled, treat the sheets as correct and the website as the outlier.
 
-## 6. Also noticed — not in scope, but you should know
+## 6. The capability card links to the OLD PDFs — DECISION NEEDED
 
-- **`public/quick-facts.html`** (served at visionblox.com/quick-facts) is a page built from
-  the **old** cut sheet content. It still contains `Meta`, `BASF`, `Walmart`,
-  `SOLGENIE / HORIZON GLOBAL`, and
-  `evaluated against Fortune 500 SIs and national AI firms`. Everything Part A removes from
-  the PDFs is still publicly readable there. Worth a follow-up pass.
-- **`visionblox.org` still resolves** (HTTP 200), so the retired domain is live. The v2
-  sheets point only at `visionblox.com`, but anyone with an older sheet still lands on the
-  old domain.
-- The originals in `public/` and `branded_docs/` are untouched. If v2 is approved, those
-  are the copies to replace, and `branded_docs/source/*.html` are the v1 sources to retire.
+`public/quick-facts.html` (live at visionblox.com/quick-facts and /card) has now had the
+same content pass, so its **text** is clean. But its two download buttons still point at
+the **uncorrected** PDFs:
+
+- `/VBX_CutSheet_HC_IT.pdf`
+- `/VBX_CutSheet_GEN_IT.pdf`
+
+Those files still contain `Kaiser Permanente`, `Cigna`, `Meta`, `BASF`, `Walmart`,
+`SolGenie / Horizon Global`, the GSA MAS holder and SIN 54151HEAL claims, and
+`CMMC READY`. So everything Part A removes is still one click away from the corrected page.
+
+I did **not** swap them, because your instruction was explicit: *"Do not overwrite the
+original PDFs."* This needs your call, and it is a genuine trade-off:
+
+- **Leave as-is** — the old PDFs stay downloadable, including the GSA MAS holder claim.
+- **Swap in the v2 PDFs** — removes that exposure immediately, but publishes the items in
+  sections 1–4 above before they have been confirmed.
+
+My read: the GSA MAS holder claim on a federal-facing document is the more urgent
+exposure, so I would clear sections 1–4 quickly and then swap. Tell me which way and I
+will do it — it is a two-file copy plus the link text.
+
+## 7. Also noticed
+
+- **`visionblox.org` still resolves** (HTTP 200), so the retired domain is live. All the
+  rebuilt material now points only at `visionblox.com`, but anyone holding an older sheet
+  or a previously-scanned QR still lands on the old domain.
+- `branded_docs/source/*.html` are the v1 cut sheet sources. They are superseded by
+  `cutsheets/src/` and should be retired once v2 is approved.
+- The originals in `public/` and `branded_docs/` are otherwise untouched.
